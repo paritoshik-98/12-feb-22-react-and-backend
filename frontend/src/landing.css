@@ -1,0 +1,49 @@
+
+.outer{
+    display: flex;
+    height: 100vh;
+    align-items: center;
+    justify-content: center;
+    background-color: black;
+}
+.inner {
+    width: 50vw;
+    height: 50vh;
+    background-color: rgb(232, 238, 238);
+    display: flex;
+    flex-direction: column;
+    border: 5px solid white;
+    justify-content: space-between;
+}
+
+.login{
+    width: 100;
+    height: 45%;
+    background-color: blue;
+}
+
+.register{
+    width: 100%;
+        height: 45%;
+    background-color:brown;
+}
+
+
+/* screen greater than 768 px */
+
+@media screen and (min-width: 768px) {
+    .inner {
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    .login{
+        width: 45%;
+    height: 100%;
+    }
+
+    .register{
+        width: 45%;
+    height: 100%;
+    }
+}
