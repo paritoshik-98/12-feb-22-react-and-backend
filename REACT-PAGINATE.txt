@@ -1,0 +1,75 @@
+Let’s Begin
+
+Add and install react-paginate as a dependency in your app.
+
+$ npm install react-paginate --save
+Defining the state
+
+currentPage is the index of the page selected by the user, initially you may want to set it to 0 i.e. the first page.
+
+data holds all the data items. Initially, it will be empty and we will fill it after fetching the data.
+
+const [currentPage, setCurrentPage] = useState(0);
+const [data, setData] = useState([]);
+
+Fetching the data
+
+useEffect(() => {
+    fetchData();
+  }, []);function fetchData() {
+    fetch("https://ihsavru.me/Demo/uploads.json")
+      .then((res) => res.json())
+      .then((data) => {
+        const {
+          course: { uploads }
+        } = data;
+        setData(uploads);
+      });
+  }
+
+Here, we create a useEffect hook with an empty dependency array that functions as the componentDidMount lifecycle method and is responsible for fetching the data and updating the data state.
+Calculating data to render for the current page
+
+Let us define some constants first —
+
+const PER_PAGE = 10;const offset = currentPage * PER_PAGE;const currentPageData = data
+    .slice(offset, offset + PER_PAGE)
+    .map(({ thumburl }) => <img src={thumburl} />);const pageCount = Math.ceil(data.length / PER_PAGE);
+
+The PER_PAGE constant holds the number of items to be displayed on each page. offset is the number of items that have already been displayed by the previous pages.
+
+For example, if the currentPage is 2 (or 3rd page since indexing starts from 0), the offset becomes 20, This means that the first 20 items have been rendered and we will start rendering the next items after 20 (1st page rendered the first 10 items, 2nd page rendered the next 10). The 3rd page will render the items from 20 till 20 + PER_PAGE i.e. 30.
+
+This offset is used to set the items for the currentPage i.e. currentPageData that maps to an array of images using the sliced data.
+
+We are almost done, let us render the component —
+
+return (
+    <div className="App">
+      <h1>React Paginate Example</h1>
+      <ReactPaginate
+        previousLabel={"← Previous"}
+        nextLabel={"Next →"}
+        pageCount={pageCount}
+        onPageChange={handlePageClick}
+        containerClassName={"pagination"}
+        previousLinkClassName={"pagination__link"}
+        nextLinkClassName={"pagination__link"}
+        disabledClassName={"pagination__link--disabled"}
+        activeClassName={"pagination__link--active"}
+      />
+      {currentPageData}
+    </div>
+  );
+
+You can refer to this to see the different types of props passed to ReactPaginate.
+
+When a new page is clicked, an event handler function handlePageClick is called which sets the currentPage
+
+function handlePageClick({ selected: selectedPage }) {
+    setCurrentPage(selectedPage);
+}
+
+Styling the pagination element:
+
+You can class props such as previousLinkClassName, nextLinkClassName, disabledClassName and activeClassName to add classes to the pagination links for custom styling.
