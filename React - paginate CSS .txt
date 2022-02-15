@@ -1,0 +1,21 @@
+{/* Here the pagination component is styled thanks to Boostrap
+        classes. See https://getbootstrap.com/docs/5.1/components/pagination */}
+        <nav aria-label="Page navigation comments" className="mt-4">
+          <ReactPaginate
+            previousLabel="previous"
+            nextLabel="next"
+            breakLabel="..."
+            breakClassName="page-item"
+            breakLinkClassName="page-link"
+            pageCount={20}
+            pageRangeDisplayed={4}
+            marginPagesDisplayed={2}
+            onPageChange={this.handlePageClick}
+            containerClassName="pagination justify-content-center"
+            pageClassName="page-item"
+            pageLinkClassName="page-link"
+            previousClassName="page-item"
+            previousLinkClassName="page-link"
+            nextClassName="page-item"
+            nextLinkClassName="page-link"
+            activeClassName="active"
