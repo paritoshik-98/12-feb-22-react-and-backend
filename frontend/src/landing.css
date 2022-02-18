@@ -25,9 +25,9 @@ cursor: pointer;
 text-decoration: none;
 }
 
-h1{
+/* h1{
     color: blue;
-}
+} */
 
 .error h1{
     color: red

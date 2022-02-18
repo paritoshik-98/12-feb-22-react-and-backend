@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import "./landing.css";
 import GoogleLogin from "react-google-login";
-import { login } from "./REDUX/Actions/userActions";
+import { login, LoginWithGoogle } from "./REDUX/Actions/userActions";
 import { useDispatch, useSelector } from "react-redux";
 
 export default function LandingPage() {
@@ -37,6 +37,21 @@ export default function LandingPage() {
     // axios.post('/api/user/login',inputField).then(res=>{console.log(res.data);localStorage.setItem('accessToken',res.data.at)}).catch(e=>console.log(e))
   };
 
+  const responseGoogleSuccess = (response) => {
+    let userInfo = {
+      name: response.profileObj.name,
+      emailId: response.profileObj.email,
+      profile_pic:response.profileObj.imageUrl
+    };
+    // check in backend and register if first google login 
+    dispatch(LoginWithGoogle({email:userInfo.emailId,name:userInfo.name,profile_pic:userInfo.profile_pic}))
+  };
+
+// Error Handler
+const responseGoogleError = (response) => {
+console.log(response);
+ };
+
   return (
     <div className="outer-container vh-100 ">
       {/* // process running  */}
@@ -52,7 +67,7 @@ export default function LandingPage() {
                 <h1>{LoginStatus.error}!!!!</h1>
               </p>
             ) : (
-              <h1 className="text-center">Login</h1>
+              <h1 className="text-center text-primary">Login</h1>
             )}
 
             <input
@@ -77,11 +92,12 @@ export default function LandingPage() {
             <p className=" fp text-center">
               <a className="  text-decoration-none">Forgot Password</a>
             </p>
-            <GoogleLogin className=" gl w-100 " clientId= {process.env.REACT_APP_CLIENTID_GOOGLE}
-            //   clientId="149517402118-58t2a5ao3f8kqo9vn8bh5muf3ctbl5f3.apps.googleusercontent.com"
+            <GoogleLogin className=" gl w-100 " 
+            // clientId= {process.env.REACT_APP_CLIENTID_GOOGLE}
+              clientId="149517402118-58t2a5ao3f8kqo9vn8bh5muf3ctbl5f3.apps.googleusercontent.com"
               buttonText="Sign In with Google"
-              // onSuccess={responseGoogleSuccess}
-              // onFailure={responseGoogleError}
+              onSuccess={responseGoogleSuccess}
+              onFailure={responseGoogleError}
             //   isSignedIn={true}
               cookiePolicy={"single_host_origin"}/>
             <p className=" sg text-center ">
