@@ -54,4 +54,13 @@ h1{
       .gl{
           margin-bottom: 10px;
       }
+      input[type='email']{
+        margin-bottom: 10px
+    }
+      input[type='password']{
+        margin-bottom: 10px
+    }
+    .btn{
+        margin-bottom: 10px
+    }
   }
