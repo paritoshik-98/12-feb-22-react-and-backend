@@ -33,7 +33,7 @@ export const login = (input) => (dispatch) => {
           localStorage.setItem("accessToken", res.data.at);
         }
       })
-      .catch((err) => dispatch({ type: "LOGIN_FAIL", payload: err.message }));
+      .catch((err) => dispatch({ type: "LOGIN_FAIL", payload: err.response.data }));
   } catch (error) {
     dispatch({ type: "LOGIN_FAIL", payload: error.message });
   }

@@ -4,6 +4,8 @@ import { useNavigate } from "react-router-dom";
 import axios from 'axios'
 import './Axios'
 import { login } from "./REDUX/Actions/userActions";
+import GoogleLogin from 'react-google-login'
+import './login.css'
 
 function Login(){
     
@@ -11,11 +13,11 @@ function Login(){
 
     const LoginStatus = useSelector(state=>state.userLogin)
 
-    useEffect(()=>{
-        if(LoginStatus.user){
-            navigate('/all')
-        }
-    },[LoginStatus.user])
+    // useEffect(()=>{
+    //     if(LoginStatus.user){
+    //         navigate('/all')
+    //     }
+    // },[LoginStatus.user])
 
     const dispatch = useDispatch()
 
@@ -56,29 +58,33 @@ function Login(){
             <strong>{LoginStatus.error}</strong> 
             </div>:null}
 
+            <form>
+            <div className="email">
+            <label>Email :</label>
+
             <input 
             type="email" 
             name="email" 
             onChange={inputsHandler} 
             placeholder="email" 
             value={inputField.email}/>
-    
-            <br/>
-    
+
+            </div>
+
+            <div className="password">
+            <label>Password :</label>
+
             <input 
             type="password" 
             name="password" 
             onChange={inputsHandler} 
             placeholder="password" 
             value={inputField.password}/>
-    
-            <br/>
-    
-            <button onClick={submitButton}>LOGIN</button>
+            </div>
+            <button type="button" className="b" onClick={submitButton}>LOGIN</button>
 
-            <br/>
-
-      
+            <div ><GoogleLogin/></div>
+            </form>
             </div>
             
             
