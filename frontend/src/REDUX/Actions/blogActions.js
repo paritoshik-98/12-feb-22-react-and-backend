@@ -80,17 +80,34 @@ export const fetchBlogAction = (id) => (dispatch) => {
     
 } 
 
-export const myBlogAction = () => (dispatch) => {
+export const myBlogAction = (id) => (dispatch) => {
     try {
         dispatch({type:'MY_BLOG_REQUEST'})
-        axios.get('/api/blog/get/myBlogs').then(res=>{
+        const path = `/api/blog/+${id}+/like`
+        axios.put(path).then(res=>{
+            if(res.status===200){
+                dispatch({type:'LIKE_SUCCESS',payload:res.data})
+            }
+        }).catch(err=>dispatch({type:'LIKE_FAIL',payload:err.response.data}))
+    }
+    catch (error) {
+        dispatch({type:'LIKE_FAIL',payload:error.message})    
+    }
+    
+} 
+
+export const unlike = (id) => (dispatch) => {
+    try {
+        dispatch({type:'UNLIKE'})
+        const path = `/api/blog/+${id}+/like`
+        axios.put(path).then(res=>{
         if(res.status===200){
-            dispatch({type:'MY_BLOG_SUCCESS',payload:res.data})
+            dispatch({type:'UNLIKE_SUCCESS',payload:res.data})
         }
-    }).catch(err=>dispatch({type:'MY_BLOG_FAIL',payload:err.response.data}))
+    }).catch(err=>dispatch({type:'UNLIKE_FAIL',payload:err.response.data}))
     }
      catch (error) {
-        dispatch({type:'MY_BLOG_FAIL',payload:error.message})    
+        dispatch({type:'UNLIKE_FAIL',payload:error.message})    
     }
     
 } 

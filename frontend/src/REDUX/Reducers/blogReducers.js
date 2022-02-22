@@ -75,3 +75,20 @@ export const MyBlogReducer = (state={},action) => {
             return state; 
     }
 }
+
+export const BlogLikeReducer = (state={},action) => {
+    switch (action.type) {
+        case 'LIKE' :
+            return {loading : true};
+        case 'LIKE_SUCCESS' :
+            return {likes : action.payload};
+        case 'LIKE_FAIL' :
+            return {error : action.payload};
+        case 'UNLIKE' :
+            return {loading : true};
+        case 'UNLIKE_SUCCESS' :
+            return {likes : action.payload};
+        case 'UNLIKE_FAIL' :
+            return {error : action.payload};
+    }
+}

@@ -4,6 +4,7 @@ import "./landing.css";
 import GoogleLogin from "react-google-login";
 import { login, LoginWithGoogle } from "./REDUX/Actions/userActions";
 import { useDispatch, useSelector } from "react-redux";
+import { FcGoogle } from 'react-icons/fc';
 
 export default function LandingPage() {
   const navigate = useNavigate();
@@ -41,71 +42,92 @@ export default function LandingPage() {
     let userInfo = {
       name: response.profileObj.name,
       emailId: response.profileObj.email,
-      profile_pic:response.profileObj.imageUrl
+      profile_pic: response.profileObj.imageUrl,
     };
-    // check in backend and register if first google login 
-    dispatch(LoginWithGoogle({email:userInfo.emailId,name:userInfo.name,profile_pic:userInfo.profile_pic}))
+    // check in backend and register if first google login
+    dispatch(
+      LoginWithGoogle({
+        email: userInfo.emailId,
+        name: userInfo.name,
+        profile_pic: userInfo.profile_pic,
+      })
+    );
   };
 
-// Error Handler
-const responseGoogleError = (response) => {
-console.log(response);
- };
+  // Error Handler
+  const responseGoogleError = (response) => {
+    console.log(response);
+  };
+
+ 
 
   return (
-    <div className="outer-container vh-100 ">
-      {/* // process running  */}
-      {LoginStatus.loading ? (
-        //
-        <h3>LOADING</h3>
-      ) : (
-        // before submitting or after process failed --- no loading atrr
-        <div>
-          <div className="inner-container bg-light">
-            {LoginStatus.error ? (
-              <p className="error">
-                <h1>{LoginStatus.error}!!!!</h1>
-              </p>
-            ) : (
-              <h1 className="text-center text-primary">Login</h1>
-            )}
-
-            <input
-              type="email"
+    <div className="outer container-fluid vh-100 d-flex justify-content-center align-items-center">
+{LoginStatus.loading ? (<h3>LOADING....</h3>) : (
+      <div className="container-fluid">
+        <div className="row justify-content-center mb-3 ">
+          <div className=" col-8 col-sm-4 text-center">
+            {LoginStatus.error?<div className="alert alert-danger"><strong>{LoginStatus.error}</strong></div>:null}
+          </div>
+        </div>
+        <div className="row justify-content-center mb-3 ">
+          <div className=" col-8 col-sm-4 text-center">
+            <h1 className="">Login</h1>
+          </div>
+        </div>
+        <div className="row justify-content-center ">
+          <div className="col-8 col-sm-4 text-center">
+            <input className="form-control" type="email"
               name="email"
               onChange={inputsHandler}
               value={inputField.email}
-              className="form-control input "
-              placeholder="Email Address"
-            ></input>
-            <input
-              type="password"
+              placeholder="Email Address"></input>
+          </div>
+        </div>
+        <div className="row justify-content-center mb-3 ">
+          <div className="col-8 col-sm-4 text-center">
+            <input className="form-control" type="password"
               name="password"
               onChange={inputsHandler}
               placeholder="password"
               value={inputField.password}
-              className="form-control input"
-            ></input>
-            <button className="btn btn-primary w-100 " onClick={submitButton}>
-              SignIn
-            </button>
-            <p className=" fp text-center">
-              <a className="  text-decoration-none">Forgot Password</a>
-            </p>
-            <GoogleLogin className=" gl w-100 " 
+              ></input>
+          </div>
+        </div>
+        <div className="row justify-content-center mb-3 ">
+          <div className=" col-8 col-sm-4 text-center">
+            <button className="btn btn-large btn-outline-dark w-100 "onClick={submitButton}>SignIn</button>
+          </div>
+        </div>
+        <div className="row justify-content-center mb-3 ">
+          <div className="col-6 col-sm-4 text-center">
+            <a href="" >Forgot Password ?</a>
+          </div>
+        </div>
+        <div className="row justify-content-center mb-3 ">
+          <div className="col-8 col-sm-4 text-center">
+          <GoogleLogin className=" w-100 "
             // clientId= {process.env.REACT_APP_CLIENTID_GOOGLE}
+            render={renderProps => (
+              <button className="btn btn-large btn-outline-dark w-100 d-flex align-items-center justify-content-center" onClick={renderProps.onClick} disabled={renderProps.disabled}><FcGoogle className="g"/><span className="m-4 mt-2 mb-2 m-sm-2 m-lg-4 mt-lg-2 mb-lg-2">Sign in with Google</span>  </button>
+            )}
               clientId="149517402118-58t2a5ao3f8kqo9vn8bh5muf3ctbl5f3.apps.googleusercontent.com"
               buttonText="Sign In with Google"
               onSuccess={responseGoogleSuccess}
               onFailure={responseGoogleError}
             //   isSignedIn={true}
               cookiePolicy={"single_host_origin"}/>
-            <p className=" sg text-center ">
-              New User ? <a className="  text-decoration-none">signup</a>
-            </p>
           </div>
         </div>
-      )}
+        <div className="row justify-content-center mb-3 ">
+          <div className="col-6 text-center">
+            New User ? <a  href="">Register</a>
+          </div>
+        </div>
+      </div>
+)}
+
     </div>
+ 
   );
 }

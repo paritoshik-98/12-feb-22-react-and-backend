@@ -3,7 +3,7 @@ const router = express.Router()
 const blog = require('../models/blog')
 const authuser = require('../middleware/authMiddleware')
 
-const {deleteBlog,updateBlog,addNewBlog,getAllBlogs,getBlogByID,myBlogs} = require('../controllers/blogControllers')
+const {deleteBlog,updateBlog,addNewBlog,getAllBlogs,getBlogByID,myBlogs,like,unlike} = require('../controllers/blogControllers')
 
 router.get('/all',authuser,getAllBlogs);
 
@@ -14,6 +14,10 @@ router.get('/get/myBlogs',authuser,myBlogs);
 router.post('/add',authuser,addNewBlog);
 
 router.put('/:id/edit',authuser,updateBlog);
+
+router.put('/:id/like',authuser,like);
+
+router.put('/:id/unlike',authuser,unlike);
 
 router.delete('/:id/delete',authuser,deleteBlog)
 

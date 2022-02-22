@@ -3,7 +3,7 @@ import thunk from 'redux-thunk'
 import { composeWithDevTools } from 'redux-devtools-extension'
 
 import { UserLoginReducer, UserRegisterReducer, UserUpdateReducer } from "./Reducers/userReducers";
-import { BlogCreateReducer, BlogDeleteReducer, BlogFetchReducer, BlogListReducer, BlogUpdateReducer, MyBlogReducer } from "./Reducers/blogReducers";
+import { BlogCreateReducer, BlogDeleteReducer, BlogFetchReducer, BlogLikeReducer, BlogListReducer, BlogUpdateReducer, MyBlogReducer } from "./Reducers/blogReducers";
 
 const rootReducer = combineReducers({
     userLogin : UserLoginReducer,
@@ -14,7 +14,8 @@ const rootReducer = combineReducers({
     deleteBlog : BlogDeleteReducer,
     fetchBlog : BlogFetchReducer,
     blogList : BlogListReducer,
-    myBlogs : MyBlogReducer
+    myBlogs : MyBlogReducer,
+    likeBlog : BlogLikeReducer
 })
 
 const userFromLS = () =>  localStorage.getItem('user')? JSON.parse(localStorage.getItem('user')) : null 
