@@ -18,7 +18,7 @@ const blogSchema = new Mongoose.Schema({
     required: true,
   },
   likes: [{ type: Mongoose.Schema.Types.ObjectId, ref: "user" }],
-  unlikes: [{ type: Mongoose.Schema.Types.ObjectId, ref: "user" }],
+  // unlikes: [{ type: Mongoose.Schema.Types.ObjectId, ref: "user" }],
   comments: [
     {
       text: { type: String },

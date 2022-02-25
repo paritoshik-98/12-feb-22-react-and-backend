@@ -3,7 +3,7 @@ const router = express.Router()
 const blog = require('../models/blog')
 const authuser = require('../middleware/authMiddleware')
 
-const {deleteBlog,updateBlog,addNewBlog,getAllBlogs,getBlogByID,myBlogs,like,unlike} = require('../controllers/blogControllers')
+const {comment,deleteBlog,updateBlog,addNewBlog,getAllBlogs,getBlogByID,myBlogs,like,unlike} = require('../controllers/blogControllers')
 
 router.get('/all',authuser,getAllBlogs);
 
@@ -18,6 +18,14 @@ router.put('/:id/edit',authuser,updateBlog);
 router.put('/:id/like',authuser,like);
 
 router.put('/:id/unlike',authuser,unlike);
+
+router.put('/:id/comment',authuser,comment); /////////// post
+
+router.delete('/:bid/comment/:cid/delete',(req,res)=>{
+  blog.findOneAndUpdate({_id:req.params.bid},{$pull:{comments:{_id:req.params.cid}}},{
+    new: true,
+  }).then(doc=>res.send(doc))
+})
 
 router.delete('/:id/delete',authuser,deleteBlog)
 

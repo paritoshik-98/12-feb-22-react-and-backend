@@ -130,6 +130,23 @@ const deleteBlog = async (req, res) => {
   });
 };
 
+const comment = (req,res) => {
+  try {
+    const id = req.params.id;
+    const filter = { _id: req.params.id };
+    const comment = { text:req.body.text,postedBy:req.userid }
+        const update = { $push: {comments:comment}  };
+         blog.findOneAndUpdate(filter, update, {
+            new: true,
+          })
+          .then((doc) => res.status(200).send(doc.comments))
+          .catch((e) => res.status(500).send("Something went wrong !"));
+      }
+   catch (error) {
+    res.status(500).send("Something went wrong !");
+  }
+}
+
 module.exports = {
   deleteBlog,
   updateBlog,
@@ -138,5 +155,6 @@ module.exports = {
   getBlogByID,
   myBlogs,
   like,
-  unlike
+  unlike,
+  comment
 };
