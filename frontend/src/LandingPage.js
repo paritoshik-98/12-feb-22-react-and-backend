@@ -39,18 +39,15 @@ export default function LandingPage() {
   };
 
   const responseGoogleSuccess = (response) => {
-    let userInfo = {
-      name: response.profileObj.name,
-      emailId: response.profileObj.email,
-      profile_pic: response.profileObj.imageUrl,
-    };
+    console.log(response)
+    // let userInfo = {
+    //   name: response.profileObj.name,
+    //   emailId: response.profileObj.email,
+    //   profile_pic: response.profileObj.imageUrl,
+    // };
     // check in backend and register if first google login
     dispatch(
-      LoginWithGoogle({
-        email: userInfo.emailId,
-        name: userInfo.name,
-        profile_pic: userInfo.profile_pic,
-      })
+      LoginWithGoogle(response.tokenId)
     );
   };
 
@@ -115,6 +112,7 @@ export default function LandingPage() {
               buttonText="Sign In with Google"
               onSuccess={responseGoogleSuccess}
               onFailure={responseGoogleError}
+              prompt='consent'
             //   isSignedIn={true}
               cookiePolicy={"single_host_origin"}/>
           </div>

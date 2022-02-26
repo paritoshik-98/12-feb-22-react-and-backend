@@ -90,5 +90,7 @@ export const BlogLikeReducer = (state={},action) => {
             return {likes : action.payload};
         case 'UNLIKE_FAIL' :
             return {error : action.payload};
+        default:
+            return state;
     }
 }

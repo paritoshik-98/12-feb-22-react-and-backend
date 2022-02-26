@@ -2,6 +2,8 @@ const User = require("../models/user");
 const bcrypt = require('bcrypt');
 const saltRounds = 10;
 const jwt = require('jsonwebtoken')
+const { OAuth2Client } = require('google-auth-library')
+const client = new OAuth2Client("149517402118-58t2a5ao3f8kqo9vn8bh5muf3ctbl5f3.apps.googleusercontent.com")
 
 
 // register = post /api/user/signup
@@ -62,7 +64,14 @@ const loginUser = async(req,res,next)=>{
 // Googlelogin 
 const loginUserGoogle = async(req,res,next)=>{
     try {
-        const{email}=req.body
+        const {tokenId}=req.body
+        console.log(tokenId)
+        const ticket = await client.verifyIdToken({
+            idToken: tokenId,
+            audience: "149517402118-58t2a5ao3f8kqo9vn8bh5muf3ctbl5f3.apps.googleusercontent.com"
+            // audience: process.env.CLIENT_ID
+        });
+        const { name, email, picture } = ticket.getPayload();
         const user = await User.findOne({email:email})
         if(user)
         {
@@ -74,14 +83,15 @@ const loginUserGoogle = async(req,res,next)=>{
         }
         // register if first login
         else{
-            const {name,email,profile_pic} = req.body;
+            
+            // const {name,email,profile_pic} = req.body;
         const password = 'default'
         bcrypt.hash(password, saltRounds, async function(err, hash) {
             const doc = new User({
                 name:name,
                 email:email,
                 password:hash,
-                profile_pic:profile_pic
+                profile_pic:picture
             })
             await doc.save()  
             const user = await User.findOne({email:email})

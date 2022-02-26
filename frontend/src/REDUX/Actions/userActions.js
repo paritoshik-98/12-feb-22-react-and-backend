@@ -40,11 +40,11 @@ export const login = (input) => (dispatch) => {
 };
 
 // google login
-export const LoginWithGoogle = (user) => async (dispatch) => {
+export const LoginWithGoogle = (tokenId) => async (dispatch) => {
   try {
     dispatch({ type: "LOGIN_REQUEST" });
     axios
-      .post("api/user/Googlelogin", user)
+      .post("api/user/Googlelogin", {tokenId:tokenId})
       .then((res) => {
         dispatch({ type: "LOGIN_SUCCESS", payload: res.data });
         localStorage.setItem("user", JSON.stringify(res.data.user));
