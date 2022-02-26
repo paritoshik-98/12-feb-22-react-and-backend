@@ -12,6 +12,10 @@ const blogSchema = new Mongoose.Schema({
     type: Date,
     default: Date.now,
   },
+  isDraft:{
+    type:Boolean,
+    default:false
+  },
   author: {
     type: Mongoose.Schema.Types.ObjectId,
     ref: "user",
@@ -25,6 +29,7 @@ const blogSchema = new Mongoose.Schema({
       postedBy: { type: Mongoose.Schema.Types.ObjectId, ref: "user" },
     },
   ],
+  tags: [{type:String}]
 });
 
 module.exports = Mongoose.model("blog", blogSchema);

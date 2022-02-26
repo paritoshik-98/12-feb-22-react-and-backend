@@ -5,6 +5,7 @@ import GoogleLogin from "react-google-login";
 import { login, LoginWithGoogle } from "./REDUX/Actions/userActions";
 import { useDispatch, useSelector } from "react-redux";
 import { FcGoogle } from 'react-icons/fc';
+import FacebookLogin from 'react-facebook-login/dist/facebook-login-render-props'
 
 export default function LandingPage() {
   const navigate = useNavigate();
@@ -56,6 +57,9 @@ export default function LandingPage() {
     console.log(response);
   };
 
+  const responseFacebook = (response) => {
+    console.log(response);
+  }
  
 
   return (
@@ -117,6 +121,14 @@ export default function LandingPage() {
               cookiePolicy={"single_host_origin"}/>
           </div>
         </div>
+        <FacebookLogin
+  appId="504910991006215"
+  callback={responseFacebook}
+  autoLoad={true}
+  render={renderProps => (
+    <button onClick={renderProps.onClick}>This is my custom FB button</button>
+  )}
+/>
         <div className="row justify-content-center mb-3 ">
           <div className="col-6 text-center">
             New User ? <a  href="">Register</a>

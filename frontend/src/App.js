@@ -5,7 +5,7 @@ import LandingPage from './LandingPage';
 import Login from './Login';
 import BlogList from './BlogList';
 import { BrowserRouter as Router, Routes, Route, Link , useNavigate} from "react-router-dom";
-
+import Form from './Form';
 
 
 
@@ -17,6 +17,7 @@ function App() {
 <Route exact path = '/' element = {<LandingPage/>}></Route>
 <Route exact path = '/login' element = {<Login/>}></Route>
 <Route exact path = '/all' element = {<BlogList/>}></Route>
+<Route exact path = '/form' element = {<Form/>}></Route>
   
 </Routes>
   );
