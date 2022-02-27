@@ -6,8 +6,8 @@ import Login from './Login';
 import BlogList from './BlogList';
 import { BrowserRouter as Router, Routes, Route, Link , useNavigate} from "react-router-dom";
 import Form from './Form';
-
-
+import Unsplash from './Unsplash';
+import Toggle from './Toggle';
 
 
 function App() {
@@ -18,6 +18,8 @@ function App() {
 <Route exact path = '/login' element = {<Login/>}></Route>
 <Route exact path = '/all' element = {<BlogList/>}></Route>
 <Route exact path = '/form' element = {<Form/>}></Route>
+<Route exact path = '/unsplash' element = {<Unsplash/>}></Route>
+<Route exact path = '/toggle' element = {<Toggle/>}></Route>
   
 </Routes>
   );

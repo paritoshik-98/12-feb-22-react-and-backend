@@ -94,3 +94,8 @@ export const BlogLikeReducer = (state={},action) => {
             return state;
     }
 }
+
+export const UNSPLASH = (state={},action)=>{
+    if(action.type==="select_unsplash"){return {url : action.payload}}
+    else{return state}
+}

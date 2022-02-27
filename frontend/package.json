@@ -24,6 +24,8 @@
     "redux": "^4.1.2",
     "redux-devtools-extension": "^2.13.9",
     "redux-thunk": "^2.4.1",
+    "unsplash-js": "^7.0.15",
+    "unsplash-react": "^0.2.1",
     "web-vitals": "^2.1.4"
   },
   "scripts": {
