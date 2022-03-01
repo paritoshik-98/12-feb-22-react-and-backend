@@ -11,6 +11,8 @@ import Toggle from './Toggle';
 import Test from './Test';
 import Slider from './Slider';
 import Footer from './Components/Footer';
+import Header from './Components/Header';
+
 
 function App() {
 
@@ -25,6 +27,7 @@ function App() {
 <Route exact path = '/test' element = {<Test/>}></Route>
 <Route exact path = '/slider' element = {<Slider/>}></Route>
 <Route exact path = '/footer' element = {<Footer/>}></Route>
+<Route exact path = '/header' element = {<Header/>}></Route>
   
 </Routes>
   );

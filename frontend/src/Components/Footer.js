@@ -3,6 +3,8 @@ import React from 'react'
 import './footer.css'
 
 function Footer() {
+    const u = window.location.pathname
+    console.log(u)
   return (
       <footer className='footer text-center'>
           <div className='brand'>
