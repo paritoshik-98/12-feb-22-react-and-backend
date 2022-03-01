@@ -121,14 +121,14 @@ export default function LandingPage() {
               cookiePolicy={"single_host_origin"}/>
           </div>
         </div>
-        <FacebookLogin
+        {/* <FacebookLogin
   appId="504910991006215"
   callback={responseFacebook}
   autoLoad={true}
   render={renderProps => (
     <button onClick={renderProps.onClick}>This is my custom FB button</button>
   )}
-/>
+/> */}
         <div className="row justify-content-center mb-3 ">
           <div className="col-6 text-center">
             New User ? <a  href="">Register</a>

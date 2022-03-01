@@ -8,7 +8,9 @@ import { BrowserRouter as Router, Routes, Route, Link , useNavigate} from "react
 import Form from './Form';
 import Unsplash from './Unsplash';
 import Toggle from './Toggle';
-
+import Test from './Test';
+import Slider from './Slider';
+import Footer from './Components/Footer';
 
 function App() {
 
@@ -20,6 +22,9 @@ function App() {
 <Route exact path = '/form' element = {<Form/>}></Route>
 <Route exact path = '/unsplash' element = {<Unsplash/>}></Route>
 <Route exact path = '/toggle' element = {<Toggle/>}></Route>
+<Route exact path = '/test' element = {<Test/>}></Route>
+<Route exact path = '/slider' element = {<Slider/>}></Route>
+<Route exact path = '/footer' element = {<Footer/>}></Route>
   
 </Routes>
   );
