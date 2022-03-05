@@ -1,0 +1,35 @@
+
+.form{
+    margin-left: 10vw;
+    margin-right: 10vw;
+    padding-left: 0%;
+    padding-right: 0%;
+
+}
+
+.input[type='email']{
+    border-radius: 10px;
+}
+
+.title-input{
+    height: 30px;
+    border: 0;
+    margin-bottom: 30px
+}
+
+
+.unsplash{
+/* padding: 20px; */
+/* background-color: white; */
+margin-bottom: 30px;
+background-color: 0.8px solid silver;
+border-radius: 5px;
+}
+.title{
+    padding: 20px;
+}
+
+.tags{
+    margin-bottom: 30px;
+    
+}

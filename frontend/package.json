@@ -3,7 +3,9 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@ckeditor/ckeditor5-react": "^4.0.0",
     "@fortawesome/react-fontawesome": "^0.1.17",
+    "@paritoshik_kharad/ckeditor5-build-classic-custom": "file:../../THEBOARD-CKEDITOR/ckeditor5/packages/ckeditor5-build-classic",
     "@testing-library/jest-dom": "^5.16.2",
     "@testing-library/react": "^12.1.2",
     "@testing-library/user-event": "^13.5.0",

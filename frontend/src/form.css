@@ -1,0 +1,12 @@
+.tags{
+    display: flex;
+    flex-wrap : wrap;
+    justify-content: space-around;
+}
+.tag{
+    width: 20%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+

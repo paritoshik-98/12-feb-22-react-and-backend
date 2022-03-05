@@ -12,7 +12,7 @@ a{
     width: 5vw;
 }
 
-input[type='email']{
+/* input[type='email']{
     border-bottom-left-radius: 0;
     border-bottom-right-radius: 0;
 
@@ -20,7 +20,7 @@ input[type='email']{
 input[type='password']{
     border-top-right-radius: 0;
     border-top-left-radius: 0;
-}
+} */
 
 .form-control{
     padding-left: 0;

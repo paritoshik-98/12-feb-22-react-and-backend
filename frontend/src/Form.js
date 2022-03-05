@@ -1,5 +1,6 @@
 // tags frontend
 
+import './form.css'
 
 import React, { useState } from 'react'
 
@@ -36,17 +37,51 @@ function Form() {
     console.log(JSON.parse(string))
 }
     return(
-    <form>
-  <div>
+        // <div className="T d-flex justify-content-between align-items-center w-75"><label>Tags</label>
+    <div className='tags '>
+  <div className='tag'>
     <input type="checkbox" id="coding" name="coding"  checked={state.coding} onChange={CchangeHandler}></input>
     <label htmlFor="coding">Coding</label>
   </div>
-  <div>
+  <div className='tag'>
     <input type="checkbox" id="music" name="music" checked={state.music} onChange={MchangeHandler}></input>
     <label htmlFor="music">Music</label>
   </div>
-  <button className='btn btn-outline-dark' onClick={submit}>Submit</button>
-</form>
+  <div className='tag'>
+    <input type="checkbox" id="music" name="music" checked={state.music} onChange={MchangeHandler}></input>
+    <label htmlFor="music">Music</label>
+  </div>
+  <div className='tag'>
+    <input type="checkbox" id="music" name="music" checked={state.music} onChange={MchangeHandler}></input>
+    <label htmlFor="music">Music</label>
+  </div>
+  <div className='tag'>
+    <input type="checkbox" id="music" name="music" checked={state.music} onChange={MchangeHandler}></input>
+    <label htmlFor="music">Music</label>
+  </div>
+  <div className='tag'>
+    <input type="checkbox" id="music" name="music" checked={state.music} onChange={MchangeHandler}></input>
+    <label htmlFor="music">Music</label>
+  </div>
+  <div className='tag'>
+    <input type="checkbox" id="music" name="music" checked={state.music} onChange={MchangeHandler}></input>
+    <label htmlFor="music">Music</label>
+  </div>
+  <div className='tag'>
+    <input type="checkbox" id="music" name="music" checked={state.music} onChange={MchangeHandler}></input>
+    <label htmlFor="music">Music</label>
+  </div>
+  <div className='tag'>
+    <input type="checkbox" id="music" name="music" checked={state.music} onChange={MchangeHandler}></input>
+    <label htmlFor="music">Music</label>
+  </div>
+  <div className='tag'>
+    <input type="checkbox" id="music" name="music" checked={state.music} onChange={MchangeHandler}></input>
+    <label htmlFor="music">Music</label>
+  </div>
+  {/* <button className='btn btn-outline-dark' onClick={submit}>Submit</button> */}
+</div>
+// </div>
   )
 }
 

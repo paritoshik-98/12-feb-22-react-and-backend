@@ -12,11 +12,16 @@ import Test from './Test';
 import Slider from './Slider';
 import Footer from './Components/Footer';
 import Header from './Components/Header';
+import AddBlog from './Components/AddBlog';
 
 
 function App() {
 
+  useEffect(()=>document.body.style.backgroundColor='#F8F8F8')
+
   return (
+    <div className="app">
+      <Header/>
     <Routes>
 <Route exact path = '/' element = {<LandingPage/>}></Route>
 <Route exact path = '/login' element = {<Login/>}></Route>
@@ -28,8 +33,10 @@ function App() {
 <Route exact path = '/slider' element = {<Slider/>}></Route>
 <Route exact path = '/footer' element = {<Footer/>}></Route>
 <Route exact path = '/header' element = {<Header/>}></Route>
-  
+<Route exact path = '/add' element = {<AddBlog/>}></Route>
 </Routes>
+  <Footer/>
+</div>
   );
 }
 
