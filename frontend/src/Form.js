@@ -1,91 +1,50 @@
-// tags frontend
+import React from 'react'
+import { useState } from 'react'
 
-import './form.css'
+import'./form.css'
 
-import React, { useState } from 'react'
+function CheckBox() {
 
-function Form() {
-
-    const [state,setState] = useState(
-        {
-            coding:false,
-            music:false
-        }
-    )
-
-
-
-    const CchangeHandler = () => {
-        setState(prevState =>({...prevState,coding:!state.coding}))
-    } 
-
-    const MchangeHandler = () => {
-        setState(prevState =>({...prevState,music:!state.music}))
-    } 
+    const[tags,setTags]=useState({
+        code:false,
+        music:false,
+        dance:false,
+        read:false,
+        write:false,
+        eat:false,
+        sleep:false,
+        wakeup:false,
+        movie:false,
+        webseries:false,
+    })
 
     var array = []
-    const submit = (e) => {
-        e.preventDefault()
-    for (const key in state) {
-        if (state[key]===true) {
-            array.push(key)
+
+    const handleChange = (e) =>{
+        setTags({...tags,[e.target.name]:e.target.checked})
+        for (const key in tags) {
+            if (tags[key]==true) {
+                array.push(key)
+            }
         }
+        console.log(array)
     }
-    console.log(array)
-    let string = JSON.stringify(array)
-    console.log(string)
-    console.log(JSON.parse(string))
-}
-    return(
-        // <div className="T d-flex justify-content-between align-items-center w-75"><label>Tags</label>
-    <div className='tags '>
-  <div className='tag'>
-    <input type="checkbox" id="coding" name="coding"  checked={state.coding} onChange={CchangeHandler}></input>
-    <label htmlFor="coding">Coding</label>
-  </div>
-  <div className='tag'>
-    <input type="checkbox" id="music" name="music" checked={state.music} onChange={MchangeHandler}></input>
-    <label htmlFor="music">Music</label>
-  </div>
-  <div className='tag'>
-    <input type="checkbox" id="music" name="music" checked={state.music} onChange={MchangeHandler}></input>
-    <label htmlFor="music">Music</label>
-  </div>
-  <div className='tag'>
-    <input type="checkbox" id="music" name="music" checked={state.music} onChange={MchangeHandler}></input>
-    <label htmlFor="music">Music</label>
-  </div>
-  <div className='tag'>
-    <input type="checkbox" id="music" name="music" checked={state.music} onChange={MchangeHandler}></input>
-    <label htmlFor="music">Music</label>
-  </div>
-  <div className='tag'>
-    <input type="checkbox" id="music" name="music" checked={state.music} onChange={MchangeHandler}></input>
-    <label htmlFor="music">Music</label>
-  </div>
-  <div className='tag'>
-    <input type="checkbox" id="music" name="music" checked={state.music} onChange={MchangeHandler}></input>
-    <label htmlFor="music">Music</label>
-  </div>
-  <div className='tag'>
-    <input type="checkbox" id="music" name="music" checked={state.music} onChange={MchangeHandler}></input>
-    <label htmlFor="music">Music</label>
-  </div>
-  <div className='tag'>
-    <input type="checkbox" id="music" name="music" checked={state.music} onChange={MchangeHandler}></input>
-    <label htmlFor="music">Music</label>
-  </div>
-  <div className='tag'>
-    <input type="checkbox" id="music" name="music" checked={state.music} onChange={MchangeHandler}></input>
-    <label htmlFor="music">Music</label>
-  </div>
-  {/* <button className='btn btn-outline-dark' onClick={submit}>Submit</button> */}
-</div>
-// </div>
+
+
+  return (
+      <div className='tags'>
+        <div className="tag"><input type='checkbox' name="music" onChange={handleChange} checked={tags.music}/>Music</div>
+        <div className="tag"><input type='checkbox' name="code" onChange={handleChange} checked={tags.code}/>Code</div>
+        <div className="tag"><input type='checkbox' name="dance" onChange={handleChange} checked={tags.dance}/>Dance</div>
+        <div className="tag"><input type='checkbox' name="read" onChange={handleChange} checked={tags.read}/>read</div>
+        <div className="tag"><input type='checkbox' name="write" onChange={handleChange} checked={tags.write}/>write</div>
+        <div className="tag"><input type='checkbox' name="eat" onChange={handleChange} checked={tags.eat}/>eat</div>
+        <div className="tag"><input type='checkbox' name="sleep" onChange={handleChange} checked={tags.sleep}/>sleep</div>
+        <div className="tag"><input type='checkbox' name="wakeup" onChange={handleChange} checked={tags.wakeup}/>wakeup</div>
+        <div className="tag"><input type='checkbox' name="movie" onChange={handleChange} checked={tags.movie}/>movie</div>
+        <div className="tag"><input type='checkbox' name="webseries" onChange={handleChange} checked={tags.webseries}/>webseries</div>
+    </div>
   )
 }
 
-export default Form
-
-
-
+export default CheckBox

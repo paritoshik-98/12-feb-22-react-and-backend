@@ -27,9 +27,39 @@ border-radius: 5px;
 }
 .title{
     padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: white;
+    border-radius: 5px;
+    margin-bottom: 30px;
+    border : 0.8px solid silver;
 }
 
-.tags{
-    margin-bottom: 30px;
+input[type='text']{
     
+    align-self: flex-end;
+    /* margin-left: 60px; */
+    border: none;
+    width: 55vw;
+    border-bottom: 0.8px solid silver;
+}
+input[type='text']:focus{
+    outline: none;    
+    /* border: none; */
+}
+
+.tags_c{
+    padding: 20px;
+    margin-bottom: 30px;
+    background-color: white;
+    border: 0.8px solid silver;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.check {
+    width: 85vw;
 }

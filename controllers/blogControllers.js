@@ -22,32 +22,34 @@ const getBlogByID = async (req, res) => {
 };
 
 const addNewBlog = async (req, res) => {
-  try {
-    const { content, title, tags } = req.body;
-    console.log(tags)
-    if (!content) {
-      res.send("blog cannot be blank");
-    }
-    const author = req.userid;
-    console.log(author);
-    const doc = new blog({
-      title: title,
-      content: content,
-      author: author,
-    });
-    await doc.save();
-    const update = { $push: { tags: ['pari','i'] } };
-         blog.findOneAndUpdate({_id:doc._id}, update, {
-            new: true,
-          })
-          .then((doc) => res.status(200).send(doc))
-          .catch((e) => res.status(500).send("Something went wrong !"));
+  console.log(req.body)
+  res.send(req.body)
+  // try {
+  //   const { content, title, tags } = req.body;
+  //   console.log(tags)
+  //   if (!content) {
+  //     res.send("blog cannot be blank");
+  //   }
+  //   const author = req.userid;
+  //   console.log(author);
+  //   const doc = new blog({
+  //     title: title,
+  //     content: content,
+  //     author: author,
+  //   });
+  //   await doc.save();
+  //   const update = { $push: { tags: ['pari','i'] } };
+  //        blog.findOneAndUpdate({_id:doc._id}, update, {
+  //           new: true,
+  //         })
+  //         .then((doc) => res.status(200).send(doc))
+  //         .catch((e) => res.status(500).send("Something went wrong !"));
     
-    // res.status(200).send("submitted")
-  } catch (error) {
-    console.log(error);
-    res.status(500).send("Something went wrong !");
-  }
+  //   // res.status(200).send("submitted")
+  // } catch (error) {
+  //   console.log(error);
+  //   res.status(500).send("Something went wrong !");
+  // }
 };
 
 const myBlogs = async (req, res) => {

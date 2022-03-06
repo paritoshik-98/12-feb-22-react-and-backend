@@ -16,7 +16,7 @@ export default function Unsplash() {
   return (
     <>
     
-    <div style={{ display: "flex" ,justifyContent:"center",backgroundColor:"white",padding:'20px'}}>
+    <div style={{ display: "flex" ,justifyContent:"space-around",backgroundColor:"white",borderRadius:'5px'}}>
         <div style={{ height: "50vh", width: "55vw" }}>
           <UnsplashReact 
             accessKey={'3QrIg1ALejFXqmOl1YA6QH4xG1obxasv1J9-mi7_ZuY'}
@@ -28,9 +28,7 @@ export default function Unsplash() {
           />
         </div>
 
-        {/* <div>
-          <img src={state} />
-        </div> */}
+      
       </div>
       </>
     // <UnsplashReact
