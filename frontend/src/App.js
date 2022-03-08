@@ -13,6 +13,8 @@ import Slider from './Slider';
 import Footer from './Components/Footer';
 import Header from './Components/Header';
 import AddBlog from './Components/AddBlog';
+import Read from './Components/Read';
+import Edit from './Components/Edit';
 
 
 function App() {
@@ -34,6 +36,8 @@ function App() {
 <Route exact path = '/footer' element = {<Footer/>}></Route>
 <Route exact path = '/header' element = {<Header/>}></Route>
 <Route exact path = '/add' element = {<AddBlog/>}></Route>
+<Route exact path = '/Read/:id' element = {<Read/>}></Route>
+<Route exact path = '/edit/:id' element = {<Edit/>}></Route>
 </Routes>
   <Footer/>
 </div>

@@ -1,18 +1,39 @@
-import React, { useState } from "react";
-import Form from "../Form";
-import Unsplash from "../Unsplash";
-import "./add.css";
+import React, { useEffect, useState } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
+import { useParams } from 'react-router-dom'
+import { fetchBlogAction } from '../REDUX/Actions/blogActions'
+import './edit.css'
 import { CKEditor } from '@ckeditor/ckeditor5-react'
 import ClassicEditor from '@paritoshik_kharad/ckeditor5-build-classic-custom'
 // import blog from "../../../models/blog";
 import UnsplashReact, { Base64Uploader, withDefaultProps, InsertIntoApplicationUploader} from "unsplash-react"
 import axios from "axios";
-import { useDispatch } from "react-redux";
 import { createBlogAction } from "../REDUX/Actions/blogActions";
 
-function AddBlog() {
-  
-  const [title,setT]=useState('')
+function Edit() {
+
+    const dispatch = useDispatch()
+
+    const getblog = useSelector(state=>state.fetchBlog)
+
+    const {id} = useParams()
+    useEffect(() => {
+       dispatch(fetchBlogAction(id))
+    }, [])
+
+    useEffect(()=>{
+        if(getblog.blog){
+            setT(getblog.blog.title)
+            setB(getblog.blog.content)
+            // const iTags = getblog.blog.tags
+            for (let tag in getblog.blog.tags) {
+                setTags({...tags,tag:true})
+            }
+            console.log(tags)
+        }
+    },[getblog,tags])
+
+    const [title,setT]=useState('')
   const TChange = (e) =>{
     setT(e.target.value)
     console.log('title',title)
@@ -48,7 +69,6 @@ const[cover,setC] = useState('')
     console.log(cover)
   }
 
-  const dispatch = useDispatch()
 
   const submit =()=>{
     // tags
@@ -67,6 +87,10 @@ const[cover,setC] = useState('')
 
 
   return (
+<> 
+    {getblog.loading?<h1>Loading.....</h1>:getblog.error?<h1>Internal Server Error</h1>:
+    getblog.blog?
+
     <div className="form mt-5">
       <div class=" Addtitle  ">
         <label for="exampleFormControlInput1" class="form-label align-self-center align-self-center">
@@ -116,7 +140,7 @@ const[cover,setC] = useState('')
                     // plugins={SimpleUploadAdapter}
                     // config = {custom_config}
                     // disabled = {true}
-                    data='write your content'
+                    data={body}
                     onReady={ editor => {
                         //////////////////// hide toolbar
                         // const toolbarElement = editor.ui.view.toolbar.element;
@@ -144,7 +168,12 @@ const[cover,setC] = useState('')
                 </div>
                 <button className="btn btn-outline-dark" onClick={submit}>SUBMIT</button>
     </div>
-  );
+    
+    :null
+
+}
+</>
+  )
 }
 
-export default AddBlog;
+export default Edit

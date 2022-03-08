@@ -12,7 +12,7 @@ const blogSchema = new Mongoose.Schema({
     type: Date,
     default: Date.now,
   },
-  isDraft:{
+  draft:{
     type:Boolean,
     default:false
   },
@@ -29,7 +29,11 @@ const blogSchema = new Mongoose.Schema({
       postedBy: { type: Mongoose.Schema.Types.ObjectId, ref: "user" },
     },
   ],
-  tags: [{type:String}]
+  tags: [{type:String}],
+  coverImg : {
+    type: String,
+    required:true
+  }
 });
 
 module.exports = Mongoose.model("blog", blogSchema);

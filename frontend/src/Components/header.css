@@ -16,7 +16,7 @@ header{
     color: #2E0300;
 }
 
-.brand img{
+.logo{
     margin-right: 20px;
 }
 
@@ -32,7 +32,7 @@ header{
     font-size: xx-large;
 }
 
-img{
+.logo{
     height: 60px;
     width: 60px;
     object-fit: cover;
@@ -48,10 +48,10 @@ img{
         width: 35%;
         font-size: small;
     }
-    .brand img{
+    .logo{
         margin-right: 10px;
     }
-    img{
+    .logo{
         height: 30px;
         width: 30px;
         object-fit: cover;

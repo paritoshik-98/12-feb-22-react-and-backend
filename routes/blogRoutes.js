@@ -11,8 +11,8 @@ router.get('/:id',authuser,getBlogByID);
 
 router.get('/get/myBlogs',authuser,myBlogs);
 
-// router.post('/add',authuser,addNewBlog);
-router.post('/add',addNewBlog);
+router.post('/add',authuser,addNewBlog);
+// router.post('/add',addNewBlog);
 
 router.put('/:id/edit',authuser,updateBlog);
 
