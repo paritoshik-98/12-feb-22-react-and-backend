@@ -9,29 +9,55 @@ import ClassicEditor from '@paritoshik_kharad/ckeditor5-build-classic-custom'
 import UnsplashReact, { Base64Uploader, withDefaultProps, InsertIntoApplicationUploader} from "unsplash-react"
 import axios from "axios";
 import { createBlogAction } from "../REDUX/Actions/blogActions";
+import { set } from 'mongoose'
 
 function Edit() {
 
     const dispatch = useDispatch()
-
+    
     const getblog = useSelector(state=>state.fetchBlog)
-
+    
     const {id} = useParams()
     useEffect(() => {
        dispatch(fetchBlogAction(id))
     }, [])
-
+    
     useEffect(()=>{
         if(getblog.blog){
             setT(getblog.blog.title)
             setB(getblog.blog.content)
-            // const iTags = getblog.blog.tags
-            for (let tag in getblog.blog.tags) {
-                setTags({...tags,tag:true})
-            }
-            console.log(tags)
+            const arr = JSON.parse(getblog.blog.tags)
+            console.log(arr)
+            // const arr=(['movie','code','music']);
+        for (const key of arr) {
+            setTags(prev=>({...prev,[key]:true}))
+            
         }
-    },[getblog,tags])
+        console.log(tags)
+        }
+    },[])
+    const[tags,setTags]=useState({
+      code:false,
+      music:false,
+      dance:false,
+      read:false,
+      write:false,
+      eat:false,
+      sleep:false,
+      wakeup:false,
+      movie:false,
+      webseries:false,
+  })
+
+    useEffect(()=>{
+        // if(getblog.blog){
+        //     for (var e of getblog.blog.tags) {
+        //         setTags({[e]:true})                
+        //     }
+        //     console.log(tags)
+           
+        // }
+    },[])
 
     const [title,setT]=useState('')
   const TChange = (e) =>{
@@ -41,18 +67,6 @@ function Edit() {
 
   const[body,setB]=useState('')
 
-  const[tags,setTags]=useState({
-    code:false,
-    music:false,
-    dance:false,
-    read:false,
-    write:false,
-    eat:false,
-    sleep:false,
-    wakeup:false,
-    movie:false,
-    webseries:false,
-})
 
 var array = []
 
@@ -93,7 +107,7 @@ const[cover,setC] = useState('')
 
     <div className="form mt-5">
       <div class=" Addtitle  ">
-        <label for="exampleFormControlInput1" class="form-label align-self-center align-self-center">
+        <label htmlFor="exampleFormControlInput1" class="form-label align-self-center align-self-center">
           Title 
         </label>
         <input id="t" placeholder="Enter Title" type='text' onChange={TChange} value={title}></input>
