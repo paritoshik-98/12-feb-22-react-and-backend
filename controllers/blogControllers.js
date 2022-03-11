@@ -73,29 +73,29 @@ const myBlogs = async (req, res) => {
   }
 };
 
-const updateBlog = async (req, res) => {
-  try {
-    const { content, title } = req.body;
-    if (!content) {
-      res.send("blog cannot be blank");
-    }
-    const id = req.params.id;
-    const filter = { _id: req.params.id };
-    const update = {
-      title: title,
-      content: content,
-      author: req.userid,
-      date: Date.now(),
-    };
-    await blog
-      .findOneAndUpdate(filter, update, {
-        new: true,
-      })
-      .then(res.status(200).send("blog edited"));
-  } catch (error) {
-    res.status(500).send("Something went wrong !");
-  }
-};
+// const updateBlog = async (req, res) => {
+//   try {
+//     const { content, title } = req.body;
+//     if (!content) {
+//       res.send("blog cannot be blank");
+//     }
+//     const id = req.params.id;
+//     const filter = { _id: req.params.id };
+//     const update = {
+//       title: title,
+//       content: content,
+//       author: req.userid,
+//       date: Date.now(),
+//     };
+//     await blog
+//       .findOneAndUpdate(filter, update, {
+//         new: true,
+//       })
+//       .then(res.status(200).send("blog edited"));
+//   } catch (error) {
+//     res.status(500).send("Something went wrong !");
+//   }
+// };
 
 const like = async (req, res) => {
   try {
@@ -163,6 +163,45 @@ const comment = (req,res) => {
           .catch((e) => res.status(500).send("Something went wrong !"));
       }
    catch (error) {
+    res.status(500).send("Something went wrong !");
+  }
+}
+
+const updateBlog = async (req, res) => {
+  try {
+    const { coverImg,blogTitle,content,tagArr,draft,id } = req.body;
+    
+    // const id = req.params.id;
+    // const filter = { _id: req.params.id };
+
+    console.log(tagArr)
+
+    const b = await blog.findOne({ _id: id })
+    console.log(b)
+    const filter = { _id: id };
+    const update = {
+      title: blogTitle,
+      content: content,
+      author: req.userid,
+      draft: draft,
+      coverImg: coverImg,
+      date: Date.now(),
+      $pullAll : {tags:b.tags},
+      // $push:{}
+    };
+    await blog.findOneAndUpdate(filter, update, {
+        new: true,
+      })
+    
+      const Tupdate = { $push: { tags: JSON.parse(tagArr) } };
+      await blog.findOneAndUpdate({_id:id}, Tupdate, {
+         new: true,
+       })
+
+      
+      res.status(200).send("blog edited")
+  } catch (error) {
+    console.log(error)
     res.status(500).send("Something went wrong !");
   }
 }
