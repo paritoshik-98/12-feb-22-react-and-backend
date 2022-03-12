@@ -67,7 +67,7 @@ dispatch(like(id))
         <h1 className='title text-center'> {getblog.blog.title} </h1>
         <div className="body" id="c"></div> 
         <div className="likes">
-          <button className='like' onClick={likeHandler}>{likes?likes.length>0?likes.includes(user.id)?<FcLike/>:<AiOutlineHeart/>:<AiOutlineHeart/>:null}</button>
+          <button className='like' onClick={likeHandler}>{likes?likes.length>0?likes.includes(user.id)?<span><FcLike/>{likes.length.count}</span>:<span><AiOutlineHeart/>{likes.length.count}</span>:<span><AiOutlineHeart/>{likes.length.count}</span>:null}</button>
           {
             likes
           }
