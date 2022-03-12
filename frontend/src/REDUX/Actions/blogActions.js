@@ -80,10 +80,10 @@ export const fetchBlogAction = (id) => (dispatch) => {
     
 } 
 
-export const myBlogAction = (id) => (dispatch) => {
+export const like = (id) => (dispatch) => {
     try {
-        dispatch({type:'MY_BLOG_REQUEST'})
-        const path = `/api/blog/+${id}+/like`
+        dispatch({type:'LIKE'})
+        const path = `/api/blog/${id}/like`
         axios.put(path).then(res=>{
             if(res.status===200){
                 dispatch({type:'LIKE_SUCCESS',payload:res.data})

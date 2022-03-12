@@ -134,7 +134,7 @@ const[cover,setC] = useState('')
                     editor={ClassicEditor}
                     // plugins={SimpleUploadAdapter}
                     // config = {custom_config}
-                    disabled = {true}
+                    // disabled = {true}
                     data={selector.blog.content}
                     onReady={ editor => {
                         //////////////////// hide toolbar
@@ -144,13 +144,13 @@ const[cover,setC] = useState('')
                         ////////////////////////
                         // You can store the "editor" and use when it is needed.
                         editor.ui.view.editable.element.style.minHeight = "300px";
-                        editor.ui.view.editable.element.style.backgroundColor = '#F8F8F8';
-                        editor.ui.view.editable.element.style.border = "0px";
+                        // editor.ui.view.editable.element.style.backgroundColor = '#F8F8F8';
+                        // editor.ui.view.editable.element.style.border = "0px";
                         console.log( 'Editor is ready to use!', editor );
                         
                       } }
                       onChange={ ( event, editor ) => {
-                        editor.ui.view.editable.element.style.minHeight = "300px";
+                        // editor.ui.view.editable.element.style.minHeight = "300px";
                         const data = editor.getData();
                         console.log( { event, editor, data } );
                         setB(data)
