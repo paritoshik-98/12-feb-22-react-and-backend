@@ -44,9 +44,14 @@ function Read() {
 const [likes,setLikes] = useState()
 
 const likeHandler = () => {
-  const path = `/api/blog/${id}/like`
-  axios.put(path).then(res=>setLikes(res.data))
- 
+  if(likes.includes(user.id)){
+    const path = `/api/blog/${id}/unlike`;
+  axios.put(path).then(res=>setLikes(res.data));
+  }
+  else{
+  const path = `/api/blog/${id}/like`;
+  axios.put(path).then(res=>setLikes(res.data));
+  }
 }
 const unlike = () => {
 dispatch(like(id))
@@ -62,7 +67,7 @@ dispatch(like(id))
         <h1 className='title text-center'> {getblog.blog.title} </h1>
         <div className="body" id="c"></div> 
         <div className="likes">
-          <button onClick={likeHandler}>like</button>
+          <button className='like' onClick={likeHandler}>{likes?likes.length>0?likes.includes(user.id)?<FcLike/>:<AiOutlineHeart/>:<AiOutlineHeart/>:null}</button>
           {
             likes
           }
