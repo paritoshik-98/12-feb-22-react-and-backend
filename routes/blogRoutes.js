@@ -20,12 +20,12 @@ router.put('/:id/like',authuser,like);
 
 router.put('/:id/unlike',authuser,unlike);
 
-router.put('/:id/comment',authuser,comment); /////////// post
+router.post('/:id/comment',authuser,comment); /////////// post
 
 router.delete('/:bid/comment/:cid/delete',(req,res)=>{
   blog.findOneAndUpdate({_id:req.params.bid},{$pull:{comments:{_id:req.params.cid}}},{
     new: true,
-  }).then(doc=>res.send(doc))
+  }).then(doc=>res.send(doc.comments))
 })
 
 router.delete('/:id/delete',authuser,deleteBlog)

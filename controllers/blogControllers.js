@@ -151,6 +151,7 @@ const deleteBlog = async (req, res) => {
 };
 
 const comment = (req,res) => {
+  console.log(req.body)
   try {
     const id = req.params.id;
     const filter = { _id: req.params.id };

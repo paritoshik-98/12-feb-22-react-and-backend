@@ -34,6 +34,7 @@ function Read() {
         if(getblog.blog)
         {document.getElementById('c').innerHTML=getblog.blog.content;
         setLikes(getblog.blog.likes)
+        setComments(getblog.blog.comments)
 }
 
         console.log(user.id)
@@ -58,6 +59,26 @@ const unlike = () => {
 dispatch(like(id))
 }
 
+const[comments,setComments]=useState()
+
+const addComment = () => {
+  const path = `/api/blog/${id}/comment`
+  axios.post(path,{text:inputC}).then(res=>setComments(res.data));
+}
+
+const deleteComment =(cid) => {
+  
+  const path = `/api/blog/${id}/comment/${cid}/delete`
+  axios.delete(path).then(res=>setComments(res.data));
+  
+}
+
+const[inputC,setinputC]=useState('')
+
+const change = (e) => {
+  setinputC(e.target.value)
+}
+
   return (
 <> 
     {getblog.loading?<h1>Loading.....</h1>:getblog.error?<h1>Internal Server Error</h1>:
@@ -73,6 +94,15 @@ dispatch(like(id))
             likes
           }
           {/* {getblog.blog.likes} */}
+        </div>
+        <div className="comments">
+          {comments?comments.map(c=>{return c.text}):null}
+          <div className="comment-form">
+          <label className='' htmlFor='c'></label>
+          <input type="text" id='c' onChange={change} value={inputC}/>
+          <button className='submitC' onClick={addComment}>SUBMIT</button>
+          </div>
+          {JSON.stringify(comments)}
         </div>
     </div>
     :null
