@@ -4,8 +4,7 @@ import { useParams } from 'react-router-dom'
 import { fetchBlogAction, like } from '../REDUX/Actions/blogActions'
 import './read.css'
 
-import { BiLike } from 'react-icons/bi';
-import { AiFillLike } from 'react-icons/ai';
+import { AiFillDelete } from 'react-icons/ai';
 import { AiOutlineHeart } from 'react-icons/ai';
 import { FcLike } from 'react-icons/fc';
 
@@ -23,7 +22,7 @@ function Read() {
 
     const user = useSelector(state=>state.userLogin.user)
 
-    const {id} = useParams()
+    var {id} = useParams()
     useEffect(() => {
        dispatch(fetchBlogAction(id))
     }, [])
@@ -66,18 +65,30 @@ const addComment = () => {
   axios.post(path,{text:inputC}).then(res=>setComments(res.data));
 }
 
-const deleteComment =(cid) => {
+// const deleteComment =(cid) => {
+//   console.log(cid)
+//   // const path = `/api/blog/${id}/comment/delete`
+//   // axios.delete(path,{cid:cid}).then(res=>setComments(res.data));
   
-  const path = `/api/blog/${id}/comment/${cid}/delete`
-  axios.delete(path).then(res=>setComments(res.data));
-  
-}
+// }
 
+const delComment = (cid) => {
+  // console.log(e.target.id)
+  console.log(cid)
+  const path = `/api/blog/${id}/comment/delete`
+  // axios.delete(path,{cid:cid}).then(res=>console.log(res.data))
+}
 const[inputC,setinputC]=useState('')
 
 const change = (e) => {
   setinputC(e.target.value)
 }
+
+const[toggleComments,setTC]=useState(true)
+
+const toggle = () => setTC(!toggleComments)
+
+
 
   return (
 <> 
@@ -95,15 +106,30 @@ const change = (e) => {
           }
           {/* {getblog.blog.likes} */}
         </div>
+        {/* <button onClick={toggle}>Comments</button> */}
+        {toggleComments?
         <div className="comments">
-          {comments?comments.map(c=>{return c.text}):null}
-          <div className="comment-form">
-          <label className='' htmlFor='c'></label>
-          <input type="text" id='c' onChange={change} value={inputC}/>
-          <button className='submitC' onClick={addComment}>SUBMIT</button>
-          </div>
-          {JSON.stringify(comments)}
+        {comments?comments.map(c=>{ return (
+        <div className='comment'>
+          <div><p>{c.text}</p>{c.postedBy===user.id? <button id={c._id} onClick={()=>{
+
+            // console.log('del',c._id);
+            const path = `/api/blog/${id}/comment/delete`;
+  axios.delete(path,{cid:c._id}).then(res=>console.log(res.data))
+
+            }}>del</button>:null}</div>
+          <div><p>posted by : {c.postedBy}</p></div>
         </div>
+        )
+        }):null}
+        <div className="comment-form">
+        <label className='' htmlFor='c'></label>
+        <input type="text" id='c' onChange={change} value={inputC}/>
+        <button className='submitC' onClick={addComment}>SUBMIT</button>
+        </div>
+        {JSON.stringify(comments)}
+      </div>
+        :null}
     </div>
     :null
 
