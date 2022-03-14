@@ -115,7 +115,7 @@ const toggle = () => setTC(!toggleComments)
 
             // console.log('del',c._id);
             const path = `/api/blog/${id}/comment/delete`;
-  axios.delete(path,{cid:c._id}).then(res=>console.log(res.data))
+  axios.put(path,{cid:c._id}).then(res=>setComments(res.data))
 
             }}>del</button>:null}</div>
           <div><p>posted by : {c.postedBy}</p></div>

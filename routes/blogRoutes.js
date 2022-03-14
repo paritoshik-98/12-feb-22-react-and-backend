@@ -22,10 +22,11 @@ router.put('/:id/unlike',authuser,unlike);
 
 router.post('/:id/comment',authuser,comment); /////////// post
 
-router.delete('/:id/comment/delete',authuser,(req,res)=>{
+router.put('/:id/comment/delete',(req,res)=>{
   const {cid} = req.body;
   const {id} = req.params;
-  blog.findOneAndUpdate({_id:id},{$pull:{comments:{_id:cid}}},{new:true}).then(doc=>res.status(200).send(doc.comments))
+  const update = { $pull: { comments : {_id:cid} } };
+  blog.findOneAndUpdate({_id:id},update,{new:true,safe:true,multi:false}).then(doc=>res.status(200).send(doc.comments))
 })
 
 // router.delete('/:bid/comment/delete',(req,res)=>{
