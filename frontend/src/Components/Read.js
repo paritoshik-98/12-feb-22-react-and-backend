@@ -20,6 +20,8 @@ function Read() {
 
     const getblog = useSelector(state=>state.fetchBlog,shallowEqual)
 
+    const[author,setA]=useState()
+
     const user = useSelector(state=>state.userLogin.user)
 
     var {id} = useParams()
@@ -34,6 +36,8 @@ function Read() {
         {document.getElementById('c').innerHTML=getblog.blog.content;
         setLikes(getblog.blog.likes)
         setComments(getblog.blog.comments)
+        setA(getblog.blog.author)
+        console.log(author.name,author.profile_pic)
 }
 
         console.log(user.id)
@@ -98,6 +102,8 @@ const toggle = () => setTC(!toggleComments)
       {/* {  getblog.blog.likes ? getblog.blog.likes.includes(user.id) ? <FcLike/>:<AiOutlineHeart id='l'/>:null} */}
         <img className='cover' src={getblog.blog.coverImg} alt="Cover Image" />
         <h1 className='title text-center'> {getblog.blog.title} </h1>
+        <h3>{getblog.blog.author.name}</h3>
+        <img src={getblog.blog.author.profile_pic}></img>
         <div className="body" id="c"></div> 
         <div className="likes">
           <button className='like' onClick={likeHandler}>{likes?likes.length>0?likes.includes(user.id)?<span><FcLike/>{likes.length.count}</span>:<span><AiOutlineHeart/>{likes.length.count}</span>:<span><AiOutlineHeart/>{likes.length.count}</span>:null}</button>
