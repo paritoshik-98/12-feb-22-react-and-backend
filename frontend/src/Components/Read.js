@@ -37,7 +37,7 @@ function Read() {
         setLikes(getblog.blog.likes)
         setComments(getblog.blog.comments)
         setA(getblog.blog.author)
-        console.log(author.name,author.profile_pic)
+        // console.log(author.name,author.profile_pic)
 }
 
         console.log(user.id)
