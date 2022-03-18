@@ -1,5 +1,5 @@
 import React from 'react'
-
+import { Link } from 'react-router-dom'
 import './header.css'
 
 function Header() {
@@ -20,7 +20,8 @@ function Header() {
         {/* .............. hi <name> .. */}
       {/* </div>):(<></>)} */}
         <a href="" className='link'>About Us</a>
-        <a href="" className='link'>Login</a>
+        <Link to = '/'>Login</Link>
+        {/* <a href="" className='link'>Login</a> */}
       </div>
 
 

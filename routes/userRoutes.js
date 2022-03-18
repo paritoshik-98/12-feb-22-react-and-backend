@@ -72,7 +72,7 @@ router.put('/unfollow',authuser,(req,res)=>{
 })
 
 // update password
-router.post('/updatePassword',authuser,updatePassword)
+router.post('/updatePassword',updatePassword)
 
 // email password reset link 
 router.post('/send_reset_link',emailPasswordLink)

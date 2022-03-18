@@ -163,18 +163,21 @@ User.findOneAndUpdate({_id:id}, {profile_pic:url}, {new: true}, (err, doc) => {
 //update password
 const updatePassword = async(req,res)=>{
     try {
-        console.log(req.body.new)
-        const id = req.userid
-        bcrypt.hash(req.body.new, saltRounds, async function(err, hash) {
-        User.findOneAndUpdate({_id:id},{password:hash},{new: true}, (err, doc) =>{
+        const token = req.body.jwt
+        const pswd = req.body.pswd
+        const {userid} = jwt.verify(token,process.env.JWT_SECRET)
+        bcrypt.hash(pswd, saltRounds, function(err, hash) {
+        User.findOneAndUpdate({_id:userid},{password:hash},{new: true}, (err, doc) =>{
             if (err) {
+                console.log(err)
                 res.status(500).send('something went wrong when updating password!')
             }
-            res.status(200).send(doc)
+            res.status(200).send('password reset successfully')
         })
         })
     } catch (error) {
-        res.status(500).send('internal server error')
+        console.log(error)
+        res.status(500).send('link expired')
     }
         
     }
@@ -213,7 +216,7 @@ try {
 
       const token  = jwt.sign({userid:u._id},process.env.JWT_SECRET,{expiresIn:'5m'})
 
-      const link = `http://localhost:8080/reset/${token}`
+      const link = `http://localhost:3000/reset/${token}`
       
       const data = `Click the link to reset password ${link} . This link is valid for 5 min`
 
