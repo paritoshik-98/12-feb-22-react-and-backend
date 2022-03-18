@@ -195,6 +195,7 @@ const logout = (req,res)=>{
 }
 
 var nodemailer = require('nodemailer');
+const user = require("../models/user");
 
 const emailPasswordLink = async(req,res)=>{
 try {
@@ -206,9 +207,11 @@ try {
         }
       });
 
-      console.log(req.email)
+      console.log(req.body.email)
 
-      const token  = jwt.sign({userid:req.userid},process.env.JWT_SECRET,{expiresIn:'5m'})
+      const u = await user.findOne({email:req.body.email})
+
+      const token  = jwt.sign({userid:u._id},process.env.JWT_SECRET,{expiresIn:'5m'})
 
       const link = `http://localhost:8080/reset/${token}`
       
@@ -218,7 +221,7 @@ try {
 
       var mailOptions = {
         from: 'testblogplatform@gmail.com',
-        to: req.email,
+        to: req.body.email,
         subject: 'PASSWORD RESET LINK',
         text: data
       };

@@ -15,6 +15,8 @@ import Header from './Components/Header';
 import AddBlog from './Components/AddBlog';
 import Read from './Components/Read';
 import EditBlog from './Components/EditBlog';
+import Recover from './Recover';
+import Reset from './Reset';
 
 function App() {
 
@@ -37,6 +39,8 @@ function App() {
 <Route exact path = '/add' element = {<AddBlog/>}></Route>
 <Route exact path = '/Read/:id' element = {<Read/>}></Route>
 <Route exact path = '/edit/:id' element = {<EditBlog/>}></Route>
+<Route exact path = '/recoverPassword' element = {<Recover/>}></Route>
+<Route exact path = '/reset/:jwt' element = {<Reset/>}></Route>
 </Routes>
   <Footer/>
 </div>

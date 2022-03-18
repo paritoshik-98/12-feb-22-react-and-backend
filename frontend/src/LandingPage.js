@@ -7,6 +7,53 @@ import { useDispatch, useSelector } from "react-redux";
 import { FcGoogle } from 'react-icons/fc';
 import FacebookLogin from 'react-facebook-login/dist/facebook-login-render-props'
 
+import {
+  EmailShareButton,
+  FacebookShareButton,
+  HatenaShareButton,
+  InstapaperShareButton,
+  LineShareButton,
+  LinkedinShareButton,
+  LivejournalShareButton,
+  MailruShareButton,
+  OKShareButton,
+  PinterestShareButton,
+  PocketShareButton,
+  RedditShareButton,
+  TelegramShareButton,
+  TumblrShareButton,
+  TwitterShareButton,
+  ViberShareButton,
+  VKShareButton,
+  WhatsappShareButton,
+  WorkplaceShareButton
+} from "react-share";
+
+import {
+  EmailIcon,
+  FacebookIcon,
+  FacebookMessengerIcon,
+  HatenaIcon,
+  InstapaperIcon,
+  LineIcon,
+  LinkedinIcon,
+  LivejournalIcon,
+  MailruIcon,
+  OKIcon,
+  PinterestIcon,
+  PocketIcon,
+  RedditIcon,
+  TelegramIcon,
+  TumblrIcon,
+  TwitterIcon,
+  ViberIcon,
+  VKIcon,
+  WeiboIcon,
+  WhatsappIcon,
+  WorkplaceIcon
+} from "react-share";
+
+
 export default function LandingPage() {
   const navigate = useNavigate();
 
@@ -102,7 +149,8 @@ export default function LandingPage() {
         </div>
         <div className="row justify-content-center mb-3 ">
           <div className="col-6 col-sm-4 text-center">
-            <a href="" >Forgot Password ?</a>
+            <Link to = '/recoverPassword'>Forgot Password ?</Link>
+            {/* <a href="" >Forgot Password ?</a> */}
           </div>
         </div>
         <div className="row justify-content-center mb-3 ">
@@ -136,6 +184,10 @@ export default function LandingPage() {
         </div>
       </div>
 )}
+<LinkedinShareButton url={window.location.href} title='readbloc'><LinkedinIcon/></LinkedinShareButton>
+ <WhatsappShareButton url={window.location.href} title='readbloc' image='dcdcdcd'><WhatsappIcon/></WhatsappShareButton>
+ <EmailShareButton><EmailIcon/></EmailShareButton>
+ <MailruShareButton><MailruIcon/></MailruShareButton>
 
     </div>
  

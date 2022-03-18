@@ -12,6 +12,51 @@ import { FcLike } from 'react-icons/fc';
 import axios from 'axios'
 import '../Axios'
 
+import {
+  EmailShareButton,
+  FacebookShareButton,
+  HatenaShareButton,
+  InstapaperShareButton,
+  LineShareButton,
+  LinkedinShareButton,
+  LivejournalShareButton,
+  MailruShareButton,
+  OKShareButton,
+  PinterestShareButton,
+  PocketShareButton,
+  RedditShareButton,
+  TelegramShareButton,
+  TumblrShareButton,
+  TwitterShareButton,
+  ViberShareButton,
+  VKShareButton,
+  WhatsappShareButton,
+  WorkplaceShareButton
+} from "react-share";
+
+import {
+  EmailIcon,
+  FacebookIcon,
+  FacebookMessengerIcon,
+  HatenaIcon,
+  InstapaperIcon,
+  LineIcon,
+  LinkedinIcon,
+  LivejournalIcon,
+  MailruIcon,
+  OKIcon,
+  PinterestIcon,
+  PocketIcon,
+  RedditIcon,
+  TelegramIcon,
+  TumblrIcon,
+  TwitterIcon,
+  ViberIcon,
+  VKIcon,
+  WeiboIcon,
+  WhatsappIcon,
+  WorkplaceIcon
+} from "react-share";
 
 
 function Read() {
@@ -26,7 +71,8 @@ function Read() {
 
     var {id} = useParams()
     useEffect(() => {
-       dispatch(fetchBlogAction(id))
+       dispatch(fetchBlogAction(id));
+       console.log(window.location.href)
     }, [])
 
     
@@ -140,6 +186,12 @@ const toggle = () => setTC(!toggleComments)
     :null
 
 }
+{/* <TwitterIcon size={32} round={true} />
+ */}
+ <LinkedinShareButton url={window.location.href}><LinkedinIcon/></LinkedinShareButton>
+ <WhatsappShareButton url={window.location.href} ><WhatsappIcon/></WhatsappShareButton>
+ <EmailShareButton><EmailIcon/></EmailShareButton>
+ <MailruShareButton><MailruIcon/></MailruShareButton>
 </>
   )
 }
