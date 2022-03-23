@@ -1,8 +1,8 @@
 const blog = require("../models/blog");
-
+// ,{sort:{likeCount:-1}}
 const getAllBlogs = async (req, res) => {
   try {
-    const doc = await blog.find({},{sort:{likes:-1}}).populate("author", "_id name profile_pic")
+    const doc = await blog.find({}).populate("author", "_id name profile_pic").sort({likeCount:-1})
     res.status(200).send(doc);
   } catch (error) {
     console.log(error)
