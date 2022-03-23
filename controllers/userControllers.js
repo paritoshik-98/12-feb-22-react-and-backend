@@ -5,6 +5,17 @@ const jwt = require('jsonwebtoken')
 const { OAuth2Client } = require('google-auth-library')
 const client = new OAuth2Client("149517402118-58t2a5ao3f8kqo9vn8bh5muf3ctbl5f3.apps.googleusercontent.com")
 
+const getUser = async(req,res)=>{
+    try {
+        const userId = req.userid
+        const user = await User.findOne({_id:userId})
+        res.status(200).send(user)
+        
+    } catch (error) {
+        console.log(error)
+        res.status(500).send('Internal server error')
+    }
+}
 
 // register = post /api/user/signup
 const addUser = async(req,res)=>{
@@ -244,4 +255,4 @@ try {
 }
 }
 
-module.exports = {addUser,loginUser,genToken,loginUserGoogle,updatePic,updatePassword,logout,refreshToken,emailPasswordLink}
+module.exports = {addUser,getUser,loginUser,genToken,loginUserGoogle,updatePic,updatePassword,logout,refreshToken,emailPasswordLink}

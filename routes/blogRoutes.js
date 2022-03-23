@@ -3,11 +3,15 @@ const router = express.Router()
 const blog = require('../models/blog')
 const authuser = require('../middleware/authMiddleware')
 
-const {comment,deleteBlog,updateBlog,addNewBlog,getAllBlogs,getBlogByID,myBlogs,like,unlike} = require('../controllers/blogControllers')
+const {comment,deleteBlog,updateBlog,addNewBlog,getBlogByTag,getMostLikedBlog,getBlogByID,myBlogs,like,unlike} = require('../controllers/blogControllers')
 
-router.get('/all',authuser,getAllBlogs);
+// router.get('/all',authuser,getBlo);
 
-router.get('/:id',authuser,getBlogByID);
+router.get('/trending',authuser,getMostLikedBlog);
+
+router.get('/:tag',authuser,getBlogByTag);
+
+router.get('/:id',authuser,authuser,getBlogByID);
 
 router.get('/get/myBlogs',authuser,myBlogs);
 

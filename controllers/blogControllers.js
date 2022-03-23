@@ -1,14 +1,30 @@
 const blog = require("../models/blog");
-// ,{sort:{likeCount:-1}}
-const getAllBlogs = async (req, res) => {
+
+// most liked blog
+const getMostLikedBlog = async (req, res) => {
   try {
     const doc = await blog.find({}).populate("author", "_id name profile_pic").sort({likeCount:-1})
+    res.status(200).send(doc[0]);
+  } catch (error) {
+    console.log(error)
+    res.status(500).send("Something went wrong !");
+  }
+};
+
+// blogs by tag
+
+const getBlogByTag = async (req, res) => {
+  try {
+    const doc = await blog.find({tags:req.params.tag}).populate("author", "_id name profile_pic").sort({date:-1})
     res.status(200).send(doc);
   } catch (error) {
     console.log(error)
     res.status(500).send("Something went wrong !");
   }
 };
+
+
+
 
 const getBlogByID = async (req, res) => {
   try {
@@ -212,7 +228,8 @@ module.exports = {
   deleteBlog,
   updateBlog,
   addNewBlog,
-  getAllBlogs,
+  getBlogByTag,
+  getMostLikedBlog,
   getBlogByID,
   myBlogs,
   like,

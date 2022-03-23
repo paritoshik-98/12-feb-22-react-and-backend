@@ -18,6 +18,7 @@ import EditBlog from './Components/EditBlog';
 import Recover from './Recover';
 import Reset from './Reset';
 import Home from './Components/Home';
+import Profile from './Components/Profile';
 
 function App() {
 
@@ -27,13 +28,14 @@ function App() {
 
   useEffect(()=>{if(!localStorage.getItem('user')){
     navigate('/')
-  }},[])
+  }})
 
   return (
     <div className="app">
       <Header/>
     <Routes>
 <Route exact path = '/' element = {<LandingPage/>}></Route>
+<Route exact path = '/profile' element = {<Profile/>}></Route>
 <Route exact path = '/Home' element = {<Home/>}></Route>
 <Route exact path = '/login' element = {<Login/>}></Route>
 <Route exact path = '/all' element = {<BlogList/>}></Route>
