@@ -157,12 +157,12 @@ const[cover,setC] = useState('')
                     editor={ClassicEditor}
                     // plugins={SimpleUploadAdapter}
                     // config = {custom_config}
-                    // disabled = {true}
+                    disabled = {true}
                     data={body}
                     onReady={ editor => {
                         //////////////////// hide toolbar
-                        // const toolbarElement = editor.ui.view.toolbar.element;
-                        // toolbarElement.style.display = 'none';
+                        const toolbarElement = editor.ui.view.toolbar.element;
+                        toolbarElement.style.display = 'none';
                         //&& disabled = {true}
                         ////////////////////////
                         // You can store the "editor" and use when it is needed.

@@ -1,8 +1,13 @@
-import React from 'react'
+import React, { useEffect } from 'react'
+import { useSelector } from 'react-redux'
 import { Link } from 'react-router-dom'
 import './header.css'
 
 function Header() {
+
+  const userLogin = useSelector((state) => state.userLogin)
+
+  
 
   const path = window.location.pathname
 
@@ -12,7 +17,7 @@ function Header() {
       <div className='brand w-25 w-sm-50'>
       <img className='logo' src='https://images.unsplash.com/photo-1532777946373-b6783242f211?ixlib=rb-0.3.5&amp;q=80&amp;fm=jpg&amp;crop=entropy&amp;cs=tinysrgb&amp;w=1080&amp;fit=max&amp;ixid=eyJhcHBfaWQiOjMyMDc0fQ&amp;s=8ac55cf3a68785643998730839663129'></img>
 
-      <p className='name'><strong>BlockRead.in</strong></p>
+      <p className='name'><strong>ReadBloc.in</strong></p>
       </div>
 
       <div className='links'>
@@ -20,7 +25,7 @@ function Header() {
         {/* .............. hi <name> .. */}
       {/* </div>):(<></>)} */}
         <a href="" className='link'>About Us</a>
-        <Link to = '/'>Login</Link>
+        {userLogin.user?<a>Logout</a>:<Link to = '/'>Login</Link>}
         {/* <a href="" className='link'>Login</a> */}
       </div>
 

@@ -33,7 +33,19 @@ const blogSchema = new Mongoose.Schema({
   coverImg : {
     type: String,
     required:true
+  },
+  likeCount:{
+    type: Number
   }
+});
+
+/// like count
+
+blogSchema.post('findOneAndUpdate', async (doc) => {
+  console.log(doc.likes.length)
+  doc.likeCount = doc.likes.length
+  await doc.save()
+  console.log('saved')
 });
 
 module.exports = Mongoose.model("blog", blogSchema);
