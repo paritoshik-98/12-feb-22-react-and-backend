@@ -63,7 +63,7 @@ export const LoginWithGoogle = (tokenId) => async (dispatch) => {
 export const Logout = () => async (dispatch) => {
   localStorage.removeItem("user");
   localStorage.removeItem("accessToken");
-  axios.get('/api/user/logout').then(res=>{if(res.status===200){dispatch({ type: "USER_LOGOUT" })}})
+  axios.get('/api/user/logout').then(res=>{if(res.status===200){dispatch({ type: "LOGOUT" })}})
   .catch(e=>console.log(e))
 };
 

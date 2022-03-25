@@ -1,10 +1,29 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import './profile.css'
+import axios from 'axios'
+import '../Axios'
 
 function Profile() {
 
+  const [loading,setLoading] = useState()
+  const [profile,setProfile] = useState()
+
+  useEffect(()=>{
+    setLoading(true)
+    axios.get('/api/user/profile').then(res=>{
+      setLoading(false)
+      setProfile(res.data)})
+  },[])
+
   return (
-    <div className="profile">Profile</div>
+    <div className="profile">
+      {loading?<h1>Loading...</h1>:null}
+      {profile?
+      <div className="display">
+        {JSON.stringify(profile)}
+      </div>
+      :null}
+    </div>
     )
 }
 

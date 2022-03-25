@@ -19,6 +19,7 @@ import Recover from './Recover';
 import Reset from './Reset';
 import Home from './Components/Home';
 import Profile from './Components/Profile';
+import { useSelector } from 'react-redux';
 
 function App() {
 
@@ -26,9 +27,19 @@ function App() {
 
   useEffect(()=>document.body.style.backgroundColor='#F8F8F8')
 
-  useEffect(()=>{if(!localStorage.getItem('user')){
-    navigate('/')
-  }})
+  const LoginStatus = useSelector((state) => state.userLogin);
+
+  useEffect(()=>{
+    if(!LoginStatus.user){
+      navigate('/')
+    }
+  },[LoginStatus.user])
+
+  // const {user} = useSelector(state=>state.userLogin)
+  
+  // useEffect(()=>{if(!user){
+    // navigate('/')
+  // }})
 
   return (
     <div className="app">

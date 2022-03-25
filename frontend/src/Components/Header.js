@@ -1,14 +1,20 @@
 import React, { useEffect } from 'react'
-import { useSelector } from 'react-redux'
-import { Link } from 'react-router-dom'
+import { useDispatch, useSelector } from 'react-redux'
+import { Link, useNavigate } from 'react-router-dom'
+import { Logout } from '../REDUX/Actions/userActions'
 import './header.css'
 
 function Header() {
 
   const userLogin = useSelector((state) => state.userLogin)
 
-  
+  const dispatch = useDispatch()
 
+  const navigate = useNavigate()
+  
+  const logout = () => {
+    dispatch(Logout())
+  }
   const path = window.location.pathname
 
   return (
@@ -25,7 +31,7 @@ function Header() {
         {/* .............. hi <name> .. */}
       {/* </div>):(<></>)} */}
         <a href="" className='link'>About Us</a>
-        {userLogin.user?<a>Logout</a>:<Link to = '/'>Login</Link>}
+        {userLogin.user?<button onClick={logout}>Logout</button>:<Link to = '/'>Login</Link>}
         {/* <a href="" className='link'>Login</a> */}
       </div>
 
