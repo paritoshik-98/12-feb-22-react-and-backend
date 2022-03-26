@@ -11,7 +11,7 @@ router.get('/trending',authuser,getMostLikedBlog);
 
 router.get('/:tag',authuser,getBlogByTag);
 
-router.get('/:id',authuser,authuser,getBlogByID);
+router.get('/blogId/:id',authuser,getBlogByID);
 
 router.get('/get/myBlogs',authuser,myBlogs);
 

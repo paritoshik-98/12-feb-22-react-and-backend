@@ -20,6 +20,7 @@ import Reset from './Reset';
 import Home from './Components/Home';
 import Profile from './Components/Profile';
 import { useSelector } from 'react-redux';
+import Category from './Components/Category';
 
 function App() {
 
@@ -62,6 +63,7 @@ function App() {
 <Route exact path = '/edit/:id' element = {<EditBlog/>}></Route>
 <Route exact path = '/recoverPassword' element = {<Recover/>}></Route>
 <Route exact path = '/reset/:jwt' element = {<Reset/>}></Route>
+<Route exact path = '/category/:tag' element = {<Category/>}></Route>
 </Routes>
   <Footer/>
 </div>

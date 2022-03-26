@@ -2,6 +2,7 @@ import axios from 'axios'
 import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { getBlogListAction } from '../REDUX/Actions/blogActions'
+import { Link } from 'react-router-dom'
 import './home.css'
 import '../Axios'
 
@@ -49,7 +50,7 @@ function Home() {
 </div>
 <div className=" cat d-flex justify-content-between align-content-center mt-5">
 <h3>Most Popular </h3>
-<a className='link' href=''>View More --></a>
+<Link to='/mostpopular' className='link' href=''>View More --></Link>
 </div>
 <div className="trending row row-cols-1 row-cols-sm-2 g-4">
 <div class="col " style={{width:'40%'}}>
@@ -90,8 +91,8 @@ function Home() {
   </div>
 </div>
 <div className=" cat d-flex justify-content-between align-content-center mt-5">
-<h3>Category 1 </h3>
-<a href='' className='link'>View More --></a>
+<h3>Code </h3>
+<Link to='/code' className='link'>View More --></Link>
 </div>
 <div className="trending row row-cols-1 row-cols-sm-2 g-4">
 <div class="col " style={{width:'40%'}}>
