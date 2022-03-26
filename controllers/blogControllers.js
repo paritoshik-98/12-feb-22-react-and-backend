@@ -4,7 +4,13 @@ const blog = require("../models/blog");
 const getMostLikedBlog = async (req, res) => {
   try {
     const doc = await blog.find({}).populate("author", "_id name profile_pic").sort({likeCount:-1})
-    res.status(200).send(doc);
+    let i=0
+    let array = []
+    while(i<5){
+      array[i]=doc[i]
+      i+=1
+    }
+    res.status(200).send([doc[0],doc[1],doc[2],doc[3],doc[4]]);
   } catch (error) {
     console.log(error)
     res.status(500).send("Something went wrong !");

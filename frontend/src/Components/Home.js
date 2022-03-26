@@ -39,7 +39,7 @@ function Home() {
     <div class="col-md-8">
       <div class="card-body">
         <h5 class="card-title">{trending[0].title}</h5>
-        <p class="card-text">{trending[53].desc}</p>
+        <p class="card-text">{trending[0].desc}</p>
         {/* <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p> */}
       </div>
     </div>
@@ -97,16 +97,16 @@ function Home() {
 <div className="trending row row-cols-1 row-cols-sm-2 g-4">
 <div class="col " style={{width:'40%'}}>
     <div class="card h-100" >
-      <img src={trending[7].coverImg} class="card-img-top homeImage" alt="..."></img>
+      <img src={trending[0].coverImg} class="card-img-top homeImage" alt="..."></img>
       <div class="card-body">
         <h5 class="card-title">Card title</h5>
         <p class="card-text">{trending[1].content}</p>
       </div>
     </div>
   </div>
-<div class="col " style={{width:'60%'}}>
+<div class="col" style={{width:'60%'}}>
     <div class="card h-100">
-      <img src={trending[8].coverImg} class="card-img-top homeImage" alt="..."></img>
+      <img src={trending[1].coverImg} class="card-img-top homeImage" alt="..."></img>
       <div class="card-body">
         <h5 class="card-title">Card title</h5>
         <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
@@ -115,7 +115,7 @@ function Home() {
   </div>
 <div class="col" style={{width:'60%'}}>
     <div class="card h-100">
-      <img src={trending[6].coverImg} class="card-img-top homeImage" alt="..."></img>
+      <img src={trending[2].coverImg} class="card-img-top homeImage" alt="..."></img>
       <div class="card-body">
         <h5 class="card-title">Card title</h5>
         <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
@@ -124,7 +124,7 @@ function Home() {
   </div>
 <div class="col" style={{width:'40%'}}>
     <div class="card h-100">
-      <img src={trending[5].coverImg} class="card-img-top homeImage" alt="..."></img>
+      <img src={trending[3].coverImg} class="card-img-top homeImage" alt="..."></img>
       <div class="card-body">
         <h5 class="card-title">Card title</h5>
         <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
