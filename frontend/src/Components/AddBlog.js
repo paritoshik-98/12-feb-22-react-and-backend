@@ -60,16 +60,22 @@ const[cover,setC] = useState('')
   const tagArr = JSON.stringify(array)
   const coverImg = cover
   const blogTitle = title
-  const content = body
+  // const content = body
+  const content = text
   console.log(tagArr,coverImg,blogTitle,content)
   dispatch(createBlogAction({coverImg,blogTitle,content,tagArr}))
   }
 
+
+  ////////////////////// to get only Text content for description in card
+  const[text,setText]=useState()
+  
   useEffect(()=>{
     const dummyNode = document.getElementById('editorContent')
     dummyNode.innerHTML=body;
-var text = dummyNode.innerText;
-console.log(text)
+ var text1 = dummyNode.textContent;
+setText(text1)
+// console.log(text1)
 },[body])
   
 
