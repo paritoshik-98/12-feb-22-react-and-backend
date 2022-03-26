@@ -2,3 +2,11 @@
     margin: 10vh 10vw 10vh 10vw;
 }
 
+.homeImage{
+    object-fit: cover;
+    height:50%;
+}
+
+.left{
+    width: 35vw;
+}

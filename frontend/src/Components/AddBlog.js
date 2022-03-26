@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Form from "../Form";
 import Unsplash from "../Unsplash";
 import "./add.css";
@@ -65,6 +65,13 @@ const[cover,setC] = useState('')
   dispatch(createBlogAction({coverImg,blogTitle,content,tagArr}))
   }
 
+  useEffect(()=>{
+    const dummyNode = document.getElementById('editorContent')
+    dummyNode.innerHTML=body;
+var text = dummyNode.innerText;
+console.log(text)
+},[body])
+  
 
   return (
     <div className="form mt-5">
@@ -132,6 +139,7 @@ const[cover,setC] = useState('')
                         const data = editor.getData();
                         console.log( { event, editor, data } );
                         setB(data)
+                        
                         console.log(body)
                     } }
                     onBlur={ ( event, editor ) => {
@@ -143,6 +151,7 @@ const[cover,setC] = useState('')
                 />
                 </div>
                 <button className="btn btn-outline-dark" onClick={submit}>SUBMIT</button>
+                <div id="editorContent" style={{display:'block'}}></div>
     </div>
   );
 }
