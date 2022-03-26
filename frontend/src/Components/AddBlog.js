@@ -60,10 +60,10 @@ const[cover,setC] = useState('')
   const tagArr = JSON.stringify(array)
   const coverImg = cover
   const blogTitle = title
-  // const content = body
-  const content = text
-  console.log(tagArr,coverImg,blogTitle,content)
-  dispatch(createBlogAction({coverImg,blogTitle,content,tagArr}))
+  const content = body
+  const desc = text
+  // console.log(tagArr,coverImg,blogTitle,content)
+  dispatch(createBlogAction({coverImg,blogTitle,content,tagArr,desc}))
   }
 
 

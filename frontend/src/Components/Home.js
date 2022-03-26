@@ -32,14 +32,14 @@ function Home() {
       {trending&&music&&code?
       <>
       {/* style="max-width: 540px;" */}
-      <h3>Top Article of the Day</h3>
+      <h3 className=' top'>Top Article of the Day</h3>
       <div class="card mb-3" >
   <div class="row g-0">
     <div class="col-md-8">
       <div class="card-body">
-        <h5 class="card-title">Card title</h5>
-        <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-        <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+        <h5 class="card-title">{trending[0].title}</h5>
+        <p class="card-text">{trending[53].desc}</p>
+        {/* <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p> */}
       </div>
     </div>
     <div class="col-md-4">
@@ -47,7 +47,10 @@ function Home() {
     </div>
   </div>
 </div>
+<div className=" cat d-flex justify-content-between align-content-center mt-5">
 <h3>Most Popular </h3>
+<a className='link' href=''>View More --></a>
+</div>
 <div className="trending row row-cols-1 row-cols-sm-2 g-4">
 <div class="col " style={{width:'40%'}}>
     <div class="card h-100" >
@@ -79,6 +82,48 @@ function Home() {
 <div class="col" style={{width:'40%'}}>
     <div class="card h-100">
       <img src={trending[4].coverImg} class="card-img-top homeImage" alt="..."></img>
+      <div class="card-body">
+        <h5 class="card-title">Card title</h5>
+        <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+      </div>
+    </div>
+  </div>
+</div>
+<div className=" cat d-flex justify-content-between align-content-center mt-5">
+<h3>Category 1 </h3>
+<a href='' className='link'>View More --></a>
+</div>
+<div className="trending row row-cols-1 row-cols-sm-2 g-4">
+<div class="col " style={{width:'40%'}}>
+    <div class="card h-100" >
+      <img src={trending[7].coverImg} class="card-img-top homeImage" alt="..."></img>
+      <div class="card-body">
+        <h5 class="card-title">Card title</h5>
+        <p class="card-text">{trending[1].content}</p>
+      </div>
+    </div>
+  </div>
+<div class="col " style={{width:'60%'}}>
+    <div class="card h-100">
+      <img src={trending[8].coverImg} class="card-img-top homeImage" alt="..."></img>
+      <div class="card-body">
+        <h5 class="card-title">Card title</h5>
+        <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+      </div>
+    </div>
+  </div>
+<div class="col" style={{width:'60%'}}>
+    <div class="card h-100">
+      <img src={trending[6].coverImg} class="card-img-top homeImage" alt="..."></img>
+      <div class="card-body">
+        <h5 class="card-title">Card title</h5>
+        <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+      </div>
+    </div>
+  </div>
+<div class="col" style={{width:'40%'}}>
+    <div class="card h-100">
+      <img src={trending[5].coverImg} class="card-img-top homeImage" alt="..."></img>
       <div class="card-body">
         <h5 class="card-title">Card title</h5>
         <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>

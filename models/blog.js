@@ -36,6 +36,10 @@ const blogSchema = new Mongoose.Schema({
   },
   likeCount:{
     type: Number
+  },
+  desc:{
+    type: String,
+    required:true
   }
 });
 

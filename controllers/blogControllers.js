@@ -40,21 +40,22 @@ const getBlogByID = async (req, res) => {
 
 const addNewBlog = async (req, res) => {
   console.log(req.body)
-  res.send(req.body)
+  // res.send(req.body)
   try {
-    const { coverImg,blogTitle,content,tagArr,draft } = req.body;
+    const { coverImg,blogTitle,content,tagArr,draft,desc } = req.body;
+
     // console.log(tags)
-    if (!content) {
-      res.status(500).send("content cannot be blank");
-    }
+    // if (!content) {
+    //   res.status(500).send("content cannot be blank");
+    // }
     tags = JSON.parse(tagArr)
-    if(tags.length===0){
+    // if(tags.length===0){
       
-      res.status(500).send("select atleast 1 tag");
-    }
-    if(!coverImg){
-      res.status(500).send('select cover image')
-    }
+    //   res.status(500).send("select atleast 1 tag");
+    // }
+    // if(!coverImg){
+    //   res.status(500).send('select cover image')
+    // }
     const author = req.userid;
     console.log(author);
     const doc = new blog({
@@ -62,15 +63,16 @@ const addNewBlog = async (req, res) => {
       content: content,
       author: author,
       coverImg: coverImg,
-      draft:draft
+      draft:draft,
+      desc:desc
     });
     await doc.save();
     const update = { $push: { tags: tags } };
          blog.findOneAndUpdate({_id:doc._id}, update, {
             new: true,
           })
-          .then((doc) => res.status(200).send('Submitted'))
-          .catch((e) => res.status(500).send("Something went wrong !"));
+          .then((doc) => res.status(200))
+          .catch((e) => {console.log(e);res.status(500).send("Something went wrong !")});
     
     // res.status(200).send("submitted")
   } catch (error) {
@@ -187,7 +189,7 @@ const comment = (req,res) => {
 
 const updateBlog = async (req, res) => {
   try {
-    const { coverImg,blogTitle,content,tagArr,draft,id } = req.body;
+    const { coverImg,blogTitle,content,tagArr,draft,id,desc} = req.body;
     
     // const id = req.params.id;
     // const filter = { _id: req.params.id };
@@ -205,6 +207,7 @@ const updateBlog = async (req, res) => {
       coverImg: coverImg,
       date: Date.now(),
       $pullAll : {tags:b.tags},
+      desc:desc
       // $push:{}
     };
     await blog.findOneAndUpdate(filter, update, {

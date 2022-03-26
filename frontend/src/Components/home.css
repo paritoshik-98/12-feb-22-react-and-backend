@@ -1,5 +1,9 @@
+*{
+    color: #2E0300;
+
+}
 .home{
-    margin: 10vh 10vw 10vh 10vw;
+    margin: 5vh 10vw 10vh 10vw;
 }
 
 .homeImage{
@@ -9,4 +13,23 @@
 
 .left{
     width: 35vw;
+}
+
+.link{
+    color: #2E0300;
+    text-decoration: none;
+}
+
+.trending{
+    /* border-top: 0.8px solid #2E0300; */
+}
+
+.cat{
+    padding-top: 5vh;
+    padding-bottom: 5vh;
+    border-top:0.8px solid #2E0300;
+}
+
+.top{
+    margin-bottom: 5vh;
 }
