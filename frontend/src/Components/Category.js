@@ -53,9 +53,18 @@ function Category() {
       else return false
     }
     
+    const[searchQuery,setQuery] = useState('')
+
+    const search = () => {
+      console.log(searchQuery)
+    }
 
   return (
     <div className='category'>
+      <div className="search d-flex">
+      <input type="text" value={searchQuery} onChange={(e)=>setQuery(e.target.value)} className='w-50'/>
+      <button onClick={()=>console.log(searchQuery)}>Search</button>
+      </div>
       <h3>Page of {pageNumber + 1}</h3>
       {blogs?
       <>

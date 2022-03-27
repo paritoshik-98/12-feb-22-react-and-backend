@@ -5,11 +5,29 @@ const authuser = require('../middleware/authMiddleware')
 
 const {comment,deleteBlog,updateBlog,addNewBlog,getBlogByTag,getMostLikedBlog,getBlogByID,myBlogs,like,unlike} = require('../controllers/blogControllers')
 
+
+
 router.get('/all/:page?',authuser,async(req,res)=>{
   const PAGE_SIZE = 5
   const page = req.params.page||0
   const total = await Blog.countDocuments({})
   const posts = await Blog.find({}).populate("author", "_id name profile_pic").sort({likeCount:-1})
+  .limit(PAGE_SIZE)
+  .skip(PAGE_SIZE*page)
+  // console.log(total,posts)
+  res.status(200).json({
+    totalPages : Math.ceil(total/PAGE_SIZE),
+    posts: posts
+  })
+})
+
+router.get('/search/:query/:page?',authuser,async(req,res)=>{
+  const PAGE_SIZE = 5
+  const page = req.params.page||0
+  const string = req.params.query
+  const regex = new RegExp(string, 'i') 
+  const total = await Blog.countDocuments({title:{$regex:regex}})
+  const posts = await Blog.find({title:{$regex:regex}}).populate("author", "_id name profile_pic").sort({likeCount:-1})
   .limit(PAGE_SIZE)
   .skip(PAGE_SIZE*page)
   // console.log(total,posts)
