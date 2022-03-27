@@ -2,6 +2,7 @@ const blog = require("../models/blog");
 
 // most liked blog
 const getMostLikedBlog = async (req, res) => {
+  console.log(req.params.page)
   try {
     const doc = await blog.find({}).populate("author", "_id name profile_pic").sort({likeCount:-1})
     let i=0

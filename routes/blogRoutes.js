@@ -9,9 +9,11 @@ const {comment,deleteBlog,updateBlog,addNewBlog,getBlogByTag,getMostLikedBlog,ge
 
 router.get('/trending',authuser,getMostLikedBlog);
 
+router.get('/trendingpage:page?',authuser,getMostLikedBlog);
+
 router.get('/:tag',authuser,getBlogByTag);
 
-router.get('/blogId',authuser,getBlogByID);
+// router.get('/blogId',authuser,getBlogByID);
 
 router.get('/get/myBlogs',authuser,myBlogs);
 
@@ -75,12 +77,12 @@ router.post('/image_upload',upload.single('upload'),(req,res)=>{
   }
     })
 
+   
 
-    router.get('/posts',authuser,async(req,res)=>{
+    router.get('/posts:page?',authuser,async(req,res)=>{
       console.log('route')
       const PAGE_SIZE = 5
-      console.log(req.params.page)
-      const page = req.params.page
+      const page = req.params.page||0
       const total = await Blog.countDocuments({})
       const posts = await Blog.find({})
       .limit(PAGE_SIZE)
