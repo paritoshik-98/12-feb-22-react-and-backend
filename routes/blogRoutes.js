@@ -1,6 +1,6 @@
 const express = require('express')
 const router = express.Router()
-const blog = require('../models/blog')
+const Blog = require('../models/blog')
 const authuser = require('../middleware/authMiddleware')
 
 const {comment,deleteBlog,updateBlog,addNewBlog,getBlogByTag,getMostLikedBlog,getBlogByID,myBlogs,like,unlike} = require('../controllers/blogControllers')
@@ -11,7 +11,7 @@ router.get('/trending',authuser,getMostLikedBlog);
 
 router.get('/:tag',authuser,getBlogByTag);
 
-router.get('/blogId/:id',authuser,getBlogByID);
+router.get('/blogId',authuser,getBlogByID);
 
 router.get('/get/myBlogs',authuser,myBlogs);
 
@@ -74,6 +74,24 @@ router.post('/image_upload',upload.single('upload'),(req,res)=>{
     res.status(500).send('Something went wrong !')
   }
     })
+
+
+    router.get('/posts',authuser,async(req,res)=>{
+      console.log('route')
+      const PAGE_SIZE = 5
+      console.log(req.params.page)
+      const page = req.params.page
+      const total = await Blog.countDocuments({})
+      const posts = await Blog.find({})
+      .limit(PAGE_SIZE)
+      .skip(PAGE_SIZE*page)
+      // console.log(total,posts)
+      res.status(200).json({
+        totalPages : Math.ceil(total/PAGE_SIZE),
+        posts
+      })
+    })
+
 
 module.exports = router
 
