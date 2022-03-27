@@ -1,3 +1,14 @@
 .category{
     margin: 10vh 10vw 10vh 10vw;
 }
+
+.cat_card{
+    height: 30vh;
+}
+
+.cat_card img{
+    height: 30vh;
+    object-fit: cover;
+    width: 100%;
+    border-radius: none;
+}

@@ -58,12 +58,79 @@ function Category() {
     <div className='category'>
       <h3>Page of {pageNumber + 1}</h3>
       {blogs?
-      blogs.map(blog=>{
-        return(
-        <div  className='bloc'>
-          <h7>{blog.title}</h7>
-        </div>)
-      }):<h1>Loading...</h1>}
+      <>
+          <div class=" cat_card card mb-3" >
+          <div class="row g-0">
+            <div class="col-md-8">
+              <div class="card-body">
+                <h5 class="card-title">{blogs[0].title}</h5>
+                <p class="card-text">{blogs[0].desc}</p>
+                {/* <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p> */}
+              </div>
+            </div>
+            <div class="col-md-4">
+              <img src={blogs[0].coverImg} class="img-fluid " alt="..."></img>
+            </div>
+          </div>
+        </div>
+          <div class=" cat_card card mb-3" >
+          <div class="row g-0">
+            <div class="col-md-4">
+              <img src={blogs[1].coverImg} class="img-fluid " alt="..."></img>
+            </div>
+            <div class="col-md-8">
+              <div class="card-body">
+                <h5 class="card-title">{blogs[1].title}</h5>
+                <p class="card-text">{blogs[1].desc}</p>
+                {/* <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p> */}
+              </div>
+            </div>
+          </div>
+        </div>
+          <div class=" cat_card card mb-3" >
+          <div class="row g-0">
+            <div class="col-md-8">
+              <div class="card-body">
+                <h5 class="card-title">{blogs[2].title}</h5>
+                <p class="card-text">{blogs[2].desc}</p>
+                {/* <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p> */}
+              </div>
+            </div>
+            <div class="col-md-4">
+              <img src={blogs[2].coverImg} class="img-fluid " alt="..."></img>
+            </div>
+          </div>
+        </div>
+          <div class=" cat_card card mb-3" >
+          <div class="row g-0">
+            <div class="col-md-4">
+              <img src={blogs[3].coverImg} class="img-fluid " alt="..."></img>
+            </div>
+            <div class="col-md-8">
+              <div class="card-body">
+                <h5 class="card-title">{blogs[3].title}</h5>
+                <p class="card-text">{blogs[3].desc}</p>
+                {/* <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p> */}
+              </div>
+            </div>
+          </div>
+        </div>
+          <div class=" cat_card card mb-3" >
+          <div class="row g-0">
+            <div class="col-md-8">
+              <div class="card-body">
+                <h5 class="card-title">{blogs[4].title}</h5>
+                <p class="card-text">{blogs[4].desc}</p>
+                {/* <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p> */}
+              </div>
+            </div>
+            <div class="col-md-4">
+              <img src={blogs[4].coverImg} class="img-fluid " alt="..."></img>
+            </div>
+          </div>
+        </div>
+        </>
+      :<h1>Loading...</h1>}
       
       <button onClick={gotoPrevious}>Previous</button>
       {pages.map(function(pageIndex){
@@ -81,3 +148,4 @@ function Category() {
 }
 
 export default Category
+
