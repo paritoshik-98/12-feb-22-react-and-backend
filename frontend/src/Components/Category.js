@@ -14,12 +14,17 @@ function Category() {
 
     const [blogs,setBlogs] = useState()
 
+   
+
     useEffect(()=>{
         axios.get(`/api/blog/all/${pageNumber}`).then(res=>res.data).then(data=>{
           setBlogs(data.posts)
           setNumberOfPages(data.totalPages)
+          
         })
     },[pageNumber])
+
+    const pages = new Array(numberOfPages).fill(null).map((value,index)=>index)
 
     const gotoPrevious = () => {
       setPageNumber(Math.max(0, pageNumber - 1));
@@ -28,6 +33,25 @@ function Category() {
     const gotoNext = () => {
       setPageNumber(Math.min(numberOfPages - 1, pageNumber + 1));
     };
+
+    const comparePageNo = (index) => {
+      if(pageNumber==0 && index<4){
+        return true
+      }
+      if(pageNumber==1 && index<4){
+        return true
+      }
+      if(pageNumber==2 && index<4){
+        return true
+      }
+      if(pageNumber>2 && pageNumber!=numberOfPages && index<pageNumber+2 && index>=pageNumber-2){
+        return true
+      }
+      if(pageNumber==numberOfPages-1 && index>=numberOfPages-4){
+        return true
+      }
+      else return false
+    }
     
 
   return (
@@ -42,11 +66,15 @@ function Category() {
       }):<h1>Loading...</h1>}
       
       <button onClick={gotoPrevious}>Previous</button>
-      {/* {pages.map((pageIndex) => (
+      {pages.map(function(pageIndex){
+        if(comparePageNo(pageIndex)){
+        return(
         <button key={pageIndex} onClick={() => setPageNumber(pageIndex)}>
           {pageIndex + 1}
         </button>
-      ))} */}
+        )}
+        else return null
+})}
       <button onClick={gotoNext}>Next</button>
     </div>
   )
