@@ -5,6 +5,19 @@ const authuser = require('../middleware/authMiddleware')
 
 const {comment,deleteBlog,updateBlog,addNewBlog,getBlogByTag,getMostLikedBlog,getBlogByID,myBlogs,like,unlike} = require('../controllers/blogControllers')
 
+router.get('/all/:page?',authuser,async(req,res)=>{
+  const PAGE_SIZE = 5
+  const page = req.params.page||0
+  const total = await Blog.countDocuments({})
+  const posts = await Blog.find({})
+  .limit(PAGE_SIZE)
+  .skip(PAGE_SIZE*page)
+  // console.log(total,posts)
+  res.status(200).json({
+    totalPages : Math.ceil(total/PAGE_SIZE),
+    posts: posts
+  })
+})
 // router.get('/all',authuser,getBlo);
 
 router.get('/trending',authuser,getMostLikedBlog);

@@ -63,7 +63,7 @@ function App() {
 <Route exact path = '/edit/:id' element = {<EditBlog/>}></Route>
 <Route exact path = '/recoverPassword' element = {<Recover/>}></Route>
 <Route exact path = '/reset/:jwt' element = {<Reset/>}></Route>
-<Route exact path = '/category/:tag' element = {<Category/>}></Route>
+<Route exact path = '/getAll' element = {<Category/>}></Route>
 </Routes>
   <Footer/>
 </div>
