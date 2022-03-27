@@ -18,7 +18,7 @@ function Home() {
     
   useEffect(()=>{
     // dispatch(getBlogListAction())
-    axios.get('/api/blog/trending').then(res=>setTrending(res.data)).catch(e=>console.log(e))
+    axios.get('/api/blog/all').then(res=>setTrending(res.data.posts)).catch(e=>console.log(e))
     axios.get('/api/blog/code').then(res=>setCode(res.data)).catch(e=>console.log(e))
     axios.get('/api/blog/music').then(res=>setMusic(res.data)).catch(e=>console.log(e))
   },[])
@@ -39,7 +39,12 @@ function Home() {
     <div class="col-md-8">
       <div class="card-body">
         <h5 class="card-title">{trending[0].title}</h5>
+        <div className="authorInfo  d-flex">
+          <img className='auth_pic align-self-center' src={trending[0].author.profile_pic}></img>
+          <h7 className='align-self-center'>{trending[0].author.name}</h7>
+        </div>
         <p class="card-text">{trending[0].desc}</p>
+        <Link to ={`/read/${trending[0]._id}`} >Read More ..</Link>
         {/* <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p> */}
       </div>
     </div>
@@ -57,8 +62,8 @@ function Home() {
     <div class="card h-100" >
       <img src={trending[1].coverImg} class="card-img-top homeImage" alt="..."></img>
       <div class="card-body">
-        <h5 class="card-title">Card title</h5>
-        <p class="card-text">{trending[1].content}</p>
+        <h5 class="card-title">{trending[1].title}</h5>
+        <p class="card-text">{trending[1].desc}</p>
       </div>
     </div>
   </div>
@@ -66,7 +71,7 @@ function Home() {
     <div class="card h-100">
       <img src={trending[2].coverImg} class="card-img-top homeImage" alt="..."></img>
       <div class="card-body">
-        <h5 class="card-title">Card title</h5>
+        <h5 class="card-title">{trending[2].title}</h5>
         <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
       </div>
     </div>
@@ -75,7 +80,7 @@ function Home() {
     <div class="card h-100">
       <img src={trending[3].coverImg} class="card-img-top homeImage" alt="..."></img>
       <div class="card-body">
-        <h5 class="card-title">Card title</h5>
+        <h5 class="card-title">{trending[3].title}</h5>
         <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
       </div>
     </div>
@@ -84,7 +89,7 @@ function Home() {
     <div class="card h-100">
       <img src={trending[4].coverImg} class="card-img-top homeImage" alt="..."></img>
       <div class="card-body">
-        <h5 class="card-title">Card title</h5>
+        <h5 class="card-title">{trending[4].title}</h5>
         <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
       </div>
     </div>

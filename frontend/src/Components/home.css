@@ -2,6 +2,14 @@
     color: #2E0300;
 
 }
+.auth_pic{
+    border-radius: 50%;
+    height: 6vh;
+    margin-right: 15px;
+}
+.authInfo{
+    height: 8vh;
+}
 .home{
     margin: 5vh 10vw 10vh 10vw;
 }

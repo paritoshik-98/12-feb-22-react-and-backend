@@ -5,19 +5,22 @@ import '../Axios'
 
 function Profile() {
 
-  const [loading,setLoading] = useState()
   const [profile,setProfile] = useState()
+
+  const [Loading,setLoading] = useState()
 
   useEffect(()=>{
     setLoading(true)
     axios.get('/api/user/profile').then(res=>{
       setLoading(false)
       setProfile(res.data)})
+
   },[])
+
 
   return (
     <div className="profile">
-      {loading?<h1>Loading...</h1>:null}
+      {Loading?<h1>Loading...</h1>:null}
       {profile?
       <div className="display">
         {JSON.stringify(profile)}

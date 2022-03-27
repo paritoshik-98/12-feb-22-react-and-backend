@@ -64,10 +64,11 @@ export const getBlogListAction = () => (dispatch) => {
 } 
 
 
+
 export const fetchBlogAction = (id) => (dispatch) => {
     try {
         dispatch({type:'BLOG_FETCH_REQUEST'})
-        const path = '/api/blog/'+id
+        const path = '/api/blog/read/'+id
         axios.get(path).then(res=>{
         if(res.status===200){
             dispatch({type:'BLOG_FETCH_SUCCESS',payload:res.data})

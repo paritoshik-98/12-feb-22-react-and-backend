@@ -9,7 +9,7 @@ router.get('/all/:page?',authuser,async(req,res)=>{
   const PAGE_SIZE = 5
   const page = req.params.page||0
   const total = await Blog.countDocuments({})
-  const posts = await Blog.find({})
+  const posts = await Blog.find({}).populate("author", "_id name profile_pic").sort({likeCount:-1})
   .limit(PAGE_SIZE)
   .skip(PAGE_SIZE*page)
   // console.log(total,posts)
@@ -26,9 +26,9 @@ router.get('/trendingpage:page?',authuser,getMostLikedBlog);
 
 router.get('/:tag',authuser,getBlogByTag);
 
-// router.get('/blogId',authuser,getBlogByID);
+router.get('/read/:id',authuser,getBlogByID);
 
-router.get('/get/myBlogs',authuser,myBlogs);
+router.get('/get/myblogs',authuser,myBlogs);
 
 router.post('/add',authuser,addNewBlog);
 // router.post('/add',addNewBlog);
@@ -74,6 +74,7 @@ const storage = new CloudinaryStorage({
 });
 ///////////////////////////////////////////multer image handling////////////////
 var multer = require('multer');
+const blog = require('../models/blog')
 
 var upload = multer({ storage: storage });
 
