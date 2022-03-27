@@ -54,17 +54,40 @@ function Category() {
     }
     
     const[searchQuery,setQuery] = useState('')
+    const[searchPage,setSearchPage] = useState(0)
+    const[result,setResult] = useState([])
+    const[totalSearchPages,setTotalSearchPages] = useState()
 
     const search = () => {
-      console.log(searchQuery)
+      axios.get(`/api/blog/search/${searchQuery}/${searchPage}`).then(res=>res.data).then(data=>{
+        setResult(data.posts)
+        setTotalSearchPages(data.totalPages)
+      })
     }
+
+    const [sDisplay,setSdisplay] = useState(false)
 
   return (
     <div className='category'>
       <div className="search d-flex">
       <input type="text" value={searchQuery} onChange={(e)=>setQuery(e.target.value)} className='w-50'/>
-      <button onClick={()=>console.log(searchQuery)}>Search</button>
+      <button onClick={()=>{
+        axios.get(`/api/blog/search/${searchQuery}/${searchPage}`).then(res=>res.data).then(data=>{
+          setSdisplay(true)
+          setResult(data.posts)
+          setTotalSearchPages(data.totalPages)
+        })
+      }}>Search</button>
+      <button onClick={()=>{
+        setSdisplay(false)
+      }}>X</button>
       </div>
+      {sDisplay?totalSearchPages==0?<h1>Not found</h1>:<>{JSON.stringify(result)}</>:null}
+
+
+      {!sDisplay?
+      <>
+      
       <h3>Page of {pageNumber + 1}</h3>
       {blogs?
       <>
@@ -140,6 +163,10 @@ function Category() {
         </div>
         </>
       :<h1>Loading...</h1>}
+
+      </>
+      :null}
+
       
       <button onClick={gotoPrevious}>Previous</button>
       {pages.map(function(pageIndex){
