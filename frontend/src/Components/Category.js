@@ -20,6 +20,14 @@ function Category() {
           setNumberOfPages(data.totalPages)
         })
     },[pageNumber])
+
+    const gotoPrevious = () => {
+      setPageNumber(Math.max(0, pageNumber - 1));
+    };
+  
+    const gotoNext = () => {
+      setPageNumber(Math.min(numberOfPages - 1, pageNumber + 1));
+    };
     
 
   return (
@@ -33,7 +41,13 @@ function Category() {
         </div>)
       }):<h1>Loading...</h1>}
       
-        
+      <button onClick={gotoPrevious}>Previous</button>
+      {/* {pages.map((pageIndex) => (
+        <button key={pageIndex} onClick={() => setPageNumber(pageIndex)}>
+          {pageIndex + 1}
+        </button>
+      ))} */}
+      <button onClick={gotoNext}>Next</button>
     </div>
   )
 }
