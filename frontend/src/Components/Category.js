@@ -17,11 +17,19 @@ function Category() {
    
 
     useEffect(()=>{
+      if(tag==='all'){
         axios.get(`/api/blog/all/${pageNumber}`).then(res=>res.data).then(data=>{
           setBlogs(data.posts)
           setNumberOfPages(data.totalPages)
           
         })
+      }
+      else{
+        axios.get(`/api/blog/${tag}/${pageNumber}`).then(res=>res.data).then(data=>{
+          setBlogs(data.posts)
+          setNumberOfPages(data.totalPages)
+      })
+    }
     },[pageNumber])
 
     const pages = new Array(numberOfPages).fill(null).map((value,index)=>index)

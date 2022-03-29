@@ -7,9 +7,11 @@ const {comment,deleteBlog,updateBlog,addNewBlog,getBlogByTag,getMostLikedBlog,ge
 
 
 
-router.get('/all/:page?',authuser,async(req,res)=>{
+router.get('/:cat/:page?',authuser,async(req,res)=>{
+  const {cat} = req.params
   const PAGE_SIZE = 5
   const page = req.params.page||0
+  if(cat=='all'){
   const total = await Blog.countDocuments({})
   const posts = await Blog.find({}).populate("author", "_id name profile_pic").sort({likeCount:-1})
   .limit(PAGE_SIZE)
@@ -19,6 +21,18 @@ router.get('/all/:page?',authuser,async(req,res)=>{
     totalPages : Math.ceil(total/PAGE_SIZE),
     posts: posts
   })
+}
+else{
+  const total = await Blog.countDocuments({tags:cat})
+  const posts = await Blog.find({tags:cat}).populate("author", "_id name profile_pic").sort({likeCount:-1})
+  .limit(PAGE_SIZE)
+  .skip(PAGE_SIZE*page)
+  // console.log(total,posts)
+  res.status(200).json({
+    totalPages : Math.ceil(total/PAGE_SIZE),
+    posts: posts
+  })
+}
 })
 
 router.get('/search/:query/:page?',authuser,async(req,res)=>{
