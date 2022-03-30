@@ -2,10 +2,21 @@
     text-decoration: none;
     /* margin-right: 2vw; */
 }
+.cmt_input{
+    padding: 8px!;
+    flex: 1 ;
+    border: 0.8px solid #2E0300 ! ;
+}
 
+.del_cmt_btn{
+    border: none;
+    background-color: #F8F8F8;
+}
 .comments_cont{
+    background-color: white;
     border: 0.8px solid #2E0300;
-    padding: 10px;
+    /* border-radius: 10px; */
+    padding: 20px;
     margin-top: 5vh;
 }
 
@@ -65,10 +76,22 @@
 }
 
 .comment{
-    border: none;
     background-color: #F8F8F8;
+    border: 0.8px solid #2E0300;
+    border-radius: 5px;
+    padding: 10px;
 }
 
 .read-a-h{
     padding-top: 1vh;
+}
+
+.sbt_cmt{
+    width: 10%;
+    padding-left: 1vw;
+}
+
+.comment-btn{
+    border: none;
+    background-color: #F8F8F8;
 }

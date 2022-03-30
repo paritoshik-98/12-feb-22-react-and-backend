@@ -7,8 +7,8 @@ import { useParams } from 'react-router-dom'
 import { fetchBlogAction, like } from '../REDUX/Actions/blogActions'
 import './read.css'
 
-import { AiFillDelete } from 'react-icons/ai';
-import { AiOutlineHeart } from 'react-icons/ai';
+import { MdDelete } from 'react-icons/md';
+import { MdSend } from 'react-icons/md';
 import { FcLike } from 'react-icons/fc';
 import { FcLikePlaceholder } from 'react-icons/fc';
 import { BiCommentDetail } from 'react-icons/bi';
@@ -16,6 +16,8 @@ import { BsBookmark } from 'react-icons/bs';
 import { BsFillBookmarkCheckFill } from 'react-icons/bs';
 import { ImShare } from 'react-icons/im';
 import { FaShareSquare } from 'react-icons/fa';
+import { BsBookmarkPlus } from 'react-icons/bs';
+
 
 
 
@@ -190,7 +192,7 @@ const toggle = () => setTC(!toggleComments)
          <button className='r-mark' onClick={markHandler}>
         {<BsFillBookmarkCheckFill size={30}/>}</button>
          :
-        <button className='r-mark'onClick={markHandler}>{<BsBookmark size={30}/>}</button>
+        <button className='r-mark'onClick={markHandler}>{<BsBookmarkPlus size={30}/>}</button>
 
           :null}
         <a href="#share" id='s_link' className='align-self-center text-muted fw-bold'><ImShare size={30}/></a>
@@ -206,7 +208,7 @@ const toggle = () => setTC(!toggleComments)
           <h5 className=' align-self-center text-muted l_count'>{likes.length}</h5>
         </div>
         <div className="comment-div d-flex">
-          <button className='comment' onClick={()=>setTC(!toggleComments)}><BiCommentDetail size={28}/></button>
+          <button className='comment-btn' onClick={()=>setTC(!toggleComments)}><BiCommentDetail size={28}/></button>
           <h5 className=' align-self-center text-muted c_count'>{comments.length}</h5>
         </div>
         </div>
@@ -228,23 +230,31 @@ const toggle = () => setTC(!toggleComments)
         {/* <button onClick={toggle}>Comments</button> */}
         {toggleComments?
         <div className="comments_cont">
+          <h5 className='mb-3'>Comments </h5>
         {comments?comments.map(c=>{ return (
-        <div className='comment'>
-          <div><p>{c.text}</p>{c.userId===user.id? <button id={c._id} onClick={()=>{
-
+        <div className='comment mb-3'>
+          <div className='d-flex justify-content-between '  >
+          <div><p className='text-muted mb-0'>{c.userName} :- </p>
+          {/* <p className='mb-0' ><b>{c.text}</b></p></div> */}
+          <p className='mb-0' ><i><b>{c.text}</b></i></p></div>
+          <div className='align-self-center'>
+          {c.userId===user.id? <button className='del_cmt_btn ' id={c._id} onClick={()=>{
             // console.log('del',c._id);
             const path = `/api/blog/${id}/comment/delete`;
   axios.put(path,{cid:c._id}).then(res=>setComments(res.data))
 
-            }}>del</button>:null}</div>
-          <div><p>posted by : {c.userName}</p></div>
+            }}><MdDelete size={30}/></button>:null}
+            </div>
+            
+            </div>
+          
         </div>
         )
         }):null}
-        <div className="comment-form">
-        <label className='' htmlFor='c'></label>
-        <input type="text" className='' id='c' onChange={change} value={inputC}/>
-        <button className='submitC btn btn-outline-dark ' onClick={addComment}>SUBMIT</button>
+        <h5>Add Comment</h5>
+        <div className="comment-form d-flex">
+        <input type="text" className='cmt_input ' id='c' onChange={change} value={inputC}/>
+        <div className='sbt_cmt'><button className='btn btn-outline-dark submitC  ' onClick={addComment}>SUBMIT</button></div>
         </div>
         {JSON.stringify(comments)}
       </div>

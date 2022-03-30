@@ -39,14 +39,14 @@ border-radius: 5px;
     border : 0.8px solid silver;
 }
 
-input[type='text']{
+#t{
     
     align-self: flex-end;
     border: none;
     width: 55vw;
     border-bottom: 0.8px solid silver;
 }
-input[type='text']:focus{
+#t:focus{
     outline: none;    
 }
 
