@@ -243,8 +243,8 @@ const toggle = () => setTC(!toggleComments)
         }):null}
         <div className="comment-form">
         <label className='' htmlFor='c'></label>
-        <input type="text" id='c' onChange={change} value={inputC}/>
-        <button className='submitC' onClick={addComment}>SUBMIT</button>
+        <input type="text" className='form-control' id='c' onChange={change} value={inputC}/>
+        <button className='submitC btn btn-outline-dark ' onClick={addComment}>SUBMIT</button>
         </div>
         {JSON.stringify(comments)}
       </div>

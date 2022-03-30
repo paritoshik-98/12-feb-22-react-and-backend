@@ -3,7 +3,9 @@
     /* margin-right: 2vw; */
 }
 
-
+#c:focus{
+box-shadow: none;
+}
 
 .content{
     margin:5vh 10vw 5vh 10vw;
