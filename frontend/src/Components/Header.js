@@ -26,9 +26,11 @@ function Header() {
       <p className='name'><strong>ReadBloc.in</strong></p>
       </div>
 
-      <div className='links'>
+      <div className='h-links'>
+        <Link to='/home'>Home</Link>
         <Link to='/about'>About Us</Link>
         {/* <a href="" className='link'>About Us</a> */}
+        <Link to='/add'>Write</Link>
         {userLogin.user?<Link to = '/profile'>My Profile</Link>:null}
         {userLogin.user?<button onClick={logout}>Logout</button>:<Link to = '/'>Login</Link>}
         {/* <a href="" className='link'>Login</a> */}

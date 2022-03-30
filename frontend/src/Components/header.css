@@ -20,12 +20,12 @@ header{
     margin-right: 20px;
 }
 
-.links{
+.h-links{
     display: flex;
     justify-content: space-between;
     align-items: center;
     color: #2E0300;
-    width:25%
+    width:35%
 }
 
 .name{

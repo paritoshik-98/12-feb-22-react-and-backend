@@ -12,10 +12,10 @@ function Footer() {
             <h1 className=' mx-3 align-self-center'> BlocRead.in</h1>
           </div>
           <div className='main text-center w-100 w-sm-75 mx-3 mx-sm-0'><p >Lorem ipsum dolor, sit amet consectetur adipisicing elit. Distinctio ab reiciendis officia aspernatur tempora voluptas facilis dolorem tenetur, dolor fugiat placeat dolore suscipit enim ex exercitationem porro quae incidunt aut.</p></div>
-          <div className='  mx-3 mx-sm-0 links d-flex justify-content-around'>
-             <a className='link' href="">Login</a>
-             <a className='link' href="">Write</a>
-             <a className='link' href="">Donate</a>
+          <div className='  mx-3 f-links d-flex  justify-content-around'>
+             <a className='link' href="">Contact Us</a>
+             <a className='link' href="">Privacy Policy</a>
+             <a className='link' href="">Contribute</a>
          </div>
       </footer>
     //   <div className='container'>
