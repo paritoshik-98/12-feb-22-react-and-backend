@@ -10,7 +10,7 @@ const blogSchema = new Mongoose.Schema({
   },
   date: {
     type: Date,
-    default: Date.now,
+    default: (new Date).toISOString().split('T')[0],
   },
   draft:{
     type:Boolean,

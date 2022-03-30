@@ -1,3 +1,6 @@
+// for testing
+// http://localhost:3000/read/6244287355a8ef62001c830e
+
 import React, { useEffect, useState} from 'react'
 import { useDispatch, useSelector, shallowEqual } from 'react-redux'
 import { useParams } from 'react-router-dom'
@@ -83,6 +86,7 @@ function Read() {
         setLikes(getblog.blog.likes)
         setComments(getblog.blog.comments)
         setA(getblog.blog.author)
+        setDate(getblog.blog.date)
         // console.log(author.name,author.profile_pic)
 }
 
@@ -91,6 +95,7 @@ function Read() {
     ,[getblog.blog])
     
 
+const[date,setDate]=useState()
 
 const [likes,setLikes] = useState()
 
@@ -146,10 +151,13 @@ const toggle = () => setTC(!toggleComments)
     getblog.blog?
     <div className="content">
       {/* {  getblog.blog.likes ? getblog.blog.likes.includes(user.id) ? <FcLike/>:<AiOutlineHeart id='l'/>:null} */}
-        <img className='cover' src={getblog.blog.coverImg} alt="Cover Image" />
         <h1 className='title text-center'> {getblog.blog.title} </h1>
-        <h3>{getblog.blog.author.name}</h3>
-        <img src={getblog.blog.author.profile_pic}></img>
+        <div className="a d-flex">
+        <img className='r-pic' src={getblog.blog.author.profile_pic}></img>
+        <h3 className=' align-self-center'>{getblog.blog.author.name}</h3>
+        </div>
+        <p className='text-muted fw-bold'>{date.split('T')[0]}</p>
+        <img className='read-cover' src={getblog.blog.coverImg} alt="Cover Image" />
         <div className="body" id="c"></div> 
         <div className="likes">
           <button className='like' onClick={likeHandler}>{likes?likes.length>0?likes.includes(user.id)?<span><FcLike/>{likes.length.count}</span>:<span><AiOutlineHeart/>{likes.length.count}</span>:<span><AiOutlineHeart/>{likes.length.count}</span>:null}</button>
