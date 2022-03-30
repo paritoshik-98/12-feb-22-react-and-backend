@@ -3,8 +3,10 @@
     /* margin-right: 2vw; */
 }
 
-#c:focus{
-box-shadow: none;
+.comments_cont{
+    border: 0.8px solid #2E0300;
+    padding: 10px;
+    margin-top: 5vh;
 }
 
 .content{

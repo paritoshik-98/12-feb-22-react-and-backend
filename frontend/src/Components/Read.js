@@ -227,23 +227,23 @@ const toggle = () => setTC(!toggleComments)
         {/* </div> */}
         {/* <button onClick={toggle}>Comments</button> */}
         {toggleComments?
-        <div className="comments">
+        <div className="comments_cont">
         {comments?comments.map(c=>{ return (
         <div className='comment'>
-          <div><p>{c.text}</p>{c.postedBy===user.id? <button id={c._id} onClick={()=>{
+          <div><p>{c.text}</p>{c.userId===user.id? <button id={c._id} onClick={()=>{
 
             // console.log('del',c._id);
             const path = `/api/blog/${id}/comment/delete`;
   axios.put(path,{cid:c._id}).then(res=>setComments(res.data))
 
             }}>del</button>:null}</div>
-          <div><p>posted by : {c.postedBy}</p></div>
+          <div><p>posted by : {c.userName}</p></div>
         </div>
         )
         }):null}
         <div className="comment-form">
         <label className='' htmlFor='c'></label>
-        <input type="text" className='form-control' id='c' onChange={change} value={inputC}/>
+        <input type="text" className='' id='c' onChange={change} value={inputC}/>
         <button className='submitC btn btn-outline-dark ' onClick={addComment}>SUBMIT</button>
         </div>
         {JSON.stringify(comments)}

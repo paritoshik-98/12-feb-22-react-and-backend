@@ -26,7 +26,8 @@ const blogSchema = new Mongoose.Schema({
   comments: [
     {
       text: { type: String },
-      postedBy: { type: Mongoose.Schema.Types.ObjectId, ref: "user" },
+      userId: { type: Mongoose.Schema.Types.ObjectId, ref: "user" },
+      userName: { type: String }
     },
   ],
   tags: [{type:String}],

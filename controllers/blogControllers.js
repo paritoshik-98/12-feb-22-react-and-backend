@@ -1,4 +1,5 @@
 const blog = require("../models/blog");
+const user = require("../models/user");
 
 // most liked blog
 const getMostLikedBlog = async (req, res) => {
@@ -176,12 +177,12 @@ const deleteBlog = async (req, res) => {
   });
 };
 
-const comment = (req,res) => {
+const comment = async(req,res) => {
   console.log(req.body)
   try {
     const id = req.params.id;
     const filter = { _id: req.params.id };
-    const comment = { text:req.body.text,postedBy:req.userid }
+    const comment = { text:req.body.text,userName:req.name,userId:req.userid }
         const update = { $push: {comments:comment}  };
          blog.findOneAndUpdate(filter, update, {
             new: true,
