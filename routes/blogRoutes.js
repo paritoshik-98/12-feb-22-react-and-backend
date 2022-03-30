@@ -7,7 +7,7 @@ const {comment,deleteBlog,updateBlog,addNewBlog,getBlogByTag,getMostLikedBlog,ge
 
 
 
-router.get('/:cat/:page?',authuser,async(req,res)=>{
+router.get('/cat/:cat/:page?',authuser,async(req,res)=>{
   const {cat} = req.params
   const PAGE_SIZE = 5
   const page = req.params.page||0

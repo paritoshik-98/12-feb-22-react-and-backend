@@ -27,10 +27,9 @@ function Header() {
       </div>
 
       <div className='links'>
-        {/* {(path === '/add' || path === '/edit' || path === '/profile' )?(<div> */}
-        {/* .............. hi <name> .. */}
-      {/* </div>):(<></>)} */}
-        <a href="" className='link'>About Us</a>
+        <Link to='/about'>About Us</Link>
+        {/* <a href="" className='link'>About Us</a> */}
+        {userLogin.user?<Link to = '/profile'>My Profile</Link>:null}
         {userLogin.user?<button onClick={logout}>Logout</button>:<Link to = '/'>Login</Link>}
         {/* <a href="" className='link'>Login</a> */}
       </div>

@@ -18,9 +18,9 @@ function Home() {
     
   useEffect(()=>{
     // dispatch(getBlogListAction())
-    axios.get('/api/blog/all').then(res=>setTrending(res.data.posts)).catch(e=>console.log(e))
-    axios.get('/api/blog/code').then(res=>setCode(res.data)).catch(e=>console.log(e))
-    axios.get('/api/blog/music').then(res=>setMusic(res.data)).catch(e=>console.log(e))
+    axios.get('/api/blog/cat/all').then(res=>setTrending(res.data.posts)).catch(e=>console.log(e))
+    axios.get('/api/blog/cat/code').then(res=>setCode(res.data)).catch(e=>console.log(e))
+    axios.get('/api/blog/cat/music').then(res=>setMusic(res.data)).catch(e=>console.log(e))
   },[])
 
   const[all,setAll]=useState(selector.blogs)

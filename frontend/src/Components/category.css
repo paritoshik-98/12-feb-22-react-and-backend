@@ -1,13 +1,21 @@
+.authorpic{
+    border-radius: 50%;
+    height: 6vh;
+    margin-right: 15px;
+}
+.authorInfo{
+    height: 8vh;
+}
 .category{
     margin: 10vh 10vw 10vh 10vw;
 }
 
 .cat_card{
-    height: 30vh;
+    height: 40vh;
 }
 
-.cat_card img{
-    height: 30vh;
+.cover{
+    height: 40vh;
     object-fit: cover;
     width: 100%;
     border-radius: none;

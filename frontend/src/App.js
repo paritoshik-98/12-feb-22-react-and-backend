@@ -21,6 +21,7 @@ import Home from './Components/Home';
 import Profile from './Components/Profile';
 import { useSelector } from 'react-redux';
 import Category from './Components/Category';
+import About from './Components/About';
 
 function App() {
 
@@ -47,6 +48,7 @@ function App() {
       <Header/>
     <Routes>
 <Route exact path = '/' element = {<LandingPage/>}></Route>
+<Route exact path = '/about' element = {<About/>}></Route>
 <Route exact path = '/profile' element = {<Profile/>}></Route>
 <Route exact path = '/Home' element = {<Home/>}></Route>
 <Route exact path = '/login' element = {<Login/>}></Route>
