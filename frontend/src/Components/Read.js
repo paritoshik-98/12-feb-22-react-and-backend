@@ -95,7 +95,7 @@ function Read() {
     ,[getblog.blog])
     
 
-const[date,setDate]=useState()
+const[date,setDate]=useState('swe')
 
 const [likes,setLikes] = useState()
 
@@ -151,14 +151,32 @@ const toggle = () => setTC(!toggleComments)
     getblog.blog?
     <div className="content">
       {/* {  getblog.blog.likes ? getblog.blog.likes.includes(user.id) ? <FcLike/>:<AiOutlineHeart id='l'/>:null} */}
-        <h1 className='title text-center'> {getblog.blog.title} </h1>
-        <div className="a d-flex">
+        <h1 className='title text-center mb-3'> {getblog.blog.title} </h1>
+
+        <div className="a d-flex justify-content-between mb-3">
+          <div className="left-a d-flex">
         <img className='r-pic' src={getblog.blog.author.profile_pic}></img>
+        <div className="read-a-h">
         <h3 className=' align-self-center'>{getblog.blog.author.name}</h3>
-        </div>
         <p className='text-muted fw-bold'>{date.split('T')[0]}</p>
+        </div>
+        </div>
+        <div className="share-l d-flex align-items-center">
+ <WhatsappShareButton url={window.location.href}  ><WhatsappIcon className='s-icon' round={true} /></WhatsappShareButton>
+ <FacebookShareButton url={window.location.href}><FacebookIcon className='s-icon' round={true}/></FacebookShareButton>
+ <TwitterShareButton url={window.location.href}><TwitterIcon className='s-icon' round={true} /></TwitterShareButton>
+        <LinkedinShareButton url={window.location.href} ><LinkedinIcon className='s-icon' round={true} /></LinkedinShareButton>
+ <EmailShareButton url={window.location.href}><EmailIcon className='s-icon' round={true} /></EmailShareButton>
+ </div>
+        </div>
         <img className='read-cover' src={getblog.blog.coverImg} alt="Cover Image" />
         <div className="body" id="c"></div> 
+        <div className="user-int">
+        <button className='like' onClick={likeHandler}>{likes?likes.length>0?likes.includes(user.id)?<span><FcLike size={32}/>{likes.length.count}</span>:<span><AiOutlineHeart size={32}/>{likes.length.count}</span>:<span><AiOutlineHeart size={32}/>{likes.length.count}</span>:null}</button>
+          {
+            likes
+          }
+        </div>
         <div className="likes">
           <button className='like' onClick={likeHandler}>{likes?likes.length>0?likes.includes(user.id)?<span><FcLike/>{likes.length.count}</span>:<span><AiOutlineHeart/>{likes.length.count}</span>:<span><AiOutlineHeart/>{likes.length.count}</span>:null}</button>
           {
@@ -196,10 +214,7 @@ const toggle = () => setTC(!toggleComments)
 }
 {/* <TwitterIcon size={32} round={true} />
  */}
- <LinkedinShareButton url={window.location.href}><LinkedinIcon/></LinkedinShareButton>
- <WhatsappShareButton url={window.location.href} ><WhatsappIcon/></WhatsappShareButton>
- <EmailShareButton><EmailIcon/></EmailShareButton>
- <MailruShareButton><MailruIcon/></MailruShareButton>
+ 
 </>
   )
 }
