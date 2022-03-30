@@ -12,7 +12,8 @@ import { AiOutlineHeart } from 'react-icons/ai';
 import { FcLike } from 'react-icons/fc';
 import { FcLikePlaceholder } from 'react-icons/fc';
 import { BiCommentDetail } from 'react-icons/bi';
-import { BsShareFill } from 'react-icons/bs';
+import { BsBookmark } from 'react-icons/bs';
+import { BsFillBookmarkCheckFill } from 'react-icons/bs';
 import { ImShare } from 'react-icons/im';
 import { FaShareSquare } from 'react-icons/fa';
 
@@ -93,6 +94,7 @@ function Read() {
         setComments(getblog.blog.comments)
         setA(getblog.blog.author)
         setDate(getblog.blog.date)
+        if(user.marked){setMarked(user.marked)}
         // console.log(author.name,author.profile_pic)
 }
 
@@ -102,6 +104,8 @@ function Read() {
     
 
 const[date,setDate]=useState('swe')
+
+const [marked,setMarked] = useState([])
 
 const [likes,setLikes] = useState([])
 
@@ -117,6 +121,17 @@ const likeHandler = () => {
 }
 const unlike = () => {
 dispatch(like(id))
+}
+
+const markHandler = () => {
+  if(marked.includes(getblog.blog._id)){
+    const path = '/api/user/unMark';
+  axios.put(path,{blogId:getblog.blog._id}).then(res=>setMarked(res.data));
+  }
+  else{
+    const path = '/api/user/Mark';
+  axios.put(path,{blogId:getblog.blog._id}).then(res=>setMarked(res.data));
+  }
 }
 
 const[comments,setComments]=useState([])
@@ -158,7 +173,7 @@ const toggle = () => setTC(!toggleComments)
     <div className="content">
       {/* {  getblog.blog.likes ? getblog.blog.likes.includes(user.id) ? <FcLike/>:<AiOutlineHeart id='l'/>:null} */}
 
-        <img className='read-cover mt-3' src={getblog.blog.coverImg} alt="Cover Image" />
+        <img className='read-cover mt-3' src={getblog.blog.coverImg} alt="cover image" />
         <h1 className='title text-center mt-5'> {getblog.blog.title} </h1>
         <div className="a d-flex justify-content-between mb-3 mt-5">
           <div className="left-a d-flex">
@@ -168,7 +183,18 @@ const toggle = () => setTC(!toggleComments)
         <p className='text-muted'>Posted on   <span className='fw-bold text-muted'>{date.split('T')[0]}</span></p>
         </div>
         </div>
+        <div className='d-flex'>
+
+        {user?        
+         marked.includes(getblog.blog._id) ? 
+         <button className='r-mark' onClick={markHandler}>
+        {<BsFillBookmarkCheckFill size={30}/>}</button>
+         :
+        <button className='r-mark'onClick={markHandler}>{<BsBookmark size={30}/>}</button>
+
+          :null}
         <a href="#share" id='s_link' className='align-self-center text-muted fw-bold'><ImShare size={30}/></a>
+        </div>
         {/* <a href="#share" className='align-self-center'><ImShare size={30}/></a> */}
         
         </div>

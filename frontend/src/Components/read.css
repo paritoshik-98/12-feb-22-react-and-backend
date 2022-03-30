@@ -49,6 +49,11 @@
     width: 30px;
     height: auto;
 }
+.r-mark{
+    border: none;
+    background-color: #F8F8F8;
+    margin-right: 3vw;
+}
 
 .like{
     border: none;
