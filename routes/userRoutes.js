@@ -7,6 +7,16 @@ const bcrypt = require('bcrypt');
 
 const saltRounds = 10;
 
+router.put('/Mark',authuser,async(req,res)=>{
+  const {blogId} = req.body
+  user.findOneAndUpdate({_id:req.userid},{$push: { marked: blogId }},{new:true}).then(doc=>res.status(200).send(doc.marked)).catch(e=>res.status(500).send('internal server error'))
+})
+
+router.put('/unMark',authuser,async(req,res)=>{
+  const {blogId} = req.body
+  user.findOneAndUpdate({_id:req.userid},{$pull: { marked: blogId }},{new:true}).then(doc=>res.status(200).send(doc.marked)).catch(e=>res.status(500).send('internal server error'))
+})
+
 // get user details
 // router.get('/profile',authuser,getUser)
 router.get('/profile',authuser,async(req,res)=>{
@@ -113,6 +123,7 @@ const storage = new CloudinaryStorage({
 });
 ///////////////////////////////////////////multer image handling////////////////
 var multer = require('multer');
+const { auth } = require("google-auth-library");
 
 var upload = multer({ storage: storage });
 
