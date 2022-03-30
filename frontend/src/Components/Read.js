@@ -12,6 +12,9 @@ import { AiOutlineHeart } from 'react-icons/ai';
 import { FcLike } from 'react-icons/fc';
 import { FcLikePlaceholder } from 'react-icons/fc';
 import { BiCommentDetail } from 'react-icons/bi';
+import { BsShareFill } from 'react-icons/bs';
+import { ImShare } from 'react-icons/im';
+import { FaShareSquare } from 'react-icons/fa';
 
 
 
@@ -165,16 +168,13 @@ const toggle = () => setTC(!toggleComments)
         <p className='text-muted'>Posted on   <span className='fw-bold text-muted'>{date.split('T')[0]}</span></p>
         </div>
         </div>
-        <div className="share-l d-flex align-items-center">
- <WhatsappShareButton url={window.location.href}  ><WhatsappIcon className='s-icon' round={true} /></WhatsappShareButton>
- <FacebookShareButton url={window.location.href}><FacebookIcon className='s-icon' round={true}/></FacebookShareButton>
- <TwitterShareButton url={window.location.href}><TwitterIcon className='s-icon' round={true} /></TwitterShareButton>
-        <LinkedinShareButton url={window.location.href} ><LinkedinIcon className='s-icon' round={true} /></LinkedinShareButton>
- <EmailShareButton url={window.location.href}><EmailIcon className='s-icon' round={true} /></EmailShareButton>
- </div>
+        <a href="#share" id='s_link' className='align-self-center text-muted fw-bold'><ImShare size={30}/></a>
+        {/* <a href="#share" className='align-self-center'><ImShare size={30}/></a> */}
+        
         </div>
         <div className="body" id="c"></div> 
-        <div className="user-int d-flex">
+        <div className="user-int d-flex justify-content-between">
+          <div className='d-flex'>
           <div className="like-div d-flex">
         <button className='like align-self-center' onClick={likeHandler}>{likes?likes.length>0?likes.includes(user.id)?<span><FcLike size={32} fillOpacity={1}/>{likes.length.count}</span>:<span><FcLikePlaceholder size={32} fill='red'/>{likes.length.count}</span>:<span><FcLikePlaceholder size={32}fill='red' f/>{likes.length.count}</span>:null}</button>
           <h5 className=' align-self-center text-muted l_count'>{likes.length}</h5>
@@ -183,7 +183,14 @@ const toggle = () => setTC(!toggleComments)
           <button className='comment' onClick={()=>setTC(!toggleComments)}><BiCommentDetail size={28}/></button>
           <h5 className=' align-self-center text-muted c_count'>{comments.length}</h5>
         </div>
-        
+        </div>
+        <div className="share-l d-flex align-items-center" id='share'>
+ <WhatsappShareButton url={window.location.href}  ><WhatsappIcon className='s-icon' round={true} /></WhatsappShareButton>
+ <FacebookShareButton url={window.location.href}><FacebookIcon className='s-icon' round={true}/></FacebookShareButton>
+ <TwitterShareButton url={window.location.href}><TwitterIcon className='s-icon' round={true} /></TwitterShareButton>
+        <LinkedinShareButton url={window.location.href} ><LinkedinIcon className='s-icon' round={true} /></LinkedinShareButton>
+ <EmailShareButton url={window.location.href}><EmailIcon className='s-icon' round={true} /></EmailShareButton>
+ </div>
         </div>
         {/* <div className="likes"> */}
           {/* <button className='like' onClick={likeHandler}>{likes?likes.length>0?likes.includes(user.id)?<span><FcLike/>{likes.length.count}</span>:<span><AiOutlineHeart/>{likes.length.count}</span>:<span><AiOutlineHeart/>{likes.length.count}</span>:null}</button> */}
