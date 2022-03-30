@@ -10,6 +10,9 @@ import './read.css'
 import { AiFillDelete } from 'react-icons/ai';
 import { AiOutlineHeart } from 'react-icons/ai';
 import { FcLike } from 'react-icons/fc';
+import { FcLikePlaceholder } from 'react-icons/fc';
+import { BiCommentDetail } from 'react-icons/bi';
+
 
 
 import axios from 'axios'
@@ -97,7 +100,7 @@ function Read() {
 
 const[date,setDate]=useState('swe')
 
-const [likes,setLikes] = useState()
+const [likes,setLikes] = useState([])
 
 const likeHandler = () => {
   if(likes.includes(user.id)){
@@ -113,7 +116,7 @@ const unlike = () => {
 dispatch(like(id))
 }
 
-const[comments,setComments]=useState()
+const[comments,setComments]=useState([])
 
 const addComment = () => {
   const path = `/api/blog/${id}/comment`
@@ -139,7 +142,7 @@ const change = (e) => {
   setinputC(e.target.value)
 }
 
-const[toggleComments,setTC]=useState(true)
+const[toggleComments,setTC]=useState(false)
 
 const toggle = () => setTC(!toggleComments)
 
@@ -151,14 +154,15 @@ const toggle = () => setTC(!toggleComments)
     getblog.blog?
     <div className="content">
       {/* {  getblog.blog.likes ? getblog.blog.likes.includes(user.id) ? <FcLike/>:<AiOutlineHeart id='l'/>:null} */}
-        <h1 className='title text-center mb-3'> {getblog.blog.title} </h1>
 
-        <div className="a d-flex justify-content-between mb-3">
+        <img className='read-cover mt-3' src={getblog.blog.coverImg} alt="Cover Image" />
+        <h1 className='title text-center mt-5'> {getblog.blog.title} </h1>
+        <div className="a d-flex justify-content-between mb-3 mt-5">
           <div className="left-a d-flex">
         <img className='r-pic' src={getblog.blog.author.profile_pic}></img>
         <div className="read-a-h">
         <h3 className=' align-self-center'>{getblog.blog.author.name}</h3>
-        <p className='text-muted fw-bold'>{date.split('T')[0]}</p>
+        <p className='text-muted'>Posted on   <span className='fw-bold text-muted'>{date.split('T')[0]}</span></p>
         </div>
         </div>
         <div className="share-l d-flex align-items-center">
@@ -169,21 +173,25 @@ const toggle = () => setTC(!toggleComments)
  <EmailShareButton url={window.location.href}><EmailIcon className='s-icon' round={true} /></EmailShareButton>
  </div>
         </div>
-        <img className='read-cover' src={getblog.blog.coverImg} alt="Cover Image" />
         <div className="body" id="c"></div> 
-        <div className="user-int">
-        <button className='like' onClick={likeHandler}>{likes?likes.length>0?likes.includes(user.id)?<span><FcLike size={32}/>{likes.length.count}</span>:<span><AiOutlineHeart size={32}/>{likes.length.count}</span>:<span><AiOutlineHeart size={32}/>{likes.length.count}</span>:null}</button>
-          {
-            likes
-          }
+        <div className="user-int d-flex">
+          <div className="like-div d-flex">
+        <button className='like align-self-center' onClick={likeHandler}>{likes?likes.length>0?likes.includes(user.id)?<span><FcLike size={32} fillOpacity={1}/>{likes.length.count}</span>:<span><FcLikePlaceholder size={32} fill='red'/>{likes.length.count}</span>:<span><FcLikePlaceholder size={32}fill='red' f/>{likes.length.count}</span>:null}</button>
+          <h5 className=' align-self-center text-muted l_count'>{likes.length}</h5>
         </div>
-        <div className="likes">
-          <button className='like' onClick={likeHandler}>{likes?likes.length>0?likes.includes(user.id)?<span><FcLike/>{likes.length.count}</span>:<span><AiOutlineHeart/>{likes.length.count}</span>:<span><AiOutlineHeart/>{likes.length.count}</span>:null}</button>
-          {
-            likes
-          }
+        <div className="comment-div d-flex">
+          <button className='comment' onClick={()=>setTC(!toggleComments)}><BiCommentDetail size={28}/></button>
+          <h5 className=' align-self-center text-muted c_count'>{comments.length}</h5>
+        </div>
+        
+        </div>
+        {/* <div className="likes"> */}
+          {/* <button className='like' onClick={likeHandler}>{likes?likes.length>0?likes.includes(user.id)?<span><FcLike/>{likes.length.count}</span>:<span><AiOutlineHeart/>{likes.length.count}</span>:<span><AiOutlineHeart/>{likes.length.count}</span>:null}</button> */}
+          {/* <h4>{ */}
+            {/* likes.length */}
+          {/* }</h4> */}
           {/* {getblog.blog.likes} */}
-        </div>
+        {/* </div> */}
         {/* <button onClick={toggle}>Comments</button> */}
         {toggleComments?
         <div className="comments">

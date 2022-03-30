@@ -4,7 +4,13 @@
 .s-icon{
     height: 7vh;
 }
-
+.l_count{
+    padding-top: 1vh;
+    margin-right: 1vw;
+}
+.c_count{
+    padding-top: 1vh;
+}
 .r-pic{
     border-radius: 50%;
     height: 12vh;
@@ -40,4 +46,13 @@
 .like{
     border: none;
     background-color: #F8F8F8;
+}
+
+.comment{
+    border: none;
+    background-color: #F8F8F8;
+}
+
+.read-a-h{
+    padding-top: 1vh;
 }
