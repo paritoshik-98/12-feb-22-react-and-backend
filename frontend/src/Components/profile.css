@@ -4,3 +4,14 @@
 #Fi{
     /* display: none; */
 }
+.dp{
+    /* object-fit: cover; */
+    border-radius: 50%;
+    height: 30vh;
+    border: 0.8px solid #2E0300
+}
+.icons{
+    cursor: pointer;
+    border: none;
+    background-color: #F8F8F8;
+}

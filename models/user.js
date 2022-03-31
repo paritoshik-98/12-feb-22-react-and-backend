@@ -20,7 +20,7 @@ const userSchema = new mongoose.Schema({
     },
     profile_pic:{
         type:String,
-        default:"https://res.cloudinary.com/drzjynyvq/image/upload/v1642930267/bt735mco7vvndpyr3icq.png"
+        default:"https://res.cloudinary.com/drzjynyvq/image/upload/v1648718621/wdjpzij0wm5doew8oygm.png"
     },
     marked:[{type: mongoose.Schema.Types.ObjectId, ref: "blog"}]
     // followers:[{type: mongoose.Schema.Types.ObjectId, ref: "user"}],

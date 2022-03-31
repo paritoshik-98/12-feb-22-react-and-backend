@@ -3,6 +3,11 @@ import './profile.css'
 import axios from 'axios'
 import '../Axios'
 
+
+import { FaEdit } from 'react-icons/fa';
+import { MdDelete } from 'react-icons/md';
+import { Link } from 'react-router-dom'
+
 function Profile() {
 
   const [profile,setProfile] = useState({})
@@ -79,18 +84,66 @@ const upload = async() => {
   }
 }
 
+const RemoveImage = async()=>{
+  try{
+    setLoading(true)
+    const res = await axios.post('http://localhost:8080/api/user/updatePic',{id:profile._id,url:"https://res.cloudinary.com/drzjynyvq/image/upload/v1648718621/wdjpzij0wm5doew8oygm.png"},{
+      withCredentials: true,
+    })
+    if(res.status===200){
+    setLoading(false)
+  setDP("https://res.cloudinary.com/drzjynyvq/image/upload/v1648718621/wdjpzij0wm5doew8oygm.png");
+    }
+    else{
+      setLoading(false)
+    alert('image update failed')
+    }
+  }
+  catch(error){
+    setLoading(false)
+    alert('image update failed')}
+}
+
 const [DP,setDP] = useState()
 
 const [selected,setNew] = useState()
 
+const [editD,setED] = useState(false)
+
   return (
     <div className='profile'>
-    {/* <button onClick={()=>{document.getElementById('Fi').click()}}>Select Image</button> */}
-    <input type="file" name="" id="Fi" onChange={(e)=>setNew(e.target.files[0])}/>
+
+      { editD ?
+      <div className="pic_eidt">
+      <input type="file" name="" id="Fi" onChange={(e)=>setNew(e.target.files[0])}/>
     <button onClick={upload}>Upload</button>
-    {profile?
-    <>
-      {loading?<h1>Loading...</h1>:<img src={DP} alt="" />}
+      </div>:null
+}
+
+    {profile?<>
+    <div className='d-flex'>
+
+      <div>
+      {loading?<h1>Loading...</h1>:<img  className='dp' src={DP} alt="" />}
+      <div>
+      <button className='icons' onClick={()=>setED(!editD)}><FaEdit size={32}/></button>
+      <button className='icons'onClick={RemoveImage}><MdDelete size={32}/></button>
+      </div>
+      </div>
+
+      <div>
+        <h1><b>{profile.name}</b></h1>
+        <h5 className='text-muted'>{profile.email}</h5>
+      </div>
+
+</div>
+
+<div className='d-flex'>
+  <Link to = '/recoverPassword'><button>Change Password</button></Link>
+  <Link to = '/myArticles'><button>My Articles</button></Link>
+  <Link to = '/bookmarked'><button>Bookmarked</button></Link>
+</div>
+
 </>
   :null}
     </div>
@@ -138,17 +191,7 @@ export default Profile
     // const [imageurl,seturl]=useState()
 
 
-//     const RemoveImage = async()=>{
-//       try{
-//         const res = await axios.post('http://localhost:8000/api/updatePic',{id:userinfo._id,url:"https://res.cloudinary.com/drzjynyvq/image/upload/v1642930267/bt735mco7vvndpyr3icq.png"},{
-//           withCredentials: true,
-//         })
-//         console.log(res)
-//       seturl("https://res.cloudinary.com/drzjynyvq/image/upload/v1642930267/bt735mco7vvndpyr3icq.png");
-//       document.getElementById('Iupload').value=null
-//       }
-//       catch(error){alert('image update failed')}
-//     }
+ 
 //   return <div>
 //     {/* <Navbar/> */}
 //     <h1>MY PROFILE</h1>

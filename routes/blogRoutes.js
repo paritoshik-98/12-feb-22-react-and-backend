@@ -60,7 +60,20 @@ router.get('/:tag',authuser,getBlogByTag);
 
 router.get('/read/:id',authuser,getBlogByID);
 
-router.get('/get/myblogs',authuser,myBlogs);
+router.get('/get/myblogs/:page?',authuser,async(req,res)=>{
+  const user = req.userid;
+  const PAGE_SIZE = 5
+  const page = req.params.page||0
+  const total = await Blog.countDocuments({ author: user })
+  const doc = await Blog.find({ author: user }).populate("author", "_id name profile_pic").sort({likeCount:-1})
+  .limit(PAGE_SIZE)
+  .skip(PAGE_SIZE*page)
+  
+  res.status(200).json({
+    totalPages : Math.ceil(total/PAGE_SIZE),
+    posts: posts
+  })
+});
 
 router.post('/add',authuser,addNewBlog);
 // router.post('/add',addNewBlog);

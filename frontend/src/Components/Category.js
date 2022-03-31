@@ -15,8 +15,16 @@ function Category() {
     const [blogs,setBlogs] = useState()
 
    
+     
 
     useEffect(()=>{
+      const path = window.location.pathname
+      if(path === '/myArticles'){
+        
+      }
+      if(path === '/bookmarked'){
+
+      }
       if(tag==='all'){
         axios.get(`/api/blog/cat/all/${pageNumber}`).then(res=>res.data).then(data=>{
           setBlogs(data.posts)
