@@ -3,6 +3,7 @@ import React, { useEffect, useState } from 'react'
 import { Link, useParams } from 'react-router-dom'
 import './category.css'
 import '../Axios'
+import { SchemaTypes } from 'mongoose'
 
 function Category() {
 
@@ -14,17 +15,8 @@ function Category() {
 
     const [blogs,setBlogs] = useState()
 
-   
-     
-
-    useEffect(()=>{
-      const path = window.location.pathname
-      if(path === '/myArticles'){
-        
-      }
-      if(path === '/bookmarked'){
-
-      }
+    useEffect(async()=>{
+      
       if(tag==='all'){
         axios.get(`/api/blog/cat/all/${pageNumber}`).then(res=>res.data).then(data=>{
           setBlogs(data.posts)

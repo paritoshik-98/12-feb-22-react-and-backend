@@ -65,10 +65,10 @@ router.get('/get/myblogs/:page?',authuser,async(req,res)=>{
   const PAGE_SIZE = 5
   const page = req.params.page||0
   const total = await Blog.countDocuments({ author: user })
-  const doc = await Blog.find({ author: user }).populate("author", "_id name profile_pic").sort({likeCount:-1})
+  const posts = await Blog.find({ author: user }).populate("author", "_id name profile_pic").sort({likeCount:-1})
   .limit(PAGE_SIZE)
   .skip(PAGE_SIZE*page)
-  
+
   res.status(200).json({
     totalPages : Math.ceil(total/PAGE_SIZE),
     posts: posts
