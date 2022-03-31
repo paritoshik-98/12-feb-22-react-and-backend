@@ -18,11 +18,11 @@ router.put('/unMark',authuser,async(req,res)=>{
 })
 
 // get user details
-// router.get('/profile',authuser,getUser)
-router.get('/profile',authuser,async(req,res)=>{
-  const u = await user.find({_id:req.userid})
-  res.status(200).send(u)
-})
+router.get('/profile',authuser,getUser)
+// router.get('/profile',authuser,async(req,res)=>{
+//   const u = await user.find({_id:req.userid})
+//   res.status(200).send(u)
+// })
 
 // signup route = /api/user/signup
 router.post('/signup',addUser)
