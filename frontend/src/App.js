@@ -23,6 +23,7 @@ import { useSelector } from 'react-redux';
 import Category from './Components/Category';
 import About from './Components/About';
 import MyArticles from './Components/MyArticles';
+import Marked from './Components/Marked';
 
 function App() {
 
@@ -68,7 +69,7 @@ function App() {
 <Route exact path = '/reset/:jwt' element = {<Reset/>}></Route>
 <Route exact path = '/cat/:tag' element = {<Category/>}></Route>
 <Route exact path = '/myArticles' element = {<MyArticles/>}></Route>
-{/* <Route exact path = '/bookmarked' element = {<Category/>}></Route> */}
+<Route exact path = '/marked' element = {<Marked/>}></Route>
 </Routes>
   <Footer/>
 </div>
