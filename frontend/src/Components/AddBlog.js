@@ -75,8 +75,9 @@ const[cover,setC] = useState('')
     const dummyNode = document.getElementById('editorContent')
     dummyNode.innerHTML=body;
  var text1 = dummyNode.textContent;
-setText(text1)
-// console.log(text1)
+ const SLICE = text1.slice(0,150)
+setText(SLICE)
+console.log('text : ',text)
 },[body])
   
 
