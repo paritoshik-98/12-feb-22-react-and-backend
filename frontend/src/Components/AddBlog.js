@@ -66,7 +66,21 @@ const[cover,setC] = useState('')
   // console.log(tagArr,coverImg,blogTitle,content)
   dispatch(createBlogAction({coverImg,blogTitle,content,tagArr,desc}))
   }
-
+const s_draft = () => {
+  // tags
+  for (const key in tags) {
+    if (tags[key]==true) {
+        array.push(key)
+    }
+}
+const tagArr = JSON.stringify(array)
+const coverImg = cover
+const blogTitle = title
+const content = body
+const desc = text
+// console.log(tagArr,coverImg,blogTitle,content)
+dispatch(createBlogAction({coverImg,blogTitle,content,tagArr,draft:true}))
+}
 
   ////////////////////// to get only Text content for description in card
   const[text,setText]=useState()
@@ -80,6 +94,7 @@ setText(SLICE)
 console.log('text : ',text)
 },[body])
   
+const[warn,setWarn] = useState(false)
 
   return (
     <>
@@ -127,6 +142,9 @@ console.log('text : ',text)
       </div>
       {cover?<img src={cover}></img>:null}
       </div>
+      {warn?<div className="i-warn  alert-dark border-dark mb-3">
+      <h7 className="text-muted">After uploading an image do not submit until there is a green tick on top right corner </h7>
+      </div>:null}
       <div className="editor">
       <CKEditor className='bg-light'
                     editor={ClassicEditor}
@@ -149,7 +167,7 @@ console.log('text : ',text)
                         const data = editor.getData();
                         console.log( { event, editor, data } );
                         setB(data)
-                        
+                        setWarn(true)
                         console.log(body)
                     } }
                     onBlur={ ( event, editor ) => {
@@ -161,6 +179,7 @@ console.log('text : ',text)
                 />
                 </div>
                 <button className="btn btn-outline-dark" onClick={submit}>SUBMIT</button>
+                <button className="btn btn-outline-dark disabled" onClick={s_draft}>Save as draft</button>
                 <div id="editorContent" style={{display:'block'}}></div>
     </div>
     </>
