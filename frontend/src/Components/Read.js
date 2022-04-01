@@ -3,7 +3,7 @@
 
 import React, { useEffect, useState} from 'react'
 import { useDispatch, useSelector, shallowEqual } from 'react-redux'
-import { useParams } from 'react-router-dom'
+import { Link, useParams } from 'react-router-dom'
 import { fetchBlogAction, like } from '../REDUX/Actions/blogActions'
 import './read.css'
 
@@ -18,8 +18,7 @@ import { ImShare } from 'react-icons/im';
 import { FaShareSquare } from 'react-icons/fa';
 import { BsBookmarkPlus } from 'react-icons/bs';
 
-
-
+import { FaEdit } from 'react-icons/fa';
 
 import axios from 'axios'
 import '../Axios'
@@ -183,7 +182,7 @@ const toggle = () => setTC(!toggleComments)
         </div>
         </div>
         <div className='d-flex'>
-
+        <Link className='align-self-center' to={`/edit/${getblog.blog._id}`}><FaEdit size={30}/></Link>
         {user?        
          marked.includes(user.id) ? 
          <button className='r-mark' onClick={markHandler}>

@@ -1,3 +1,4 @@
+import { set } from 'mongoose'
 import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { Link, useNavigate } from 'react-router-dom'
@@ -6,21 +7,35 @@ import './header.css'
 
 function Header() {
 
+  const [Uname,setUname] = useState()
+
+  useEffect(()=>{
+    const name = localStorage.getItem('user')?JSON.parse(localStorage.getItem('user')).name:null
+    setUname(name)
+  },[])
+
   const userLogin = useSelector((state) => state.userLogin)
+  
 
   const dispatch = useDispatch()
 
   const navigate = useNavigate()
   
-  const logout = () => {
-
-    dispatch(Logout())
-  }
+ 
   const path = window.location.pathname
 
   const [dropDown,setDropDown] = useState(false)
 
+  const toggle = () => {
+    setDropDown(!dropDown)
+  }
+
+
+
+
   const DP = useSelector(state=>state.DP)
+
+  // const Uname = useSelector(state=>state.userLogin.user.name)
 
   return (
     <header className='mt-1 mt-sm-3 mb-sm-2 pb-sm-4 '>
@@ -45,22 +60,20 @@ function Header() {
 
         {userLogin.user?
         
-  <img  src={DP.pic} alt='' class=" h-pic " onClick={()=>setDropDown(!dropDown)}></img>
+  <img  src={DP.pic} alt='' class=" h-pic "onClick={toggle} ></img>
    
         
         :<Link to = '/'>Login</Link>}
 
 
-
-
       </div>
-      {dropDown&&userLogin.user?
+      {dropDown ?
         <ul className='d_ul'>
-          <li id='n' className='text-muted fw-bold'>{userLogin.user.name}</li>
+          <li id='n'>{Uname?Uname:<h1>''</h1>}</li>
           <li className='d_l'><Link style={{textDecoration:'none',color:'#2E0300'}} to='/profile'>Profile</Link></li>
           <li className='d_l'><Link style={{textDecoration:'none',color:'#2E0300'}} to='/myArticles'>My Articles</Link></li>
           <li className='d_l'><Link style={{textDecoration:'none',color:'#2E0300'}} to='/Favourites'>Favourites</Link></li>
-          <li className='d_l'><a onClick={logout} style={{color:'#2E0300'}}>Logout</a></li>
+          <li className='d_l'><a onClick={()=>{dispatch(Logout());setDropDown(false)}} style={{color:'#2E0300'}}>Logout</a></li>
         </ul>
 :null}
 

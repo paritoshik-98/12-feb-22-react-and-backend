@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import './profile.css'
 import axios from 'axios'
 import '../Axios'
-
+import Header from './Header'
 
 import { FaEdit } from 'react-icons/fa';
 import { MdDelete } from 'react-icons/md';
@@ -121,6 +121,8 @@ const [editD,setED] = useState(false)
 
 
   return (
+    <>
+    <Header/>
     <div className='profile'>
 
       { editD ?
@@ -157,24 +159,7 @@ const [editD,setED] = useState(false)
 </>
   :null}
     </div>
-  // <div className="profile">
-  //     {profile?
-  //     <div className="display">
-  //       {Loader?<h1>Loading...</h1>:<img className='dp'  src={profile.profile_pic} alt="Your_Profile_Picture" />}
-  //       <div>
-  //       <input type="file" id='Iupload' style={{display:'none'}} onChange={(event)=>{seturl(event.target.files[0])}}/>
-  //       <button onClick={()=>{document.getElementById('Iupload').click()}}>Upload</button>
-  //       </div>
-  //       {JSON.stringify(profile)}
-  //        <div className=" d-flex">
-  //        <img src={profile.profile_pic} alt="" />
-  //        {/* <div className="nameInfo"> */}
-  //          <h1><b>{profile.name}</b></h1>
-  //        {/* </div> */}
-  //  </div>
-  //      </div>
-  //     :<h1>Loading...</h1>}
-  // </div>
+    </>
     )
 }
 

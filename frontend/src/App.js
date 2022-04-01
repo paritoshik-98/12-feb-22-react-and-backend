@@ -47,7 +47,7 @@ function App() {
 
   return (
     <div className="app">
-      <Header/>
+      {/* <Header/> */}
     <Routes>
 <Route exact path = '/' element = {<LandingPage/>}></Route>
 <Route exact path = '/about' element = {<About/>}></Route>

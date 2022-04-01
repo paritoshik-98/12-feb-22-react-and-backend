@@ -51,7 +51,7 @@ header{
     border-radius: 50%;
     border: 0.8px solid #2E0300;
     height: 7vh;
-    width: auto;
+    width: 7vh;
     cursor: pointer;
 }
 .h-pic:hover{

@@ -5,7 +5,7 @@ import { getBlogListAction } from '../REDUX/Actions/blogActions'
 import { Link } from 'react-router-dom'
 import './home.css'
 import '../Axios'
-
+import Header from './Header'
 function Home() {
 
     const dispatch = useDispatch()
@@ -28,7 +28,8 @@ function Home() {
   
 
 
-  return (
+  return (<>
+  <Header/>
     <div className='home'>
       {trending&&music&&code?
       <>
@@ -140,7 +141,7 @@ function Home() {
       </>
       :<h1>Loading...</h1>}
     </div>
-      
+    </>
   )
 
 }
