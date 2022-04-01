@@ -9,6 +9,7 @@ import UnsplashReact, { Base64Uploader, withDefaultProps, InsertIntoApplicationU
 import axios from "axios";
 import { useDispatch } from "react-redux";
 import { createBlogAction } from "../REDUX/Actions/blogActions";
+import Header from "./Header";
 
 function AddBlog() {
   
@@ -80,6 +81,8 @@ setText(text1)
   
 
   return (
+    <>
+    <Header/>
     <div className="form mt-5">
       <div class=" Addtitle  ">
         <label for="exampleFormControlInput1" class="form-label align-self-center align-self-center">
@@ -159,6 +162,8 @@ setText(text1)
                 <button className="btn btn-outline-dark" onClick={submit}>SUBMIT</button>
                 <div id="editorContent" style={{display:'block'}}></div>
     </div>
+    </>
+
   );
 }
 

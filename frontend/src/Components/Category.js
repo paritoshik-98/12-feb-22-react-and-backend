@@ -4,6 +4,7 @@ import { Link, useParams } from 'react-router-dom'
 import './category.css'
 import '../Axios'
 import { SchemaTypes } from 'mongoose'
+import Header from './Header'
 
 function Category() {
 
@@ -79,6 +80,8 @@ function Category() {
     const [sDisplay,setSdisplay] = useState(false)
 
   return (
+    <>
+    <Header/>
     <div className='category'>
       <div className="search d-flex">
       <input type="text" value={searchQuery} onChange={(e)=>setQuery(e.target.value)} className='w-50'/>
@@ -223,6 +226,8 @@ function Category() {
 })}
       <button onClick={gotoNext}>Next</button>
     </div>
+    </>
+    
   )
 }
 

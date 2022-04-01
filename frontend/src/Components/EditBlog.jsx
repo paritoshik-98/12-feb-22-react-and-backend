@@ -6,6 +6,7 @@ import { fetchBlogAction, updateBlogAction } from '../REDUX/Actions/blogActions'
 import { CKEditor } from '@ckeditor/ckeditor5-react'
 import ClassicEditor from '@paritoshik_kharad/ckeditor5-build-classic-custom'
 import UnsplashReact, { Base64Uploader, withDefaultProps, InsertIntoApplicationUploader} from "unsplash-react"
+import Header from './Header'
 
 function EditBlog() {
      const dispatch = useDispatch()
@@ -90,6 +91,8 @@ const[cover,setC] = useState('')
   }
 
   return (
+    <>
+    <Header/>
     <>{authorized?
     <> 
     {selector.loading?<h1>Loading.....</h1>:selector.error?<h1>Internal Server Error</h1>:
@@ -181,6 +184,7 @@ const[cover,setC] = useState('')
 }
 </>
 :<h1 className='unath'>You cannot edit this article</h1>}</>
+</>
   )
 }
 

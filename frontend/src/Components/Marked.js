@@ -3,7 +3,7 @@ import './marked.css'
 import '../Axios'
 import axios from 'axios'
 import { Link } from 'react-router-dom'
-
+import Header from './Header'
 function Marked() {
 
     const [articles, setarticles] = useState([])
@@ -37,6 +37,8 @@ function Marked() {
 
 
   return (
+    <>
+    <Header/>
       <div className='marked'>
       {loader?<h1>Loading...</h1>:
     <>
@@ -72,6 +74,7 @@ null
 </>
 }
 </div>
+</>
   )
 }
 

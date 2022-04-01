@@ -22,7 +22,7 @@ import { FaEdit } from 'react-icons/fa';
 
 import axios from 'axios'
 import '../Axios'
-
+import Header from './Header'
 import {
   EmailShareButton,
   FacebookShareButton,
@@ -166,6 +166,7 @@ const toggle = () => setTC(!toggleComments)
 
   return (
 <> 
+<Header/>
     {getblog.loading?<h1>Loading.....</h1>:getblog.error?<h1>Internal Server Error</h1>:
     getblog.blog?
     <div className="content">

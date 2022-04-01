@@ -3,7 +3,7 @@ import './myarticles.css'
 import '../Axios'
 import axios from 'axios'
 import { Link } from 'react-router-dom'
-
+import Header from './Header'
 export default function MyArticles() {
 
     const [articles, setarticles] = useState([])
@@ -39,7 +39,10 @@ export default function MyArticles() {
 
     
 
-  return (<div className='my'>
+  return (
+  <>
+  <Header/>
+  <div className='my'>
 {articles?<>{articles.map(a=>
 
 <div class=" cat_card card mb-3" >
@@ -69,5 +72,6 @@ null
 }
 </>:null}
 </div>
+</>
   )
 }
