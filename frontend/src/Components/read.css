@@ -77,8 +77,9 @@
 
 .comment{
     background-color: #F8F8F8;
+    /* background-color: #e9b74c; */
     border: 0.8px solid #2E0300;
-    border-radius: 5px;
+    /* border-radius: 5px; */
     padding: 10px;
 }
 
