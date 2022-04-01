@@ -20,6 +20,8 @@ function Header() {
 
   const [dropDown,setDropDown] = useState(false)
 
+  const DP = useSelector(state=>state.DP)
+
   return (
     <header className='mt-1 mt-sm-3 mb-sm-2 pb-sm-4 '>
       
@@ -43,7 +45,7 @@ function Header() {
 
         {userLogin.user?
         
-  <img  src={userLogin.user.profile_pic} class=" h-pic " onClick={()=>setDropDown(!dropDown)}></img>
+  <img  src={DP.pic} alt='' class=" h-pic " onClick={()=>setDropDown(!dropDown)}></img>
    
         
         :<Link to = '/'>Login</Link>}
@@ -55,10 +57,10 @@ function Header() {
       {dropDown&&userLogin.user?
         <ul className='d_ul'>
           <li id='n' className='text-muted fw-bold'>{userLogin.user.name}</li>
-          <li className='d_l'><Link to='/profile'>Profile</Link></li>
-          <li className='d_l'><Link to='/myArticles'>My Articles</Link></li>
-          <li className='d_l'><Link to='/marked'>Favourites</Link></li>
-          <li className='d_l'><button onClick={logout}>Logout</button></li>
+          <li className='d_l'><Link style={{textDecoration:'none',color:'#2E0300'}} to='/profile'>Profile</Link></li>
+          <li className='d_l'><Link style={{textDecoration:'none',color:'#2E0300'}} to='/myArticles'>My Articles</Link></li>
+          <li className='d_l'><Link style={{textDecoration:'none',color:'#2E0300'}} to='/marked'>Favourites</Link></li>
+          <li className='d_l'><a onClick={logout} style={{color:'#2E0300'}}>Logout</a></li>
         </ul>
 :null}
 

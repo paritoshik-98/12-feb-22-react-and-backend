@@ -68,22 +68,20 @@ export const Logout = () => async (dispatch) => {
 };
 
 ////////////// data  pic url --- {url}
-export const updatePic = (data) => async (dispatch) => {
-  try {
-    dispatch({ type: "UPDATE_REQUEST" });
-    axios
-      .post("api/user/updatePic", data)
-      .then((res) => {if(res.status===200){
-        dispatch({ type: "UPDATE_SUCCESS", payload: res.data });
-        localStorage.setItem("user", JSON.stringify(res.data));
-      }})
-      .catch((err) =>
-        dispatch({ type: "UPDATE_FAIL", payload: err.response.data })
-      );
-  } catch (error) {
-    dispatch({ type: "UPDATE_FAIL", payload: error.message });
+export const updatePic = (url) => {
+  return {
+    type:'DP_UPDATED',
+    payload: url
   }
 };
+
+export const deletePic = (url) => {
+  return {
+    type:'DP_REMOVED',
+    payload: url
+  }
+};
+
 
 ////////////// data  new password --- {Pswd}
 export const updatePassword = (data) => async (dispatch) => {

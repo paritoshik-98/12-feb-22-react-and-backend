@@ -38,3 +38,14 @@ export const UserUpdateReducer = (state={},action) => {
             return state;
     }
 }
+
+export const DP_Reducer = (state={},action) => {
+    switch (action.type) {
+        case 'DP_UPDATED':
+            return {pic:action.payload};
+        case 'DP_REMOVED' :
+            return {pic:action.payload};
+          default: 
+            return state;
+    }
+}

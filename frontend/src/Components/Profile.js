@@ -7,8 +7,12 @@ import '../Axios'
 import { FaEdit } from 'react-icons/fa';
 import { MdDelete } from 'react-icons/md';
 import { Link } from 'react-router-dom'
+import { deletePic, updatePic } from '../REDUX/Actions/userActions';
+import { useDispatch } from 'react-redux';
 
 function Profile() {
+
+  const dispatch = useDispatch()
 
   const [profile,setProfile] = useState({})
 
@@ -47,6 +51,8 @@ function Profile() {
 //   }
 // },[uploadI])
 
+
+
 const[loading,setLoading] = useState(false)
 
 const upload = async() => {
@@ -71,6 +77,7 @@ const upload = async() => {
       if(res.status===200){
         setLoading(false)
         setDP(data.url)
+        dispatch(updatePic(data.url))
       }
       else{
         setLoading(false)
@@ -93,6 +100,7 @@ const RemoveImage = async()=>{
     if(res.status===200){
     setLoading(false)
   setDP("https://res.cloudinary.com/drzjynyvq/image/upload/v1648718621/wdjpzij0wm5doew8oygm.png");
+  dispatch(deletePic("https://res.cloudinary.com/drzjynyvq/image/upload/v1648718621/wdjpzij0wm5doew8oygm.png"))
     }
     else{
       setLoading(false)
@@ -109,6 +117,8 @@ const [DP,setDP] = useState()
 const [selected,setNew] = useState()
 
 const [editD,setED] = useState(false)
+
+
 
   return (
     <div className='profile'>
