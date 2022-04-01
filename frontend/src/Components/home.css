@@ -2,6 +2,9 @@
     color: #2E0300;
 
 }
+.top-a-img{
+    z-index: 0;
+}
 .auth_pic{
     border-radius: 50%;
     height: 6vh;
