@@ -90,17 +90,14 @@ function Read() {
     
     
     useEffect(()=>{
-        if(getblog.blog)
-        {document.getElementById('c').innerHTML=getblog.blog.content;
-        setLikes(getblog.blog.likes)
+      if(getblog.blog){
+          document.getElementById('c').innerHTML=getblog.blog.content;
+        setLikes(getblog.blog.likes);
         setComments(getblog.blog.comments)
         setA(getblog.blog.author)
         setDate(getblog.blog.date)
-        if(user.marked){setMarked(user.marked)}
-        // console.log(author.name,author.profile_pic)
-}
-
-        console.log(user.id)
+        setMarked((getblog.blog.markedby))
+      }
     }
     ,[getblog.blog])
     
@@ -126,12 +123,12 @@ dispatch(like(id))
 }
 
 const markHandler = () => {
-  if(marked.includes(getblog.blog._id)){
-    const path = '/api/user/unMark';
+  if(marked.includes(user.id)){
+    const path = '/api/blog/unMark';
   axios.put(path,{blogId:getblog.blog._id}).then(res=>setMarked(res.data));
   }
   else{
-    const path = '/api/user/Mark';
+    const path = '/api/blog/Mark';
   axios.put(path,{blogId:getblog.blog._id}).then(res=>setMarked(res.data));
   }
 }
@@ -188,7 +185,7 @@ const toggle = () => setTC(!toggleComments)
         <div className='d-flex'>
 
         {user?        
-         marked.includes(getblog.blog._id) ? 
+         marked.includes(user.id) ? 
          <button className='r-mark' onClick={markHandler}>
         {<BsFillBookmarkCheckFill size={30}/>}</button>
          :

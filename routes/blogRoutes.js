@@ -5,7 +5,32 @@ const authuser = require('../middleware/authMiddleware')
 
 const {comment,deleteBlog,updateBlog,addNewBlog,getBlogByTag,getMostLikedBlog,getBlogByID,myBlogs,like,unlike} = require('../controllers/blogControllers')
 
+router.put('/Mark',authuser,async(req,res)=>{
+  const {blogId} = req.body
+  Blog.findOneAndUpdate({_id:blogId},{$push: { markedby : req.userid }},{new:true}).then(doc=>res.status(200).send(doc.markedby)).catch(e=>res.status(500).send('internal server error'))
+})
+router.put('/unMark',authuser,async(req,res)=>{
+  const {blogId} = req.body
+  Blog.findOneAndUpdate({_id:blogId},{$pull: { markedby : req.userid }},{new:true}).then(doc=>res.status(200).send(doc.markedby)).catch(e=>res.status(500).send('internal server error'))
+})
 
+
+
+router.get('/marked/:page?',authuser,async(req,res)=>{
+  const id = req.userid
+  const PAGE_SIZE = 5
+  const page = req.params.page||0
+  const total = await Blog.countDocuments({})
+  const posts = await Blog.find({}).populate("author", "_id name profile_pic").sort({likeCount:-1})
+  .limit(PAGE_SIZE)
+  .skip(PAGE_SIZE*page)
+  // console.log(total,posts)
+  res.status(200).json({
+    totalPages : Math.ceil(total/PAGE_SIZE),
+    posts: posts
+  })
+}
+)
 
 router.get('/cat/:cat/:page?',authuser,async(req,res)=>{
   const {cat} = req.params

@@ -41,7 +41,8 @@ const blogSchema = new Mongoose.Schema({
   desc:{
     type: String,
     required:true
-  }
+  },
+  markedby:[{ type: Mongoose.Schema.Types.ObjectId, ref: "user" }]
 });
 
 /// like count
