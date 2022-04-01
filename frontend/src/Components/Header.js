@@ -59,7 +59,7 @@ function Header() {
           <li id='n' className='text-muted fw-bold'>{userLogin.user.name}</li>
           <li className='d_l'><Link style={{textDecoration:'none',color:'#2E0300'}} to='/profile'>Profile</Link></li>
           <li className='d_l'><Link style={{textDecoration:'none',color:'#2E0300'}} to='/myArticles'>My Articles</Link></li>
-          <li className='d_l'><Link style={{textDecoration:'none',color:'#2E0300'}} to='/marked'>Favourites</Link></li>
+          <li className='d_l'><Link style={{textDecoration:'none',color:'#2E0300'}} to='/Favourites'>Favourites</Link></li>
           <li className='d_l'><a onClick={logout} style={{color:'#2E0300'}}>Logout</a></li>
         </ul>
 :null}

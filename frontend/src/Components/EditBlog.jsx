@@ -30,9 +30,17 @@ function EditBlog() {
          dispatch(fetchBlogAction(id))
         
         },[])
+
+        const userLogin = useSelector(state => state.userLogin)
+        const[authorized,setauthorized] = useState(true)
+        
+        
         
          useEffect(()=>{
             if(blog){
+              if(selector.blog.author._id != userLogin.user.id){
+                setauthorized(false)
+              }
             for ( const key of selector.blog.tags) {
                 setTags(prev=>({...prev,[key]:true}))
             }
@@ -82,6 +90,7 @@ const[cover,setC] = useState('')
   }
 
   return (
+    <>{authorized?
     <> 
     {selector.loading?<h1>Loading.....</h1>:selector.error?<h1>Internal Server Error</h1>:
     selector.blog?
@@ -171,6 +180,7 @@ const[cover,setC] = useState('')
 
 }
 </>
+:<h1 className='unath'>You cannot edit this article</h1>}</>
   )
 }
 

@@ -151,7 +151,7 @@ const [editD,setED] = useState(false)
 <div className='d-flex'>
   <Link to = '/recoverPassword'><button>Change Password</button></Link>
   <Link to = '/myArticles'><button>My Articles</button></Link>
-  <Link to = '/marked'><button>Bookmarked</button></Link>
+  <Link to = '/Favourites'><button>Favourites</button></Link>
 </div>
 
 </>

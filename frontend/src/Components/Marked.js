@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import './marked.css' 
 import '../Axios'
 import axios from 'axios'
+import { Link } from 'react-router-dom'
 
 function Marked() {
 
@@ -36,11 +37,32 @@ function Marked() {
 
 
   return (
-      <>
+      <div className='marked'>
       {loader?<h1>Loading...</h1>:
     <>
     {articles.length===0?<h1>You haven't marked any articles yet !</h1>:null}
-{articles?<>{articles.map(a=>a.title)}
+{articles?<>{articles.map(a=>
+    
+    <div class=" cat_card card mb-3" >
+<div class="row g-0">
+  <div class="col-md-8">
+    <div class="card-body">
+    <h5 class="card-title">{a.title}</h5>
+<div className="authorInfo  d-flex">
+<img className='authorpic align-self-center' src={a.author.profile_pic}></img>
+<h7 className='align-self-center'>{a.author.name}</h7>
+</div>
+<p class="card-text">{a.desc}</p>
+<Link to ={`/read/${a._id}`} >Read More ..</Link>
+    </div>
+  </div>
+  <div class="col-md-4">
+    <img src={a.coverImg} class=" cover  " alt="..."></img>
+  </div>
+</div>
+</div>
+    
+    )}
 {LM?
 <button onClick={gotoNext}>Load More</button>
 :
@@ -49,7 +71,7 @@ null
 </>:<h1>No</h1>}
 </>
 }
-</>
+</div>
   )
 }
 

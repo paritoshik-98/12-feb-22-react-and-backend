@@ -13,17 +13,29 @@ import { set } from 'mongoose'
 
 function Edit() {
 
+  
+
     const dispatch = useDispatch()
     
+    const userLogin = useSelector(state => state.userLogin)
+    const[authorized,setauthorized] = useState(true)
+    
+    if(getblog.blog.author._id != userLogin.user.id){
+      setauthorized(false)
+    }
+    
+
     const getblog = useSelector(state=>state.fetchBlog)
     
     const {id} = useParams()
     useEffect(() => {
        dispatch(fetchBlogAction(id))
     }, [])
+
     
     useEffect(()=>{
         if(getblog.blog){
+
             setT(getblog.blog.title)
             setB(getblog.blog.content)
             const arr = JSON.parse(getblog.blog.tags)
@@ -105,6 +117,7 @@ const[cover,setC] = useState('')
 
 
   return (
+    <>{authorized ?
 <> 
     {getblog.loading?<h1>Loading.....</h1>:getblog.error?<h1>Internal Server Error</h1>:
     getblog.blog?
@@ -191,6 +204,8 @@ const[cover,setC] = useState('')
 
 }
 </>
+
+:<h1>You cannot edit this article</h1>}</>
   )
 }
 

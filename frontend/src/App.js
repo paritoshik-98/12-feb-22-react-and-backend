@@ -69,7 +69,7 @@ function App() {
 <Route exact path = '/reset/:jwt' element = {<Reset/>}></Route>
 <Route exact path = '/cat/:tag' element = {<Category/>}></Route>
 <Route exact path = '/myArticles' element = {<MyArticles/>}></Route>
-<Route exact path = '/marked' element = {<Marked/>}></Route>
+<Route exact path = '/Favourites' element = {<Marked/>}></Route>
 </Routes>
   <Footer/>
 </div>
