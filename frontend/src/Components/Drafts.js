@@ -45,7 +45,7 @@ function Drafts() {
       <div className='marked'>
       {loader?<h1>Loading...</h1>:
     <>
-    {articles.length===0?<h1>You haven't marked any articles yet !</h1>:null}
+    {articles.length===0?<h1>You haven't marked any drafts !</h1>:null}
 {articles?<>{articles.map(a=>
     
     <div class=" cat_card card mb-3" >
