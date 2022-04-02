@@ -166,7 +166,7 @@ export default function LandingPage() {
             render={renderProps => (
               <button className="btn btn-large btn-outline-dark w-100 d-flex align-items-center justify-content-center" onClick={renderProps.onClick} disabled={renderProps.disabled}><FcGoogle className="g"/><span className="m-4 mt-2 mb-2 m-sm-2 m-lg-4 mt-lg-2 mb-lg-2">Sign in with Google</span>  </button>
             )}
-              clientId="149517402118-58t2a5ao3f8kqo9vn8bh5muf3ctbl5f3.apps.googleusercontent.com"
+              clientId="92920275652-tqg9eads4vhhm0cn4emei20ccolgtv55.apps.googleusercontent.com"
               buttonText="Sign In with Google"
               onSuccess={responseGoogleSuccess}
               onFailure={responseGoogleError}
