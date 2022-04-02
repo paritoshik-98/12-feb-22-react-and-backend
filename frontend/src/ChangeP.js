@@ -1,9 +1,9 @@
 import React, { useState } from 'react'
 import axios from 'axios'
 import './Axios'
-// import Header from './Components/Header'
+import Header from './Components/Header'
 
-function Recover() {
+function ChangeP() {
 
     const[email,set] = useState('')
 
@@ -23,6 +23,7 @@ function Recover() {
     
   return (
     <div>
+        <Header/>
         <div class="Pform" style={{'margin':'10vh 10vw 10vh 10vw'}}>
   <label for="exampleFormControlInput1" class="form-label ">Enter your registered email address</label>
   <input type="email" class="form-control mb-3" id="exampleFormControlInput1" onChange={(e)=>{set(e.target.value)}} value={email} placeholder="name@example.com"/>
@@ -35,4 +36,4 @@ function Recover() {
   )
 }
 
-export default Recover
+export default ChangeP

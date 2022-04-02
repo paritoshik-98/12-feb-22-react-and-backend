@@ -24,6 +24,7 @@ import Category from './Components/Category';
 import About from './Components/About';
 import MyArticles from './Components/MyArticles';
 import Marked from './Components/Marked';
+import ChangeP from './ChangeP';
 
 function App() {
 
@@ -65,6 +66,7 @@ function App() {
 <Route exact path = '/cat/:tag' element = {<Category/>}></Route>
 <Route exact path = '/myArticles' element = {<MyArticles/>}></Route>
 <Route exact path = '/Favourites' element = {<Marked/>}></Route>
+<Route exact path = '/ChangePassword' element = {<ChangeP/>}></Route>
 </Routes>
   <Footer/>
 </div>
