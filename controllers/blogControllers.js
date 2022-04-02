@@ -47,7 +47,7 @@ const getBlogByID = async (req, res) => {
 };
 
 const addNewBlog = async (req, res) => {
-  console.log(req.body)
+  // console.log(req.body)
   // res.send(req.body)
   try {
     const { coverImg,blogTitle,content,tagArr,draft,desc } = req.body;
@@ -65,7 +65,7 @@ const addNewBlog = async (req, res) => {
     //   res.status(500).send('select cover image')
     // }
     const author = req.userid;
-    console.log(author);
+    // console.log(author);
     const doc = new blog({
       title: blogTitle,
       content: content,
@@ -79,7 +79,7 @@ const addNewBlog = async (req, res) => {
          blog.findOneAndUpdate({_id:doc._id}, update, {
             new: true,
           })
-          .then((doc) => res.status(200))
+          .then((doc) => res.status(200).json({id:doc._id}))
           .catch((e) => {console.log(e);res.status(500).send("Something went wrong !")});
     
     // res.status(200).send("submitted")

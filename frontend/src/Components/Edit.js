@@ -198,6 +198,7 @@ const[cover,setC] = useState('')
                 />
                 </div>
                 <button className="btn btn-outline-dark" onClick={submit}>SUBMIT</button>
+                
     </div>
     
     :null

@@ -7,11 +7,15 @@ import ClassicEditor from '@paritoshik_kharad/ckeditor5-build-classic-custom'
 // import blog from "../../../models/blog";
 import UnsplashReact, { Base64Uploader, withDefaultProps, InsertIntoApplicationUploader} from "unsplash-react"
 import axios from "axios";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { createBlogAction } from "../REDUX/Actions/blogActions";
 import Header from "./Header";
+import { useNavigate } from "react-router-dom";
+import '../Axios'
 
 function AddBlog() {
+
+  const navigate = useNavigate()
   
   const [title,setT]=useState('')
   const TChange = (e) =>{
@@ -51,7 +55,11 @@ const[cover,setC] = useState('')
 
   const dispatch = useDispatch()
 
+  const[loading,setLoading] = useState(false)
+  const[ERROR,setError] = useState()
+
   const submit =()=>{
+    setLoading(true)
     // tags
     for (const key in tags) {
       if (tags[key]==true) {
@@ -64,7 +72,17 @@ const[cover,setC] = useState('')
   const content = body
   const desc = text
   // console.log(tagArr,coverImg,blogTitle,content)
-  dispatch(createBlogAction({coverImg,blogTitle,content,tagArr,desc}))
+  const data = {coverImg,blogTitle,content,tagArr,desc}
+  axios.post('/api/blog/add',data).then(res=>{
+    if(res.status===200){
+      const{id} = res.data
+        setLoading(false);
+        alert('submitted')
+        // navigate('/myarticles')
+        navigate(`/read/${id}`)
+    }
+}).catch(err=>{setLoading(false);setError(err.response.data)})
+
   }
 const s_draft = () => {
   // tags
@@ -96,15 +114,26 @@ console.log('text : ',text)
   
 const[warn,setWarn] = useState(false)
 
+const CreateStatus = useSelector(state=>state.createBlog)
+
+
+
+
   return (
     <>
     <Header/>
+    {/* <>{CreateStatus.loading?<h1>Loading...</h1>:CreateStatus.error?alert('Failed'):CreateStatus.success?alert('Submit successfull'): */}
+    { loading?<h1>Loading</h1>:
     <div className="form mt-5">
+      {ERROR?<div class="alert alert-danger alert-dismissible fade show" role="alert">
+  {ERROR}
+  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+</div>:null}
       <div class=" Addtitle  ">
         <label for="exampleFormControlInput1" class="form-label align-self-center align-self-center">
           Title 
         </label>
-        <input id="t" placeholder="Enter Title" type='text' onChange={TChange} value={title}></input>
+        <input id="t" placeholder="Enter Title" type='text' onChange={TChange} value={title} required></input>
         
       </div>
       <div className=" tags_c ">
@@ -182,6 +211,7 @@ const[warn,setWarn] = useState(false)
                 <button className="btn btn-outline-dark disabled" onClick={s_draft}>Save as draft</button>
                 <div id="editorContent" style={{display:'block'}}></div>
     </div>
+    }
     </>
 
   );

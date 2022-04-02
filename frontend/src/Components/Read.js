@@ -122,6 +122,7 @@ dispatch(like(id))
 }
 
 const markHandler = () => {
+  if(user){
   if(marked.includes(user.id)){
     const path = '/api/blog/unMark';
   axios.put(path,{blogId:getblog.blog._id}).then(res=>setMarked(res.data));
@@ -130,6 +131,7 @@ const markHandler = () => {
     const path = '/api/blog/Mark';
   axios.put(path,{blogId:getblog.blog._id}).then(res=>setMarked(res.data));
   }
+}
 }
 
 const[comments,setComments]=useState([])
@@ -183,7 +185,6 @@ const toggle = () => setTC(!toggleComments)
         </div>
         </div>
         <div className='d-flex'>
-        <Link className='align-self-center' to={`/edit/${getblog.blog._id}`}><FaEdit size={30}/></Link>
         {user?        
          marked.includes(user.id) ? 
          <button className='r-mark' onClick={markHandler}>
@@ -192,7 +193,12 @@ const toggle = () => setTC(!toggleComments)
         <button className='r-mark'onClick={markHandler}>{<BsBookmarkPlus size={30}/>}</button>
 
           :null}
-        <a href="#share" id='s_link' className='align-self-center text-muted fw-bold'><ImShare size={30}/></a>
+        {user.id===getblog.blog.author._id?<Link className='align-self-center edit' to={`/edit/${getblog.blog._id}`}><FaEdit size={30}/></Link>:null}
+        {/* {user.id===getblog.blog.author._id?<MdDelete size={30} className='align-self-center ' />:null} */}
+        
+
+        {user.id!==getblog.blog.author._id?<a href="#share" id='s_link' className='align-self-center text-muted fw-bold'><ImShare size={30}/></a>:null}
+        
         </div>
         {/* <a href="#share" className='align-self-center'><ImShare size={30}/></a> */}
         
@@ -253,7 +259,7 @@ const toggle = () => setTC(!toggleComments)
         <input type="text" className='cmt_input ' id='c' onChange={change} value={inputC}/>
         <div className='sbt_cmt'><button className='btn btn-outline-dark submitC  ' onClick={addComment}>SUBMIT</button></div>
         </div>
-        {JSON.stringify(comments)}
+        {/* {JSON.stringify(comments)} */}
       </div>
         :null}
     </div>

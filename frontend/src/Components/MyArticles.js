@@ -31,7 +31,7 @@ export default function MyArticles() {
       // if(pageNumber==numberOfPages-1){}
       // else{
       setPageNumber(Math.min(numberOfPages - 1, pageNumber + 1));
-      if (pageNumber === numberOfPages-1){
+      if (pageNumber === numberOfPages){
           setLM(false)
       }
       // }

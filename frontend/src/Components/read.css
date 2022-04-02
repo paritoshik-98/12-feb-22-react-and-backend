@@ -1,6 +1,10 @@
+
 #s_link{
     text-decoration: none;
     /* margin-right: 2vw; */
+}
+.edit{
+    margin-right: 2vw;
 }
 .cmt_input{
     padding: 8px!;

@@ -1,8 +1,8 @@
 import './edit.css'
 import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { useParams } from 'react-router-dom'
-import { fetchBlogAction, updateBlogAction } from '../REDUX/Actions/blogActions'
+import { useNavigate, useParams } from 'react-router-dom'
+import { deleteBlogAction, fetchBlogAction, updateBlogAction } from '../REDUX/Actions/blogActions'
 import { CKEditor } from '@ckeditor/ckeditor5-react'
 import ClassicEditor from '@paritoshik_kharad/ckeditor5-build-classic-custom'
 import UnsplashReact, { Base64Uploader, withDefaultProps, InsertIntoApplicationUploader} from "unsplash-react"
@@ -10,6 +10,7 @@ import Header from './Header'
 
 function EditBlog() {
      const dispatch = useDispatch()
+     const navigate = useNavigate()
      const selector = useSelector(state=>state.fetchBlog)
      const blog = selector.blog
      const {id} = useParams()
@@ -49,6 +50,7 @@ function EditBlog() {
             setTitle(selector.blog.title)
             setC(selector.blog.coverImg)
             setB(selector.blog.content)
+            
         }
      },[blog])
 
@@ -88,6 +90,10 @@ const[cover,setC] = useState('')
   console.log(tagArr,coverImg,blogTitle,content)
   
   dispatch(updateBlogAction({coverImg,blogTitle,content,tagArr,id}))
+  }
+
+  const deleteBlog = () => {
+    dispatch(deleteBlogAction(id))
   }
 
   return (
@@ -177,6 +183,7 @@ const[cover,setC] = useState('')
                 />
                 </div>
                 <button className="btn btn-outline-dark" onClick={submit}>Submit</button>
+                <button className="btn  btn-outline-danger" onClick={deleteBlog} >DELETE</button>
     </div>
     
     :null
