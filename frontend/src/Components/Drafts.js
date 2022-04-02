@@ -13,6 +13,7 @@ function Drafts() {
     useEffect(()=>{
          axios.get(`/api/blog/drafts/${pageNumber}`).then(res=>res.data.posts).then(data=>{
         setarticles(prev=>[...prev,...data])
+        setLoader(false)
          })
          axios.get(`/api/blog/drafts/${pageNumber}`).then(res=>res.data.totalPages).then(data=>{
         setNumberOfPages(data)
@@ -37,7 +38,7 @@ function Drafts() {
       // }
     };
 
-    const [loader,setLoader] = useState(false)
+    const [loader,setLoader] = useState(true)
 
   return (
     <>

@@ -90,13 +90,14 @@ function Category() {
     //     setTotalSearchPages(data.totalPages)
     //   })
     // }
-
+    const [loader,setLoader] = useState(true)
     const [sDisplay,setSdisplay] = useState(false)
 
   return (
     <>
     <Header/>
     <div className='category'>
+    {loader?<h1>Loading...</h1>:<>
       <div className="search d-flex mb-5">
       <input type="text" value={searchQuery} onChange={(e)=>setQuery(e.target.value)} className='w-50'/>
       <button onClick={()=>{
@@ -302,6 +303,7 @@ null
         else return null
 })}
       <button onClick={gotoNext}>Next</button> */}
+      </>}
     </div>
     </>
     

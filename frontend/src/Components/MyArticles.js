@@ -38,11 +38,12 @@ export default function MyArticles() {
     };
 
     
-
+    const [loader,setLoader] = useState(true)
   return (
   <>
   <Header/>
   <div className='my'>
+    {loader?<h1>Loading...</h1>:<>
 {articles?<>{articles.map(a=>
 
 <div class=" cat_card card mb-3" >
@@ -71,6 +72,7 @@ export default function MyArticles() {
 null
 }
 </>:null}
+</>}
 </div>
 </>
   )
