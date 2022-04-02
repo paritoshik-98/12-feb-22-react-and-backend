@@ -7,11 +7,11 @@ const {comment,deleteBlog,updateBlog,addNewBlog,getBlogByTag,getMostLikedBlog,ge
 
 router.put('/Mark',authuser,async(req,res)=>{
   const {blogId} = req.body
-  Blog.findOneAndUpdate({_id:blogId},{$push: { markedby : req.userid }},{new:true}).then(doc=>res.status(200).send(doc.markedby)).catch(e=>res.status(500).send('internal server error'))
+  Blog.findOneAndUpdate({_id:blogId,draft:false},{$push: { markedby : req.userid }},{new:true}).then(doc=>res.status(200).send(doc.markedby)).catch(e=>res.status(500).send('internal server error'))
 })
 router.put('/unMark',authuser,async(req,res)=>{
   const {blogId} = req.body
-  Blog.findOneAndUpdate({_id:blogId},{$pull: { markedby : req.userid }},{new:true}).then(doc=>res.status(200).send(doc.markedby)).catch(e=>res.status(500).send('internal server error'))
+  Blog.findOneAndUpdate({_id:blogId,draft:false},{$pull: { markedby : req.userid }},{new:true}).then(doc=>res.status(200).send(doc.markedby)).catch(e=>res.status(500).send('internal server error'))
 })
 
 
@@ -19,8 +19,8 @@ router.put('/unMark',authuser,async(req,res)=>{
 router.get('/marked/:page?',authuser,async(req,res)=>{
   const PAGE_SIZE = 5
   const page = req.params.page||0
-  const total = await Blog.countDocuments({markedby:req.userid})
-  const posts = await Blog.find({markedby:req.userid}).populate("author", "_id name profile_pic").sort({date:-1})
+  const total = await Blog.countDocuments({markedby:req.userid,draft:false})
+  const posts = await Blog.find({markedby:req.userid,draft:false}).populate("author", "_id name profile_pic").sort({date:-1})
   .limit(PAGE_SIZE)
   .skip(PAGE_SIZE*page)
   // console.log(total,posts)
@@ -36,8 +36,8 @@ router.get('/cat/:cat/:page?',authuser,async(req,res)=>{
   const PAGE_SIZE = 5
   const page = req.params.page||0
   if(cat=='all'){
-  const total = await Blog.countDocuments({})
-  const posts = await Blog.find({}).populate("author", "_id name profile_pic").sort({likeCount:-1})
+  const total = await Blog.countDocuments({draft:false})
+  const posts = await Blog.find({draft:false}).populate("author", "_id name profile_pic").sort({likeCount:-1})
   .limit(PAGE_SIZE)
   .skip(PAGE_SIZE*page)
   // console.log(total,posts)
@@ -47,8 +47,8 @@ router.get('/cat/:cat/:page?',authuser,async(req,res)=>{
   })
 }
 else{
-  const total = await Blog.countDocuments({tags:cat})
-  const posts = await Blog.find({tags:cat}).populate("author", "_id name profile_pic").sort({likeCount:-1})
+  const total = await Blog.countDocuments({tags:cat,draft:false})
+  const posts = await Blog.find({tags:cat,draft:false}).populate("author", "_id name profile_pic").sort({likeCount:-1})
   .limit(PAGE_SIZE)
   .skip(PAGE_SIZE*page)
   // console.log(total,posts)
@@ -64,8 +64,8 @@ router.get('/search/:query/:page?',authuser,async(req,res)=>{
   const page = req.params.page||0
   const string = req.params.query
   const regex = new RegExp(string, 'i') 
-  const total = await Blog.countDocuments({title:{$regex:regex}})
-  const posts = await Blog.find({title:{$regex:regex}}).populate("author", "_id name profile_pic").sort({likeCount:-1})
+  const total = await Blog.countDocuments({title:{$regex:regex},draft:false})
+  const posts = await Blog.find({title:{$regex:regex},draft:false}).populate("author", "_id name profile_pic").sort({likeCount:-1})
   .limit(PAGE_SIZE)
   .skip(PAGE_SIZE*page)
   // console.log(total,posts)
@@ -88,8 +88,8 @@ router.get('/get/myblogs/:page?',authuser,async(req,res)=>{
   const user = req.userid;
   const PAGE_SIZE = 5
   const page = req.params.page||0
-  const total = await Blog.countDocuments({ author: user })
-  const posts = await Blog.find({ author: user }).populate("author", "_id name profile_pic").sort({date:-1})
+  const total = await Blog.countDocuments({ author: user,draft:false })
+  const posts = await Blog.find({ author: user,draft:false }).populate("author", "_id name profile_pic").sort({date:-1})
   .limit(PAGE_SIZE)
   .skip(PAGE_SIZE*page)
 
@@ -168,8 +168,8 @@ router.post('/image_upload',upload.single('upload'),(req,res)=>{
       console.log('route')
       const PAGE_SIZE = 5
       const page = req.params.page||0
-      const total = await Blog.countDocuments({})
-      const posts = await Blog.find({})
+      const total = await Blog.countDocuments({draft:false})
+      const posts = await Blog.find({draft:false})
       .limit(PAGE_SIZE)
       .skip(PAGE_SIZE*page)
       // console.log(total,posts)

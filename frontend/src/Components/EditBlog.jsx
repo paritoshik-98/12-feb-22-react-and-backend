@@ -7,6 +7,8 @@ import { CKEditor } from '@ckeditor/ckeditor5-react'
 import ClassicEditor from '@paritoshik_kharad/ckeditor5-build-classic-custom'
 import UnsplashReact, { Base64Uploader, withDefaultProps, InsertIntoApplicationUploader} from "unsplash-react"
 import Header from './Header'
+import axios from 'axios'
+import '../Axios'
 
 function EditBlog() {
      const dispatch = useDispatch()
@@ -77,7 +79,69 @@ const[cover,setC] = useState('')
 
   var array = []
 
+  
+
+  const[loading,setLoading] = useState(false)
+
+  const[text,setText]=useState()
+  
+  useEffect(()=>{
+    const dummyNode = document.getElementById('editorContent')
+    dummyNode.innerHTML=body;
+ var text1 = dummyNode.textContent;
+ const SLICE = text1.slice(0,150)
+setText(SLICE)
+console.log('text : ',text)
+},[body])
+
+
   const submit =()=>{
+    setLoading(true)
+    // tags
+    for (const key in tags) {
+      if (tags[key]==true) {
+          array.push(key)
+      }
+  }
+  // const tagArr = JSON.stringify(array)
+  // const coverImg = cover
+  // const blogTitle = title
+  // const content = body
+  const data = {
+    coverImg:cover
+    ,blogTitle:title
+    ,content:body
+    ,tagArr:JSON.stringify(array)
+    ,id:id,
+    desc:text
+  }
+  const path = '/api/blog/'+id+'/edit'
+        axios.put(path,data).then(res=>{
+        if(res.status===200){
+          setLoading(false)
+          alert('update successfull')
+          navigate(`/read/${id}`)
+        }}).catch(e=>{
+          setLoading(false)
+          alert('Update failed')})
+  
+  }
+
+  const deleteBlog = () => {
+    setLoading(true)
+    const path = '/api/blog/'+id+'/delete'
+        axios.delete(path).then(res=>{
+        if(res.status===200){
+          setLoading(false)
+          alert('delete successfull')
+          navigate('/myarticles')
+        }})
+        .catch(e=>{
+          setLoading(false)
+          alert('delete failed')})
+  }
+  const s_draft = () => {
+    setLoading(true)
     // tags
     for (const key in tags) {
       if (tags[key]==true) {
@@ -88,21 +152,31 @@ const[cover,setC] = useState('')
   const coverImg = cover
   const blogTitle = title
   const content = body
-  console.log(tagArr,coverImg,blogTitle,content)
+  const desc = text
+  const draft = true
+  // console.log(tagArr,coverImg,blogTitle,content)
+  const data = {coverImg,blogTitle,content,tagArr,desc,draft}
+  axios.post('/api/blog/add',data).then(res=>{
+    if(res.status===200){
+      const{id} = res.data
+        setLoading(false);
+        alert('saved in draft')
+        // navigate('/myarticles')
+        navigate(`/profile`)
+    }
+  }).catch(err=>{setLoading(false);alert('update failed')})
+  }
   
-  dispatch(updateBlogAction({coverImg,blogTitle,content,tagArr,id}))
-  }
-
-  const deleteBlog = () => {
-    dispatch(deleteBlogAction(id))
-  }
+  const[warn,setWarn] = useState(false)
 
   return (
     <>
+    <div id="editorContent" style={{display:'block'}}></div>
     <Header/>
-    <>{authorized?
+    <div>{!loading?
+    <div>{authorized?
     <> 
-    {selector.loading?<h1>Loading.....</h1>:selector.error?<h1>Internal Server Error</h1>:
+    {selector.loading?<h1>Loading.....</h1>:selector.error?<h1>Could Not get article</h1>:
     selector.blog?
 
     <div className="form mt-5">
@@ -148,6 +222,9 @@ const[cover,setC] = useState('')
       </div>
       {cover?<img src={cover}></img>:null}
       </div>
+      {warn?<div className="i-warn  alert-dark border-dark mb-3">
+      <h7 className="text-muted">After uploading an image do not submit until there is a green tick on top right corner </h7>
+      </div>:null}
       <div className="editor">
       <CKEditor className='bg-light'
                     editor={ClassicEditor}
@@ -156,23 +233,16 @@ const[cover,setC] = useState('')
                     // disabled = {true}
                     data={selector.blog.content}
                     onReady={ editor => {
-                        //////////////////// hide toolbar
-                        const toolbarElement = editor.ui.view.toolbar.element;
-                        toolbarElement.style.display = 'none';
-                        //&& disabled = {true}
-                        ////////////////////////
-                        // You can store the "editor" and use when it is needed.
-                        editor.ui.view.editable.element.style.minHeight = "300px";
-                        // editor.ui.view.editable.element.style.backgroundColor = '#F8F8F8';
-                        // editor.ui.view.editable.element.style.border = "0px";
-                        console.log( 'Editor is ready to use!', editor );
+                      editor.ui.view.editable.element.style.minHeight = "300px";
+                      console.log( 'Editor is ready to use!', editor );
                         
                       } }
                       onChange={ ( event, editor ) => {
-                        // editor.ui.view.editable.element.style.minHeight = "300px";
+                        editor.ui.view.editable.element.style.minHeight = "300px";
                         const data = editor.getData();
                         console.log( { event, editor, data } );
                         setB(data)
+                        setWarn(true)
                         console.log(body)
                     } }
                     onBlur={ ( event, editor ) => {
@@ -184,14 +254,18 @@ const[cover,setC] = useState('')
                 />
                 </div>
                 <button className="btn btn-outline-dark" onClick={submit}>Submit</button>
+                <button className="btn btn-outline-dark" onClick={s_draft}>Save as draft</button>
                 <button className="btn  btn-outline-danger" onClick={deleteBlog} >DELETE</button>
+                
     </div>
     
     :null
 
 }
 </>
-:<h1 className='unath'>You cannot edit this article</h1>}</>
+:<h1 className='unath'>You cannot edit this article</h1>}</div>
+:<h1>Loading...</h1>}
+</div>
 </>
   )
 }

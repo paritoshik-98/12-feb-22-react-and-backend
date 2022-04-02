@@ -5,7 +5,7 @@ const user = require("../models/user");
 const getMostLikedBlog = async (req, res) => {
   console.log(req.params.page)
   try {
-    const doc = await blog.find({}).populate("author", "_id name profile_pic").sort({likeCount:-1})
+    const doc = await blog.find({draft:false}).populate("author", "_id name profile_pic").sort({likeCount:-1})
     let i=0
     let array = []
     while(i<5){
@@ -23,7 +23,7 @@ const getMostLikedBlog = async (req, res) => {
 
 const getBlogByTag = async (req, res) => {
   try {
-    const doc = await blog.find({tags:req.params.tag}).populate("author", "_id name profile_pic").sort({date:-1})
+    const doc = await blog.find({tags:req.params.tag,draft:false}).populate("author", "_id name profile_pic").sort({date:-1})
     res.status(200).send(doc);
   } catch (error) {
     console.log(error)
@@ -38,7 +38,7 @@ const getBlogByID = async (req, res) => {
   try {
     const id = req.params.id;
     const doc = await blog
-      .findOne({ _id: id })
+      .findOne({ _id: id ,draft:false})
       .populate("author", "_id name profile_pic");
     res.status(200).send(doc);
   } catch (error) {
@@ -92,7 +92,7 @@ const addNewBlog = async (req, res) => {
 const myBlogs = async (req, res) => {
   try {
     const user = req.userid;
-    const doc = await blog.find({ author: user });
+    const doc = await blog.find({ author: user ,draft:false});
     res.status(200).send(doc);
   } catch (error) {
     console.log(error);

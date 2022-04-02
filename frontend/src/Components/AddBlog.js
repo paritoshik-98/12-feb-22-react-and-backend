@@ -92,6 +92,7 @@ const[cover,setC] = useState('')
 
   }
 const s_draft = () => {
+  setLoading(true)
   // tags
   for (const key in tags) {
     if (tags[key]==true) {
@@ -103,8 +104,18 @@ const coverImg = cover
 const blogTitle = title
 const content = body
 const desc = text
+const draft = true
 // console.log(tagArr,coverImg,blogTitle,content)
-dispatch(createBlogAction({coverImg,blogTitle,content,tagArr,draft:true}))
+const data = {coverImg,blogTitle,content,tagArr,desc,draft}
+axios.post('/api/blog/add',data).then(res=>{
+  if(res.status===200){
+    const{id} = res.data
+      setLoading(false);
+      alert('saved in draft')
+      // navigate('/myarticles')
+      navigate(`/profile`)
+  }
+}).catch(err=>{setLoading(false);setError(err.response.data)})
 }
 
   ////////////////////// to get only Text content for description in card
@@ -215,7 +226,7 @@ const CreateStatus = useSelector(state=>state.createBlog)
                 />
                 </div>
                 <button className="btn btn-outline-dark" onClick={submit}>SUBMIT</button>
-                <button className="btn btn-outline-dark disabled" onClick={s_draft}>Save as draft</button>
+                <button className="btn btn-outline-dark " onClick={s_draft}>Save as draft</button>
                 <div id="editorContent" style={{display:'block'}}></div>
     </div>
     }
