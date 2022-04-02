@@ -31,6 +31,21 @@ router.get('/marked/:page?',authuser,async(req,res)=>{
 }
 )
 
+router.get('/drafts/:page?',authuser,async(req,res)=>{
+  const PAGE_SIZE = 5
+  const page = req.params.page||0
+  const total = await Blog.countDocuments({author: req.userid,draft:true})
+  const posts = await Blog.find({author: req.userid,draft:true}).populate("author", "_id name profile_pic").sort({date:-1})
+  .limit(PAGE_SIZE)
+  .skip(PAGE_SIZE*page)
+  // console.log(total,posts)
+  res.status(200).json({
+    totalPages : Math.ceil(total/PAGE_SIZE),
+    posts: posts
+  })
+}
+)
+
 router.get('/cat/:cat/:page?',authuser,async(req,res)=>{
   const {cat} = req.params
   const PAGE_SIZE = 5

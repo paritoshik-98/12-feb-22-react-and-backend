@@ -11,10 +11,10 @@ function Drafts() {
   const [numberOfPages, setNumberOfPages] = useState(0);
 
     useEffect(()=>{
-         axios.get(`/api/blog/get/myblogs/${pageNumber}`).then(res=>res.data.posts).then(data=>{
+         axios.get(`/api/blog/drafts/${pageNumber}`).then(res=>res.data.posts).then(data=>{
         setarticles(prev=>[...prev,...data])
          })
-         axios.get(`/api/blog/get/myblogs/${pageNumber}`).then(res=>res.data.totalPages).then(data=>{
+         axios.get(`/api/blog/drafts/${pageNumber}`).then(res=>res.data.totalPages).then(data=>{
         setNumberOfPages(data)
         console.log(numberOfPages)
     })
