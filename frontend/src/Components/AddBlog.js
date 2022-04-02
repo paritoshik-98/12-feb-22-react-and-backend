@@ -3,7 +3,7 @@ import Form from "../Form";
 import Unsplash from "../Unsplash";
 import "./add.css";
 import { CKEditor } from '@ckeditor/ckeditor5-react'
-import ClassicEditor from '@paritoshik_kharad/ckeditor5-build-classic-custom'
+import ClassicEditor from 'testing_blog_1'
 // import blog from "../../../models/blog";
 import UnsplashReact, { Base64Uploader, withDefaultProps, InsertIntoApplicationUploader} from "unsplash-react"
 import axios from "axios";
