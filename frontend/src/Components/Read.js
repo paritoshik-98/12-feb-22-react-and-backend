@@ -180,7 +180,7 @@ else{
   return (
 <> 
 <Header/>
-    {getblog.loading?<h1>Loading.....</h1>:getblog.error?<h1>Internal Server Error</h1>:
+    {getblog.loading?<h1>Loading.....</h1>:getblog.error?<h1> Error</h1>:
     getblog.blog?
     <div className="content">
       {/* {  getblog.blog.likes ? getblog.blog.likes.includes(user.id) ? <FcLike/>:<AiOutlineHeart id='l'/>:null} */}
@@ -196,7 +196,7 @@ else{
         </div>
         </div>
         <div className='d-flex'>
-          {user?
+          {userLogin.user?
           <>
           {
             marked.includes(userLogin.user.id) ? 
@@ -208,7 +208,7 @@ else{
           :
           <button className='r-mark'onClick={()=>alert('Login to continue')}>{<BsBookmarkPlus size={30}/>}</button>
         }
-        {user?<>
+        {userLogin.user?<>
         {userLogin.user.id==getblog.blog.author._id?<Link className='align-self-center edit' to={`/edit/${getblog.blog._id}`}><FaEdit size={30}/></Link>:null}
         </>
         :null
@@ -234,7 +234,7 @@ else{
         <div className="body" id="c"></div> 
         <div className="user-int d-flex justify-content-between">
           <div className='d-flex'>
-          {user?
+          {userLogin.user?
           <div className="like-div d-flex">
         <button className='like align-self-center' onClick={likeHandler}>{likes?likes.length>0?likes.includes(userLogin.user.id)?<span><FcLike size={32} fillOpacity={1}/>{likes.length.count}</span>:<span><FcLikePlaceholder size={32} fill='red'/>{likes.length.count}</span>:<span><FcLikePlaceholder size={32}fill='red' f/>{likes.length.count}</span>:null}</button>
           <h5 className=' align-self-center text-muted l_count'>{likes.length}</h5>
