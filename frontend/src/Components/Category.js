@@ -74,12 +74,22 @@ function Category() {
     const[result,setResult] = useState([])
     const[totalSearchPages,setTotalSearchPages] = useState()
 
-    const search = () => {
-      axios.get(`/api/blog/search/${searchQuery}/${searchPage}`).then(res=>res.data).then(data=>{
-        setResult(data.posts)
-        setTotalSearchPages(data.totalPages)
-      })
-    }
+    const gotoNextSearch = () => {
+      // if(pageNumber==numberOfPages-1){}
+      // else{
+      setPageNumber(Math.min(numberOfPages - 1, pageNumber + 1));
+      if (pageNumber === numberOfPages){
+          setLM(false)
+      }
+      // }
+    };
+
+    // const search = () => {
+    //   axios.get(`/api/blog/search/${searchQuery}/${searchPage}`).then(res=>res.data).then(data=>{
+    //     setResult(data.posts)
+    //     setTotalSearchPages(data.totalPages)
+    //   })
+    // }
 
     const [sDisplay,setSdisplay] = useState(false)
 
@@ -87,20 +97,54 @@ function Category() {
     <>
     <Header/>
     <div className='category'>
-      <div className="search d-flex">
+      <div className="search d-flex mb-5">
       <input type="text" value={searchQuery} onChange={(e)=>setQuery(e.target.value)} className='w-50'/>
       <button onClick={()=>{
         axios.get(`/api/blog/search/${searchQuery}/${searchPage}`).then(res=>res.data).then(data=>{
           setSdisplay(true)
           setResult(data.posts)
           setTotalSearchPages(data.totalPages)
+          if(data.totalPages==0){
+            setLM(false)
+          }
         })
       }}>Search</button>
       <button onClick={()=>{
-        setSdisplay(false)
+        setSdisplay(false);
+        setQuery('')
       }}>X</button>
       </div>
-      {articles?<>{articles.map(a=>
+
+      {sDisplay?<>{result.map(r=>
+
+<div class=" cat_card card mb-3" >
+<div class="row g-0">
+<div class="col-md-4">
+    <img src={r.coverImg} class=" cover  " alt="..."></img>
+  </div>
+  <div class="col-md-8">
+    <div class="card-body">
+    <h5 class="card-title">{r.title}</h5>
+<div className="authorInfo  d-flex">
+<img className='authorpic align-self-center' src={r.author.profile_pic}></img>
+<h7 className='align-self-center'>{r.author.name}</h7>
+</div>
+<p class="card-text">{r.desc}</p>
+<Link to ={`/read/${r._id}`} >Read More ..</Link>
+    </div>
+  </div>
+  
+</div>
+</div>
+    
+    )}
+{LM?
+<button onClick={gotoNextSearch}>Load More</button>
+:
+null
+}
+</>:null}
+      {articles&&!sDisplay?<>{articles.map(a=>
 
 <div class=" cat_card card mb-3" >
 <div class="row g-0">
