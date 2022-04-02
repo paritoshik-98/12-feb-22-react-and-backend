@@ -39,11 +39,6 @@ function App() {
     }
   },[LoginStatus.user])
 
-  // const {user} = useSelector(state=>state.userLogin)
-  
-  // useEffect(()=>{if(!user){
-    // navigate('/')
-  // }})
 
   return (
     <div className="app">

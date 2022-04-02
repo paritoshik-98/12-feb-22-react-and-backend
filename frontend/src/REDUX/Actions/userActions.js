@@ -48,6 +48,8 @@ export const LoginWithGoogle = (tokenId) => async (dispatch) => {
       .then((res) => {
         dispatch({ type: "LOGIN_SUCCESS", payload: res.data });
         localStorage.setItem("user", JSON.stringify(res.data.user));
+        dispatch(updatePic(res.data.user.profile_pic))
+        localStorage.setItem("DP", JSON.stringify({pic:res.data.user.profile_pic}))
         localStorage.setItem("accessToken", res.data.at);
       })
       .catch((err) =>

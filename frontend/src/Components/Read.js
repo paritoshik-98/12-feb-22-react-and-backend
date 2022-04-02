@@ -109,20 +109,19 @@ const [likes,setLikes] = useState([])
 
 const likeHandler = () => {
   if(likes.includes(user.id)){
-    const path = `/api/blog/${id}/unlike`;
+    const path = `http:localhost:8080/api/blog/${id}/unlike`;
   axios.put(path).then(res=>setLikes(res.data));
   }
   else{
-  const path = `/api/blog/${id}/like`;
+  const path = `http:localhost:8080/api/blog/${id}/like`;
   axios.put(path).then(res=>setLikes(res.data));
-  }
 }
-const unlike = () => {
-dispatch(like(id))
 }
+// const unlike = () => {
+// dispatch(like(id))
+// }
 
 const markHandler = () => {
-  if(user){
   if(marked.includes(user.id)){
     const path = '/api/blog/unMark';
   axios.put(path,{blogId:getblog.blog._id}).then(res=>setMarked(res.data));
@@ -131,7 +130,6 @@ const markHandler = () => {
     const path = '/api/blog/Mark';
   axios.put(path,{blogId:getblog.blog._id}).then(res=>setMarked(res.data));
   }
-}
 }
 
 const[comments,setComments]=useState([])
@@ -186,6 +184,7 @@ const toggle = () => setTC(!toggleComments)
         </div>
         <div className='d-flex'>
         {user?        
+
          marked.includes(user.id) ? 
          <button className='r-mark' onClick={markHandler}>
         {<BsFillBookmarkCheckFill size={30}/>}</button>
