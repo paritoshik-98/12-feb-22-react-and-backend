@@ -80,6 +80,7 @@ function Header() {
           <li id='n' className='text-muted fw-bold'>{Uname?Uname:<h1>''</h1>}</li>
           <li className='d_l'><Link style={{textDecoration:'none',color:'#2E0300'}} to='/profile'>Profile</Link></li>
           <li className='d_l'><Link style={{textDecoration:'none',color:'#2E0300'}} to='/myArticles'>My Articles</Link></li>
+          <li className='d_l'><Link style={{textDecoration:'none',color:'#2E0300'}} to='/drafts'>Draft</Link></li>
           <li className='d_l'><Link style={{textDecoration:'none',color:'#2E0300'}} to='/Favourites'>Favourites</Link></li>
           <li className='d_l'><a onClick={Logout} style={{color:'#2E0300'}}>Logout</a></li>
         </ul>
