@@ -154,6 +154,7 @@ const [editD,setED] = useState(false)
   <Link to = '/ChangePassword'><button>Change Password</button></Link>
   <Link to = '/myArticles'><button>My Articles</button></Link>
   <Link to = '/Favourites'><button>Favourites</button></Link>
+  <Link to = '/Drafts'><button>My Drafts</button></Link>
 </div>
 
 </>
