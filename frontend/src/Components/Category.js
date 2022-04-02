@@ -14,56 +14,60 @@ function Category() {
   const [numberOfPages, setNumberOfPages] = useState(0);
   // const [posts, setPosts] = useState();
 
-    const [blogs,setBlogs] = useState()
+    const [articles,setArticles] = useState()
 
     useEffect(async()=>{
       
       if(tag==='all'){
         axios.get(`/api/blog/cat/all/${pageNumber}`).then(res=>res.data).then(data=>{
-          setBlogs(data.posts)
+          setArticles(prev=>[...prev,...data.posts])
           setNumberOfPages(data.totalPages)
           
         })
       }
       else{
         axios.get(`/api/blog/cat/${tag}/${pageNumber}`).then(res=>res.data).then(data=>{
-          setBlogs(data.posts)
+          setArticles(data.posts)
           setNumberOfPages(data.totalPages)
       })
     }
     },[pageNumber])
 
-    const pages = new Array(numberOfPages).fill(null).map((value,index)=>index)
+    // const pages = new Array(numberOfPages).fill(null).map((value,index)=>index)
 
-    const gotoPrevious = () => {
-      setPageNumber(Math.max(0, pageNumber - 1));
-    };
+    // const gotoPrevious = () => {
+    //   setPageNumber(Math.max(0, pageNumber - 1));
+    // };
   
+    const [LM,setLM] = useState(true)
     const gotoNext = () => {
       // if(pageNumber==numberOfPages-1){}
       // else{
       setPageNumber(Math.min(numberOfPages - 1, pageNumber + 1));
+      if (pageNumber === numberOfPages){
+          setLM(false)
+      }
       // }
     };
 
-    const comparePageNo = (index) => {
-      if(pageNumber==0 && index<4){
-        return true
-      }
-      if(pageNumber==1 && index<4){
-        return true
-      }
-      if(pageNumber==2 && index<4){
-        return true
-      }
-      if(pageNumber>2 && pageNumber!=numberOfPages && index<pageNumber+2 && index>=pageNumber-2){
-        return true
-      }
-      if(pageNumber==numberOfPages-1 && index>=numberOfPages-4){
-        return true
-      }
-      else return false
-    }
+    // const comparePageNo = (index) => {
+    //   if(pageNumber==0 && index<4){
+    //     return true
+    //   }
+    //   if(pageNumber==1 && index<4){
+    //     return true
+    //   }
+    //   if(pageNumber==2 && index<4){
+    //     return true
+    //   }
+    //   if(pageNumber>2 && pageNumber!=numberOfPages && index<pageNumber+2 && index>=pageNumber-2){
+    //     return true
+    //   }
+    //   if(pageNumber==numberOfPages-1 && index>=numberOfPages-4){
+    //     return true
+    //   }
+    //   else return false
+    // }
     
     const[searchQuery,setQuery] = useState('')
     const[searchPage,setSearchPage] = useState(0)
@@ -96,7 +100,36 @@ function Category() {
         setSdisplay(false)
       }}>X</button>
       </div>
-      {sDisplay?totalSearchPages==0?<h1>Not found</h1>:<>{JSON.stringify(result)}</>:null}
+      {articles?<>{articles.map(a=>
+
+<div class=" cat_card card mb-3" >
+<div class="row g-0">
+<div class="col-md-4">
+    <img src={a.coverImg} class=" cover  " alt="..."></img>
+  </div>
+  <div class="col-md-8">
+    <div class="card-body">
+    <h5 class="card-title">{a.title}</h5>
+<div className="authorInfo  d-flex">
+<img className='authorpic align-self-center' src={a.author.profile_pic}></img>
+<h7 className='align-self-center'>{a.author.name}</h7>
+</div>
+<p class="card-text">{a.desc}</p>
+<Link to ={`/read/${a._id}`} >Read More ..</Link>
+    </div>
+  </div>
+  
+</div>
+</div>
+    
+    )}
+{LM?
+<button onClick={gotoNext}>Load More</button>
+:
+null
+}
+</>:null}
+      {/* {sDisplay?totalSearchPages==0?<h1>Not found</h1>:<>{JSON.stringify(result)}</>:null}
 
 
       {!sDisplay?
@@ -224,7 +257,7 @@ function Category() {
         )}
         else return null
 })}
-      <button onClick={gotoNext}>Next</button>
+      <button onClick={gotoNext}>Next</button> */}
     </div>
     </>
     
