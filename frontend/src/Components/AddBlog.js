@@ -15,7 +15,14 @@ import '../Axios'
 
 function AddBlog() {
 
+  const userLogin = useSelector(state=>state.userLogin.user)
+
   const navigate = useNavigate()
+
+  useEffect(()=>{
+    if(!userLogin){navigate('/')}
+  },[])
+
   
   const [title,setT]=useState('')
   const TChange = (e) =>{
