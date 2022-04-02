@@ -7,7 +7,7 @@ import { Link, useParams } from 'react-router-dom'
 import { fetchBlogAction, like } from '../REDUX/Actions/blogActions'
 import './read.css'
 
-import { MdDelete } from 'react-icons/md';
+import { MdDeleteOutline } from 'react-icons/md';
 import { MdSend } from 'react-icons/md';
 import { FcLike } from 'react-icons/fc';
 import { FcLikePlaceholder } from 'react-icons/fc';
@@ -21,7 +21,7 @@ import { BsBookmarkPlus } from 'react-icons/bs';
 import { FaEdit } from 'react-icons/fa';
 
 import axios from 'axios'
-import '../Axios'
+// import '../Axios'
 import Header from './Header'
 import {
   EmailShareButton,
@@ -74,11 +74,12 @@ function Read() {
 
     const dispatch = useDispatch()
 
-    const getblog = useSelector(state=>state.fetchBlog,shallowEqual)
+    const getblog = useSelector(state=>state.fetchBlog)
 
     const[author,setA]=useState()
 
     const user = useSelector(state=>state.userLogin.user)
+    const userLogin = useSelector(state=>state.userLogin.user)
 
     var {id} = useParams()
     useEffect(() => {
@@ -108,13 +109,18 @@ const [marked,setMarked] = useState([])
 const [likes,setLikes] = useState([])
 
 const likeHandler = () => {
-  if(likes.includes(user.id)){
-    const path = `http:localhost:8080/api/blog/${id}/unlike`;
+  if(userLogin.user){
+  if(likes.includes(userLogin.user.id)){
+    const path = `/api/blog/${id}/unlike`;
   axios.put(path).then(res=>setLikes(res.data));
   }
   else{
-  const path = `http:localhost:8080/api/blog/${id}/like`;
+  const path = `/api/blog/${id}/like`;
   axios.put(path).then(res=>setLikes(res.data));
+}
+}
+else{
+  alert('Login to continue')
 }
 }
 // const unlike = () => {
@@ -122,7 +128,7 @@ const likeHandler = () => {
 // }
 
 const markHandler = () => {
-  if(marked.includes(user.id)){
+  if(marked.includes(userLogin.user.id)){
     const path = '/api/blog/unMark';
   axios.put(path,{blogId:getblog.blog._id}).then(res=>setMarked(res.data));
   }
@@ -160,7 +166,14 @@ const change = (e) => {
 
 const[toggleComments,setTC]=useState(false)
 
-const toggle = () => setTC(!toggleComments)
+const toggle = () => {
+  if(user){
+  setTC(!toggleComments)
+}
+else{
+  alert('Login to continue')
+}
+}
 
 
 
@@ -183,7 +196,25 @@ const toggle = () => setTC(!toggleComments)
         </div>
         </div>
         <div className='d-flex'>
-        {user?        
+          {user?
+          <>
+          {
+            marked.includes(userLogin.user.id) ? 
+         <button className='r-mark' onClick={markHandler}>
+        <BsFillBookmarkCheckFill size={30}/></button>
+         :
+        <button className='r-mark'onClick={markHandler}>{<BsBookmarkPlus size={30}/>}</button>
+          }</>
+          :
+          <button className='r-mark'onClick={()=>alert('Login to continue')}>{<BsBookmarkPlus size={30}/>}</button>
+        }
+        {user?<>
+        {userLogin.user.id==getblog.blog.author._id?<Link className='align-self-center edit' to={`/edit/${getblog.blog._id}`}><FaEdit size={30}/></Link>:null}
+        </>
+        :null
+}
+          <a href="#share" id='s_link' className='align-self-center text-muted fw-bold'><ImShare size={30}/></a>
+        {/* {user?        
 
          marked.includes(user.id) ? 
          <button className='r-mark' onClick={markHandler}>
@@ -193,24 +224,29 @@ const toggle = () => setTC(!toggleComments)
 
           :null}
         {user.id===getblog.blog.author._id?<Link className='align-self-center edit' to={`/edit/${getblog.blog._id}`}><FaEdit size={30}/></Link>:null}
-        {/* {user.id===getblog.blog.author._id?<MdDelete size={30} className='align-self-center ' />:null} */}
         
 
         {user.id!==getblog.blog.author._id?<a href="#share" id='s_link' className='align-self-center text-muted fw-bold'><ImShare size={30}/></a>:null}
-        
+         */}
         </div>
-        {/* <a href="#share" className='align-self-center'><ImShare size={30}/></a> */}
         
         </div>
         <div className="body" id="c"></div> 
         <div className="user-int d-flex justify-content-between">
           <div className='d-flex'>
+          {user?
           <div className="like-div d-flex">
-        <button className='like align-self-center' onClick={likeHandler}>{likes?likes.length>0?likes.includes(user.id)?<span><FcLike size={32} fillOpacity={1}/>{likes.length.count}</span>:<span><FcLikePlaceholder size={32} fill='red'/>{likes.length.count}</span>:<span><FcLikePlaceholder size={32}fill='red' f/>{likes.length.count}</span>:null}</button>
+        <button className='like align-self-center' onClick={likeHandler}>{likes?likes.length>0?likes.includes(userLogin.user.id)?<span><FcLike size={32} fillOpacity={1}/>{likes.length.count}</span>:<span><FcLikePlaceholder size={32} fill='red'/>{likes.length.count}</span>:<span><FcLikePlaceholder size={32}fill='red' f/>{likes.length.count}</span>:null}</button>
           <h5 className=' align-self-center text-muted l_count'>{likes.length}</h5>
         </div>
+        :
+        <div className="like-div d-flex">
+        <button className='like align-self-center' onClick={likeHandler}>{likes?likes.length>0?<span><FcLike size={32} fill='red'/>{likes.length.count}</span>:<span><FcLikePlaceholder size={32}fill='red' f/>{likes.length.count}</span>:null}</button>
+          <h5 className=' align-self-center text-muted l_count'>{likes.length}</h5>
+        </div>
+        }
         <div className="comment-div d-flex">
-          <button className='comment-btn' onClick={()=>setTC(!toggleComments)}><BiCommentDetail size={28}/></button>
+          <button className='comment-btn' onClick={toggle}><BiCommentDetail size={28}/></button>
           <h5 className=' align-self-center text-muted c_count'>{comments.length}</h5>
         </div>
         </div>
@@ -240,12 +276,12 @@ const toggle = () => setTC(!toggleComments)
           {/* <p className='mb-0' ><b>{c.text}</b></p></div> */}
           <p className='mb-0' ><i><b>{c.text}</b></i></p></div>
           <div className='align-self-center'>
-          {c.userId===user.id? <button className='del_cmt_btn ' id={c._id} onClick={()=>{
+          {c.userId===userLogin.user.id? <button className='del_cmt_btn ' id={c._id} onClick={()=>{
             // console.log('del',c._id);
             const path = `/api/blog/${id}/comment/delete`;
   axios.put(path,{cid:c._id}).then(res=>setComments(res.data))
 
-            }}><MdDelete size={30}/></button>:null}
+            }}><MdDeleteOutline size={30}/></button>:null}
             </div>
             
             </div>
@@ -258,7 +294,6 @@ const toggle = () => setTC(!toggleComments)
         <input type="text" className='cmt_input ' id='c' onChange={change} value={inputC}/>
         <div className='sbt_cmt'><button className='btn btn-outline-dark submitC  ' onClick={addComment}>SUBMIT</button></div>
         </div>
-        {/* {JSON.stringify(comments)} */}
       </div>
         :null}
     </div>

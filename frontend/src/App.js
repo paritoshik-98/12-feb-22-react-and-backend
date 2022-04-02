@@ -33,11 +33,11 @@ function App() {
 
   const LoginStatus = useSelector((state) => state.userLogin);
 
-  useEffect(()=>{
-    if(!LoginStatus.user){
-      navigate('/')
-    }
-  },[LoginStatus.user])
+  // useEffect(()=>{
+  //   if(!LoginStatus.user){
+  //     navigate('/')
+  //   }
+  // },[LoginStatus.user])
 
 
   return (

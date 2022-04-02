@@ -82,7 +82,7 @@ router.get('/trendingpage:page?',authuser,getMostLikedBlog);
 
 router.get('/:tag',authuser,getBlogByTag);
 
-router.get('/read/:id',authuser,getBlogByID);
+router.get('/read/:id',getBlogByID);
 
 router.get('/get/myblogs/:page?',authuser,async(req,res)=>{
   const user = req.userid;

@@ -178,7 +178,7 @@ const deleteBlog = async (req, res) => {
 };
 
 const comment = async(req,res) => {
-  console.log(req.body)
+  // console.log(req.body)
   try {
     const id = req.params.id;
     const filter = { _id: req.params.id };
@@ -187,7 +187,11 @@ const comment = async(req,res) => {
          blog.findOneAndUpdate(filter, update, {
             new: true,
           })
-          .then((doc) => res.status(200).send(doc.comments))
+          .then((doc) =>{
+          console.log(doc.comments);
+          res.status(200).send(doc.comments)
+          }
+          )
           .catch((e) => res.status(500).send("Something went wrong !"));
       }
    catch (error) {

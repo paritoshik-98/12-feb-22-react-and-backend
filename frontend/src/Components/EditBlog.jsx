@@ -40,7 +40,8 @@ function EditBlog() {
         
          useEffect(()=>{
             if(blog){
-              if(selector.blog.author._id != userLogin.user.id){
+              if(selector.blog.author._id != JSON.parse(localStorage.user).id){
+                console.log(selector.blog.author._id,userLogin.user.id)
                 setauthorized(false)
               }
             for ( const key of selector.blog.tags) {

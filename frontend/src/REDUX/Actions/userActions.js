@@ -62,12 +62,15 @@ export const LoginWithGoogle = (tokenId) => async (dispatch) => {
 
 // logout
 
-export const Logout = () => async (dispatch) => {
-  localStorage.removeItem("user");
-  localStorage.removeItem("accessToken");
-  axios.get('/api/user/logout').then(res=>{if(res.status===200){dispatch({ type: "LOGOUT" })}})
-  .catch(e=>console.log(e))
-};
+// export const Logout = () => async (dispatch) => {
+//   localStorage.removeItem("user");
+//   localStorage.removeItem("accessToken");
+//   axios.get('/api/user/logout').then(res=>{if(res.status===200){
+//     window.location('/')
+//     dispatch({ type: "LOGOUT" })
+// }})
+//   .catch(e=>console.log(e))
+// };
 
 ////////////// data  pic url --- {url}
 export const updatePic = (url) => {

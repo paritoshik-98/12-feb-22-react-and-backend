@@ -1,10 +1,9 @@
-import { set } from 'mongoose'
+import axios from 'axios'
 import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { Link, useNavigate } from 'react-router-dom'
-import { Logout } from '../REDUX/Actions/userActions'
+// import { Logout } from '../REDUX/Actions/userActions'
 import './header.css'
-
 function Header() {
 
   const [Uname,setUname] = useState()
@@ -30,7 +29,16 @@ function Header() {
     setDropDown(!dropDown)
   }
 
-
+  const Logout = () => {
+    setDropDown(!dropDown)
+    localStorage.removeItem("user");
+    localStorage.removeItem("accessToken");
+    dispatch({type:'LOGOUT'})
+    // axios.get('/api/user/logout').then(res=>{if(res.status===200){
+      navigate('/')
+  // }})
+    // .catch(e=>console.log(e))
+  };
 
 
   const DP = useSelector(state=>state.DP)
@@ -73,7 +81,7 @@ function Header() {
           <li className='d_l'><Link style={{textDecoration:'none',color:'#2E0300'}} to='/profile'>Profile</Link></li>
           <li className='d_l'><Link style={{textDecoration:'none',color:'#2E0300'}} to='/myArticles'>My Articles</Link></li>
           <li className='d_l'><Link style={{textDecoration:'none',color:'#2E0300'}} to='/Favourites'>Favourites</Link></li>
-          <li className='d_l'><a onClick={()=>{dispatch(Logout());setDropDown(false)}} style={{color:'#2E0300'}}>Logout</a></li>
+          <li className='d_l'><a onClick={Logout} style={{color:'#2E0300'}}>Logout</a></li>
         </ul>
 :null}
 
