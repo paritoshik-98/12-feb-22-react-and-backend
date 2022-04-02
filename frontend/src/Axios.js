@@ -1,12 +1,14 @@
 import axios from 'axios'
 import  store  from './REDUX/store';
 
+const baseURL ='http://localhost:8080'
+
 axios.interceptors.request.use(
     config => {
         config.headers['authtoken'] = localStorage.getItem('accessToken') ? localStorage.getItem('accessToken') : null
         config.headers['Content-Type'] = 'application/json';
         config.withCredentials = true;
-        config.baseURL = "http://localhost:8080";
+        config.baseURL = baseURL;
         return config;
     },
     error => {
@@ -21,14 +23,14 @@ axios.interceptors.response.use(
         const originalRequest = error.config;
 
         // Prevent infinite loops
-        if (error.response.status === 401 && originalRequest.url === "http://localhost:8080/api/user/refresh") {
+        if (error.response.status === 401 && originalRequest.url === `${baseURL}/api/user/refresh`) {
             window.location.href = '/';
             return Promise.reject(error);
         }
 
         if (error.response.status === 401 && !originalRequest._retry) {
             originalRequest._retry = true;
-            return axios.get('http://localhost:8080/api/user/refresh').then(res=>{
+            return axios.get(`${baseURL}/api/user/refresh`).then(res=>{
                 if(res.status === 200){
                     localStorage.setItem('accessToken',res.data);
                     console.log(res.data)

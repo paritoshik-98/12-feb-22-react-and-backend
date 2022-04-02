@@ -71,7 +71,8 @@ const upload = async() => {
     .then(resp => resp.json())
     .then(async (data) => {
       console.log(data.url)
-      const res = await axios.post('http://localhost:8080/api/user/updatePic',{id:profile._id,url:data.url},{
+      // const res = await axios.post('http://localhost:8080/api/user/updatePic',{id:profile._id,url:data.url},{
+      const res = await axios.post('/api/user/updatePic',{id:profile._id,url:data.url},{
         withCredentials: true,
       })
       if(res.status===200){
@@ -94,7 +95,8 @@ const upload = async() => {
 const RemoveImage = async()=>{
   try{
     setLoading(true)
-    const res = await axios.post('http://localhost:8080/api/user/updatePic',{id:profile._id,url:"https://res.cloudinary.com/drzjynyvq/image/upload/v1648718621/wdjpzij0wm5doew8oygm.png"},{
+    // const res = await axios.post('http://localhost:8080/api/user/updatePic',{id:profile._id,url:"https://res.cloudinary.com/drzjynyvq/image/upload/v1648718621/wdjpzij0wm5doew8oygm.png"},{
+    const res = await axios.post('/api/user/updatePic',{id:profile._id,url:"https://res.cloudinary.com/drzjynyvq/image/upload/v1648718621/wdjpzij0wm5doew8oygm.png"},{
       withCredentials: true,
     })
     if(res.status===200){
