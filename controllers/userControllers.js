@@ -3,7 +3,7 @@ const bcrypt = require('bcrypt');
 const saltRounds = 10;
 const jwt = require('jsonwebtoken')
 const { OAuth2Client } = require('google-auth-library')
-const client = new OAuth2Client("149517402118-58t2a5ao3f8kqo9vn8bh5muf3ctbl5f3.apps.googleusercontent.com")
+const client = new OAuth2Client("92920275652-tqg9eads4vhhm0cn4emei20ccolgtv55.apps.googleusercontent.com")
 
 const getUser = async(req,res)=>{
     try {
@@ -79,7 +79,7 @@ const loginUserGoogle = async(req,res,next)=>{
         console.log(tokenId)
         const ticket = await client.verifyIdToken({
             idToken: tokenId,
-            audience: "149517402118-58t2a5ao3f8kqo9vn8bh5muf3ctbl5f3.apps.googleusercontent.com"
+            audience: "92920275652-tqg9eads4vhhm0cn4emei20ccolgtv55.apps.googleusercontent.com"
             // audience: process.env.CLIENT_ID
         });
         const { name, email, picture } = ticket.getPayload();
@@ -227,7 +227,7 @@ try {
 
       const token  = jwt.sign({userid:u._id},process.env.JWT_SECRET,{expiresIn:'5m'})
 
-      const link = `http://localhost:3000/reset/${token}`
+      const link = `https://blog-test-1-april.herokuapp.com/reset/${token}`
       
       const data = `Click the link to reset password ${link} . This link is valid for 5 min`
 
