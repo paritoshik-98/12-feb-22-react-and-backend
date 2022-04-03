@@ -35,6 +35,8 @@ function Home() {
       <>
       {/* style="max-width: 540px;" */}
       <h3 className=' top'>Top Article of the Day</h3>
+
+      {trending[0]?
       <div class="card mb-3" >
   <div class="row g-0">
     <div class="col-md-8">
@@ -54,12 +56,15 @@ function Home() {
     </div>
   </div>
 </div>
+:null}
+
 <div className=" cat d-flex justify-content-between align-content-center mt-5">
 <h3>Most Popular </h3>
 <Link to='/cat/all' className='link' href=''>View More --></Link>
 </div>
 <div className="trending row row-cols-1 row-cols-sm-2 g-4">
 <div class="col " style={{width:'40%'}}>
+{trending[1]?
     <div class="card h-100" >
       <img src={trending[1].coverImg} class="card-img-top homeImage" alt="..."></img>
       <div class="card-body">
@@ -67,8 +72,10 @@ function Home() {
         <p class="card-text">{trending[1].desc}</p>
       </div>
     </div>
+    :null}
   </div>
 <div class="col " style={{width:'60%'}}>
+{trending[2]?
     <div class="card h-100">
       <img src={trending[2].coverImg} class="card-img-top homeImage" alt="..."></img>
       <div class="card-body">
@@ -76,8 +83,10 @@ function Home() {
         <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
       </div>
     </div>
+    :null}
   </div>
 <div class="col" style={{width:'60%'}}>
+{trending[3]?
     <div class="card h-100">
       <img src={trending[3].coverImg} class="card-img-top homeImage" alt="..."></img>
       <div class="card-body">
@@ -85,8 +94,10 @@ function Home() {
         <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
       </div>
     </div>
+    :null}
   </div>
 <div class="col" style={{width:'40%'}}>
+{trending[4]?
     <div class="card h-100">
       <img src={trending[4].coverImg} class="card-img-top homeImage" alt="..."></img>
       <div class="card-body">
@@ -94,6 +105,7 @@ function Home() {
         <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
       </div>
     </div>
+    :null}
   </div>
 </div>
 <div className=" cat d-flex justify-content-between align-content-center mt-5">
@@ -102,6 +114,7 @@ function Home() {
 </div>
 <div className="trending row row-cols-1 row-cols-sm-2 g-4">
 <div class="col " style={{width:'40%'}}>
+{trending[0]?
     <div class="card h-100" >
       <img src={trending[0].coverImg} class="card-img-top homeImage" alt="..."></img>
       <div class="card-body">
@@ -109,8 +122,10 @@ function Home() {
         <p class="card-text">{trending[1].content}</p>
       </div>
     </div>
+    :null}
   </div>
 <div class="col" style={{width:'60%'}}>
+{trending[1]?
     <div class="card h-100">
       <img src={trending[1].coverImg} class="card-img-top homeImage" alt="..."></img>
       <div class="card-body">
@@ -118,8 +133,10 @@ function Home() {
         <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
       </div>
     </div>
+    :null}
   </div>
 <div class="col" style={{width:'60%'}}>
+{trending[2]?
     <div class="card h-100">
       <img src={trending[2].coverImg} class="card-img-top homeImage" alt="..."></img>
       <div class="card-body">
@@ -127,8 +144,10 @@ function Home() {
         <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
       </div>
     </div>
+    :null}
   </div>
 <div class="col" style={{width:'40%'}}>
+{trending[3]?
     <div class="card h-100">
       <img src={trending[3].coverImg} class="card-img-top homeImage" alt="..."></img>
       <div class="card-body">
@@ -136,6 +155,7 @@ function Home() {
         <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
       </div>
     </div>
+    :null}
   </div>
 </div>
       </>
