@@ -8,6 +8,7 @@
     /* object-fit: cover; */
     border-radius: 50%;
     height: 30vh;
+    width:30vh;
     border: 0.8px solid #2E0300
 }
 .icons{

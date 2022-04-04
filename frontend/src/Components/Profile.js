@@ -138,7 +138,7 @@ const [editD,setED] = useState(false)
     <div className='d-flex'>
 
       <div>
-      {loading?<h1>Loading...</h1>:<img  className='dp' src={DP} alt="" />}
+      {loading?<h1>Loading...</h1>:<img  className='dp' src={DP} alt="Loading.." />}
       <div>
       <button className='icons' onClick={()=>setED(!editD)}><FaEdit size={32}/></button>
       <button className='icons'onClick={RemoveImage}><MdDelete size={32}/></button>
