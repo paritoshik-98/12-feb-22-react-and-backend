@@ -121,7 +121,7 @@ const likeHandler = () => {
   axios.put(path).then(res=>setLikes(res.data));
   }
   else{
-    setLD(false)
+    setLD(true)
   const path = `/api/blog/${id}/like`;
   axios.put(path).then(res=>setLikes(res.data));
 }
