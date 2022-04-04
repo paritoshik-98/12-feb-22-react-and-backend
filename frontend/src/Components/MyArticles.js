@@ -13,6 +13,7 @@ export default function MyArticles() {
     useEffect(()=>{
          axios.get(`/api/blog/get/myblogs/${pageNumber}`).then(res=>res.data.posts).then(data=>{
         setarticles(prev=>[...prev,...data])
+        setLoader(false)
          })
          axios.get(`/api/blog/get/myblogs/${pageNumber}`).then(res=>res.data.totalPages).then(data=>{
         setNumberOfPages(data)
