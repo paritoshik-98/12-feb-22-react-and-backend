@@ -249,7 +249,9 @@ else{
           
           <div className="like-div d-flex">
         {/* <button className='like align-self-center' onClick={likeHandler}>{likes?likes.length>0?likes.includes(user.id)?<span><FcLike size={32} fillOpacity={1}/>{likes.length.count}</span>:<span><FcLikePlaceholder size={32} fill='red'/>{likes.length.count}</span>:<span><FcLikePlaceholder size={32}fill='red' f/>{likes.length.count}</span>:null}</button> */}
-        <button className='like align-self-center' onClick={likeHandler}>{likes?likes.length>0?likedDisplay?<span><FcLike size={32} fillOpacity={1}/>{likes.length.count}</span>:<span><FcLikePlaceholder size={32} fill='red'/>{likes.length.count}</span>:<span><FcLikePlaceholder size={32}fill='red' f/>{likes.length.count}</span>:null}</button>
+        {/* <button className='like align-self-center' onClick={likeHandler}>{likes?likes.length>0?likedDisplay?<span><FcLike size={32} fillOpacity={1}/>{likes.length.count}</span>:<span><FcLikePlaceholder size={32} fill='red'/>{likes.length.count}</span>:<span><FcLikePlaceholder size={32}fill='red' f/>{likes.length.count}</span>:null}</button> */}
+        {likedDisplay?<button className='like align-self-center' onClick={likeHandler}><FcLike size={32} fillOpacity={1}/></button>
+        :<button className='like align-self-center' onClick={likeHandler}><FcLikePlaceholder size={32} fill='red'/></button>}
           <h5 className=' align-self-center text-muted l_count'>{likes.length}</h5>
         </div>
         
