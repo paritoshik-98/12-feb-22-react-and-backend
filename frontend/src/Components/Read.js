@@ -198,13 +198,17 @@ else{
         <div className='d-flex'>
           {userLogin?
           <>
+          {userLogin.user?<>
           {
             marked.includes(userLogin.user.id) ? 
          <button className='r-mark' onClick={markHandler}>
         <BsFillBookmarkCheckFill size={30}/></button>
          :
         <button className='r-mark'onClick={markHandler}>{<BsBookmarkPlus size={30}/>}</button>
-          }</>
+          }</>:
+          <button className='r-mark'onClick={()=>alert('Login to continue')}>{<BsBookmarkPlus size={30}/>}</button>
+        }
+          </>
           :
           <button className='r-mark'onClick={()=>alert('Login to continue')}>{<BsBookmarkPlus size={30}/>}</button>
         }
