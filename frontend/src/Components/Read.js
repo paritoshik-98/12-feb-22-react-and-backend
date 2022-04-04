@@ -97,6 +97,8 @@ function Read() {
         setA(getblog.blog.author)
         setDate(getblog.blog.date)
         setMarked((getblog.blog.markedby))
+        if(marked.includes(user.id)){setMD(true)}
+        if(likes.includes(user.id)){setLD(true)}
       }
     }
     ,[getblog.blog])
@@ -105,19 +107,21 @@ function Read() {
 const[date,setDate]=useState('swe')
 
 const [marked,setMarked] = useState([])
+const [markedDisplay,setMD] =useState(false)
 
 const [likes,setLikes] = useState([])
+const [likedDisplay,setLD] =useState(false)
 
 const likeHandler = () => {
   if(user){
   if(likes.includes(user.id)){
-    let index = likes.indexOf(user.id)
-    likes.splice(index,1)
+    // unlike
+    setLD(false)
     const path = `/api/blog/${id}/unlike`;
   axios.put(path).then(res=>setLikes(res.data));
   }
   else{
-    likes.push(user.id)
+    setLD(false)
   const path = `/api/blog/${id}/like`;
   axios.put(path).then(res=>setLikes(res.data));
 }
@@ -132,10 +136,13 @@ else{
 
 const markHandler = () => {
   if(marked.includes(user.id)){
+    // unmark
+    setMD(false)
     const path = '/api/blog/unMark';
   axios.put(path,{blogId:getblog.blog._id}).then(res=>setMarked(res.data));
   }
   else{
+    setMD(true)
     const path = '/api/blog/Mark';
   axios.put(path,{blogId:getblog.blog._id}).then(res=>setMarked(res.data));
   }
@@ -202,7 +209,7 @@ else{
           {user?
           <>
           {
-            marked.includes(user.id) ? 
+            markedDisplay ? 
          <button className='r-mark' onClick={markHandler}>
         <BsFillBookmarkCheckFill size={30}/></button>
          :
@@ -241,7 +248,8 @@ else{
           {user?
           
           <div className="like-div d-flex">
-        <button className='like align-self-center' onClick={likeHandler}>{likes?likes.length>0?likes.includes(user.id)?<span><FcLike size={32} fillOpacity={1}/>{likes.length.count}</span>:<span><FcLikePlaceholder size={32} fill='red'/>{likes.length.count}</span>:<span><FcLikePlaceholder size={32}fill='red' f/>{likes.length.count}</span>:null}</button>
+        {/* <button className='like align-self-center' onClick={likeHandler}>{likes?likes.length>0?likes.includes(user.id)?<span><FcLike size={32} fillOpacity={1}/>{likes.length.count}</span>:<span><FcLikePlaceholder size={32} fill='red'/>{likes.length.count}</span>:<span><FcLikePlaceholder size={32}fill='red' f/>{likes.length.count}</span>:null}</button> */}
+        <button className='like align-self-center' onClick={likeHandler}>{likes?likes.length>0?likedDisplay?<span><FcLike size={32} fillOpacity={1}/>{likes.length.count}</span>:<span><FcLikePlaceholder size={32} fill='red'/>{likes.length.count}</span>:<span><FcLikePlaceholder size={32}fill='red' f/>{likes.length.count}</span>:null}</button>
           <h5 className=' align-self-center text-muted l_count'>{likes.length}</h5>
         </div>
         
