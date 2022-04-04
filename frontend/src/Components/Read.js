@@ -109,8 +109,8 @@ const [marked,setMarked] = useState([])
 const [likes,setLikes] = useState([])
 
 const likeHandler = () => {
-  if(userLogin.user){
-  if(likes.includes(userLogin.user.id)){
+  if(user){
+  if(likes.includes(user.id)){
     const path = `/api/blog/${id}/unlike`;
   axios.put(path).then(res=>setLikes(res.data));
   }
@@ -128,7 +128,7 @@ else{
 // }
 
 const markHandler = () => {
-  if(marked.includes(userLogin.user.id)){
+  if(marked.includes(user.id)){
     const path = '/api/blog/unMark';
   axios.put(path,{blogId:getblog.blog._id}).then(res=>setMarked(res.data));
   }
@@ -196,25 +196,21 @@ else{
         </div>
         </div>
         <div className='d-flex'>
-          {userLogin?
+          {user?
           <>
-          {userLogin.user?<>
           {
-            marked.includes(userLogin.user.id) ? 
+            marked.includes(user.id) ? 
          <button className='r-mark' onClick={markHandler}>
         <BsFillBookmarkCheckFill size={30}/></button>
          :
         <button className='r-mark'onClick={markHandler}>{<BsBookmarkPlus size={30}/>}</button>
-          }</>:
-          <button className='r-mark'onClick={()=>alert('Login to continue')}>{<BsBookmarkPlus size={30}/>}</button>
-        }
+          }
           </>
           :
           <button className='r-mark'onClick={()=>alert('Login to continue')}>{<BsBookmarkPlus size={30}/>}</button>
         }
-        {userLogin?<>{userLogin.user?<>
-        {userLogin.user.id==getblog.blog.author._id?<Link className='align-self-center edit' to={`/edit/${getblog.blog._id}`}><FaEdit size={30}/></Link>:null}
-        </>:null}
+        {user?<>
+        {user.id==getblog.blog.author._id?<Link className='align-self-center edit' to={`/edit/${getblog.blog._id}`}><FaEdit size={30}/></Link>:null}
         </>
         :null
 }
@@ -239,13 +235,13 @@ else{
         <div className="body" id="c"></div> 
         <div className="user-int d-flex justify-content-between">
           <div className='d-flex'>
-          {userLogin?<>
-          {userLogin.user?
+          {user?
+          
           <div className="like-div d-flex">
-        <button className='like align-self-center' onClick={likeHandler}>{likes?likes.length>0?likes.includes(userLogin.user.id)?<span><FcLike size={32} fillOpacity={1}/>{likes.length.count}</span>:<span><FcLikePlaceholder size={32} fill='red'/>{likes.length.count}</span>:<span><FcLikePlaceholder size={32}fill='red' f/>{likes.length.count}</span>:null}</button>
+        <button className='like align-self-center' onClick={likeHandler}>{likes?likes.length>0?likes.includes(user.id)?<span><FcLike size={32} fillOpacity={1}/>{likes.length.count}</span>:<span><FcLikePlaceholder size={32} fill='red'/>{likes.length.count}</span>:<span><FcLikePlaceholder size={32}fill='red' f/>{likes.length.count}</span>:null}</button>
           <h5 className=' align-self-center text-muted l_count'>{likes.length}</h5>
         </div>
-        :null}</>
+        
         :
         <div className="like-div d-flex">
         <button className='like align-self-center' onClick={likeHandler}>{likes?likes.length>0?<span><FcLike size={32} fill='red'/>{likes.length.count}</span>:<span><FcLikePlaceholder size={32}fill='red' f/>{likes.length.count}</span>:null}</button>
@@ -282,15 +278,16 @@ else{
           <div><p className='text-muted mb-0'>{c.userName} :- </p>
           {/* <p className='mb-0' ><b>{c.text}</b></p></div> */}
           <p className='mb-0' ><i><b>{c.text}</b></i></p></div>
+          {user?
           <div className='align-self-center'>
-          {c.userId===userLogin.user.id? <button className='del_cmt_btn ' id={c._id} onClick={()=>{
+          {c.userId===user.id? <button className='del_cmt_btn ' id={c._id} onClick={()=>{
             // console.log('del',c._id);
             const path = `/api/blog/${id}/comment/delete`;
   axios.put(path,{cid:c._id}).then(res=>setComments(res.data))
 
             }}><MdDeleteOutline size={30}/></button>:null}
             </div>
-            
+            :null}
             </div>
           
         </div>
