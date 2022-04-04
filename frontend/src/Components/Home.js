@@ -119,7 +119,7 @@ function Home() {
       <img src={trending[0].coverImg} class="card-img-top homeImage" alt="..."></img>
       <div class="card-body">
         <h5 class="card-title">Card title</h5>
-        <p class="card-text">{trending[1].content}</p>
+        <p class="card-text">{trending[0].content}</p>
       </div>
     </div>
     :null}
