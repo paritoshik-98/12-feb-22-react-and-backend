@@ -111,10 +111,13 @@ const [likes,setLikes] = useState([])
 const likeHandler = () => {
   if(user){
   if(likes.includes(user.id)){
+    let index = likes.indexOf(user.id)
+    likes.splice(index,1)
     const path = `/api/blog/${id}/unlike`;
   axios.put(path).then(res=>setLikes(res.data));
   }
   else{
+    likes.push(user.id)
   const path = `/api/blog/${id}/like`;
   axios.put(path).then(res=>setLikes(res.data));
 }
