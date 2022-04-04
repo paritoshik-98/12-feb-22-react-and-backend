@@ -4,7 +4,7 @@ import { useParams } from 'react-router-dom'
 import { fetchBlogAction } from '../REDUX/Actions/blogActions'
 import './edit.css'
 import { CKEditor } from '@ckeditor/ckeditor5-react'
-import ClassicEditor from '@paritoshik_kharad/ckeditor5-build-classic-custom'
+import ClassicEditor from 'pari_bloc_test_1_deploy'
 // import blog from "../../../models/blog";
 import UnsplashReact, { Base64Uploader, withDefaultProps, InsertIntoApplicationUploader} from "unsplash-react"
 import axios from "axios";
