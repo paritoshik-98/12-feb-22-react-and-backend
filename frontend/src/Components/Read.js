@@ -85,7 +85,7 @@ function Read() {
     useEffect(() => {
        dispatch(fetchBlogAction(id));
        console.log(window.location.href)
-    }, [])
+    }, [id])
 
     
     
