@@ -212,8 +212,9 @@ else{
           :
           <button className='r-mark'onClick={()=>alert('Login to continue')}>{<BsBookmarkPlus size={30}/>}</button>
         }
-        {userLogin?<>
+        {userLogin?<>{userLogin.user?<>
         {userLogin.user.id==getblog.blog.author._id?<Link className='align-self-center edit' to={`/edit/${getblog.blog._id}`}><FaEdit size={30}/></Link>:null}
+        </>:null}
         </>
         :null
 }
@@ -238,11 +239,13 @@ else{
         <div className="body" id="c"></div> 
         <div className="user-int d-flex justify-content-between">
           <div className='d-flex'>
-          {userLogin?
+          {userLogin?<>
+          {userLogin.user?
           <div className="like-div d-flex">
         <button className='like align-self-center' onClick={likeHandler}>{likes?likes.length>0?likes.includes(userLogin.user.id)?<span><FcLike size={32} fillOpacity={1}/>{likes.length.count}</span>:<span><FcLikePlaceholder size={32} fill='red'/>{likes.length.count}</span>:<span><FcLikePlaceholder size={32}fill='red' f/>{likes.length.count}</span>:null}</button>
           <h5 className=' align-self-center text-muted l_count'>{likes.length}</h5>
         </div>
+        :null}</>
         :
         <div className="like-div d-flex">
         <button className='like align-self-center' onClick={likeHandler}>{likes?likes.length>0?<span><FcLike size={32} fill='red'/>{likes.length.count}</span>:<span><FcLikePlaceholder size={32}fill='red' f/>{likes.length.count}</span>:null}</button>
