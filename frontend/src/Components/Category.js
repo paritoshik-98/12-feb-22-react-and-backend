@@ -164,7 +164,14 @@ null
 </>
 :<h1>Loading..</h1>}</>
 :null}
-      {articles&&!sDisplay?<>{articles.map(a=>
+
+
+
+
+{!searchLoader?
+      <>{articles&&!sDisplay?
+      
+      <>{articles.map(a=>
 
 <div class=" cat_card card mb-3" >
 <div class="row g-0">
@@ -192,7 +199,13 @@ null
 :
 null
 }
-</>:null}
+</>:null
+
+}
+</>
+
+:<h1>Loading...</h1>}
+
       {/* {sDisplay?totalSearchPages==0?<h1>Not found</h1>:<>{JSON.stringify(result)}</>:null}
 
 
