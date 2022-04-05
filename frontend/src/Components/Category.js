@@ -103,6 +103,7 @@ function Category() {
     //   })
     // }
     const [loader,setLoader] = useState(true)
+    const [searchLoader,setSearchLoader] = useState(true)
     const [sDisplay,setSdisplay] = useState(false)
 
   return (
@@ -113,10 +114,12 @@ function Category() {
       <div className="search d-flex mb-5">
       <input type="text" value={searchQuery} onChange={(e)=>setQuery(e.target.value)} className='w-50'/>
       <button onClick={()=>{
+setSearchLoader(true)
         axios.get(`/api/blog/search/${searchQuery}/${searchPage}`).then(res=>res.data).then(data=>{
           setSdisplay(true)
           setResult(data.posts)
           setTotalSearchPages(data.totalPages)
+          setSearchLoader(false)
           if(data.totalPages==0){
             setLM(false)
           }
@@ -128,7 +131,9 @@ function Category() {
       }}>X</button>
       </div>
 
-      {sDisplay?<>{result.map(r=>
+      {sDisplay?<>
+{!searchLoader?
+      <>{result.map(r=>
 
 <div class=" cat_card card mb-3" >
 <div class="row g-0">
@@ -156,7 +161,9 @@ function Category() {
 :
 null
 }
-</>:null}
+</>
+:<h1>Loading..</h1>}</>
+:null}
       {articles&&!sDisplay?<>{articles.map(a=>
 
 <div class=" cat_card card mb-3" >
