@@ -46,6 +46,7 @@ function Header() {
       type:'REDIRECT',
       payload: window.location.pathname
     })
+    navigate('/')
   }
 
 
