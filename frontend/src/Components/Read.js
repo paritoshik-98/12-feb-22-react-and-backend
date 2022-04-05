@@ -97,8 +97,10 @@ function Read() {
         setA(getblog.blog.author)
         setDate(getblog.blog.date)
         setMarked((getblog.blog.markedby))
+        if(user){
         if(marked.includes(user.id)){setMD(true)}
         if(likes.includes(user.id)){setLD(true)}
+        }
       }
     }
     ,[getblog.blog])
