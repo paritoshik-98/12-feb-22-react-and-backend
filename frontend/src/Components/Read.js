@@ -109,10 +109,10 @@ function Read() {
 const[date,setDate]=useState('swe')
 
 const [marked,setMarked] = useState([])
-const [markedDisplay,setMD] =useState(false)
+const [markedDisplay,setMD] =useState()
 
 const [likes,setLikes] = useState([])
-const [likedDisplay,setLD] =useState(false)
+const [likedDisplay,setLD] =useState()
 
 const likeHandler = () => {
   if(user){
