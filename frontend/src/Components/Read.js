@@ -115,8 +115,9 @@ const [likedDisplay,setLD] =useState(false)
 const likeHandler = () => {
   if(user){
   if(likes.includes(user.id)){
-    
     // unlike
+    const i = likes.indexOf(user.id)
+    likes.splice(i,1)
     setLD(false)
     const path = `/api/blog/${id}/unlike`;
   axios.put(path).then(res=>setLikes(res.data));
