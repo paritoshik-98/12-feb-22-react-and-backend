@@ -14,30 +14,32 @@ function Category() {
   const [numberOfPages, setNumberOfPages] = useState(0);
   // const [posts, setPosts] = useState();
 
-    const [articles,setArticles] = useState()
+    const [articles,setArticles] = useState([])
 
     useEffect(async()=>{
       
       if(tag==='all'){
         axios.get(`/api/blog/cat/all/${pageNumber}`).then(res=>res.data).then(data=>{
-          if(articles){
+          // if(articles){
           setArticles(prev=>[...prev,...data.posts])
-          }
-          else{
-            setArticles([...data.posts])
-          }
+          setLoader(false)
+          // }
+          // else{
+            // setArticles([...data.posts])
+          // }
           setNumberOfPages(data.totalPages)
           
         })
       }
       else{
         axios.get(`/api/blog/cat/${tag}/${pageNumber}`).then(res=>res.data).then(data=>{
-          if(articles){
+          // if(articles){
             setArticles(prev=>[...prev,...data.posts])
-            }
-            else{
-              setArticles([...data.posts])
-            }
+            setLoader(false)
+            // }
+            // else{
+              // setArticles([...data.posts])
+            // }
           setNumberOfPages(data.totalPages)
       })
     }
