@@ -40,6 +40,14 @@ function Header() {
     // .catch(e=>console.log(e))
   };
 
+  const Login = () => {
+    console.log(window.location.pathname);
+    dispatch({
+      type:'REDIRECT',
+      payload: window.location.pathname
+    })
+  }
+
 
   const DP = useSelector(state=>state.DP)
 
@@ -71,7 +79,8 @@ function Header() {
   <img  src={DP.pic} alt='' class=" h-pic "onClick={toggle} ></img>
    
         
-        :<Link to = '/'>Login</Link>}
+        // :<Link to = '/'>Login</Link>}
+        :<a onClick={Login}>Login</a>}
 
 
       </div>

@@ -49,3 +49,14 @@ export const DP_Reducer = (state={},action) => {
             return state;
     }
 }
+
+export const Redirect_Reducer = (state={},action) => {
+    switch (action.type) {
+        case 'REDIRECT':
+            return {path:action.payload};
+        case 'CLEAR_REDIRECT':
+            return {};
+          default: 
+            return state;
+    }
+}

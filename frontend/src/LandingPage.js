@@ -58,20 +58,30 @@ export default function LandingPage() {
 
 
   const navigate = useNavigate();
-
+// useDispatch()
+const dispatch = useDispatch();
   
   const LoginStatus = useSelector((state) => state.userLogin);
 
+  const redirect = useSelector(state=>state.redirect)
 
   useEffect(()=>{
     if(LoginStatus.user){
-      navigate('/home')
+      if(redirect.path){
+        let p = redirect.path
+        dispatch({
+          type:'CLEAR_REDIRECT'
+        })
+      navigate(p)
+      }
+      else{
+        navigate('/home')
+      }
     }
   },[LoginStatus.user])
   
  
 
-  const dispatch = useDispatch();
 
   const [inputField, setInputField] = useState({
     email: "",

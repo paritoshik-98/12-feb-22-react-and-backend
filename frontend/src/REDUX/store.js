@@ -4,8 +4,10 @@ import { composeWithDevTools } from 'redux-devtools-extension'
 
 import { UserLoginReducer, UserRegisterReducer, DP_Reducer,UserUpdateReducer } from "./Reducers/userReducers";
 import { BlogCreateReducer, BlogDeleteReducer,  BlogFetchReducer, BlogLikeReducer, BlogListReducer, BlogUpdateReducer, MyBlogReducer , UNSPLASH} from "./Reducers/blogReducers";
+import { Redirect_Reducer } from "./Reducers/userReducers";
 
 const rootReducer = combineReducers({
+    redirect : Redirect_Reducer,
     userLogin : UserLoginReducer,
     userRegister : UserRegisterReducer,
     userUpdate : UserUpdateReducer,
@@ -30,6 +32,9 @@ const initialState = {
     },
     DP:{
         pic:DPFromLS
+    },
+    redirect:{
+        path:null
     }
 }
 
