@@ -142,12 +142,12 @@ else{
 const markHandler = () => {
   if(marked.includes(user.id)){
     // unmark
-    setMD(false)
+    // setMD(false)
     const path = '/api/blog/unMark';
   axios.put(path,{blogId:getblog.blog._id}).then(res=>setMarked(res.data));
   }
   else{
-    setMD(true)
+    // setMD(true)
     const path = '/api/blog/Mark';
   axios.put(path,{blogId:getblog.blog._id}).then(res=>setMarked(res.data));
   }
@@ -214,7 +214,7 @@ else{
           {user?
           <>
           {
-            markedDisplay ? 
+            marked.includes(user.id) ? 
          <button className='r-mark' onClick={markHandler}>
         <BsFillBookmarkCheckFill size={30}/></button>
          :
