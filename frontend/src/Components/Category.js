@@ -20,14 +20,24 @@ function Category() {
       
       if(tag==='all'){
         axios.get(`/api/blog/cat/all/${pageNumber}`).then(res=>res.data).then(data=>{
+          if(articles){
           setArticles(prev=>[...prev,...data.posts])
+          }
+          else{
+            setArticles([...data.posts])
+          }
           setNumberOfPages(data.totalPages)
           
         })
       }
       else{
         axios.get(`/api/blog/cat/${tag}/${pageNumber}`).then(res=>res.data).then(data=>{
-          setArticles(data.posts)
+          if(articles){
+            setArticles(prev=>[...prev,...data.posts])
+            }
+            else{
+              setArticles([...data.posts])
+            }
           setNumberOfPages(data.totalPages)
       })
     }
