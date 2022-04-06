@@ -23,7 +23,8 @@ function Reset() {
         smatch(false)
         setState('Loading...')
         axios.post('/api/user/updatePassword',{jwt:jwt,pswd:pswdC}).then(res=>{
-          if(res.status===200){setState('Password Reset Successfully')}
+          if(res.status===200){alert('Password Reset Successfully')}
+          window.location('/')
           
         }).catch(e=>{setState('This Link is expired')})
       }

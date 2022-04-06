@@ -165,7 +165,7 @@ const dispatch = useDispatch();
         </div>
         <div className="row justify-content-center mb-3 ">
           <div className="col-6 col-sm-4 text-center">
-            <Link to = '/recoverPassword'>Forgot Password ?</Link>
+            <Link to = '/ChangePassword'>Forgot Password ?</Link>
             {/* <a href="" >Forgot Password ?</a> */}
           </div>
         </div>
