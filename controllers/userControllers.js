@@ -243,7 +243,7 @@ try {
       transporter.sendMail(mailOptions, function(error, info){
         if (error) {
           console.log(error);
-          res.status(500).send('internal server error')
+          res.status(500).send(err)
         } else {
           console.log('Email sent: ' + info.response);
           res.status(200).send('link sent')
@@ -251,7 +251,7 @@ try {
       });
 } catch (err) {
 	console.error(err);
-    res.status(500).send('internal server error')
+    res.status(500).send(err)
 }
 }
 
