@@ -21,8 +21,8 @@ function Category() {
       if(tag==='all'){
         axios.get(`/api/blog/cat/all/${pageNumber}`).then(res=>res.data).then(data=>{
           // if(articles){
+            setLoader(false)
           setArticles(prev=>[...prev,...data.posts])
-          setLoader(false)
           // }
           // else{
             // setArticles([...data.posts])
@@ -34,8 +34,8 @@ function Category() {
       else{
         axios.get(`/api/blog/cat/${tag}/${pageNumber}`).then(res=>res.data).then(data=>{
           // if(articles){
-            setArticles(prev=>[...prev,...data.posts])
             setLoader(false)
+            setArticles(prev=>[...prev,...data.posts])
             // }
             // else{
               // setArticles([...data.posts])
@@ -56,7 +56,7 @@ function Category() {
       // if(pageNumber==numberOfPages-1){}
       // else{
       setPageNumber(Math.min(numberOfPages - 1, pageNumber + 1));
-      if (pageNumber === numberOfPages){
+      if (pageNumber === numberOfPages-1){
           setLM(false)
       }
       // }
@@ -90,7 +90,7 @@ function Category() {
       // if(pageNumber==numberOfPages-1){}
       // else{
       setPageNumber(Math.min(numberOfPages - 1, pageNumber + 1));
-      if (pageNumber === numberOfPages){
+      if (pageNumber === numberOfPages-1){
           setLM(false)
       }
       // }
@@ -103,7 +103,7 @@ function Category() {
     //   })
     // }
     const [loader,setLoader] = useState(true)
-    const [searchLoader,setSearchLoader] = useState(true)
+    const [searchLoader,setSearchLoader] = useState(false)
     const [sDisplay,setSdisplay] = useState(false)
 
   return (
