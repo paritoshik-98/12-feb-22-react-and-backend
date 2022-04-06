@@ -11,6 +11,8 @@ function ChangeP() {
 
     const [loading,setLoading] = useState(false)
 
+    const [err,setErr] = useState()
+
     const emailSubmit = () => {
         setLoading(true)
         axios.post('/api/user/send_reset_link',{email:email}).then(res=>{
@@ -18,12 +20,13 @@ function ChangeP() {
                 setLoading(false)
                 setLink(true)
             }
-        })
+        }).catch(e=>{console.log(e);setErr(e)})
     }
     
   return (
     <div>
         <Header/>
+        {err?<>{JSON.stringify(err)}</>:null}
         <div class="Pform" style={{'margin':'10vh 10vw 10vh 10vw'}}>
   <label for="exampleFormControlInput1" class="form-label ">Enter your registered email address</label>
   <input type="email" class="form-control mb-3" id="exampleFormControlInput1" onChange={(e)=>{set(e.target.value)}} value={email} placeholder="name@example.com"/>
