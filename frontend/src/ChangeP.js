@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import axios from 'axios'
-import './Axios'
+// import './Axios'
 import Header from './Components/Header'
 
 function ChangeP() {
@@ -15,7 +15,7 @@ function ChangeP() {
 
     const emailSubmit = () => {
         setLoading(true)
-        axios.post('/api/user/send_reset_link',{email:email}).then(res=>{
+        axios.post('https://blog-test-1-april.herokuapp.com/api/user/send_reset_link',{email:email}).then(res=>{
             if(res.status===200){
                 setLoading(false)
                 setLink(true)
