@@ -195,7 +195,7 @@ const dispatch = useDispatch();
 /> */}
         <div className="row justify-content-center mb-3 ">
           <div className="col-6 text-center">
-            New User ? <a  href="">Register</a>
+          New User ? <Link to='/register'>Register</Link>
           </div>
         </div>
       </div>

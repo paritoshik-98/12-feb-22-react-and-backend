@@ -26,6 +26,7 @@ import MyArticles from './Components/MyArticles';
 import Marked from './Components/Marked';
 import ChangeP from './ChangeP';
 import Drafts from './Components/Drafts';
+import Register from './Components/Register';
 
 function App() {
 
@@ -47,6 +48,7 @@ function App() {
       {/* <Header/> */}
     <Routes>
 <Route exact path = '/' element = {<LandingPage/>}></Route>
+<Route exact path = '/register' element = {<Register/>}></Route>
 <Route exact path = '/about' element = {<About/>}></Route>
 <Route exact path = '/profile' element = {<Profile/>}></Route>
 <Route exact path = '/Home' element = {<Home/>}></Route>
