@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import "./register.css";
 import GoogleLogin from "react-google-login";
-import { login, LoginWithGoogle } from "./REDUX/Actions/userActions";
+import { login, LoginWithGoogle } from "../REDUX/Actions/userActions";
 import { useDispatch, useSelector } from "react-redux";
 import { FcGoogle } from 'react-icons/fc';
 import { signup } from "../REDUX/Actions/userActions";
