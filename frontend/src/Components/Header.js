@@ -34,6 +34,7 @@ function Header() {
     localStorage.removeItem("user");
     localStorage.removeItem("accessToken");
     localStorage.removeItem("DP");
+    dispatch({type:'DP_REMOVED',payload:''})
     dispatch({type:'LOGOUT'})
     // axios.get('/api/user/logout').then(res=>{if(res.status===200){
       navigate('/')
