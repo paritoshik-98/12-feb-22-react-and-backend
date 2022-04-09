@@ -14,25 +14,25 @@ function Register() {
   
   const RegisterStatus = useSelector((state) => state.userRegister);
 
-//   const redirect = useSelector(state=>state.redirect)
+  const redirect = useSelector(state=>state.redirect)
 
-//   useEffect(()=>{
-//     if(LoginStatus.user){
-//       if(redirect.path){
-//         let p = redirect.path
-//         dispatch({
-//           type:'CLEAR_REDIRECT'
-//         })
-//       navigate(p)
-//       }
-//       else{
-//         navigate('/home')
-//       }
-//     }
-//   },[LoginStatus.user])
-  
- 
+const LoginStatus = useSelector((state) => state.userLogin);
 
+
+  useEffect(()=>{
+    if(LoginStatus.user){
+      if(redirect.path){
+        let p = redirect.path
+        dispatch({
+          type:'CLEAR_REDIRECT'
+        })
+      navigate(p)
+      }
+      else{
+        navigate('/home')
+      }
+    }
+  },[LoginStatus.user])
 
   const [inputField, setInputField] = useState({
       name:"",
@@ -73,8 +73,8 @@ function Register() {
           <div className="container-fluid">
             <div className="row justify-content-center mb-3 ">
               <div className=" col-8 col-sm-4 text-center">
-                {RegisterStatus.error?<div className="alert alert-danger"><strong>{RegisterStatus.error}</strong></div>:null}
-                {RegisterStatus.success?<><div className="alert  alert-success"><strong>Registered Successfully</strong></div><Link to = '/'>Login</Link><div></div></>:null}
+                {RegisterStatus.error?<div className="alert alert-danger alert-dismissible"><strong>{RegisterStatus.error}</strong></div>:null}
+                {RegisterStatus.success?<><div className="alert  alert-success alert-dismissible"><strong>Registered Successfully</strong></div><Link to = '/'>Login</Link><div></div></>:null}
               </div>
             </div>
             <div className="row justify-content-center mb-3 ">

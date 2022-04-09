@@ -1,9 +1,10 @@
 import axios from "axios";
 import "../../Axios";
 
-export const signup = (name, email, password) => (dispatch) => {
+export const signup = (inputfield) => (dispatch) => {
   try {
-    const input = { name: name, email: email, password: password };
+    const input = { name:inputfield.name, email:inputfield.email, password:inputfield.password };
+    console.log(input)
     dispatch({ type: "REGISTER_REQUEST" });
     axios
       .post("/api/user/signup", input)

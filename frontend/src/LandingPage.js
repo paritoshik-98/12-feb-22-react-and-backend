@@ -60,10 +60,10 @@ export default function LandingPage() {
   const navigate = useNavigate();
 // useDispatch()
 const dispatch = useDispatch();
+const redirect = useSelector(state=>state.redirect)
   
   const LoginStatus = useSelector((state) => state.userLogin);
 
-  const redirect = useSelector(state=>state.redirect)
 
   useEffect(()=>{
     if(LoginStatus.user){

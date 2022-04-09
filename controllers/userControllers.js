@@ -21,14 +21,16 @@ const getUser = async(req,res)=>{
 const addUser = async(req,res)=>{
     try {
         const {name,email,password} = req.body;
-    const user = await User.findOne({email:email})
-    if(user){
-        res.status(403).send('User already exists')
-    }
+        const user = await User.findOne({email:email})
+        if(user){
+            res.status(403).send('User already exists')
+        }
     else{
-    bcrypt.hash(password, saltRounds, async function(err, hash) {
-        
-        const doc = new User({
+        console.log('inside else')
+        bcrypt.hash(password, saltRounds, async function(err, hash) {
+            console.log(req.body.email)
+            
+            const doc = new User({
             name:name,
             email:email,
             password:hash,
