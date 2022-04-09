@@ -81,35 +81,50 @@ function Home() {
   </div>
 <div class="col " style={{width:'60%'}}>
 {trending[2]?
-    <div class="card h-100">
-      <img src={trending[2].coverImg} class="card-img-top homeImage" alt="..."></img>
-      <div class="card-body">
-        <h5 class="card-title">{trending[2].title}</h5>
-        <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+    <div class="card h-100" >
+    <img src={trending[2].coverImg} class="card-img-top homeImage" alt="..."></img>
+    <div class="card-body">
+      <h5 class="card-title">{trending[2].title}</h5>
+      <div className="authorInfo  d-flex">
+        <img className='auth_pic align-self-center' src={trending[2].author.profile_pic}></img>
+        <h7 className='align-self-center'>{trending[2].author.name}</h7>
       </div>
+      <p class="card-text">{trending[2].desc}</p>
+<Link to ={`/read/${trending[2]._id}`} >Read More ..</Link>
     </div>
+  </div>
     :null}
   </div>
 <div class="col" style={{width:'60%'}}>
 {trending[3]?
-    <div class="card h-100">
-      <img src={trending[3].coverImg} class="card-img-top homeImage" alt="..."></img>
-      <div class="card-body">
-        <h5 class="card-title">{trending[3].title}</h5>
-        <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+    <div class="card h-100" >
+    <img src={trending[3].coverImg} class="card-img-top homeImage" alt="..."></img>
+    <div class="card-body">
+      <h5 class="card-title">{trending[3].title}</h5>
+      <div className="authorInfo  d-flex">
+        <img className='auth_pic align-self-center' src={trending[3].author.profile_pic}></img>
+        <h7 className='align-self-center'>{trending[3].author.name}</h7>
       </div>
+      <p class="card-text">{trending[3].desc}</p>
+<Link to ={`/read/${trending[3]._id}`} >Read More ..</Link>
     </div>
+  </div>
     :null}
   </div>
 <div class="col" style={{width:'40%'}}>
 {trending[4]?
-    <div class="card h-100">
-      <img src={trending[4].coverImg} class="card-img-top homeImage" alt="..."></img>
-      <div class="card-body">
-        <h5 class="card-title">{trending[4].title}</h5>
-        <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+    <div class="card h-100" >
+    <img src={trending[4].coverImg} class="card-img-top homeImage" alt="..."></img>
+    <div class="card-body">
+      <h5 class="card-title">{trending[4].title}</h5>
+      <div className="authorInfo  d-flex">
+        <img className='auth_pic align-self-center' src={trending[4].author.profile_pic}></img>
+        <h7 className='align-self-center'>{trending[4].author.name}</h7>
       </div>
+      <p class="card-text">{trending[4].desc}</p>
+<Link to ={`/read/${trending[4]._id}`} >Read More ..</Link>
     </div>
+  </div>
     :null}
   </div>
 </div>
@@ -119,47 +134,137 @@ function Home() {
 </div>
 <div className="trending row row-cols-1 row-cols-sm-2 g-4">
 <div class="col " style={{width:'40%'}}>
-{trending[0]?
+{code[0]?
     <div class="card h-100" >
-      <img src={trending[0].coverImg} class="card-img-top homeImage" alt="..."></img>
-      <div class="card-body">
-        <h5 class="card-title">Card title</h5>
-        <p class="card-text">{trending[0].content}</p>
+    <img src={code[0].coverImg} class="card-img-top homeImage" alt="..."></img>
+    <div class="card-body">
+      <h5 class="card-title">{code[0].title}</h5>
+      <div className="authorInfo  d-flex">
+        <img className='auth_pic align-self-center' src={code[0].author.profile_pic}></img>
+        <h7 className='align-self-center'>{code[0].author.name}</h7>
       </div>
+      <p class="card-text">{code[0].desc}</p>
+<Link to ={`/read/${code[0]._id}`} >Read More ..</Link>
     </div>
+  </div>
     :null}
   </div>
 <div class="col" style={{width:'60%'}}>
-{trending[1]?
-    <div class="card h-100">
-      <img src={trending[1].coverImg} class="card-img-top homeImage" alt="..."></img>
-      <div class="card-body">
-        <h5 class="card-title">Card title</h5>
-        <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+{code[1]?
+    <div class="card h-100" >
+    <img src={code[1].coverImg} class="card-img-top homeImage" alt="..."></img>
+    <div class="card-body">
+      <h5 class="card-title">{code[1].title}</h5>
+      <div className="authorInfo  d-flex">
+        <img className='auth_pic align-self-center' src={code[1].author.profile_pic}></img>
+        <h7 className='align-self-center'>{code[1].author.name}</h7>
       </div>
+      <p class="card-text">{code[1].desc}</p>
+<Link to ={`/read/${code[1]._id}`} >Read More ..</Link>
     </div>
+  </div>
     :null}
   </div>
 <div class="col" style={{width:'60%'}}>
-{trending[2]?
-    <div class="card h-100">
-      <img src={trending[2].coverImg} class="card-img-top homeImage" alt="..."></img>
-      <div class="card-body">
-        <h5 class="card-title">Card title</h5>
-        <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+{code[2]?
+    <div class="card h-100" >
+    <img src={code[2].coverImg} class="card-img-top homeImage" alt="..."></img>
+    <div class="card-body">
+      <h5 class="card-title">{code[2].title}</h5>
+      <div className="authorInfo  d-flex">
+        <img className='auth_pic align-self-center' src={code[2].author.profile_pic}></img>
+        <h7 className='align-self-center'>{code[2].author.name}</h7>
       </div>
+      <p class="card-text">{code[2].desc}</p>
+<Link to ={`/read/${code[2]._id}`} >Read More ..</Link>
     </div>
+  </div>
     :null}
   </div>
 <div class="col" style={{width:'40%'}}>
-{trending[3]?
-    <div class="card h-100">
-      <img src={trending[3].coverImg} class="card-img-top homeImage" alt="..."></img>
-      <div class="card-body">
-        <h5 class="card-title">Card title</h5>
-        <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+{code[3]?
+    <div class="card h-100" >
+    <img src={code[3].coverImg} class="card-img-top homeImage" alt="..."></img>
+    <div class="card-body">
+      <h5 class="card-title">{code[3].title}</h5>
+      <div className="authorInfo  d-flex">
+        <img className='auth_pic align-self-center' src={code[3].author.profile_pic}></img>
+        <h7 className='align-self-center'>{code[3].author.name}</h7>
       </div>
+      <p class="card-text">{code[3].desc}</p>
+<Link to ={`/read/${code[3]._id}`} >Read More ..</Link>
     </div>
+  </div>
+    :null}
+  </div>
+</div>
+<div className=" cat d-flex justify-content-between align-content-center mt-5">
+<h3>Music </h3>
+<Link to='/cat/music' className='link'>View More --></Link>
+</div>
+<div className="trending row row-cols-1 row-cols-sm-2 g-4">
+<div class="col " style={{width:'40%'}}>
+{music[0]?
+    <div class="card h-100" >
+    <img src={music[0].coverImg} class="card-img-top homeImage" alt="..."></img>
+    <div class="card-body">
+      <h5 class="card-title">{music[0].title}</h5>
+      <div className="authorInfo  d-flex">
+        <img className='auth_pic align-self-center' src={music[0].author.profile_pic}></img>
+        <h7 className='align-self-center'>{music[0].author.name}</h7>
+      </div>
+      <p class="card-text">{music[0].desc}</p>
+<Link to ={`/read/${music[0]._id}`} >Read More ..</Link>
+    </div>
+  </div>
+    :null}
+  </div>
+<div class="col" style={{width:'60%'}}>
+{music[1]?
+    <div class="card h-100" >
+    <img src={music[1].coverImg} class="card-img-top homeImage" alt="..."></img>
+    <div class="card-body">
+      <h5 class="card-title">{music[1].title}</h5>
+      <div className="authorInfo  d-flex">
+        <img className='auth_pic align-self-center' src={music[1].author.profile_pic}></img>
+        <h7 className='align-self-center'>{music[1].author.name}</h7>
+      </div>
+      <p class="card-text">{music[1].desc}</p>
+<Link to ={`/read/${music[1]._id}`} >Read More ..</Link>
+    </div>
+  </div>
+    :null}
+  </div>
+<div class="col" style={{width:'60%'}}>
+{music[2]?
+    <div class="card h-100" >
+    <img src={music[2].coverImg} class="card-img-top homeImage" alt="..."></img>
+    <div class="card-body">
+      <h5 class="card-title">{music[2].title}</h5>
+      <div className="authorInfo  d-flex">
+        <img className='auth_pic align-self-center' src={music[2].author.profile_pic}></img>
+        <h7 className='align-self-center'>{music[2].author.name}</h7>
+      </div>
+      <p class="card-text">{music[2].desc}</p>
+<Link to ={`/read/${music[2]._id}`} >Read More ..</Link>
+    </div>
+  </div>
+    :null}
+  </div>
+<div class="col" style={{width:'40%'}}>
+{music[3]?
+    <div class="card h-100" >
+    <img src={music[3].coverImg} class="card-img-top homeImage" alt="..."></img>
+    <div class="card-body">
+      <h5 class="card-title">{music[3].title}</h5>
+      <div className="authorInfo  d-flex">
+        <img className='auth_pic align-self-center' src={music[3].author.profile_pic}></img>
+        <h7 className='align-self-center'>{music[3].author.name}</h7>
+      </div>
+      <p class="card-text">{music[3].desc}</p>
+<Link to ={`/read/${music[3]._id}`} >Read More ..</Link>
+    </div>
+  </div>
     :null}
   </div>
 </div>
