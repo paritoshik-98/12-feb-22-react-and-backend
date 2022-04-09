@@ -32,6 +32,8 @@ export const login = (input) => (dispatch) => {
           dispatch({ type: "LOGIN_SUCCESS", payload: res.data });
           localStorage.setItem("user", JSON.stringify(res.data.user));
           localStorage.setItem("accessToken", res.data.at);
+          localStorage.setItem("DP", res.data.user.profile_pic);
+          dispatch({type:'DP_UPDATED',payload:res.data.user.profile_pic})
         }
       })
       .catch((err) => dispatch({ type: "LOGIN_FAIL", payload: err.response.data }));
