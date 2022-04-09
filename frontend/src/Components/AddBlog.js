@@ -20,7 +20,7 @@ function AddBlog() {
   const navigate = useNavigate()
 
   useEffect(()=>{
-    if(!userLogin){navigate('/')}
+    if(!userLogin){navigate('/login')}
   },[])
 
   

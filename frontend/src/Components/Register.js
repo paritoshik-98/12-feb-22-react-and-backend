@@ -29,7 +29,7 @@ const LoginStatus = useSelector((state) => state.userLogin);
       navigate(p)
       }
       else{
-        navigate('/home')
+        navigate('/')
       }
     }
   },[LoginStatus.user])
@@ -74,7 +74,7 @@ const LoginStatus = useSelector((state) => state.userLogin);
             <div className="row justify-content-center mb-3 ">
               <div className=" col-8 col-sm-4 text-center">
                 {RegisterStatus.error?<div className="alert alert-danger alert-dismissible"><strong>{RegisterStatus.error}</strong></div>:null}
-                {RegisterStatus.success?<><div className="alert  alert-success alert-dismissible"><strong>Registered Successfully</strong></div><button className="btn btn-outline-dark"><Link to = '/'>Login</Link></button><div></div></>:null}
+                {RegisterStatus.success?<><div className="alert  alert-success alert-dismissible"><strong>Registered Successfully</strong></div><button className="btn btn-outline-dark"><Link to = '/login'>Login</Link></button><div></div></>:null}
               </div>
             </div>
             <div className="row justify-content-center mb-3 ">

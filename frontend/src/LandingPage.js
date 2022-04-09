@@ -75,7 +75,7 @@ const redirect = useSelector(state=>state.redirect)
       navigate(p)
       }
       else{
-        navigate('/home')
+        navigate('/')
       }
     }
   },[LoginStatus.user])

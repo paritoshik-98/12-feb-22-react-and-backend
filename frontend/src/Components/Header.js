@@ -37,7 +37,7 @@ function Header() {
     dispatch({type:'DP_REMOVED',payload:''})
     dispatch({type:'LOGOUT'})
     // axios.get('/api/user/logout').then(res=>{if(res.status===200){
-      navigate('/')
+      navigate('/login')
   // }})
     // .catch(e=>console.log(e))
   };
@@ -48,7 +48,7 @@ function Header() {
       type:'REDIRECT',
       payload: window.location.pathname
     })
-    navigate('/')
+    navigate('/login')
   }
 
 
@@ -66,7 +66,7 @@ function Header() {
       </div>
 
       <div className='h-links'>
-        <Link to='/home'>Home</Link>
+        <Link to='/'>Home</Link>
         <Link to='/about'>About Us</Link>
         {/* <a href="" className='link'>About Us</a> */}
         <Link to='/add'>Write</Link>
