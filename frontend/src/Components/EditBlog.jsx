@@ -253,7 +253,7 @@ console.log('text : ',text)
                     } }
                 />
                 </div>
-                <button className="btn btn-outline-dark" onClick={submit}>Submit</button>
+                <button className="btn btn-outline-dark" onClick={submit}>Publish</button>
                 <button className="btn btn-outline-dark" onClick={s_draft}>Save as draft</button>
                 <button className="btn  btn-outline-danger" onClick={deleteBlog} >DELETE</button>
                 
