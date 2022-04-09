@@ -59,7 +59,7 @@ function Drafts() {
 <h7 className='align-self-center'>{a.author.name}</h7>
 </div>
 <p class="card-text">{a.desc}</p>
-<Link to ={`/read/${a._id}`} >Read More ..</Link>
+<Link to ={`/edit/${a._id}`} >Edit ..</Link>
     </div>
   </div>
   <div class="col-md-4">
