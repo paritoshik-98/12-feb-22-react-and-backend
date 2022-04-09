@@ -69,7 +69,12 @@ function Home() {
       <img src={trending[1].coverImg} class="card-img-top homeImage" alt="..."></img>
       <div class="card-body">
         <h5 class="card-title">{trending[1].title}</h5>
+        <div className="authorInfo  d-flex">
+          <img className='auth_pic align-self-center' src={trending[1].author.profile_pic}></img>
+          <h7 className='align-self-center'>{trending[1].author.name}</h7>
+        </div>
         <p class="card-text">{trending[1].desc}</p>
+<Link to ={`/read/${trending[1]._id}`} >Read More ..</Link>
       </div>
     </div>
     :null}
