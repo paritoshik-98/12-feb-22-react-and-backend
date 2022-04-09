@@ -80,6 +80,21 @@ export const fetchBlogAction = (id) => (dispatch) => {
     }
     
 } 
+export const fetchDraftAction = (id) => (dispatch) => {
+    try {
+        dispatch({type:'BLOG_FETCH_REQUEST'})
+        const path = '/api/blog/geteditDraft/'+id
+        axios.get(path).then(res=>{
+        if(res.status===200){
+            dispatch({type:'BLOG_FETCH_SUCCESS',payload:res.data})
+        }
+    }).catch(err=>dispatch({type:'BLOG_FETCH_FAIL',payload:err.response.data}))
+    }
+     catch (error) {
+        dispatch({type:'BLOG_FETCH_FAIL',payload:error.message})    
+    }
+    
+} 
 
 export const like = (id) => (dispatch) => {
     try {

@@ -3,7 +3,9 @@ const router = express.Router()
 const Blog = require('../models/blog')
 const authuser = require('../middleware/authMiddleware')
 
-const {comment,deleteBlog,updateBlog,addNewBlog,getBlogByTag,getMostLikedBlog,getBlogByID,myBlogs,like,unlike} = require('../controllers/blogControllers')
+const {comment,deleteBlog,updateBlog,geteditDraft,addNewBlog,getBlogByTag,getMostLikedBlog,getBlogByID,myBlogs,like,unlike} = require('../controllers/blogControllers')
+
+router.get('/geteditDraft/:id',authuser,geteditDraft)
 
 router.put('/Mark',authuser,async(req,res)=>{
   const {blogId} = req.body

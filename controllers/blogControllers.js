@@ -239,6 +239,25 @@ const updateBlog = async (req, res) => {
   }
 }
 
+const geteditDraft = async(req,res)=>{
+  try {
+    const {id} = req.params
+    const author = req.userid
+    const doc = await blog
+      .findOne({ _id: id ,draft:true,author:author})
+      .populate("author", "_id name profile_pic");
+      if (doc ==null){
+        res.status(404).send('404 not found');
+      }
+      else{
+        res.status(200).send(doc);
+      }
+  } catch (error) {
+    res.status(500).send("Something went wrong !");
+  }
+};
+
+
 module.exports = {
   deleteBlog,
   updateBlog,
@@ -249,5 +268,6 @@ module.exports = {
   myBlogs,
   like,
   unlike,
-  comment
+  comment,
+  geteditDraft
 };
