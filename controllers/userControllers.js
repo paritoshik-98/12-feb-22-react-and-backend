@@ -91,7 +91,7 @@ const loginUserGoogle = async(req,res,next)=>{
             req.name = user.name;
             req.email = user.email;
             req.userid = user._id;
-            req.profile_pic = 'https://res.cloudinary.com/drzjynyvq/image/upload/v1648718621/wdjpzij0wm5doew8oygm.png';
+            req.profile_pic = user.profile_pic;
             next()
         }
         // register if first login
@@ -104,7 +104,7 @@ const loginUserGoogle = async(req,res,next)=>{
                 name:name,
                 email:email,
                 password:hash,
-                profile_pic:picture
+                profile_pic:'https://res.cloudinary.com/drzjynyvq/image/upload/v1648718621/wdjpzij0wm5doew8oygm.png'
             })
             await doc.save()  
             const user = await User.findOne({email:email})

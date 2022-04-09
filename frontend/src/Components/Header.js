@@ -33,6 +33,7 @@ function Header() {
     setDropDown(!dropDown)
     localStorage.removeItem("user");
     localStorage.removeItem("accessToken");
+    localStorage.removeItem("DP");
     dispatch({type:'LOGOUT'})
     // axios.get('/api/user/logout').then(res=>{if(res.status===200){
       navigate('/')
