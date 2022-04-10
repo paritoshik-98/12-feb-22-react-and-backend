@@ -27,6 +27,7 @@ import Marked from './Components/Marked';
 import ChangeP from './ChangeP';
 import Drafts from './Components/Drafts';
 import Register from './Components/Register';
+import EditDraft from './Components/EditDraft';
 
 function App() {
 
@@ -52,6 +53,7 @@ function App() {
 <Route exact path = '/about' element = {<About/>}></Route>
 <Route exact path = '/profile' element = {<Profile/>}></Route>
 <Route exact path = '/' element = {<Home/>}></Route>
+<Route exact path = '/editDraft/:id' element = {<EditDraft/>}></Route>
 {/* <Route exact path = '/login' element = {<Login/>}></Route> */}
 {/* <Route exact path = '/all' element = {<BlogList/>}></Route> */}
 {/* <Route exact path = '/form' element = {<Form/>}></Route> */}

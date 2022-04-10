@@ -2,7 +2,7 @@ import './edit.css'
 import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { useNavigate, useParams } from 'react-router-dom'
-import { deleteBlogAction, fetchBlogAction, updateBlogAction } from '../REDUX/Actions/blogActions'
+import { deleteBlogAction, fetchBlogAction, fetchDraftAction, updateBlogAction } from '../REDUX/Actions/blogActions'
 import { CKEditor } from '@ckeditor/ckeditor5-react'
 import ClassicEditor from 'pari_bloc_test_1_deploy'
 import UnsplashReact, { Base64Uploader, withDefaultProps, InsertIntoApplicationUploader} from "unsplash-react"
@@ -31,7 +31,7 @@ function EditDraft() {
     })
 
      useEffect(()=>{
-         dispatch(fetchBlogAction(id))
+         dispatch(fetchDraftAction(id))
         
         },[])
 
