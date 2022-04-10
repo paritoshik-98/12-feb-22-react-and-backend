@@ -93,15 +93,8 @@ function Category() {
       if (pageNumber === numberOfPages-1){
           setLM(false)
       }
-      // }
     };
 
-    // const search = () => {
-    //   axios.get(`/api/blog/search/${searchQuery}/${searchPage}`).then(res=>res.data).then(data=>{
-    //     setResult(data.posts)
-    //     setTotalSearchPages(data.totalPages)
-    //   })
-    // }
     const [loader,setLoader] = useState(true)
     const [searchLoader,setSearchLoader] = useState(false)
     const [sDisplay,setSdisplay] = useState(false)
@@ -206,135 +199,6 @@ null
 
 :<h1>Loading...</h1>}
 
-      {/* {sDisplay?totalSearchPages==0?<h1>Not found</h1>:<>{JSON.stringify(result)}</>:null}
-
-
-      {!sDisplay?
-      <>
-      
-      <h3>Page of {pageNumber + 1}</h3>
-      {blogs?
-      <>
-          <div class=" cat_card card mb-3" >
-          <div class="row g-0">
-            <div class="col-md-8">
-              <div class="card-body">
-              <h5 class="card-title">{blogs[0].title}</h5>
-        <div className="authorInfo  d-flex">
-          <img className='authorpic align-self-center' src={blogs[0].author.profile_pic}></img>
-          <h7 className='align-self-center'>{blogs[0].author.name}</h7>
-        </div>
-        <p class="card-text">{blogs[0].desc}</p>
-        <Link to ={`/read/${blogs[0]._id}`} >Read More ..</Link>
-              </div>
-            </div>
-            <div class="col-md-4">
-              <img src={blogs[0].coverImg} class=" cover  " alt="..."></img>
-            </div>
-          </div>
-        </div>
-        { blogs[1]?
-          <div class=" cat_card card mb-3" >
-          <div class="row g-0">
-            <div class="col-md-4">
-              <img src={blogs[1].coverImg} class=" cover  " alt="..."></img>
-            </div>
-            <div class="col-md-8">
-              <div class="card-body">
-              <h5 class="card-title">{blogs[1].title}</h5>
-        <div className="authorInfo  d-flex">
-          <img className='authorpic align-self-center' src={blogs[1].author.profile_pic}></img>
-          <h7 className='align-self-center'>{blogs[1].author.name}</h7>
-        </div>
-        <p class="card-text">{blogs[1].desc}</p>
-        <Link to ={`/read/${blogs[1]._id}`} >Read More ..</Link>
-              </div>
-            </div>
-          </div>
-        </div>
-        :null
-}
-{ blogs[2]?
-          <div class=" cat_card card mb-3" >
-          <div class="row g-0">
-            <div class="col-md-8">
-              <div class="card-body">
-              <h5 class="card-title">{blogs[2].title}</h5>
-        <div className="authorInfo  d-flex">
-          <img className='authorpic align-self-center' src={blogs[2].author.profile_pic}></img>
-          <h7 className='align-self-center'>{blogs[2].author.name}</h7>
-        </div>
-        <p class="card-text">{blogs[2].desc}</p>
-        <Link to ={`/read/${blogs[2]._id}`} >Read More ..</Link>
-              </div>
-            </div>
-            <div class="col-md-4">
-              <img src={blogs[2].coverImg} class=" cover  " alt="..."></img>
-            </div>
-          </div>
-        </div>
-:null
-}
-{ blogs[3]?
-          <div class=" cat_card card mb-3" >
-          <div class="row g-0">
-            <div class="col-md-4">
-              <img src={blogs[3].coverImg} class=" cover  " alt="..."></img>
-            </div>
-            <div class="col-md-8">
-              <div class="card-body">
-              <h5 class="card-title">{blogs[3].title}</h5>
-        <div className="authorInfo  d-flex">
-          <img className='authorpic align-self-center' src={blogs[3].author.profile_pic}></img>
-          <h7 className='align-self-center'>{blogs[3].author.name}</h7>
-        </div>
-        <p class="card-text">{blogs[3].desc}</p>
-        <Link to ={`/read/${blogs[3]._id}`} >Read More ..</Link>
-              </div>
-            </div>
-          </div>
-        </div>
-:null
-}
-        { blogs[4]?
-          <div class=" cat_card card mb-3" >
-          <div class="row g-0">
-            <div class="col-md-8">
-              <div class="card-body">
-              <h5 class="card-title">{blogs[4].title}</h5>
-        <div className="authorInfo  d-flex">
-          <img className='authorpic align-self-center' src={blogs[4].author.profile_pic}></img>
-          <h7 className='align-self-center'>{blogs[4].author.name}</h7>
-        </div>
-        <p class="card-text">{blogs[4].desc}</p>
-        <Link to ={`/read/${blogs[4]._id}`} >Read More ..</Link>
-              </div>
-            </div>
-            <div class="col-md-4">
-              <img src={blogs[4].coverImg} class=" cover  " alt="..."></img>
-            </div>
-          </div>
-        </div>
-        :null
-      }
-        </>
-      :<h1>Loading...</h1>}
-
-      </>
-      :null}
-
-      
-      <button onClick={gotoPrevious}>Previous</button>
-      {pages.map(function(pageIndex){
-        if(comparePageNo(pageIndex)){
-        return(
-        <button key={pageIndex} onClick={() => setPageNumber(pageIndex)}>
-          {pageIndex + 1}
-        </button>
-        )}
-        else return null
-})}
-      <button onClick={gotoNext}>Next</button> */}
       </>}
     </div>
     </>

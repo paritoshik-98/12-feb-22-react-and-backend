@@ -35,6 +35,24 @@ function Marked() {
       }
     };
 
+    const[searchQuery,setQuery] = useState('')
+    const[searchPage,setSearchPage] = useState(0)
+    const[result,setResult] = useState([])
+    const[totalSearchPages,setTotalSearchPages] = useState()
+
+    const gotoNextSearch = () => {
+      // if(pageNumber==numberOfPages-1){}
+      // else{
+      setPageNumber(Math.min(numberOfPages - 1, pageNumber + 1));
+      if (pageNumber === numberOfPages-1){
+          setLM(false)
+      }
+    };
+
+    // const [loader,setLoader] = useState(true)
+    const [searchLoader,setSearchLoader] = useState(false)
+    const [sDisplay,setSdisplay] = useState(false)
+
 
   return (
     <>
@@ -42,6 +60,26 @@ function Marked() {
       <div className='marked'>
       {loader?<h1>Loading...</h1>:
     <>
+     <div className="search d-flex mb-5">
+      <input type="text" value={searchQuery} onChange={(e)=>setQuery(e.target.value)} className='w-50'/>
+      <button onClick={()=>{
+setSearchLoader(true)
+        axios.get(`/api/blog/search/${searchQuery}/${searchPage}`).then(res=>res.data).then(data=>{
+          setSdisplay(true)
+          setResult(data.posts)
+          setTotalSearchPages(data.totalPages)
+          setSearchLoader(false)
+          if(data.totalPages==0){
+            setLM(false)
+          }
+        })
+      }}>Search</button>
+      <button onClick={()=>{
+        setSdisplay(false);
+        setQuery('')
+      }}>X</button>
+      </div>
+
     {articles.length===0?<h1>You haven't marked any articles yet !</h1>:null}
 {articles?<>{articles.map(a=>
     
