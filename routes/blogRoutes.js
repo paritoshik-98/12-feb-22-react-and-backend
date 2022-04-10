@@ -91,6 +91,22 @@ router.get('/search/:query/:page?',authuser,async(req,res)=>{
     posts: posts
   })
 })
+
+router.get('/searchDrafts/:query/:page?',authuser,async(req,res)=>{
+  const PAGE_SIZE = 5
+  const page = req.params.page||0
+  const string = req.params.query
+  const regex = new RegExp(string, 'i') 
+  const total = await Blog.countDocuments({title:{$regex:regex},draft:true,author:req.userid})
+  const posts = await Blog.find({title:{$regex:regex},draft:true,author:req.userid}).populate("author", "_id name profile_pic").sort({likeCount:-1})
+  .limit(PAGE_SIZE)
+  .skip(PAGE_SIZE*page)
+  // console.log(total,posts)
+  res.status(200).json({
+    totalPages : Math.ceil(total/PAGE_SIZE),
+    posts: posts
+  })
+})
 // router.get('/all',authuser,getBlo);
 
 router.get('/trending',authuser,getMostLikedBlog);
