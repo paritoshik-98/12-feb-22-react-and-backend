@@ -80,6 +80,41 @@ setSearchLoader(true)
       }}>X</button>
       </div>
 
+      {sDisplay?<>
+{!searchLoader?
+      <>{result.map(r=>
+
+<div class=" cat_card card mb-3" >
+<div class="row g-0">
+<div class="col-md-4">
+    <img src={r.coverImg} class=" cover  " alt="..."></img>
+  </div>
+  <div class="col-md-8">
+    <div class="card-body">
+    <h5 class="card-title">{r.title}</h5>
+<div className="authorInfo  d-flex">
+<img className='authorpic align-self-center' src={r.author.profile_pic}></img>
+<h7 className='align-self-center'>{r.author.name}</h7>
+</div>
+<p class="card-text">{r.desc}</p>
+<Link to ={`/read/${r._id}`} >Read More ..</Link>
+    </div>
+  </div>
+  
+</div>
+</div>
+    
+    )}
+{LM?
+<button onClick={gotoNextSearch}>Load More</button>
+:
+null
+}
+</>
+:<h1>Loading..</h1>}</>
+:null}
+
+{!searchLoader?<>
     {articles.length===0?<h1>You haven't marked any articles yet !</h1>:null}
 {articles?<>{articles.map(a=>
     
@@ -109,6 +144,7 @@ setSearchLoader(true)
 null
 }
 </>:<h1>No</h1>}
+</>:null}
 </>
 }
 </div>
