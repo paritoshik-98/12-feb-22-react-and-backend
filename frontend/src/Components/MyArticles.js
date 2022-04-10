@@ -32,7 +32,7 @@ export default function MyArticles() {
       // if(pageNumber==numberOfPages-1){}
       // else{
       setPageNumber(Math.min(numberOfPages - 1, pageNumber + 1));
-      if (pageNumber === numberOfPages){
+      if (pageNumber == numberOfPages-1){
           setLM(false)
       }
       // }
@@ -45,8 +45,8 @@ export default function MyArticles() {
     const gotoNextSearch = () => {
       // if(pageNumber==numberOfPages-1){}
       // else{
-      setPageNumber(Math.min(numberOfPages - 1, pageNumber + 1));
-      if (pageNumber === numberOfPages-1){
+        setSearchPage(Math.min(totalSearchPages - 1, searchPage + 1));
+      if (searchPage == totalSearchPages-1){
           setLM(false)
       }
     };

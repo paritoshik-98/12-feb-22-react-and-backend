@@ -30,7 +30,7 @@ function Marked() {
     const [LM,setLM] = useState(false)
     const gotoNext = () => {
       setPageNumber(Math.min(numberOfPages - 1, pageNumber + 1));
-      if (pageNumber === numberOfPages-1){
+      if (pageNumber == numberOfPages-1){
           setLM(false)
       }
     };
@@ -43,8 +43,8 @@ function Marked() {
     const gotoNextSearch = () => {
       // if(pageNumber==numberOfPages-1){}
       // else{
-      setPageNumber(Math.min(numberOfPages - 1, pageNumber + 1));
-      if (pageNumber === numberOfPages-1){
+        setSearchPage(Math.min(totalSearchPages - 1, searchPage + 1));
+      if (searchPage == totalSearchPages-1){
           setLM(false)
       }
     };

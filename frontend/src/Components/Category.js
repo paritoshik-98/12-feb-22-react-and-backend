@@ -56,7 +56,7 @@ function Category() {
       // if(pageNumber==numberOfPages-1){}
       // else{
       setPageNumber(Math.min(numberOfPages - 1, pageNumber + 1));
-      if (pageNumber === numberOfPages-1){
+      if (pageNumber == numberOfPages-1){
           setLM(false)
       }
       // }
@@ -89,8 +89,8 @@ function Category() {
     const gotoNextSearch = () => {
       // if(pageNumber==numberOfPages-1){}
       // else{
-      setPageNumber(Math.min(numberOfPages - 1, pageNumber + 1));
-      if (pageNumber === numberOfPages-1){
+        setSearchPage(Math.min(totalSearchPages - 1, searchPage + 1));
+      if (searchPage == totalSearchPages-1){
           setLM(false)
       }
     };
@@ -104,6 +104,7 @@ function Category() {
     <Header/>
     <div className='category'>
     {loader?<h1>Loading...</h1>:<>
+    <h5>Looking for something else ?</h5>
       <div className="search d-flex mb-5">
       <input type="text" value={searchQuery} onChange={(e)=>setQuery(e.target.value)} className='w-50'/>
       <button onClick={()=>{
