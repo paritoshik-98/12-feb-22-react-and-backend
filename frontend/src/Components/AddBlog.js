@@ -20,7 +20,11 @@ function AddBlog() {
   const navigate = useNavigate()
 
   useEffect(()=>{
-    if(!userLogin){navigate('/login')}
+    // if(!userLogin){navigate('/login')}
+    if(!userLogin){
+      alert('Login to continue')
+      navigate('/')
+    }
   },[])
 
   
