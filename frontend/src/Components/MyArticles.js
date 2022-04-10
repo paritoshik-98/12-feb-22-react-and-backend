@@ -66,7 +66,7 @@ export default function MyArticles() {
       <input type="text" value={searchQuery} onChange={(e)=>setQuery(e.target.value)} className='w-50'/>
       <button onClick={()=>{
 setSearchLoader(true)
-        axios.get(`/api/blog/search/${searchQuery}/${searchPage}`).then(res=>res.data).then(data=>{
+        axios.get(`/api/blog/searchMyPosts/${searchQuery}/${searchPage}`).then(res=>res.data).then(data=>{
           setSdisplay(true)
           setResult(data.posts)
           setTotalSearchPages(data.totalPages)
