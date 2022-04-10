@@ -171,7 +171,7 @@ console.log('text : ',text)
 
   return (
     <>
-    <div id="editorContent" style={{display:'block'}}></div>
+    <div id="editorContent" style={{display:'none'}}></div>
     <Header/>
     <div>{!loading?
     <div>{authorized?
