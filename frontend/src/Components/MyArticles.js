@@ -117,7 +117,7 @@ null
 :null}
 
 {!searchLoader?<>
-{articles?<>{articles.map(a=>
+{articles&&!sDisplay?<>{articles.map(a=>
 
 <div class=" cat_card card mb-3" >
 <div class="row g-0">
