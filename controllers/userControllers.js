@@ -216,10 +216,10 @@ const user = require("../models/user");
 const emailPasswordLink = async(req,res)=>{
 try {
 	var transporter = nodemailer.createTransport({
-        service: 'gmail',
+        service: 'hotmail',
         auth: {
-          user: 'testblogplatform@gmail.com',
-          pass: 'pari1411'
+          user: process.env.EMAIL,
+          pass: process.env.PASS
         }
       });
 
@@ -236,7 +236,7 @@ try {
       // verify jwt and set new password form in REACT
 
       var mailOptions = {
-        from: 'testblogplatform@gmail.com',
+        from: process.env.EMAIL,
         to: req.body.email,
         subject: 'PASSWORD RESET LINK',
         text: data
