@@ -231,7 +231,7 @@ const CreateStatus = useSelector(state=>state.createBlog)
                 </div>
                 <button className="btn btn-outline-dark" onClick={submit}>Publish</button>
                 <button className="btn btn-outline-dark " onClick={s_draft}>Save as draft</button>
-                <div id="editorContent" style={{display:'block'}}></div>
+                {/* <div id="editorContent" style={{display:'block'}}></div> */}
     </div>
     }
     </>
