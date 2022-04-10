@@ -69,7 +69,13 @@ function Header() {
         <Link to='/'>Home</Link>
         <Link to='/about'>About Us</Link>
         {/* <a href="" className='link'>About Us</a> */}
-        <Link to='/add'>Write</Link>
+        <button className='btn btn-outline-primary' onClick={(e)=>{
+          e.preventDefault()
+          if(!userLogin.user){alert('login to write')}
+          else{
+            navigate('/add')
+          }
+        }}>Write</button>
         
 
 
