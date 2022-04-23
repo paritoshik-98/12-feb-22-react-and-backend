@@ -87,8 +87,7 @@ function Read() {
        console.log(window.location.href)
     }, [id])
 
-    
-    
+  
     useEffect(()=>{
       if(getblog.blog){
           document.getElementById('c').innerHTML=getblog.blog.content;
@@ -104,6 +103,7 @@ function Read() {
       }
     }
     ,[getblog.blog])
+    // )
     
 
 const[date,setDate]=useState('swe')

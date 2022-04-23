@@ -135,7 +135,7 @@ const genToken = async(req,res) => {
         // secure:'false',
         httpOnly:true,
     })
-    .send({at:at,user:{name:req.name,email:req.email,id:req.userid,profile_pic:req.profile_pic}})
+    .send({at:at,name:req.name,email:req.email,id:req.userid,profile_pic:req.profile_pic})
 }
 
 // refresh access token

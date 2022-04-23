@@ -6,6 +6,10 @@ import { Link } from 'react-router-dom'
 import './home.css'
 import '../Axios'
 import Header from './Header'
+import portrait from '../portrait.jpg'
+import p from '../jess-bailey-q10VITrVYUM-unsplash.jpg'
+import n from '../nick-morrison-FHnnjk1Yj7Y-unsplash.jpg'
+
 function Home() {
 
     const dispatch = useDispatch()
@@ -31,6 +35,12 @@ function Home() {
   return (<>
   <Header/>
     <div className='home'>
+      {/* portrait - pc */}
+      <img src={p} className='portrait' alt="" />
+      {/* <h1>Read</h1>
+      <h1>Write</h1>
+      <h1>Share</h1> */}
+      {/* square - mobile */}
       {trending&&music&&code?
       <>
       {/* style="max-width: 540px;" */}

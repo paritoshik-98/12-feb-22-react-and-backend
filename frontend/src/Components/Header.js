@@ -66,10 +66,10 @@ function Header() {
       </div>
 
       <div className='h-links'>
-        <Link to='/'>Home</Link>
-        <Link to='/about'>About Us</Link>
+        <Link style={{textDecoration:'none',color:'#2E0300'}} to='/'>Home</Link>
+        <Link style={{textDecoration:'none',color:'#2E0300'}} to='/about'>About Us</Link>
         {/* <a href="" className='link'>About Us</a> */}
-        <Link to='/add'>Write</Link>
+        <Link style={{textDecoration:'none',color:'#2E0300'}} to='/add'>Write</Link>
         {/* <button className='btn btn-outline-primary' onClick={(e)=>{
           e.preventDefault()
           if(!userLogin.user){alert('login to write')}
@@ -97,6 +97,11 @@ function Header() {
       {dropDown ?
         <ul className='d_ul'>
           <li id='n' className='text-muted fw-bold'>{Uname?Uname:<h1>''</h1>}</li>
+          {/* <li><a href="/profile" className='link'>Profile</a></li> */}
+          {/* <li><a href="/myArticles" className='link'>My Articles</a></li> */}
+          {/* <li><a href="/drafts" className='link'>Drafts</a></li> */}
+          {/* <li><a href="/Favourites" className='link'>Favourites</a></li> */}
+          {/* <li><a onClick={Logout} className='link'>Logout</a></li> */}
           <li className='d_l'><Link style={{textDecoration:'none',color:'#2E0300'}} to='/profile'>Profile</Link></li>
           <li className='d_l'><Link style={{textDecoration:'none',color:'#2E0300'}} to='/myArticles'>My Articles</Link></li>
           <li className='d_l'><Link style={{textDecoration:'none',color:'#2E0300'}} to='/drafts'>Draft</Link></li>

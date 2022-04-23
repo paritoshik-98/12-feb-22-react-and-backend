@@ -44,3 +44,20 @@
 .top{
     margin-bottom: 5vh;
 }
+
+.link{
+    color: #2E0300;
+}
+
+.link:active{
+    text-decoration:none;
+}
+
+.link:hover{
+    text-decoration:none;
+}
+.portrait{
+    object-fit: cover;
+    height: 60vh;
+    width: 100%;
+}

@@ -30,10 +30,10 @@ export const login = (input) => (dispatch) => {
       .then((res) => {
         if (res.status === 200) {
           dispatch({ type: "LOGIN_SUCCESS", payload: res.data });
-          localStorage.setItem("user", JSON.stringify(res.data.user));
+          localStorage.setItem("user", JSON.stringify(res.data));
           localStorage.setItem("accessToken", res.data.at);
-          localStorage.setItem("DP", res.data.user.profile_pic);
-          dispatch({type:'DP_UPDATED',payload:res.data.user.profile_pic})
+          localStorage.setItem("DP", res.data.profile_pic);
+          dispatch({type:'DP_UPDATED',payload:res.data.profile_pic})
         }
       })
       .catch((err) => dispatch({ type: "LOGIN_FAIL", payload: err.response.data }));
@@ -50,9 +50,9 @@ export const LoginWithGoogle = (tokenId) => async (dispatch) => {
       .post("api/user/Googlelogin", {tokenId:tokenId})
       .then((res) => {
         dispatch({ type: "LOGIN_SUCCESS", payload: res.data });
-        localStorage.setItem("user", JSON.stringify(res.data.user));
-        dispatch(updatePic(res.data.user.profile_pic))
-        localStorage.setItem("DP", JSON.stringify({pic:res.data.user.profile_pic}))
+        localStorage.setItem("user", JSON.stringify(res.data));
+        dispatch(updatePic(res.data.profile_pic))
+        localStorage.setItem("DP", JSON.stringify({pic:res.data.profile_pic}))
         localStorage.setItem("accessToken", res.data.at);
       })
       .catch((err) =>

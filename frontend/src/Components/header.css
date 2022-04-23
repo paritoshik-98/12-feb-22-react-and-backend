@@ -76,6 +76,15 @@ header{
     width: 60px;
     object-fit: cover;
 }
+
+.link{
+    color: #2E0300;
+}
+
+.link:hover{
+    text-decoration:none;
+}
+
 @media screen and (max-width:576px) {
     .header{
         height: 50px;
