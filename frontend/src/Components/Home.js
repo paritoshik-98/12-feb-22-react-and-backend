@@ -59,7 +59,7 @@ function Home() {
           <h7 className='align-self-center'>{trending[0].author.name}</h7>
         </div>
         <p class="card-text">{trending[0].desc}</p>
-        <Link to ={`/read/${trending[0]._id}`} >Read More ..</Link>
+        <Link className='rl' to ={`/read/${trending[0]._id}`} >Read More ..</Link>
         {/* <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p> */}
       </div>
     </div>
@@ -86,7 +86,7 @@ function Home() {
           <h7 className='align-self-center'>{trending[1].author.name}</h7>
         </div>
         <p class="card-text">{trending[1].desc}</p>
-<Link to ={`/read/${trending[1]._id}`} >Read More ..</Link>
+<Link className='rl' to ={`/read/${trending[1]._id}`} >Read More ..</Link>
       </div>
     </div>
     :null}
@@ -102,7 +102,7 @@ function Home() {
         <h7 className='align-self-center'>{trending[2].author.name}</h7>
       </div>
       <p class="card-text">{trending[2].desc}</p>
-<Link to ={`/read/${trending[2]._id}`} >Read More ..</Link>
+<Link className='rl' to ={`/read/${trending[2]._id}`} >Read More ..</Link>
     </div>
   </div>
     :null}
@@ -118,7 +118,7 @@ function Home() {
         <h7 className='align-self-center'>{trending[3].author.name}</h7>
       </div>
       <p class="card-text">{trending[3].desc}</p>
-<Link to ={`/read/${trending[3]._id}`} >Read More ..</Link>
+<Link className='rl' to ={`/read/${trending[3]._id}`} >Read More ..</Link>
     </div>
   </div>
     :null}
@@ -134,7 +134,7 @@ function Home() {
         <h7 className='align-self-center'>{trending[4].author.name}</h7>
       </div>
       <p class="card-text">{trending[4].desc}</p>
-<Link to ={`/read/${trending[4]._id}`} >Read More ..</Link>
+<Link className='rl' to ={`/read/${trending[4]._id}`} >Read More ..</Link>
     </div>
   </div>
     :null}
@@ -156,7 +156,7 @@ function Home() {
         <h7 className='align-self-center'>{code[0].author.name}</h7>
       </div>
       <p class="card-text">{code[0].desc}</p>
-<Link to ={`/read/${code[0]._id}`} >Read More ..</Link>
+<Link className='rl' to ={`/read/${code[0]._id}`} >Read More ..</Link>
     </div>
   </div>
     :null}
@@ -172,7 +172,7 @@ function Home() {
         <h7 className='align-self-center'>{code[1].author.name}</h7>
       </div>
       <p class="card-text">{code[1].desc}</p>
-<Link to ={`/read/${code[1]._id}`} >Read More ..</Link>
+<Link className='rl' to ={`/read/${code[1]._id}`} >Read More ..</Link>
     </div>
   </div>
     :null}
@@ -188,7 +188,7 @@ function Home() {
         <h7 className='align-self-center'>{code[2].author.name}</h7>
       </div>
       <p class="card-text">{code[2].desc}</p>
-<Link to ={`/read/${code[2]._id}`} >Read More ..</Link>
+<Link className='rl' to ={`/read/${code[2]._id}`} >Read More ..</Link>
     </div>
   </div>
     :null}
@@ -204,7 +204,7 @@ function Home() {
         <h7 className='align-self-center'>{code[3].author.name}</h7>
       </div>
       <p class="card-text">{code[3].desc}</p>
-<Link to ={`/read/${code[3]._id}`} >Read More ..</Link>
+<Link className='rl' to ={`/read/${code[3]._id}`} >Read More ..</Link>
     </div>
   </div>
     :null}
@@ -226,7 +226,7 @@ function Home() {
         <h7 className='align-self-center'>{music[0].author.name}</h7>
       </div>
       <p class="card-text">{music[0].desc}</p>
-<Link to ={`/read/${music[0]._id}`} >Read More ..</Link>
+<Link className='rl' to ={`/read/${music[0]._id}`} >Read More ..</Link>
     </div>
   </div>
     :null}
@@ -242,7 +242,7 @@ function Home() {
         <h7 className='align-self-center'>{music[1].author.name}</h7>
       </div>
       <p class="card-text">{music[1].desc}</p>
-<Link to ={`/read/${music[1]._id}`} >Read More ..</Link>
+<Link className='rl' to ={`/read/${music[1]._id}`} >Read More ..</Link>
     </div>
   </div>
     :null}
@@ -258,7 +258,7 @@ function Home() {
         <h7 className='align-self-center'>{music[2].author.name}</h7>
       </div>
       <p class="card-text">{music[2].desc}</p>
-<Link to ={`/read/${music[2]._id}`} >Read More ..</Link>
+<Link className='rl' to ={`/read/${music[2]._id}`} >Read More ..</Link>
     </div>
   </div>
     :null}
@@ -274,14 +274,19 @@ function Home() {
         <h7 className='align-self-center'>{music[3].author.name}</h7>
       </div>
       <p class="card-text">{music[3].desc}</p>
-<Link to ={`/read/${music[3]._id}`} >Read More ..</Link>
+<Link className='rl' to ={`/read/${music[3]._id}`} >Read More ..</Link>
     </div>
   </div>
     :null}
   </div>
 </div>
+<div className='hv'>
+
+      <button className=' mt-3 btn btn-outline-dark'><Link to='/cat/all' className='link' href=''>View All</Link></button>
+      </div>
       </>
       :<h1>Loading...</h1>}
+      
     </div>
     </>
   )

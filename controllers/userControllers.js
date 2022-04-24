@@ -136,6 +136,7 @@ const genToken = async(req,res) => {
         httpOnly:true,
     })
     .send({at:at,name:req.name,email:req.email,id:req.userid,profile_pic:req.profile_pic})
+    // .send('hi')
 }
 
 // refresh access token

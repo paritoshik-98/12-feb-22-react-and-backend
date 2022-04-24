@@ -11,6 +11,8 @@ header{
     
 }
 
+
+
 .hl{
     margin-left: 30px;
 }
@@ -89,6 +91,16 @@ header{
 
 .link:hover{
     text-decoration:none;
+}
+.cat_ul{
+    border: 0.8px solid #2E0300;
+    list-style: none;
+    position: absolute;
+    top: 12vh;
+    right: 20vw;
+    background-color: white;
+    padding: 10px;
+    z-index: 1;
 }
 
 @media screen and (max-width:576px) {

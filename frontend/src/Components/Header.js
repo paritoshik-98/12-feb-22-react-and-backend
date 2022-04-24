@@ -54,6 +54,8 @@ function Header() {
 
   const DP = useSelector(state=>state.DP)
 
+  const[category,setCat]=useState(false)
+
   // const Uname = useSelector(state=>state.userLogin.user.name)
 
   return (
@@ -69,7 +71,7 @@ function Header() {
   {/* <div className=' justify-content-around'> */}
         <Link className='hl'  style={{textDecoration:'none',color:'#2E0300'}} to='/'>Home</Link>
         <Link className='hl' style={{textDecoration:'none',color:'#2E0300'}} to='/about'>About Us</Link>
-        {/* <a href="" className='link'>About Us</a> */}
+        <a className='hl' style={{textDecoration:'none',color:'#2E0300'}} onClick={()=>setCat(!category)} >Categories</a>
         <Link className='hl' style={{textDecoration:'none',color:'#2E0300'}} to='/add'>Write</Link>  
         {/* </div> */}
         {userLogin.user?
@@ -79,11 +81,6 @@ function Header() {
       {dropDown ?
         <ul className='d_ul'>
           <li id='n' className='text-muted fw-bold'>{Uname?Uname:<h1>''</h1>}</li>
-          {/* <li><a href="/profile" className='link'>Profile</a></li> */}
-          {/* <li><a href="/myArticles" className='link'>My Articles</a></li> */}
-          {/* <li><a href="/drafts" className='link'>Drafts</a></li> */}
-          {/* <li><a href="/Favourites" className='link'>Favourites</a></li> */}
-          {/* <li><a onClick={Logout} className='link'>Logout</a></li> */}
           <li className='d_l'><Link style={{textDecoration:'none',color:'#2E0300'}} to='/profile'>Profile</Link></li>
           <li className='d_l'><Link style={{textDecoration:'none',color:'#2E0300'}} to='/myArticles'>My Articles</Link></li>
           <li className='d_l'><Link style={{textDecoration:'none',color:'#2E0300'}} to='/drafts'>Draft</Link></li>
@@ -92,7 +89,16 @@ function Header() {
         </ul>
 :null}
 
-
+{category?
+  <ul className='cat_ul'>
+          {/* <li id='n' className='text-muted fw-bold'>{Uname?Uname:<h1>''</h1>}</li> */}
+          <li className='d_l'><Link style={{textDecoration:'none',color:'#2E0300'}} to='/cat/:tag'>cat 1</Link></li>
+          <li className='d_l'><Link style={{textDecoration:'none',color:'#2E0300'}} to='/cat/:tag'>cat 1</Link></li>
+          <li className='d_l'><Link style={{textDecoration:'none',color:'#2E0300'}} to='/cat/:tag'>cat 1</Link></li>
+          <li className='d_l'><Link style={{textDecoration:'none',color:'#2E0300'}} to='/cat/:tag'>cat 1</Link></li>
+          {/* <li className='d_l'><a onClick={Logout} style={{color:'#2E0300'}}>Logout</a></li> */}
+        </ul>
+:null}
 
     </header>
     )
