@@ -160,10 +160,13 @@ const [editD,setED] = useState(false)
 
   :null}
   { editD ?
-  <div className="pic_eidt">
+  <>
   <input type="file" name="" id="Fi" onChange={(e)=>setNew(e.target.files[0])}/>
+  <div>
 <button className='btn btn-outline-dark' onClick={upload}>Upload</button>
-  </div>:null
+</div>
+  </>
+  :null
 }
     </div>
     </>
