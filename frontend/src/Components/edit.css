@@ -64,3 +64,18 @@ border-radius: 5px;
 .check {
     width: 85vw;
 }
+.tag_label{
+    margin-right: 10vw;
+}
+
+span{
+    margin-left: 8px;
+}
+
+.tag input{
+margin-top: 5px;    
+}
+
+.selected{
+    margin-bottom: 5vh;
+}

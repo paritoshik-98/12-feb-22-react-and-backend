@@ -133,16 +133,16 @@ const[cover,setC] = useState('')
       <div className=" tags_c ">
       <label className="tag_label">Tags</label>
       <div className='tags check'>
-        <div className="tag"><input type='checkbox' name="music" onChange={TaghandleChange} checked={tags.music}/>Music</div>
-        <div className="tag"><input type='checkbox' name="code" onChange={TaghandleChange} checked={tags.code}/>Code</div>
-        <div className="tag"><input type='checkbox' name="dance" onChange={TaghandleChange} checked={tags.dance}/>Dance</div>
-        <div className="tag"><input type='checkbox' name="read" onChange={TaghandleChange} checked={tags.read}/>read</div>
-        <div className="tag"><input type='checkbox' name="write" onChange={TaghandleChange} checked={tags.write}/>write</div>
-        <div className="tag"><input type='checkbox' name="eat" onChange={TaghandleChange} checked={tags.eat}/>eat</div>
-        <div className="tag"><input type='checkbox' name="sleep" onChange={TaghandleChange} checked={tags.sleep}/>sleep</div>
-        <div className="tag"><input type='checkbox' name="wakeup" onChange={TaghandleChange} checked={tags.wakeup}/>wakeup</div>
-        <div className="tag"><input type='checkbox' name="movie" onChange={TaghandleChange} checked={tags.movie}/>movie</div>
-        <div className="tag"><input type='checkbox' name="webseries" onChange={TaghandleChange} checked={tags.webseries}/>webseries</div>
+      <div className="tag"><input type='checkbox' name="music" onChange={TaghandleChange} checked={tags.music}/><span>Music</span></div>
+        <div className="tag"><input type='checkbox' name="code" onChange={TaghandleChange} checked={tags.code}/><span>Code</span></div>
+        <div className="tag"><input type='checkbox' name="dance" onChange={TaghandleChange} checked={tags.dance}/><span>Dance</span></div>
+        <div className="tag"><input type='checkbox' name="read" onChange={TaghandleChange} checked={tags.read}/><span>read</span></div>
+        <div className="tag"><input type='checkbox' name="write" onChange={TaghandleChange} checked={tags.write}/><span>write</span></div>
+        <div className="tag"><input type='checkbox' name="eat" onChange={TaghandleChange} checked={tags.eat}/><span>eat</span></div>
+        <div className="tag"><input type='checkbox' name="sleep" onChange={TaghandleChange} checked={tags.sleep}/><span>sleep</span></div>
+        <div className="tag"><input type='checkbox' name="wakeup" onChange={TaghandleChange} checked={tags.wakeup}/><span>wakeup</span></div>
+        <div className="tag"><input type='checkbox' name="movie" onChange={TaghandleChange} checked={tags.movie}/><span>movie</span></div>
+        <div className="tag"><input type='checkbox' name="webseries" onChange={TaghandleChange} checked={tags.webseries}/><span>webseries</span></div>
     </div>
       </div>
       <div className="unsplash d-flex align-items-center justify-content-between " style={{backgroundColor:'white',border:"0.8px solid silver",borderRadius:"5px",padding:"20px"}}>

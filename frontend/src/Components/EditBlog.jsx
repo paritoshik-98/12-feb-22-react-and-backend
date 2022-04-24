@@ -190,16 +190,16 @@ console.log('text : ',text)
       <div className=" tags_c ">
       <label className="tag_label">Tags</label>
       <div className='tags check'>
-        <div className="tag"><input type='checkbox' name="music" onChange={TagChange} checked={tags.music}/>Music</div>
-        <div className="tag"><input type='checkbox' name="code" onChange={TagChange} checked={tags.code}/>Code</div>
-        <div className="tag"><input type='checkbox' name="dance" onChange={TagChange} checked={tags.dance}/>Dance</div>
-        <div className="tag"><input type='checkbox' name="read" onChange={TagChange} checked={tags.read}/>read</div>
-        <div className="tag"><input type='checkbox' name="write" onChange={TagChange} checked={tags.write}/>write</div>
-        <div className="tag"><input type='checkbox' name="eat" onChange={TagChange} checked={tags.eat}/>eat</div>
-        <div className="tag"><input type='checkbox' name="sleep" onChange={TagChange} checked={tags.sleep}/>sleep</div>
-        <div className="tag"><input type='checkbox' name="wakeup" onChange={TagChange} checked={tags.wakeup}/>wakeup</div>
-        <div className="tag"><input type='checkbox' name="movie" onChange={TagChange} checked={tags.movie}/>movie</div>
-        <div className="tag"><input type='checkbox' name="webseries" onChange={TagChange} checked={tags.webseries}/>webseries</div>
+        <div className="tag"><input type='checkbox' name="music" onChange={TagChange} checked={tags.music}/><span>Music</span></div>
+        <div className="tag"><input type='checkbox' name="code" onChange={TagChange} checked={tags.code}/><span>Code</span></div>
+        <div className="tag"><input type='checkbox' name="dance" onChange={TagChange} checked={tags.dance}/><span>Dance</span></div>
+        <div className="tag"><input type='checkbox' name="read" onChange={TagChange} checked={tags.read}/><span>read</span></div>
+        <div className="tag"><input type='checkbox' name="write" onChange={TagChange} checked={tags.write}/><span>write</span></div>
+        <div className="tag"><input type='checkbox' name="eat" onChange={TagChange} checked={tags.eat}/><span>eat</span></div>
+        <div className="tag"><input type='checkbox' name="sleep" onChange={TagChange} checked={tags.sleep}/><span>sleep</span></div>
+        <div className="tag"><input type='checkbox' name="wakeup" onChange={TagChange} checked={tags.wakeup}/><span>wakeup</span></div>
+        <div className="tag"><input type='checkbox' name="movie" onChange={TagChange} checked={tags.movie}/><span>movie</span></div>
+        <div className="tag"><input type='checkbox' name="webseries" onChange={TagChange} checked={tags.webseries}/><span>webseries</span></div>
     </div>
       </div>
       <div className="unsplash d-flex align-items-center justify-content-between " style={{backgroundColor:'white',border:"0.8px solid silver",borderRadius:"5px",padding:"20px"}}>
@@ -220,7 +220,10 @@ console.log('text : ',text)
 
       
       </div>
-      {cover?<img src={cover}></img>:null}
+      </div>
+      <div>
+        
+      {cover?<><p>Selected Cover Image : </p><img className="selected" src={cover}></img></>:null}
       </div>
       {warn?<div className="i-warn  alert-dark border-dark mb-3">
       <h7 className="text-muted">After uploading an image do not submit until there is a green tick on top right corner </h7>
