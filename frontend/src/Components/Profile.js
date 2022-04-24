@@ -127,14 +127,9 @@ const [editD,setED] = useState(false)
     <Header/>
     <div className='profile'>
 
-      { editD ?
-      <div className="pic_eidt">
-      <input type="file" name="" id="Fi" onChange={(e)=>setNew(e.target.files[0])}/>
-    <button onClick={upload}>Upload</button>
-      </div>:null
-}
+      
 
-    {profile?<>
+    {profile?<div className='d-flex justify-content-between'>
     <div className='d-flex'>
 
       <div>
@@ -152,15 +147,24 @@ const [editD,setED] = useState(false)
 
 </div>
 
-<div className='d-flex'>
-  <Link to = '/ChangePassword'><button>Change Password</button></Link>
-  <Link to = '/myArticles'><button>My Articles</button></Link>
-  <Link to = '/Favourites'><button>Favourites</button></Link>
-  <Link to = '/Drafts'><button>My Drafts</button></Link>
+<div className='d-flex flex-column pl'>
+  <Link to = '/myArticles'><button className='b btn btn-outline-dark'>My Articles</button></Link>
+  <Link to = '/Favourites'><button className='b btn btn-outline-dark'>Favourites</button></Link>
+  <Link to = '/Drafts'><button className='b btn btn-outline-dark'>My Drafts</button></Link>
+  <Link to = '/ChangePassword'><button className='b btn btn-outline-dark'>Change Password</button></Link>
 </div>
 
-</>
+
+
+</div>
+
   :null}
+  { editD ?
+  <div className="pic_eidt">
+  <input type="file" name="" id="Fi" onChange={(e)=>setNew(e.target.files[0])}/>
+<button className='btn btn-outline-dark' onClick={upload}>Upload</button>
+  </div>:null
+}
     </div>
     </>
     )

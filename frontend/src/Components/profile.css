@@ -9,10 +9,22 @@
     /* border-radius: 50%; */
     height: 30vh;
     width:30vh;
-    border: 0.8px solid #2E0300
+    border: 0.8px solid #2E0300;
+    margin-right: 5vw;
+    margin-bottom: 5vh;
 }
 .icons{
     cursor: pointer;
     border: none;
     background-color: #F8F8F8;
+    margin-bottom: 5vh;
+}
+.pl{
+    height: 30vh;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.b{
+    width: 20vw;
 }
