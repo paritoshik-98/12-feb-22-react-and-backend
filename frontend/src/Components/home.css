@@ -2,6 +2,11 @@
     color: #2E0300;
 
 }
+.home-cover-img{
+    border-bottom: 0.8px solid #2E0300;
+    padding-bottom: 30px;
+    margin-bottom: 30px;
+}
 .top-a-img{
     z-index: 0;
 }

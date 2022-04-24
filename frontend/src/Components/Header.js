@@ -57,43 +57,25 @@ function Header() {
   // const Uname = useSelector(state=>state.userLogin.user.name)
 
   return (
-    <header className='mt-1 mt-sm-3 mb-sm-2 pb-sm-4 '>
+    <header className=' '>
       
-      <div className='brand w-25 w-sm-50'>
+      <div className=' d-flex'>
       <img className='logo' src='https://images.unsplash.com/photo-1532777946373-b6783242f211?ixlib=rb-0.3.5&amp;q=80&amp;fm=jpg&amp;crop=entropy&amp;cs=tinysrgb&amp;w=1080&amp;fit=max&amp;ixid=eyJhcHBfaWQiOjMyMDc0fQ&amp;s=8ac55cf3a68785643998730839663129'></img>
 
-      <p className='name'><strong>ReadBloc.in</strong></p>
+      {/* <p className='name'><strong>ReadBloc.in</strong></p> */}
+      <div className='name'>ReadBlocs</div>
       </div>
-
-      <div className='h-links'>
-        <Link style={{textDecoration:'none',color:'#2E0300'}} to='/'>Home</Link>
-        <Link style={{textDecoration:'none',color:'#2E0300'}} to='/about'>About Us</Link>
+<div>
+  {/* <div className=' justify-content-around'> */}
+        <Link className='hl'  style={{textDecoration:'none',color:'#2E0300'}} to='/'>Home</Link>
+        <Link className='hl' style={{textDecoration:'none',color:'#2E0300'}} to='/about'>About Us</Link>
         {/* <a href="" className='link'>About Us</a> */}
-        <Link style={{textDecoration:'none',color:'#2E0300'}} to='/add'>Write</Link>
-        {/* <button className='btn btn-outline-primary' onClick={(e)=>{
-          e.preventDefault()
-          if(!userLogin.user){alert('login to write')}
-          else{
-            navigate('/add')
-          }
-        }}>Write</button> */}
-        
-
-
-
-
-
-
+        <Link className='hl' style={{textDecoration:'none',color:'#2E0300'}} to='/add'>Write</Link>  
+        {/* </div> */}
         {userLogin.user?
-        
-  <img  src={DP.pic} alt='' class=" h-pic "onClick={toggle} ></img>
-   
-        
-        // :<Link to = '/'>Login</Link>}
+  <img  src={DP.pic} alt='' class="h-pic"onClick={toggle} ></img>
         :<a onClick={Login}>Login</a>}
-
-
-      </div>
+</div>
       {dropDown ?
         <ul className='d_ul'>
           <li id='n' className='text-muted fw-bold'>{Uname?Uname:<h1>''</h1>}</li>

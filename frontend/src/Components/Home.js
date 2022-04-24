@@ -7,7 +7,7 @@ import './home.css'
 import '../Axios'
 import Header from './Header'
 import portrait from '../portrait.jpg'
-import p from '../jess-bailey-q10VITrVYUM-unsplash.jpg'
+import p from '../cover-s.png'
 import n from '../nick-morrison-FHnnjk1Yj7Y-unsplash.jpg'
 
 function Home() {
@@ -36,7 +36,9 @@ function Home() {
   <Header/>
     <div className='home'>
       {/* portrait - pc */}
+      <div className='home-cover-img'>
       <img src={p} className='portrait' alt="" />
+      </div>
       {/* <h1>Read</h1>
       <h1>Write</h1>
       <h1>Share</h1> */}
@@ -62,7 +64,7 @@ function Home() {
       </div>
     </div>
     <div class="col-md-4 top-a-img">
-      <img src={trending[0].coverImg} class="img-fluid rounded-start" alt="..."></img>
+      <img src={trending[0].coverImg} class="img-fluid " alt="..."></img>
     </div>
   </div>
 </div>

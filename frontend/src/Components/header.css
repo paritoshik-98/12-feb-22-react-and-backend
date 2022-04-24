@@ -11,6 +11,10 @@ header{
     
 }
 
+.hl{
+    margin-left: 30px;
+}
+
 #n{
     padding-bottom: 5px;
     margin-bottom: 10px;
@@ -32,7 +36,7 @@ header{
     border: 0.8px solid #2E0300;
     list-style: none;
     position: absolute;
-    top: 12.5vh;
+    top: 12vh;
     right: 10vw;
     background-color: white;
     padding: 10px;
@@ -48,27 +52,29 @@ header{
     margin-right: 20px;
 }
 .h-pic{
-    border-radius: 50%;
+    /* border-radius: 50%; */
     border: 0.8px solid #2E0300;
-    height: 7vh;
-    width: 7vh;
+    height: 45px;
+    width: 45px;
     cursor: pointer;
+    margin-left: 20px;
 }
 .h-pic:hover{
-    border-radius: 50%;
+    /* border-radius: 50%; */
     border: 2px solid #2E0300;
 }
 
 .h-links{
     display: flex;
     justify-content: space-between;
-    align-items: center;
+    /* align-items: baseline; */
     color: #2E0300;
-    width:35%
 }
 
 .name{
     font-size: xx-large;
+    font-family: 'Orbitron', sans-serif;
+    align-self: center;
 }
 
 .logo{
