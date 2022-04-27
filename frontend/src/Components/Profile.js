@@ -4,8 +4,8 @@ import axios from 'axios'
 import '../Axios'
 import Header from './Header'
 
-import { FaEdit } from 'react-icons/fa';
-import { MdDelete } from 'react-icons/md';
+import { RiImageEditLine } from 'react-icons/ri';
+import { MdDeleteOutline } from 'react-icons/md';
 import { Link } from 'react-router-dom'
 import { deletePic, updatePic } from '../REDUX/Actions/userActions';
 import { useDispatch } from 'react-redux';
@@ -135,8 +135,8 @@ const [editD,setED] = useState(false)
       <div>
       {loading?<h1>Loading...</h1>:<img  className='dp' src={DP} alt="" />}
       <div>
-      <button className='icons' onClick={()=>setED(!editD)}><FaEdit size={32}/></button>
-      <button className='icons'onClick={RemoveImage}><MdDelete size={32}/></button>
+      <button className='icons' onClick={()=>setED(!editD)}><RiImageEditLine size={32}/></button>
+      <button className='icons'onClick={RemoveImage}><MdDeleteOutline size={32}/></button>
       </div>
       </div>
 

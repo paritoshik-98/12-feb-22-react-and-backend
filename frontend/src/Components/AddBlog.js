@@ -200,7 +200,7 @@ const CreateStatus = useSelector(state=>state.createBlog)
 
 
       {warn?<div className="i-warn  alert-dark border-dark mb-3">
-      <h7 className="text-muted">After uploading an image do not submit until there is a green tick on top right corner </h7>
+      <h7 className="text-muted">After uploading image wait for a grren tick to appear on top right corner </h7>
       </div>:null}
       <div className="editor">
       <CKEditor className='bg-light'

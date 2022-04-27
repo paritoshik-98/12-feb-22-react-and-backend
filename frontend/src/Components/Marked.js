@@ -75,6 +75,7 @@ setSearchLoader(true)
         })
       }}>Search</button>
       <button onClick={()=>{
+        setSearchLoader(false)
         setSdisplay(false);
         setQuery('')
       }}>X</button>
