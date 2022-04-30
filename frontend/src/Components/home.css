@@ -6,11 +6,150 @@ a{
     color: red
 } */
 
-
-
-.home .col{
-    height: 80vh;
+/* .tcard{
+    border: 0.8px solid #dedede;
+    background-color: white;
+    display: flex;
+} */
+/* #EXcard{
+    display: none;
 }
+
+#EXcard{
+    display: block;
+    font-size: small;
+    height: 50vh;
+    background-color: white;
+    border: 0.8px solid #dedede;
+}
+.cbody{
+    padding: 10px;
+}
+.top-a-img-ex img{
+    height: 100%;
+    object-fit: cover;
+}
+} */
+
+@media (min-width:640px) and (max-width:768px){
+    
+}
+@media (max-width: 640px) {
+    *{
+        font-size: small;
+    }
+
+    /* #Pcard{
+        display: block;
+    }
+    #Lcard{
+        display: none;
+    } */
+
+    #p4{
+        width:100%
+    }
+    #p6{
+        width:100%
+    }
+    #p4e{
+        display: none;
+    }
+    #p6e{
+        display: none;
+    }
+
+    .portrait{
+        object-fit: cover;
+        height: 30vh;
+        width: 100%;
+    }
+    .home .col{
+        height: 80vh;
+    }
+  }
+
+  /* landscape and tab */
+@media (min-width:640px) and (max-width:1024px) {
+
+    .home .col{
+        height: 130vh;
+    }
+
+    /* #Pcard{
+        display: none;
+    }
+    #Lcard{
+        display: block;
+    } */
+
+#p4{
+    width:50%
+}
+#p6{
+    width:50%
+}
+#p4e{
+    width:50%
+}
+#p6e{
+    width:50%
+}
+
+/* #p4{
+    width:40%
+}
+#p6{
+    width:60%
+}
+#p4e{
+    width:40%
+}
+#p6e{
+    width:60%
+} */
+
+.portrait{
+    object-fit: cover;
+    height: 45vh;
+    width: 100%;
+}
+
+}
+
+@media (min-width:1024px){
+    /* #Pcard{
+        display: none;
+    }
+    #Lcard{
+        display: block;
+    } */
+
+    #p4{
+        width:40%
+    }
+    #p6{
+        width:60%
+    }
+    #p4e{
+        width:40%;
+    }
+    #p6e{
+        width:60%;
+    }
+
+    .portrait{
+        object-fit: cover;
+        height: 60vh;
+        width: 100%;
+    }
+    .home .col{
+        height: 80vh;
+    }
+
+}
+
+/* 130vh and 50%w -- mobile portrait */
 .home-cover-img{
     border-bottom: 0.8px solid #2E0300;
     padding-bottom: 30px;
@@ -83,11 +222,7 @@ a{
 .link:hover{
     text-decoration:none;
 }
-.portrait{
-    object-fit: cover;
-    height: 60vh;
-    width: 100%;
-}
+
 .hv{
   display: flex;
   justify-content: center;
