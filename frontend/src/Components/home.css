@@ -57,7 +57,7 @@ a{
 }
 
 
-@media (max-width: 640px) {
+@media (max-width: 639px) {
     .topCRD{
         height: 450px;
     }
