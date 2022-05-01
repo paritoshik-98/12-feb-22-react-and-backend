@@ -191,13 +191,15 @@ const[cover,setC] = useState('')
                     } }
                     onBlur={ ( event, editor ) => {
                         console.log( 'Blur.', editor );
+                        editor.ui.view.editable.element.style.minHeight = "300px";
                     } }
                     onFocus={ ( event, editor ) => {
                         console.log( 'Focus.', editor );
+                        editor.ui.view.editable.element.style.minHeight = "300px";
                     } }
                 />
                 </div>
-                <button className="btn btn-outline-dark" onClick={submit}>SUBMIT</button>
+                <button className="btn btn-outline-dark mt-3" onClick={submit}>SUBMIT</button>
                 <button className="btn btn-outline-dark" onClick={submit}>SUBMIT</button>
                 
     </div>

@@ -75,4 +75,18 @@ margin-top: 5px;
 }
 .selected{
     margin-bottom: 5vh;
+    width: 100%;
+}
+
+@media (max-width:580px){
+    .unsplash-react{
+        height: 80%;
+    }
+}
+
+.i-warn{
+    color: black;
+    border: 1px solid red;
+    font-style: italic;
+    padding: 10px;
 }

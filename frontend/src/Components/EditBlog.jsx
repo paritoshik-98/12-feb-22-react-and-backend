@@ -225,8 +225,8 @@ console.log('text : ',text)
         
       {cover?<><p>Selected Cover Image : </p><img className="selected" src={cover}></img></>:null}
       </div>
-      {warn?<div className="i-warn  alert-dark border-dark mb-3">
-      <h7 className="text-muted">After uploading an image do not submit until there is a green tick on top right corner </h7>
+      {warn?<div className="i-warn   mb-3">
+      <h7 className="">After uploading an image do not submit until there is a green tick on top right corner </h7>
       </div>:null}
       <div className="editor">
       <CKEditor className='bg-light'
@@ -250,15 +250,17 @@ console.log('text : ',text)
                     } }
                     onBlur={ ( event, editor ) => {
                         console.log( 'Blur.', editor );
+                        editor.ui.view.editable.element.style.minHeight = "300px";
                     } }
                     onFocus={ ( event, editor ) => {
                         console.log( 'Focus.', editor );
+                        editor.ui.view.editable.element.style.minHeight = "300px";
                     } }
                 />
                 </div>
-                <button className="btn btn-outline-dark" onClick={submit}>Publish</button>
-                <button className="btn btn-outline-dark" onClick={s_draft}>Save as draft</button>
-                <button className="btn  btn-outline-danger" onClick={deleteBlog} >DELETE</button>
+                <button className="btn btn-outline-dark mt-3" onClick={submit}>Publish</button>
+                <button className="btn btn-outline-dark mt-3 draftB" onClick={s_draft}>Save as draft</button>
+                <button className="btn  btn-outline-danger mt-3 deleteB" onClick={deleteBlog} >DELETE</button>
                 
     </div>
     
