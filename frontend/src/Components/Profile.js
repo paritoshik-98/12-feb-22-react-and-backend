@@ -168,11 +168,13 @@ const [editD,setED] = useState(false)
   </>
   :null
 }
+<div className='hlc'>
 <div className='mobileLinks row row-cols-2  gy-3'>
   <Link to = '/myArticles' className='col d-flex justify-content-center LK'><button className='b btn btn-outline-dark'>My Articles</button></Link>
   <Link to = '/Favourites' className='col d-flex justify-content-center LK'><button className='b btn btn-outline-dark'>Favourites</button></Link>
   <Link to = '/Drafts' className='col d-flex justify-content-center LK'><button className='b btn btn-outline-dark'>My Drafts</button></Link>
   <Link to = '/ChangePassword' className='col d-flex justify-content-center LK'><button className='b btn btn-outline-dark'>Change Password</button></Link>
+</div>
 </div>
     </div>
     </>

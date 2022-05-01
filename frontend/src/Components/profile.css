@@ -33,14 +33,15 @@ margin-bottom: 2vh;
 .b{
     width: 20vw;
 }
-
-.mobileLinks{
+@media (min-width : 600px){
+.hlc{
     display: none;
+}
 }
 
 @media (max-width : 600px){
 
-    .mobileLinks{
+    .hlc{
         display: flex;
         font-size: smaller;
     }
