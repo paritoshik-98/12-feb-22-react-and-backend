@@ -1,3 +1,6 @@
+.LK{
+    text-decoration: none;
+}
 .profile{
     margin: 10vh 10vw 10vh 10vw;
 }
@@ -23,8 +26,34 @@ margin-bottom: 2vh;
     height: 40vh;
     justify-content: space-between;
     align-items: center;
+    display: flex;
+    flex-direction: column;
 }
 
 .b{
     width: 20vw;
+}
+
+.mobileLinks{
+    display: none;
+}
+
+@media (max-width : 600px){
+
+    .mobileLinks{
+        display: flex;
+        font-size: smaller;
+    }
+
+    .dp{
+        height: 15vh;
+        width: 15vh;
+    }
+    .pl{
+        display: none;
+    }
+    .b{
+        height: 100%;
+        width: 95%;
+    }
 }

@@ -147,7 +147,7 @@ const [editD,setED] = useState(false)
 
 </div>
 
-<div className='d-flex flex-column pl'>
+<div className='pl'>
   <Link to = '/myArticles'><button className='b btn btn-outline-dark'>My Articles</button></Link>
   <Link to = '/Favourites'><button className='b btn btn-outline-dark'>Favourites</button></Link>
   <Link to = '/Drafts'><button className='b btn btn-outline-dark'>My Drafts</button></Link>
@@ -163,11 +163,17 @@ const [editD,setED] = useState(false)
   <>
   <input type="file" name="" id="Fi" onChange={(e)=>setNew(e.target.files[0])}/>
   <div>
-<button className='btn btn-outline-dark' onClick={upload}>Upload</button>
+<button className='btn btn-outline-dark' style={{'marginBottom':'4vh'}} onClick={upload}>Upload</button>
 </div>
   </>
   :null
 }
+<div className='mobileLinks row row-cols-2  gy-3'>
+  <Link to = '/myArticles' className='col d-flex justify-content-center LK'><button className='b btn btn-outline-dark'>My Articles</button></Link>
+  <Link to = '/Favourites' className='col d-flex justify-content-center LK'><button className='b btn btn-outline-dark'>Favourites</button></Link>
+  <Link to = '/Drafts' className='col d-flex justify-content-center LK'><button className='b btn btn-outline-dark'>My Drafts</button></Link>
+  <Link to = '/ChangePassword' className='col d-flex justify-content-center LK'><button className='b btn btn-outline-dark'>Change Password</button></Link>
+</div>
     </div>
     </>
     )
