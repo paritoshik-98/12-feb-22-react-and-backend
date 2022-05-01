@@ -1,4 +1,5 @@
 /* *{
+
     color: red
 
 }
@@ -6,11 +7,31 @@ a{
     color: red
 } */
 
-/* .tcard{
+.auth_info{
+    margin-top: 2vh;
+}
+
+.desc{
+    margin-top: 1vh;
+}
+
+.topCRD{
     border: 0.8px solid #dedede;
     background-color: white;
-    display: flex;
-} */
+    height: 205px;
+}
+.topIMG{
+    width: 35%;
+}
+
+.topIMG img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.tbody{
+    width: 65%;
+}
 /* #EXcard{
     display: none;
 }
@@ -31,10 +52,28 @@ a{
 }
 } */
 
-@media (min-width:640px) and (max-width:768px){
-    
+.tbody{
+    padding: 20px;
 }
+
+
 @media (max-width: 640px) {
+    .topCRD{
+        height: 450px;
+    }
+    .topIMG{
+        width: 100%;
+    }
+    
+    .topIMG img{
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+    .tbody{
+        width: 100%;
+    }
+
     *{
         font-size: small;
     }
@@ -65,15 +104,25 @@ a{
         width: 100%;
     }
     .home .col{
-        height: 80vh;
+        height: 70vh;
     }
   }
 
   /* landscape and tab */
 @media (min-width:640px) and (max-width:1024px) {
 
+    *{
+        font-size: small;
+    }
+
+    #Lcard{
+        display: flex;
+        flex-direction: row-reverse;
+    } 
+
+
     .home .col{
-        height: 130vh;
+        height: 120vh;
     }
 
     /* #Pcard{
@@ -118,12 +167,11 @@ a{
 }
 
 @media (min-width:1024px){
-    /* #Pcard{
-        display: none;
-    }
+  
     #Lcard{
-        display: block;
-    } */
+        display: flex;
+        flex-direction: row-reverse;
+    } 
 
     #p4{
         width:40%
@@ -144,7 +192,7 @@ a{
         width: 100%;
     }
     .home .col{
-        height: 80vh;
+        height: 85vh;
     }
 
 }

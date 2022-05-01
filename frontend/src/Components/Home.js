@@ -81,25 +81,22 @@ function Home() {
   </div>
 </div> */}
 {/*  */}
-      <div class="card mb-3" id='Lcard' >
-  <div class="row g-0">
-  <div class="col-md-4 top-a-img">
-      <img src={trending[0].coverImg} class="img-fluid " alt="..."></img>
+      <div class="topCRD mb-3" id='Lcard' >
+  
+  <div class="topIMG">
+      <img src={trending[0].coverImg} class=" " alt="Loading..."></img>
     </div>
-    <div class="col-md-8">
-      <div class="card-body">
-        <h5 class="card-title">{trending[0].title}</h5>
-        <div className="authorInfo  d-flex">
-          <img className='auth_pic align-self-center' src={trending[0].author.profile_pic}></img>
-          <h7 className='align-self-center'>{trending[0].author.name}</h7>
+      <div class="tbody">
+        <h5 class="">{trending[0].title}</h5>
+        <div className="auth_info">
+          <img className='auth_pic' src={trending[0].author.profile_pic}></img>
+          <h7 className=''>{trending[0].author.name}</h7>
         </div>
-        <p class="card-text">{trending[0].desc}</p>
+        <p class="desc">{trending[0].desc}</p>
         <Link className='rl' to ={`/read/${trending[0]._id}`} >Read More ..</Link>
       </div>
-    </div>
-    
-  </div>
 </div>
+
 {/* <div class="card mb-3" id='Pcard' >
   <div class="row g-0">
     <div class="col-md-4 top-a-img">
