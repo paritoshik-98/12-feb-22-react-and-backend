@@ -1,3 +1,23 @@
+@media screen and (max-width:800px) {
+    .h_nav{
+        display: none;
+    }
+    .drop{
+        display: block;
+    }
+    header{
+        display: none;
+    }
+}
+
+@media screen and (min-width:800px){
+.drop{
+    display: none;
+}
+.h_nav{
+    display: block;
+}
+
 header{
     display: flex;
     justify-content: space-between;
@@ -102,8 +122,9 @@ header{
     padding: 10px;
     z-index: 1;
 }
+}
 
-@media screen and (max-width:576px) {
+/* @media screen and (max-width:576px) {
     .header{
         height: 50px;
     }
@@ -122,4 +143,4 @@ header{
         width: 30px;
         object-fit: cover;
     }
-}
+} */

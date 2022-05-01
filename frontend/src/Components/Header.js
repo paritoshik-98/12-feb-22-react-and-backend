@@ -67,7 +67,8 @@ function Header() {
       {/* <p className='name'><strong>ReadBloc.in</strong></p> */}
       <div className='name'>ReadBlocs</div>
       </div>
-<div>
+      <div className='drop'>DROPDOWN</div>
+<div className='h_nav'>
   {/* <div className=' justify-content-around'> */}
         <Link className='hl'  style={{textDecoration:'none',color:'#2E0300'}} to='/'>Home</Link>
         <Link className='hl' style={{textDecoration:'none',color:'#2E0300'}} to='/about'>About Us</Link>

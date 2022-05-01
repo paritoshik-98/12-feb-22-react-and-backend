@@ -141,7 +141,7 @@ const [editD,setED] = useState(false)
       </div>
 
       <div>
-        <h1><b>{profile.name}</b></h1>
+        <h3 className=' text-uppercase fw-bold'>{profile.name}</h3>
         <h5 className='text-muted'>{profile.email}</h5>
       </div>
 
