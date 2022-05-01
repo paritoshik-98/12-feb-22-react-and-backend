@@ -86,26 +86,23 @@ setSearchLoader(true)
       {sDisplay?<>
 {!searchLoader?
       <>{result.map(r=>
+        
 
-<div class=" cat_card card mb-3" >
-<div class="row g-0">
-<div class="col-md-4">
-    <img src={r.coverImg} class=" cover  " alt="..."></img>
-  </div>
-  <div class="col-md-8">
-    <div class="card-body">
-    <h5 class="card-title">{r.title}</h5>
-<div className="authorInfo  d-flex">
-<img className='authorpic align-self-center' src={r.author.profile_pic}></img>
-<h7 className='align-self-center'>{r.author.name}</h7>
-</div>
-<p class="card-text">{r.desc}</p>
-<Link to ={`/read/${r._id}`} >Read More ..</Link>
+<div class="topCRD mb-3" id='Lcard' >
+  <div class="topIMG">
+      <img src={r.coverImg} class=" " alt="Loading..."></img>
     </div>
-  </div>
-  
+      <div class="tbody">
+        <h5 class="">{r.title}</h5>
+        <div className="auth_info">
+          <img className='auth_pic' src={r.author.profile_pic}></img>
+          <h7 className=''>{r.author.name}</h7>
+        </div>
+        <p class="desc">{r.desc}</p>
+        <Link className='rl' to ={`/read/${r._id}`} >Read More ..</Link>
+      </div>
 </div>
-</div>
+
     
     )}
 {LM?
@@ -120,23 +117,19 @@ null
 {!searchLoader?<>
 {articles&&!sDisplay?<>{articles.map(a=>
 
-<div class=" cat_card card mb-3" >
-<div class="row g-0">
-  <div class="col-md-8">
-    <div class="card-body">
-    <h5 class="card-title">{a.title}</h5>
-<div className="authorInfo  d-flex">
-<img className='authorpic align-self-center' src={a.author.profile_pic}></img>
-<h7 className='align-self-center'>{a.author.name}</h7>
-</div>
-<p class="card-text">{a.desc}</p>
-<Link to ={`/read/${a._id}`} >Read More ..</Link>
+<div class="topCRD mb-3" id='Lcard' >
+  <div class="topIMG">
+      <img src={a.coverImg} class=" " alt="Loading..."></img>
     </div>
-  </div>
-  <div class="col-md-4">
-    <img src={a.coverImg} class=" cover  " alt="..."></img>
-  </div>
-</div>
+      <div class="tbody">
+        <h5 class="">{a.title}</h5>
+        <div className="auth_info">
+          <img className='auth_pic' src={a.author.profile_pic}></img>
+          <h7 className=''>{a.author.name}</h7>
+        </div>
+        <p class="desc">{a.desc}</p>
+        <Link className='rl' to ={`/read/${a._id}`} >Read More ..</Link>
+      </div>
 </div>
     
     )}

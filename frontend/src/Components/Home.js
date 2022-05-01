@@ -82,7 +82,6 @@ function Home() {
 </div> */}
 {/*  */}
       <div class="topCRD mb-3" id='Lcard' >
-  
   <div class="topIMG">
       <img src={trending[0].coverImg} class=" " alt="Loading..."></img>
     </div>

@@ -21,7 +21,7 @@ a{
     height: 215px;
 }
 .topIMG{
-    width: 35%;
+    width: 40%;
 }
 
 .topIMG img{
@@ -30,7 +30,7 @@ a{
     object-fit: cover;
 }
 .tbody{
-    width: 65%;
+    width: 60%;
 }
 /* #EXcard{
     display: none;
