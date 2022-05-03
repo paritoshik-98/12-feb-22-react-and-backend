@@ -102,7 +102,7 @@ setSearchLoader(true)
           <h7 className=''>{r.author.name}</h7>
         </div>
         <p class="desc">{r.desc}</p>
-        <Link className='rl' to ={`/read/${r._id}`} >Read More ..</Link>
+        <Link className='rl' to ={`/editDraft/${r._id}`} >View Draft ..</Link>
       </div>
 </div>
 
@@ -131,7 +131,7 @@ null
           <h7 className=''>{a.author.name}</h7>
         </div>
         <p class="desc">{a.desc}</p>
-        <Link className='rl' to ={`/read/${a._id}`} >Read More ..</Link>
+        <Link className='rl' to ={`/editDraft/${a._id}`} >View Draft ..</Link>
       </div>
 </div>
     
