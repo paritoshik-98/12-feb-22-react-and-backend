@@ -1,8 +1,8 @@
 import axios from 'axios'
 import  store  from './REDUX/store';
 
-const baseURL ='http://localhost:8080'
-// const baseURL ='https://blog-test-1-april.herokuapp.com'
+// const baseURL ='http://localhost:8080'
+const baseURL ='https://blog-test-1-april.herokuapp.com'
 
 axios.interceptors.request.use(
     config => {
