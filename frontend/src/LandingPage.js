@@ -200,10 +200,10 @@ const redirect = useSelector(state=>state.redirect)
         </div>
       </div>
 )}
-<LinkedinShareButton url={window.location.href} title='readbloc'><LinkedinIcon/></LinkedinShareButton>
+{/* <LinkedinShareButton url={window.location.href} title='readbloc'><LinkedinIcon/></LinkedinShareButton>
  <WhatsappShareButton url={window.location.href} title='readbloc' image='dcdcdcd'><WhatsappIcon/></WhatsappShareButton>
  <EmailShareButton><EmailIcon/></EmailShareButton>
- <MailruShareButton><MailruIcon/></MailruShareButton>
+ <MailruShareButton><MailruIcon/></MailruShareButton> */}
 
     </div>
  
