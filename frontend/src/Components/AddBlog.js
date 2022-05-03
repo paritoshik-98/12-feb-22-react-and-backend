@@ -178,7 +178,7 @@ const CreateStatus = useSelector(state=>state.createBlog)
           Cover Image  
         </label>
         <div style={{ display: "flex" ,justifyContent:"space-around",backgroundColor:"white",borderRadius:'5px'}}>
-        <div style={{ height: "50vh", width: "55vw" }}>
+        <div className='unsplashC'>
           <UnsplashReact 
             accessKey={'3QrIg1ALejFXqmOl1YA6QH4xG1obxasv1J9-mi7_ZuY'}
             applicationName="Bloc"
@@ -200,7 +200,7 @@ const CreateStatus = useSelector(state=>state.createBlog)
 
 
       {warn?<div className="i-warn mb-3">
-      <h7 className="">After uploading image wait for a green tick to appear on top right corner </h7>
+      <h7 className="">After uploading image wait for green tick and click on the blue icon to shift cursor to next line </h7>
       </div>:null}
       <div className="editor">
       <CKEditor className='bg-light'

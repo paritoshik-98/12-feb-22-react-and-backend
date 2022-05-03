@@ -190,16 +190,16 @@ console.log('text : ',text)
       <div className=" tags_c ">
       <label className="tag_label">Tags</label>
       <div className='tags check'>
-        <div className="tag"><input type='checkbox' name="music" onChange={TagChange} checked={tags.music}/>Music</div>
-        <div className="tag"><input type='checkbox' name="code" onChange={TagChange} checked={tags.code}/>Code</div>
-        <div className="tag"><input type='checkbox' name="dance" onChange={TagChange} checked={tags.dance}/>Dance</div>
-        <div className="tag"><input type='checkbox' name="read" onChange={TagChange} checked={tags.read}/>read</div>
-        <div className="tag"><input type='checkbox' name="write" onChange={TagChange} checked={tags.write}/>write</div>
-        <div className="tag"><input type='checkbox' name="eat" onChange={TagChange} checked={tags.eat}/>eat</div>
-        <div className="tag"><input type='checkbox' name="sleep" onChange={TagChange} checked={tags.sleep}/>sleep</div>
-        <div className="tag"><input type='checkbox' name="wakeup" onChange={TagChange} checked={tags.wakeup}/>wakeup</div>
-        <div className="tag"><input type='checkbox' name="movie" onChange={TagChange} checked={tags.movie}/>movie</div>
-        <div className="tag"><input type='checkbox' name="webseries" onChange={TagChange} checked={tags.webseries}/>webseries</div>
+        <div className="tag"><input type='checkbox' name="music" onChange={TagChange} checked={tags.music} style={{'marginRight':'8px'}}/>Music</div>
+        <div className="tag"><input type='checkbox' name="code" onChange={TagChange} checked={tags.code}style={{'marginRight':'8px'}}/>Code</div>
+        <div className="tag"><input type='checkbox' name="dance" onChange={TagChange} checked={tags.dance} style={{'marginRight':'8px'}}/>Dance</div>
+        <div className="tag"><input type='checkbox' name="read" onChange={TagChange} checked={tags.read} style={{'marginRight':'8px'}}/>read</div>
+        <div className="tag"><input type='checkbox' name="write" onChange={TagChange} checked={tags.write} style={{'marginRight':'8px'}}/>write</div>
+        <div className="tag"><input type='checkbox' name="eat" onChange={TagChange} checked={tags.eat} style={{'marginRight':'8px'}}/>eat</div>
+        <div className="tag"><input type='checkbox' name="sleep" onChange={TagChange} checked={tags.sleep}style={{'marginRight':'8px'}}/>sleep</div>
+        <div className="tag"><input type='checkbox' name="wakeup" onChange={TagChange} checked={tags.wakeup} style={{'marginRight':'8px'}}/>wakeup</div>
+        <div className="tag"><input type='checkbox' name="movie" onChange={TagChange} checked={tags.movie} style={{'marginRight':'8px'}}/>movie</div>
+        <div className="tag"><input type='checkbox' name="webseries" onChange={TagChange} checked={tags.webseries} style={{'marginRight':'8px'}}/>webseries</div>
     </div>
       </div>
       <div className="unsplash d-flex align-items-center justify-content-between " style={{backgroundColor:'white',border:"0.8px solid silver",borderRadius:"5px",padding:"20px"}}>
@@ -207,7 +207,7 @@ console.log('text : ',text)
           Cover Image  
         </label>
         <div style={{ display: "flex" ,justifyContent:"space-around",backgroundColor:"white",borderRadius:'5px'}}>
-        <div style={{ height: "50vh", width: "55vw" }}>
+        <div className='unsplashC' >
           <UnsplashReact 
             accessKey={'3QrIg1ALejFXqmOl1YA6QH4xG1obxasv1J9-mi7_ZuY'}
             applicationName="Bloc"
@@ -220,10 +220,13 @@ console.log('text : ',text)
 
       
       </div>
-      {cover?<img src={cover}></img>:null}
+        
       </div>
-      {warn?<div className="i-warn  alert-dark border-dark mb-3">
-      <h7 className="text-muted">After uploading an image do not submit until there is a green tick on top right corner </h7>
+      {cover?<><p>Selected Cover Image : </p><img className="selected" src={cover}></img></>:null}
+      {/* {cover?<img src={cover}></img>:null} */}
+      {warn?<div className="i-warn   mb-3">
+      {/* <h7 className="">After uploading an image do not submit until there is a green tick on top right corner </h7> */}
+      <h7 className="">After uploading image wait for green tick and click on the blue icon to shift cursor to next line </h7>
       </div>:null}
       <div className="editor">
       <CKEditor className='bg-light'
@@ -247,15 +250,17 @@ console.log('text : ',text)
                     } }
                     onBlur={ ( event, editor ) => {
                         console.log( 'Blur.', editor );
+                        editor.ui.view.editable.element.style.minHeight = "300px";
                     } }
                     onFocus={ ( event, editor ) => {
                         console.log( 'Focus.', editor );
+                        editor.ui.view.editable.element.style.minHeight = "300px";
                     } }
                 />
                 </div>
-                <button className="btn btn-outline-dark" onClick={submit}>Publish</button>
-                <button className="btn btn-outline-dark" onClick={s_draft}>Save as draft</button>
-                <button className="btn  btn-outline-danger" onClick={deleteBlog} >DELETE</button>
+                <button className="btn btn-outline-dark mt-3" onClick={submit}>Publish</button>
+                <button className="btn btn-outline-dark mt-3" onClick={s_draft} style={{'marginLeft':'2vw','marginRight':'2vw'}}>Save as draft</button>
+                <button className="btn  btn-outline-danger mt-3 sdb" onClick={deleteBlog} >DELETE</button>
                 
     </div>
     

@@ -207,7 +207,7 @@ console.log('text : ',text)
           Cover Image  
         </label>
         <div style={{ display: "flex" ,justifyContent:"space-around",backgroundColor:"white",borderRadius:'5px'}}>
-        <div style={{ height: "50vh", width: "55vw" }}>
+        <div className='unsplashC' >
           <UnsplashReact 
             accessKey={'3QrIg1ALejFXqmOl1YA6QH4xG1obxasv1J9-mi7_ZuY'}
             applicationName="Bloc"
@@ -226,7 +226,7 @@ console.log('text : ',text)
       {cover?<><p>Selected Cover Image : </p><img className="selected" src={cover}></img></>:null}
       </div>
       {warn?<div className="i-warn   mb-3">
-      <h7 className="">After uploading an image do not submit until there is a green tick on top right corner </h7>
+      <h7 className="">After uploading image wait for green tick and click on the blue icon to shift cursor to next line </h7>
       </div>:null}
       <div className="editor">
       <CKEditor className='bg-light'

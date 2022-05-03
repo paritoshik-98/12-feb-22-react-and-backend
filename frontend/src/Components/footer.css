@@ -27,6 +27,7 @@ footer{
 
 .link{
     color: #2E0300;
+    text-decoration: underline;
 }
 
 p{
@@ -41,7 +42,11 @@ p{
     width: 75%;
 }
 
-@media screen and (max-width:576px) {
+@media screen and (max-width:600px) {
+    .f-links{
+        margin-bottom: 4vh;
+    }
+
     footer{
         height: 250px;
         justify-content: space-between;
@@ -53,7 +58,7 @@ p{
         margin-right: 3px;
     }
     .brand{
-        margin-top: 3vh;
+        margin-top: 6vh;
     }
     
 }
