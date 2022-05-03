@@ -102,14 +102,26 @@ function Header() {
         </ul>
 :null}
 
+{/* <div class="btn-group">
+  <button type="button" class="btn btn-primary dropdown-toggle" data-mdb-toggle="dropdown" aria-expanded="false">
+    Right-aligned menu
+  </button>
+  <ul class="dropdown-menu">
+  <li><a class="dropdown-item" href="#">Action</a></li>
+  <li><a class="dropdown-item" href="#">Another action</a></li>
+  <li><a class="dropdown-item" href="#">Something else here</a></li>
+  <li><hr class="dropdown-divider" /></li>
+  <li><a class="dropdown-item" href="#">Separated link</a></li>
+</ul>
+</div> */}
 {category?
+
+
   <ul className='cat_ul'>
-          {/* <li id='n' className='text-muted fw-bold'>{Uname?Uname:<h1>''</h1>}</li> */}
           <li className='d_l'><Link style={{textDecoration:'none',color:'#2E0300'}} to='/cat/:tag'>cat 1</Link></li>
           <li className='d_l'><Link style={{textDecoration:'none',color:'#2E0300'}} to='/cat/:tag'>cat 1</Link></li>
           <li className='d_l'><Link style={{textDecoration:'none',color:'#2E0300'}} to='/cat/:tag'>cat 1</Link></li>
           <li className='d_l'><Link style={{textDecoration:'none',color:'#2E0300'}} to='/cat/:tag'>cat 1</Link></li>
-          {/* <li className='d_l'><a onClick={Logout} style={{color:'#2E0300'}}>Logout</a></li> */}
         </ul>
 :null}
 
