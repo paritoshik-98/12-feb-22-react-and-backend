@@ -8,7 +8,6 @@ import { fetchBlogAction, like } from '../REDUX/Actions/blogActions'
 import './read.css'
 
 import { MdDeleteOutline } from 'react-icons/md';
-import { MdSend } from 'react-icons/md';
 import { FcLike } from 'react-icons/fc';
 import { FcLikePlaceholder } from 'react-icons/fc';
 import { BiCommentDetail } from 'react-icons/bi';

@@ -2,6 +2,8 @@ import axios from 'axios'
 import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { Link, useNavigate } from 'react-router-dom'
+import { GiHamburgerMenu } from 'react-icons/gi';
+
 // import { Logout } from '../REDUX/Actions/userActions'
 import './header.css'
 function Header() {
@@ -65,24 +67,34 @@ function Header() {
       <img className='logo' src='https://images.unsplash.com/photo-1532777946373-b6783242f211?ixlib=rb-0.3.5&amp;q=80&amp;fm=jpg&amp;crop=entropy&amp;cs=tinysrgb&amp;w=1080&amp;fit=max&amp;ixid=eyJhcHBfaWQiOjMyMDc0fQ&amp;s=8ac55cf3a68785643998730839663129'></img>
 
       {/* <p className='name'><strong>ReadBloc.in</strong></p> */}
-      <div className='name'>ReadBlocs</div>
+      <div className='name'>RB</div>
       </div>
       <div className='drop'>DROPDOWN</div>
+      <div className='mb-nav'>
 <div className='h_nav'>
   {/* <div className=' justify-content-around'> */}
         <Link className='hl'  style={{textDecoration:'none',color:'#2E0300'}} to='/'>Home</Link>
-        <Link className='hl' style={{textDecoration:'none',color:'#2E0300'}} to='/about'>About Us</Link>
+        <Link className='hl ab' style={{textDecoration:'none',color:'#2E0300'}} to='/about'>About Us</Link>
         <a className='hl' style={{textDecoration:'none',color:'#2E0300'}} onClick={()=>setCat(!category)} >Categories</a>
-        <Link className='hl' style={{textDecoration:'none',color:'#2E0300'}} to='/add'>Write</Link>  
+        <Link className='hl writeL' style={{textDecoration:'none',color:'#2E0300'}} to='/add'>Write</Link>
         {/* </div> */}
         {userLogin.user?
   <img  src={DP.pic} alt='' class="h-pic"onClick={toggle} ></img>
-        :<a onClick={Login}>Login</a>}
+        :<a onClick={Login} style={{'marginLeft':'3vw'}}>Login</a>}
 </div>
+{userLogin.user?
+  <img  src={DP.pic} alt='' class="h-pic-mb"onClick={toggle} ></img>
+        :<a onClick={Login} style={{'marginLeft':'3vw'}}>Login</a>}
+        </div>
+{/* <div className='hamb'>
+<button className='btn btn-sm  btn-outline-dark'><GiHamburgerMenu size={20}/></button>
+</div> */}
       {dropDown ?
         <ul className='d_ul'>
           <li id='n' className='text-muted fw-bold'>{Uname?Uname:<h1>''</h1>}</li>
-          <li className='d_l'><Link style={{textDecoration:'none',color:'#2E0300'}} to='/profile'>Profile</Link></li>
+          <li className='d_l wd'><Link style={{textDecoration:'none',color:'#2E0300'}} to='/add'>Write</Link></li>  
+          <li className='d_l'><Link style={{textDecoration:'none',color:'#2E0300'}} to='/profile'>My Profile</Link></li>
+
           <li className='d_l'><Link style={{textDecoration:'none',color:'#2E0300'}} to='/myArticles'>My Articles</Link></li>
           <li className='d_l'><Link style={{textDecoration:'none',color:'#2E0300'}} to='/drafts'>Draft</Link></li>
           <li className='d_l'><Link style={{textDecoration:'none',color:'#2E0300'}} to='/Favourites'>Favourites</Link></li>
