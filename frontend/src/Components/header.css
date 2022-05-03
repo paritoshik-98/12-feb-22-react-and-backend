@@ -9,6 +9,12 @@
     }
 }
 @media screen and (min-width:600px) and (max-width:800px) {
+    .logo{
+        height: 30px;
+        width: 30px;
+        object-fit: cover;
+        align-self: center;
+    }
     .mb-nav{
         width:41%;
         display: flex;
@@ -16,6 +22,9 @@
     }
 }
 @media screen and (max-width:800px) {
+    .logo{
+        display: none;
+    }
     .hl{
         align-self: center;
     }
@@ -117,17 +126,19 @@
     
     .name{
         font-size: x-large;
-        font-family: 'Orbitron', sans-serif;
+        font-family: 'Pacifico', cursive;
         align-self: center;
         /* display: none; */
     }
-    
-    .logo{
+    .catmb{
+        margin-left: 3vw;
+    }
+    /* .logo{
         height: 30px;
         width: 30px;
         object-fit: cover;
         display: none;
-    }
+    } */
     
     .link{
         color: #2E0300;
