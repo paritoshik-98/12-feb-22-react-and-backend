@@ -1,6 +1,11 @@
 .ab{
     display:none;
 }
+
+.name{
+    font-family: 'Pacifico', cursive;
+}
+
 @media screen and (max-width:600px) {
     .mb-nav{
         width:70%;
@@ -256,7 +261,7 @@ header{
 
 .name{
     font-size: xx-large;
-    font-family: 'Orbitron', sans-serif;
+    font-family: 'Pacifico', cursive;
     align-self: center;
 }
 
