@@ -80,11 +80,11 @@ function Header() {
         {/* </div> */}
         {userLogin.user?
   <img  src={DP.pic} alt='' class="h-pic"onClick={toggle} ></img>
-        :<a onClick={Login} style={{'marginLeft':'2vw'}}>Login</a>}
+        :<a onClick={Login} style={{'marginLeft':'2vw',textDecoration:'underline',color:'#2E0300'}}>Login</a>}
 </div>
 {userLogin.user?
   <img  src={DP.pic} alt='' class="h-pic-mb"onClick={toggle} ></img>
-        :<a onClick={Login} style={{'marginLeft':'2vw'}}>Login</a>}
+        :null}
         </div>
 {/* <div className='hamb'>
 <button className='btn btn-sm  btn-outline-dark'><GiHamburgerMenu size={20}/></button>

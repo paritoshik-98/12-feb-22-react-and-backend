@@ -6,11 +6,11 @@
     font-family: 'Pacifico', cursive;
 }
 
-@media screen and (max-width:600px) {
+@media screen and (max-width:800px) {
     .mb-nav{
         width:70%;
         display: flex;
-        justify-content: space-between;
+        justify-content: flex-end;
     }
 }
 @media screen and (min-width:600px) and (max-width:800px) {
@@ -20,11 +20,11 @@
         object-fit: cover;
         align-self: center;
     }
-    .mb-nav{
+    /* .mb-nav{
         width:41%;
         display: flex;
         justify-content: space-between;
-    }
+    } */
 }
 @media screen and (max-width:800px) {
     .logo{
