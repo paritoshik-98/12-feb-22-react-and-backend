@@ -200,7 +200,8 @@ a{
 
 /* 130vh and 50%w -- mobile portrait */
 .home-cover-img{
-    border-bottom: 0.8px solid #2E0300;
+    /* border-bottom: 0.8px solid #2E0300; */
+    border-bottom: 5px double #2E0300;
     padding-bottom: 30px;
     margin-bottom: 30px;
 }
@@ -253,7 +254,8 @@ a{
 .cat{
     padding-top: 5vh;
     padding-bottom: 5vh;
-    border-top:0.8px solid #2E0300;
+    /* border-top:0.8px solid #2E0300; */
+    border-top:5px double #2E0300;
 }
 
 .top{

@@ -29,6 +29,12 @@ function Header() {
 
   const toggle = () => {
     setDropDown(!dropDown)
+    // if(dropDown==true){
+    //   setCat(false)
+    // }
+    // else{
+    //   setCat(false)
+    // }
   }
 
   const Logout = () => {
@@ -61,6 +67,7 @@ function Header() {
   // const Uname = useSelector(state=>state.userLogin.user.name)
 
   return (
+    <>
     <header className=' '>
       
       <div className=' d-flex'>
@@ -75,7 +82,13 @@ function Header() {
   {/* <div className=' justify-content-around'> */}
         <Link className='hl'  style={{textDecoration:'underline',color:'#2E0300'}} to='/'>Home</Link>
         <Link className='hl ab' style={{textDecoration:'underline',color:'#2E0300'}} to='/about'>About Us</Link>
-        <a className='hl catmb' style={{textDecoration:'underline',color:'#2E0300'}} onClick={()=>setCat(!category)} >Categories</a>
+        <a className='hl catmb' style={{textDecoration:'underline',color:'#2E0300'}} onClick={
+          ()=>{setCat(!category);
+          // if(category==true){setDropDown(false)}
+          // else{setDropDown(true)}
+          }
+          } 
+          >Categories</a>
         <Link className='hl writeL' style={{textDecoration:'underline',color:'#2E0300'}} to='/add'>Write</Link>
         {/* </div> */}
         {userLogin.user?
@@ -89,7 +102,7 @@ function Header() {
 {/* <div className='hamb'>
 <button className='btn btn-sm  btn-outline-dark'><GiHamburgerMenu size={20}/></button>
 </div> */}
-      {dropDown ?
+      {dropDown  ?
         <ul className='d_ul'>
           <li id='n' className='text-muted fw-bold'>{Uname?Uname:<h1>''</h1>}</li>
           <li className='d_l wd'><Link style={{textDecoration:'none',color:'#2E0300'}} to='/add'>Write</Link></li>  
@@ -101,7 +114,6 @@ function Header() {
           <li className='d_l'><a onClick={Logout} style={{color:'#2E0300'}}>Logout</a></li>
         </ul>
 :null}
-
 {/* <div class="btn-group">
   <button type="button" class="btn btn-primary dropdown-toggle" data-mdb-toggle="dropdown" aria-expanded="false">
     Right-aligned menu
@@ -114,18 +126,21 @@ function Header() {
   <li><a class="dropdown-item" href="#">Separated link</a></li>
 </ul>
 </div> */}
-{category?
+{category ?
 
 
-  <ul className='cat_ul'>
-          <li className='d_l'><Link style={{textDecoration:'none',color:'#2E0300'}} to='/cat/:tag'>cat 1</Link></li>
-          <li className='d_l'><Link style={{textDecoration:'none',color:'#2E0300'}} to='/cat/:tag'>cat 1</Link></li>
+  <ul className='cat_ul' >
+          <li className='d_l'><Link style={{textDecoration:'none',color:'#2E0300'}} to='/cat/:tag'>Technology</Link></li>
+          <li className='d_l'><Link style={{textDecoration:'none',color:'#2E0300'}} to='/cat/:tag'>Travel</Link></li>
+          <li className='d_l'><Link style={{textDecoration:'none',color:'#2E0300'}} to='/cat/:tag'></Link></li>
           <li className='d_l'><Link style={{textDecoration:'none',color:'#2E0300'}} to='/cat/:tag'>cat 1</Link></li>
           <li className='d_l'><Link style={{textDecoration:'none',color:'#2E0300'}} to='/cat/:tag'>cat 1</Link></li>
         </ul>
 :null}
 
     </header>
+    <div className='break'></div>
+    </>
     )
 }
 

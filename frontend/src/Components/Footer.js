@@ -18,6 +18,12 @@ function Footer() {
              <a className='link' style={{'textDecoration':'underline'}} href="">Contact Us</a>
          </div>
       </footer>
+  )
+}
+
+export default Footer
+
+
     //   <div className='container'>
     // <footer className=' p-2  text-center mt-4  d-flex flex-column justify-content-around align-items-center'>
     //     <div className='h d-flex w-75 justify-content-center align-content-center '>
@@ -31,7 +37,3 @@ function Footer() {
     //     </div>
     // </footer>
     // </div>
-  )
-}
-
-export default Footer

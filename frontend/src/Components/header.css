@@ -5,15 +5,31 @@
 .name{
     font-family: 'Pacifico', cursive;
 }
+.break{
+    /* height: 5px; */
+    /* border-top: 2px solid #2E0300; */
+    /* border-bottom: 5px double #2E0300; */
+    margin-left: 10vw;
+    margin-right: 10vw;
+    /* background-color: #2E0300; */
+}
 
-@media screen and (max-width:639px) {
-    .d_ul{
-        top:10vh
-    }
-    .cat_ul{
-        top:9vh;
-        right: 20vw;
-    }
+.d_ul{
+    top:100px;
+    right:10vw;
+    /* width: 10vw; */
+}
+.cat_ul{
+    top:100px;
+    right: 10vw;
+}
+
+header{
+    border-bottom: 5px double #2E0300;
+}
+
+@media screen and (max-width:640px) {
+    
 }
 
 @media screen and (max-width:800px) {
@@ -69,7 +85,7 @@
         display: flex;
         justify-content: space-between;
         align-items: center;
-        border-bottom: 0.8px solid #2E0300;
+        /* border-bottom: 5px solid #2E0300; */
         height: 100px;
         color: #2E0300;
         margin-left: 10vw;
@@ -199,7 +215,7 @@ header{
     display: flex;
     justify-content: space-between;
     align-items: center;
-    border-bottom: 0.8px solid #2E0300;
+    /* border-bottom: 2px dashed #2E0300; */
     height: 100px;
     color: #2E0300;
     margin-left: 10vw;
@@ -235,8 +251,8 @@ header{
     border: 0.8px solid #2E0300;
     list-style: none;
     position: absolute;
-    top: 12vh;
-    right: 10vw;
+    /* top: 12vh; */
+    /* right: 10vw; */
     background-color: white;
     padding: 10px;
     z-index: 1;
@@ -289,12 +305,14 @@ header{
 .link:hover{
     text-decoration:none;
 }
+
 .cat_ul{
     border: 0.8px solid #2E0300;
     list-style: none;
     position: absolute;
-    top: 12vh;
-    right: 20vw;
+    /* top: 12vh; */
+    /* right: 20vw;
+     */
     background-color: white;
     padding: 10px;
     z-index: 1;
