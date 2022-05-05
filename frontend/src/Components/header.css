@@ -17,11 +17,18 @@
 .d_ul{
     top:100px;
     right:10vw;
-    /* width: 10vw; */
+    /* width: 15vw; */
 }
-.cat_ul{
+#cat{
     top:100px;
     right: 10vw;
+}
+
+@media screen and (max-width:600px){
+#shift{
+    top:100px;
+    right: 10vw;
+}
 }
 
 header{
@@ -40,6 +47,10 @@ header{
     }
 }
 @media screen and (min-width:600px) and (max-width:800px) {
+    #shift{
+        top:100px;
+        right: 10vw;
+    }
     .logo{
         height: 30px;
         width: 30px;

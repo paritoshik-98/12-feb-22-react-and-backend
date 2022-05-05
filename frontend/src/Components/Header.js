@@ -27,18 +27,17 @@ function Header() {
 
   const [dropDown,setDropDown] = useState(false)
 
-  const toggle = () => {
+  const toggle_p = () => {
+    setCat(false)
     setDropDown(!dropDown)
-    // if(dropDown==true){
-    //   setCat(false)
-    // }
-    // else{
-    //   setCat(false)
-    // }
+    // checkd()
   }
+
+
 
   const Logout = () => {
     setDropDown(!dropDown)
+    // setCat(!dropDown)
     localStorage.removeItem("user");
     localStorage.removeItem("accessToken");
     localStorage.removeItem("DP");
@@ -64,6 +63,13 @@ function Header() {
 
   const[category,setCat]=useState(false)
 
+  const toggle_c = () => {
+    setDropDown(false)
+    setCat(!category)
+    // checkc()
+  }
+  
+  
   // const Uname = useSelector(state=>state.userLogin.user.name)
 
   return (
@@ -82,29 +88,23 @@ function Header() {
   {/* <div className=' justify-content-around'> */}
         <Link className='hl'  style={{textDecoration:'underline',color:'#2E0300'}} to='/'>Home</Link>
         <Link className='hl ab' style={{textDecoration:'underline',color:'#2E0300'}} to='/about'>About Us</Link>
-        <a className='hl catmb' style={{textDecoration:'underline',color:'#2E0300'}} onClick={
-          ()=>{setCat(!category);
-          // if(category==true){setDropDown(false)}
-          // else{setDropDown(true)}
-          }
-          } 
-          >Categories</a>
+        <a className='hl catmb' style={{textDecoration:'underline',color:'#2E0300'}} onClick={toggle_c}>Categories</a>
         <Link className='hl writeL' style={{textDecoration:'underline',color:'#2E0300'}} to='/add'>Write</Link>
         {/* </div> */}
         {userLogin.user?
-  <img  src={DP.pic} alt='' class="h-pic"onClick={toggle} ></img>
+  <img  src={DP.pic} alt='' class="h-pic"onClick={toggle_p} ></img>
         :<a onClick={Login} style={{'marginLeft':'2vw',textDecoration:'underline',color:'#2E0300'}}>Login</a>}
 </div>
 {userLogin.user?
-  <img  src={DP.pic} alt='' class="h-pic-mb"onClick={toggle} ></img>
+  <img  src={DP.pic} alt='' class="h-pic-mb"onClick={toggle_p} ></img>
         :null}
         </div>
 {/* <div className='hamb'>
 <button className='btn btn-sm  btn-outline-dark'><GiHamburgerMenu size={20}/></button>
 </div> */}
-      {dropDown  ?
+      {dropDown ?
         <ul className='d_ul'>
-          <li id='n' className='text-muted fw-bold'>{Uname?Uname:<h1>''</h1>}</li>
+          <li id='n' className='text-muted text-uppercase fw-bold'>{Uname?Uname:<h1>''</h1>}</li>
           <li className='d_l wd'><Link style={{textDecoration:'none',color:'#2E0300'}} to='/add'>Write</Link></li>  
           <li className='d_l'><Link style={{textDecoration:'none',color:'#2E0300'}} to='/profile'>My Profile</Link></li>
 
@@ -129,7 +129,8 @@ function Header() {
 {category ?
 
 
-  <ul className='cat_ul' >
+  <ul className='cat_ul' id={dropDown?'shift':'cat'} >
+    <li id='n' className='text-muted fw-bold'>Categories</li>
           <li className='d_l'><Link style={{textDecoration:'none',color:'#2E0300'}} to='/cat/:tag'>Technology</Link></li>
           <li className='d_l'><Link style={{textDecoration:'none',color:'#2E0300'}} to='/cat/:tag'>Travel</Link></li>
           <li className='d_l'><Link style={{textDecoration:'none',color:'#2E0300'}} to='/cat/:tag'></Link></li>
