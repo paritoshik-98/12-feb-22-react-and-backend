@@ -107,7 +107,7 @@ function Category() {
     <h5>Looking for something else ?</h5>
       <div className="search d-flex mb-5">
       <input type="text" value={searchQuery} onChange={(e)=>setQuery(e.target.value)} className='w-50'/>
-      <button onClick={()=>{
+      <button className='btn btn-outline-dark mx-2' onClick={()=>{
 setSearchLoader(true)
         axios.get(`/api/blog/search/${searchQuery}/${searchPage}`).then(res=>res.data).then(data=>{
           setSdisplay(true)
@@ -119,7 +119,9 @@ setSearchLoader(true)
           }
         })
       }}>Search</button>
-      <button onClick={()=>{
+      <button 
+      className='btn btn-outline-dark '
+      onClick={()=>{
         setSearchLoader(false)
         setSdisplay(false);
         setQuery('')
@@ -150,7 +152,7 @@ setSearchLoader(true)
     
     )}
 {LM?
-<button onClick={gotoNextSearch}>Load More</button>
+<button className='btn btn-outline-dark' onClick={gotoNextSearch}>Load More</button>
 :
 null
 }
@@ -185,7 +187,7 @@ null
     
     )}
 {LM?
-<button onClick={gotoNext}>Load More</button>
+<button className='btn btn-outline-dark' onClick={gotoNext}>Load More</button>
 :
 null
 }

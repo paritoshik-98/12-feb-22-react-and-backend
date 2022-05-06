@@ -100,3 +100,34 @@
     border: none;
     background-color: #F8F8F8;
 }
+
+@media  screen and (max-width:600px) {
+    #share-pc{
+        display: none;
+    } 
+    /* #share-L{
+        display: none;
+    }  */
+    #share-mob{
+        display: flex;
+    } 
+    
+}
+
+@media  screen and (min-width:600px) and (max-width:800px) {
+    /* #share-pc{
+        display: none;
+    }  */
+    #share-mob{
+        display: none;
+    } 
+    #share-pc{
+        display: flex;
+    } 
+}
+
+@media  screen and (min-width:800px) {
+    #share-mob{
+        display: none;
+    } 
+}

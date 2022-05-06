@@ -270,13 +270,21 @@ else{
           <h5 className=' align-self-center text-muted c_count'>{comments.length}</h5>
         </div>
         </div>
-        <div className="share-l d-flex align-items-center" id='share'>
- <WhatsappShareButton url={window.location.href}  ><WhatsappIcon className='s-icon' round={true} /></WhatsappShareButton>
- <FacebookShareButton url={window.location.href}><FacebookIcon className='s-icon' round={true}/></FacebookShareButton>
+        <div className="share-l  align-items-center" id='share-pc'>
+ <WhatsappShareButton url={window.location.href}  ><WhatsappIcon className='s-icon' round={true}  /></WhatsappShareButton>
+ <FacebookShareButton url={window.location.href}><FacebookIcon className='s-icon' round={true} /></FacebookShareButton>
  <TwitterShareButton url={window.location.href}><TwitterIcon className='s-icon' round={true} /></TwitterShareButton>
         <LinkedinShareButton url={window.location.href} ><LinkedinIcon className='s-icon' round={true} /></LinkedinShareButton>
- <EmailShareButton url={window.location.href}><EmailIcon className='s-icon' round={true} /></EmailShareButton>
+ {/* <EmailShareButton url={window.location.href}><EmailIcon className='s-icon' round={true} /></EmailShareButton> */}
  </div>
+        <div className="share-l  align-items-center" id='share-mob'>
+ <WhatsappShareButton url={window.location.href}  ><WhatsappIcon className='s-icon' round={true} size={30} /></WhatsappShareButton>
+ <FacebookShareButton url={window.location.href}><FacebookIcon className='s-icon' round={true} size={30} /></FacebookShareButton>
+ <TwitterShareButton url={window.location.href}><TwitterIcon className='s-icon' round={true} size={30} /></TwitterShareButton>
+        <LinkedinShareButton url={window.location.href} ><LinkedinIcon className='s-icon' round={true} size={30} /></LinkedinShareButton>
+ {/* <EmailShareButton url={window.location.href}><EmailIcon className='s-icon' round={true} size={30} /></EmailShareButton> */}
+ </div>
+        
         </div>
         {/* <div className="likes"> */}
           {/* <button className='like' onClick={likeHandler}>{likes?likes.length>0?likes.includes(user.id)?<span><FcLike/>{likes.length.count}</span>:<span><AiOutlineHeart/>{likes.length.count}</span>:<span><AiOutlineHeart/>{likes.length.count}</span>:null}</button> */}
