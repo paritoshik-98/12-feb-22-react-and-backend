@@ -6,7 +6,7 @@ import { login, LoginWithGoogle } from "./REDUX/Actions/userActions";
 import { useDispatch, useSelector } from "react-redux";
 import { FcGoogle } from 'react-icons/fc';
 import FacebookLogin from 'react-facebook-login/dist/facebook-login-render-props'
-
+import Header from "./Components/Header";
 import {
   EmailShareButton,
   FacebookShareButton,
@@ -126,6 +126,8 @@ const redirect = useSelector(state=>state.redirect)
  
 
   return (
+    <>
+    <Header/>
     <div className="outer  d-flex justify-content-center align-items-center">
 {LoginStatus.loading ? (<h3>LOADING....</h3>) : (
       <div className="container-fluid">
@@ -165,7 +167,7 @@ const redirect = useSelector(state=>state.redirect)
         </div>
         <div className="row justify-content-center mb-3 ">
           <div className="col-6 col-sm-4 text-center">
-            <Link to = '/ChangePassword'>Forgot Password ?</Link>
+            <Link to = '/ChangePassword' style={{textDecoration:'underline',color:'#2E0300'}}>Forgot Password ?</Link>
             {/* <a href="" >Forgot Password ?</a> */}
           </div>
         </div>
@@ -195,7 +197,7 @@ const redirect = useSelector(state=>state.redirect)
 /> */}
         <div className="row justify-content-center mb-3 ">
           <div className="col-6 text-center">
-          New User ? <Link to='/register'>Register</Link>
+          New User ? <Link to='/register' style={{textDecoration:'underline',color:'#2E0300'}}>Register</Link>
           </div>
         </div>
       </div>
@@ -206,6 +208,6 @@ const redirect = useSelector(state=>state.redirect)
  <MailruShareButton><MailruIcon/></MailruShareButton> */}
 
     </div>
- 
+</> 
   );
 }

@@ -28,7 +28,8 @@ input[type='password']{
 }
 
 .outer{
-    background-color: #f5f5f5;
+    background-color: #f8f8f8;
+    margin-top: 8vh;
 }
 /* .outer-container{
     display: flex;

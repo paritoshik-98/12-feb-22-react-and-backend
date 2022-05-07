@@ -6,7 +6,7 @@ import { login, LoginWithGoogle } from "../REDUX/Actions/userActions";
 import { useDispatch, useSelector } from "react-redux";
 import { FcGoogle } from 'react-icons/fc';
 import { signup } from "../REDUX/Actions/userActions";
-
+import Header from "./Header";
 function Register() {
 
     const navigate = useNavigate();
@@ -68,7 +68,9 @@ const LoginStatus = useSelector((state) => state.userLogin);
 
 
     return (
-        <div className="outer container-fluid vh-100 d-flex justify-content-center align-items-center">
+      <>
+      <Header/>
+        <div className="outer d-flex justify-content-center align-items-center">
     {RegisterStatus.loading ? (<h3>LOADING....</h3>) : (
           <div className="container-fluid">
             <div className="row justify-content-center mb-3 ">
@@ -135,6 +137,7 @@ const LoginStatus = useSelector((state) => state.userLogin);
           </div>
     )}
         </div>
+        </>
       );
 }
 

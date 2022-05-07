@@ -23,7 +23,7 @@ function AddBlog() {
     // if(!userLogin){navigate('/login')}
     if(!userLogin){
       alert('Login to continue')
-      navigate('/')
+      navigate('/login')
     }
   },[])
 
