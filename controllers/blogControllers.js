@@ -51,7 +51,11 @@ const addNewBlog = async (req, res) => {
   // res.send(req.body)
   try {
     const { coverImg,blogTitle,content,tagArr,draft,desc } = req.body;
-
+    if(!coverImg || !blogTitle || !content || !tagArr || !desc ){
+      res.status(500).send("Please fill all fields")
+    }
+    else
+    {
     // console.log(tags)
     // if (!content) {
     //   res.status(500).send("content cannot be blank");
@@ -80,12 +84,12 @@ const addNewBlog = async (req, res) => {
             new: true,
           })
           .then((doc) => res.status(200).json({id:doc._id}))
-          .catch((e) => {console.log(e);res.status(500).send("Something went wrong !")});
-    
+          .catch((e) => {console.log(e);res.status(500).send("Internal Server Error")});
+        }
     // res.status(200).send("submitted")
   } catch (error) {
     console.log(error);
-    res.status(500).send("Something went wrong !");
+    res.status(500).send("Internal Server Error");
   }
 };
 
@@ -202,7 +206,11 @@ const comment = async(req,res) => {
 const updateBlog = async (req, res) => {
   try {
     const { coverImg,blogTitle,content,tagArr,draft,id,desc} = req.body;
-    
+    if(!coverImg || !blogTitle || !content || !tagArr || !desc ){
+      res.status(500).send("Please fill all fields")
+    }
+    else
+    {
     // const id = req.params.id;
     // const filter = { _id: req.params.id };
 
@@ -233,6 +241,7 @@ const updateBlog = async (req, res) => {
 
       
       res.status(200).send("blog edited")
+    }
   } catch (error) {
     console.log(error)
     res.status(500).send("Something went wrong !");
