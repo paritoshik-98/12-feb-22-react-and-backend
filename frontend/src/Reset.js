@@ -13,20 +13,25 @@ function Reset() {
 
   const[nomatch,smatch] = useState(false)
 
-  const[state,setState] = useState()
+  const[state,setState] = useState(false)
 
   const submit = async() => {
       if(pswd!==pswdC){
-        smatch(true)
+        // smatch(true)
+        alert('passwords do not match')
       }
       else{
-        smatch(false)
-        setState('Loading...')
+        // smatch(false)
+        setState(true)
         axios.post('/api/user/updatePassword',{jwt:jwt,pswd:pswdC}).then(res=>{
-          if(res.status===200){alert('Password Reset Successfully')}
+          if(res.status===200){
+            setState(false)
+            alert('Password Reset Successfully')
           window.location('/login')
-          
-        }).catch(e=>{setState('This Link is expired')})
+          }
+        }).catch(e=>{
+          setState(false)
+          setState('This Link is expired')})
       }
   }
 
@@ -38,7 +43,8 @@ function Reset() {
   <input type="password" class="form-control mb-3" id="exampleFormControlInput1" onChange={(e)=>{setC(e.target.value)}} value={pswdC} placeholder="confirm password"/>
   <button className='btn btn-outline-dark btn large' onClick={submit}>Submit</button>
   {nomatch?<div className='alert alert-danger'><h3>Passwords do not match</h3></div>:null}
-  {state?<div>{state}</div>:null}
+  {/* {state==?<div>{state}</div>:null} */}
+  {state?<div class="loader"></div>:null}
 </div>
   )
 }

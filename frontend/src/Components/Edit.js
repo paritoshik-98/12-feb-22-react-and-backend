@@ -119,7 +119,7 @@ const[cover,setC] = useState('')
   return (
     <>{authorized ?
 <> 
-    {getblog.loading?<h1>Loading.....</h1>:getblog.error?<h1>Internal Server Error</h1>:
+    {getblog.loading?<div class="loader"></div>:getblog.error?<h1>Internal Server Error</h1>:
     getblog.blog?
 
     <div className="form mt-5">

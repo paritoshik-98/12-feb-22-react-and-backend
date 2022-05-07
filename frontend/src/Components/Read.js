@@ -194,7 +194,7 @@ else{
   return (
 <> 
 <Header/>
-    {getblog.loading?<h1>Loading.....</h1>:getblog.error?<h1> Error</h1>:
+    {getblog.loading?<div class="loader"></div>:getblog.error?<h1> Error</h1>:
     getblog.blog?
     <div className="content">
       {/* {  getblog.blog.likes ? getblog.blog.likes.includes(user.id) ? <FcLike/>:<AiOutlineHeart id='l'/>:null} */}

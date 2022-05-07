@@ -60,7 +60,7 @@ export default function MyArticles() {
   <>
   <Header/>
   <div className='my'>
-    {loader?<h1>Loading...</h1>:<>
+    {loader?<div class="loader"></div>:<>
 
     <div className="search d-flex mb-5">
       <input type="text" value={searchQuery} onChange={(e)=>setQuery(e.target.value)} className='w-50 '/>
@@ -113,7 +113,7 @@ setSearchLoader(true)
 null
 }
 </>
-:<h1>Loading..</h1>}</>
+:<div class="loader"></div>}</>
 :null}
 
 {!searchLoader?<>

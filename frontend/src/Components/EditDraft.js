@@ -176,7 +176,7 @@ console.log('text : ',text)
     <div>{!loading?
     <div>{authorized?
     <> 
-    {selector.loading?<h1>Loading.....</h1>:selector.error?<h1>Could Not get article</h1>:
+    {selector.loading?<div class="loader"></div>:selector.error?<h1>Could Not get article</h1>:
     selector.blog?
 
     <div className="form mt-5">
@@ -269,7 +269,7 @@ console.log('text : ',text)
 }
 </>
 :<h1 className='unath'>You cannot edit this article</h1>}</div>
-:<h1>Loading...</h1>}
+:<div class="loader"></div>}
 </div>
 </>
   )

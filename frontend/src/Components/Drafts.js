@@ -62,7 +62,7 @@ function Drafts() {
     <>
     <Header/>
       <div className='marked'>
-      {loader?<h1>Loading...</h1>:
+      {loader?<div class="loader"></div>:
     <>
     {articles.length===0?<h1>You haven't marked any drafts !</h1>:null}
 
@@ -116,7 +116,7 @@ setSearchLoader(true)
 null
 }
 </>
-:<h1>Loading..</h1>}</>
+:<div class="loader"></div>}</>
 :null}
 
 {!searchLoader?<>

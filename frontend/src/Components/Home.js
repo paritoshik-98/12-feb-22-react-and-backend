@@ -336,7 +336,7 @@ function Home() {
       <button className=' mt-3 btn btn-outline-dark'><Link to='/cat/all' className='link' href=''>Explore</Link></button>
       </div>
       </>
-      :<h1>Loading...</h1>}
+      :<div class="loader"></div>}
       
     </div>
     </>

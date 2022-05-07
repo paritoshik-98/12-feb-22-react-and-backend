@@ -133,7 +133,7 @@ const [editD,setED] = useState(false)
     <div className='d-flex'>
 
       <div>
-      {loading?<h1>Loading...</h1>:<img  className='dp' src={DP} alt="" />}
+      {loading?<div class="loader"></div>:<img  className='dp' src={DP} alt="" />}
       <div>
       <button className='icons' onClick={()=>setED(!editD)}><RiImageEditLine size={32}/></button>
       <button className='icons'onClick={RemoveImage}><MdDeleteOutline size={32}/></button>

@@ -145,7 +145,7 @@ const CreateStatus = useSelector(state=>state.createBlog)
     <>
     <Header/>
     {/* <>{CreateStatus.loading?<h1>Loading...</h1>:CreateStatus.error?alert('Failed'):CreateStatus.success?alert('Submit successfull'): */}
-    { loading?<h1>Loading</h1>:
+    { loading?<div class="loader"></div>:
     <div className="form mt-5">
       {ERROR?<div class="alert alert-danger alert-dismissible fade show" role="alert">
   {ERROR}
