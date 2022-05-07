@@ -126,7 +126,7 @@ const redirect = useSelector(state=>state.redirect)
  
 
   return (
-    <div className="outer container-fluid vh-100 d-flex justify-content-center align-items-center">
+    <div className="outer  d-flex justify-content-center align-items-center">
 {LoginStatus.loading ? (<h3>LOADING....</h3>) : (
       <div className="container-fluid">
         <div className="row justify-content-center mb-3 ">
