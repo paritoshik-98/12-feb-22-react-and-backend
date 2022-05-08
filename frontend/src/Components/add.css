@@ -93,8 +93,9 @@ margin-top: 5px;
 }
 
 .i-warn{
-    color: black;
-    border: 1px solid red;
-    font-style: italic;
+    color: white;
+    background-color: red;
+    border: 1px solid white;
+    font-style: bold;
     padding: 10px;
 }
