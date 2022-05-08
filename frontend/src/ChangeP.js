@@ -20,18 +20,18 @@ function ChangeP() {
                 setLoading(false)
                 setLink(true)
             }
-        }).catch(e=>{console.log(e);setErr(e)})
+        }).catch(e=>{setLoading(false);setErr(e)})
     }
     
   return (
     <div>
         <Header/>
-        {err?<>{JSON.stringify(err)}</>:null}
+        {/* {err?<>{JSON.stringify(err)}</>:null} */}
         <div class="Pform" style={{'margin':'10vh 10vw 10vh 10vw'}}>
   <label for="exampleFormControlInput1" class="form-label ">Enter your registered email address</label>
   <input type="email" class="form-control mb-3" id="exampleFormControlInput1" onChange={(e)=>{set(e.target.value)}} value={email} placeholder="name@example.com"/>
   <button className='btn btn-outline-dark btn large' onClick={emailSubmit}>Submit</button>
-  {loading?<h1>Loading....</h1>:null}
+  {loading?<div className='loader'></div>:null}
   <div className="reset">{resetLink?<h1>Check Your Email for reset link </h1>:null}</div>
 </div>
 
