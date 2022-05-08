@@ -129,7 +129,7 @@ const redirect = useSelector(state=>state.redirect)
     <>
     <Header/>
     <div className="outer  d-flex justify-content-center align-items-center">
-{LoginStatus.loading ? (<h3>LOADING....</h3>) : (
+{LoginStatus.loading ? (<div class="loader"></div>) : (
       <div className="container-fluid">
         <div className="row justify-content-center mb-3 ">
           <div className=" col-8 col-sm-4 text-center">
