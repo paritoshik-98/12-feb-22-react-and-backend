@@ -135,9 +135,12 @@ function Header() {
           <li className='d_l'><Link style={{textDecoration:'none',color:'#2E0300'}} to='/cat/Health'>Health</Link></li>
           <li className='d_l'><Link style={{textDecoration:'none',color:'#2E0300'}} to='/cat/Food'>Food</Link></li>
           <li className='d_l'><Link style={{textDecoration:'none',color:'#2E0300'}} to='/cat/Travel'>Travel</Link></li>
+          <li className='d_l'><Link style={{textDecoration:'none',color:'#2E0300'}} to='/cat/Books'>Books</Link></li>
           <li className='d_l'><Link style={{textDecoration:'none',color:'#2E0300'}} to='/cat/Lifestyle'>Lifestyle</Link></li>
           <li className='d_l'><Link style={{textDecoration:'none',color:'#2E0300'}} to='/cat/Spirituality'>Spirituality</Link></li>
           <li className='d_l'><Link style={{textDecoration:'none',color:'#2E0300'}} to='/cat/Currents_affairs'>Current affairs</Link></li>
+          <li className='d_l'><Link style={{textDecoration:'none',color:'#2E0300'}} to='/cat/Politics'>Politics</Link></li>
+          <li className='d_l'><Link style={{textDecoration:'none',color:'#2E0300'}} to='/cat/Finance'>Finance</Link></li>
           {/* <li className='d_l'><Link style={{textDecoration:'none',color:'#2E0300'}} to='/cat/Career_guidance'>Career guidance </Link></li> */}
         </ul>
 :null}

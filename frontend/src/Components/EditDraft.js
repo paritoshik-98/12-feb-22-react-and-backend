@@ -25,6 +25,9 @@ function EditDraft() {
       Lifestyle:false,
       Spirituality:false,
       Current_affairs:false,
+      Books:false,
+    Politics:false,
+    Finance:false,
     })
 
      useEffect(()=>{
@@ -191,9 +194,12 @@ console.log('text : ',text)
         <div className="tag"><input type='checkbox' name="Health" onChange={TagChange} checked={tags.Health}/><span>Health</span></div>
         <div className="tag"><input type='checkbox' name="Food" onChange={TagChange} checked={tags.Food}/><span>Food</span></div>
         <div className="tag"><input type='checkbox' name="Travel" onChange={TagChange} checked={tags.Travel}/><span>Travel</span></div>
+        <div className="tag"><input type='checkbox' name="Books" onChange={TagChange} checked={tags.Books}/><span>Books</span></div>
         <div className="tag"><input type='checkbox' name="Lifestyle" onChange={TagChange} checked={tags.Lifestyle}/><span>Lifestyle</span></div>
         <div className="tag"><input type='checkbox' name="Spirituality" onChange={TagChange} checked={tags.Spirituality}/><span>Spirituality</span></div>
         <div className="tag"><input type='checkbox' name="Current_affairs" onChange={TagChange} checked={tags.Current_affairs}/><span>Current affairs</span></div>
+        <div className="tag"><input type='checkbox' name="Politics" onChange={TagChange} checked={tags.Politics}/><span>Politics</span></div>
+        <div className="tag"><input type='checkbox' name="Finance" onChange={TagChange} checked={tags.Finance}/><span>Finance</span></div>
         </div>
       </div>
       <div className="unsplash d-flex align-items-center justify-content-between " style={{backgroundColor:'white',border:"0.8px solid silver",borderRadius:"5px",padding:"20px"}}>

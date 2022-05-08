@@ -44,6 +44,9 @@ function AddBlog() {
     Lifestyle:false,
     Spirituality:false,
     Current_affairs:false,
+    Books:false,
+    Politics:false,
+    Finance:false,
 })
 
 var array = []
@@ -162,11 +165,12 @@ const CreateStatus = useSelector(state=>state.createBlog)
         <div className="tag"><input type='checkbox' name="Health" onChange={TaghandleChange} checked={tags.Health}/><span>Health</span></div>
         <div className="tag"><input type='checkbox' name="Food" onChange={TaghandleChange} checked={tags.Food}/><span>Food</span></div>
         <div className="tag"><input type='checkbox' name="Travel" onChange={TaghandleChange} checked={tags.Travel}/><span>Travel</span></div>
+        <div className="tag"><input type='checkbox' name="Books" onChange={TaghandleChange} checked={tags.Books}/><span>Books</span></div>
         <div className="tag"><input type='checkbox' name="Lifestyle" onChange={TaghandleChange} checked={tags.Lifestyle}/><span>Lifestyle</span></div>
         <div className="tag"><input type='checkbox' name="Spirituality" onChange={TaghandleChange} checked={tags.Spirituality}/><span>Spirituality</span></div>
         <div className="tag"><input type='checkbox' name="Current_affairs" onChange={TaghandleChange} checked={tags.Current_affairs}/><span>Current affairs</span></div>
-        {/* <div className="tag"><input type='checkbox' name="movie" onChange={TaghandleChange} checked={tags.movie}/><span>movie</span></div> */}
-        {/* <div className="tag"><input type='checkbox' name="webseries" onChange={TaghandleChange} checked={tags.webseries}/><span>webseries</span></div> */}
+        <div className="tag"><input type='checkbox' name="Politics" onChange={TaghandleChange} checked={tags.Politics}/><span>Politics</span></div>
+        <div className="tag"><input type='checkbox' name="Finance" onChange={TaghandleChange} checked={tags.Finance}/><span>Finance</span></div>
     </div>
       </div>
       <div className="unsplash d-flex align-items-center justify-content-between " style={{backgroundColor:'white',border:"0.8px solid silver",borderRadius:"5px",padding:"20px"}}>
