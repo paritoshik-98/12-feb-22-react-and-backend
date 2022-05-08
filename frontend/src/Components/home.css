@@ -101,8 +101,10 @@ a{
 
     .portrait{
         object-fit: cover;
-        height: 30vh;
+        height: 15vh;
         width: 100%;
+        margin-top: -2vh;
+        margin-bottom: -1vh;
     }
     .home .col{
         height: 70vh;
