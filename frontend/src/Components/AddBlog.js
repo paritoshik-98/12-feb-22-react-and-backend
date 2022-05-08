@@ -37,16 +37,13 @@ function AddBlog() {
   const[body,setB]=useState('')
 
   const[tags,setTags]=useState({
-    code:false,
-    music:false,
-    dance:false,
-    read:false,
-    write:false,
-    eat:false,
-    sleep:false,
-    wakeup:false,
-    movie:false,
-    webseries:false,
+    Technology:false,
+    Health:false,
+    Food:false,
+    Travel:false,
+    Lifestyle:false,
+    Spirituality:false,
+    Current_affairs:false,
 })
 
 var array = []
@@ -161,16 +158,15 @@ const CreateStatus = useSelector(state=>state.createBlog)
       <div className=" tags_c ">
       <label className="tag_label">Tags</label>
       <div className='tags check'>
-        <div className="tag"><input type='checkbox' name="music" onChange={TaghandleChange} checked={tags.music}/><span>Music</span></div>
-        <div className="tag"><input type='checkbox' name="code" onChange={TaghandleChange} checked={tags.code}/><span>Code</span></div>
-        <div className="tag"><input type='checkbox' name="dance" onChange={TaghandleChange} checked={tags.dance}/><span>Dance</span></div>
-        <div className="tag"><input type='checkbox' name="read" onChange={TaghandleChange} checked={tags.read}/><span>read</span></div>
-        <div className="tag"><input type='checkbox' name="write" onChange={TaghandleChange} checked={tags.write}/><span>write</span></div>
-        <div className="tag"><input type='checkbox' name="eat" onChange={TaghandleChange} checked={tags.eat}/><span>eat</span></div>
-        <div className="tag"><input type='checkbox' name="sleep" onChange={TaghandleChange} checked={tags.sleep}/><span>sleep</span></div>
-        <div className="tag"><input type='checkbox' name="wakeup" onChange={TaghandleChange} checked={tags.wakeup}/><span>wakeup</span></div>
-        <div className="tag"><input type='checkbox' name="movie" onChange={TaghandleChange} checked={tags.movie}/><span>movie</span></div>
-        <div className="tag"><input type='checkbox' name="webseries" onChange={TaghandleChange} checked={tags.webseries}/><span>webseries</span></div>
+        <div className="tag"><input type='checkbox' name="Technology" onChange={TaghandleChange} checked={tags.Technology}/><span>Technology</span></div>
+        <div className="tag"><input type='checkbox' name="Health" onChange={TaghandleChange} checked={tags.Health}/><span>Health</span></div>
+        <div className="tag"><input type='checkbox' name="Food" onChange={TaghandleChange} checked={tags.Food}/><span>Food</span></div>
+        <div className="tag"><input type='checkbox' name="Travel" onChange={TaghandleChange} checked={tags.Travel}/><span>Travel</span></div>
+        <div className="tag"><input type='checkbox' name="Lifestyle" onChange={TaghandleChange} checked={tags.Lifestyle}/><span>Lifestyle</span></div>
+        <div className="tag"><input type='checkbox' name="Spirituality" onChange={TaghandleChange} checked={tags.Spirituality}/><span>Spirituality</span></div>
+        <div className="tag"><input type='checkbox' name="Current_affairs" onChange={TaghandleChange} checked={tags.Current_affairs}/><span>Current affairs</span></div>
+        {/* <div className="tag"><input type='checkbox' name="movie" onChange={TaghandleChange} checked={tags.movie}/><span>movie</span></div> */}
+        {/* <div className="tag"><input type='checkbox' name="webseries" onChange={TaghandleChange} checked={tags.webseries}/><span>webseries</span></div> */}
     </div>
       </div>
       <div className="unsplash d-flex align-items-center justify-content-between " style={{backgroundColor:'white',border:"0.8px solid silver",borderRadius:"5px",padding:"20px"}}>

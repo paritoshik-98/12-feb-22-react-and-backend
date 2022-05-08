@@ -18,16 +18,13 @@ function EditDraft() {
      const {id} = useParams()
 
      const[tags,setTags]=useState({
-        code:false,
-        music:false,
-        dance:false,
-        read:false,
-        write:false,
-        eat:false,
-        sleep:false,
-        wakeup:false,
-        movie:false,
-        webseries:false,
+      Technology:false,
+      Health:false,
+      Food:false,
+      Travel:false,
+      Lifestyle:false,
+      Spirituality:false,
+      Current_affairs:false,
     })
 
      useEffect(()=>{
@@ -190,17 +187,14 @@ console.log('text : ',text)
       <div className=" tags_c ">
       <label className="tag_label">Tags</label>
       <div className='tags check'>
-        <div className="tag"><input type='checkbox' name="music" onChange={TagChange} checked={tags.music} style={{'marginRight':'8px'}}/>Music</div>
-        <div className="tag"><input type='checkbox' name="code" onChange={TagChange} checked={tags.code}style={{'marginRight':'8px'}}/>Code</div>
-        <div className="tag"><input type='checkbox' name="dance" onChange={TagChange} checked={tags.dance} style={{'marginRight':'8px'}}/>Dance</div>
-        <div className="tag"><input type='checkbox' name="read" onChange={TagChange} checked={tags.read} style={{'marginRight':'8px'}}/>read</div>
-        <div className="tag"><input type='checkbox' name="write" onChange={TagChange} checked={tags.write} style={{'marginRight':'8px'}}/>write</div>
-        <div className="tag"><input type='checkbox' name="eat" onChange={TagChange} checked={tags.eat} style={{'marginRight':'8px'}}/>eat</div>
-        <div className="tag"><input type='checkbox' name="sleep" onChange={TagChange} checked={tags.sleep}style={{'marginRight':'8px'}}/>sleep</div>
-        <div className="tag"><input type='checkbox' name="wakeup" onChange={TagChange} checked={tags.wakeup} style={{'marginRight':'8px'}}/>wakeup</div>
-        <div className="tag"><input type='checkbox' name="movie" onChange={TagChange} checked={tags.movie} style={{'marginRight':'8px'}}/>movie</div>
-        <div className="tag"><input type='checkbox' name="webseries" onChange={TagChange} checked={tags.webseries} style={{'marginRight':'8px'}}/>webseries</div>
-    </div>
+      <div className="tag"><input type='checkbox' name="Technology" onChange={TagChange} checked={tags.Technology}/><span>Technology</span></div>
+        <div className="tag"><input type='checkbox' name="Health" onChange={TagChange} checked={tags.Health}/><span>Health</span></div>
+        <div className="tag"><input type='checkbox' name="Food" onChange={TagChange} checked={tags.Food}/><span>Food</span></div>
+        <div className="tag"><input type='checkbox' name="Travel" onChange={TagChange} checked={tags.Travel}/><span>Travel</span></div>
+        <div className="tag"><input type='checkbox' name="Lifestyle" onChange={TagChange} checked={tags.Lifestyle}/><span>Lifestyle</span></div>
+        <div className="tag"><input type='checkbox' name="Spirituality" onChange={TagChange} checked={tags.Spirituality}/><span>Spirituality</span></div>
+        <div className="tag"><input type='checkbox' name="Current_affairs" onChange={TagChange} checked={tags.Current_affairs}/><span>Current affairs</span></div>
+        </div>
       </div>
       <div className="unsplash d-flex align-items-center justify-content-between " style={{backgroundColor:'white',border:"0.8px solid silver",borderRadius:"5px",padding:"20px"}}>
       <label for="exampleFormControlInput1" class="form-label align-self-center ">

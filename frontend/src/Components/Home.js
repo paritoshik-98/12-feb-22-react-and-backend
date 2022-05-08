@@ -17,8 +17,14 @@ function Home() {
     const selector = useSelector(state=>state.blogList)
 
     const[trending,setTrending] = useState()
-    const[code,setCode] = useState()
-    const[music,setMusic] = useState()
+    const[Technology,setTechnology] = useState()
+    const[Health,setHealth] = useState()
+    const[Food,setFood] = useState()
+    const[Lifestyle,setLifestyle] = useState()
+    const[Travel,setTravel] = useState()
+    const[Spirituality,setSpirituality] = useState()
+    const[Current_affairs,setCurrent_affairs] = useState()
+    const[Career_guidance,setCareer_guidance] = useState()
     
     // const[sw,setSW]=useState(window.innerWidth)
     // const[mv,setMV]=useState()
@@ -34,8 +40,14 @@ function Home() {
   useEffect(()=>{
     // dispatch(getBlogListAction())
     axios.get('/api/blog/cat/all').then(res=>setTrending(res.data.posts)).catch(e=>console.log(e))
-    axios.get('/api/blog/cat/code').then(res=>setCode(res.data.posts)).catch(e=>console.log(e))
-    axios.get('/api/blog/cat/music').then(res=>setMusic(res.data.posts)).catch(e=>console.log(e))
+    axios.get('/api/blog/cat/Technology').then(res=>setTechnology(res.data.posts)).catch(e=>console.log(e))
+    axios.get('/api/blog/cat/Health').then(res=>setHealth(res.data.posts)).catch(e=>console.log(e))
+    axios.get('/api/blog/cat/Food').then(res=>setFood(res.data.posts)).catch(e=>console.log(e))
+    axios.get('/api/blog/cat/Travel').then(res=>setTravel(res.data.posts)).catch(e=>console.log(e))
+    axios.get('/api/blog/cat/Lifestyle').then(res=>setLifestyle(res.data.posts)).catch(e=>console.log(e))
+    axios.get('/api/blog/cat/Spirituality').then(res=>setSpirituality(res.data.posts)).catch(e=>console.log(e))
+    axios.get('/api/blog/cat/Current_affairs').then(res=>setCurrent_affairs(res.data.posts)).catch(e=>console.log(e))
+    // axios.get('/api/blog/cat/Career_guidance').then(res=>setCareer_guidance(res.data.posts)).catch(e=>console.log(e))
   // alert(window.innerWidth)
   },[])
 
@@ -55,7 +67,7 @@ function Home() {
       <h1>Write</h1>
       <h1>Share</h1> */}
       {/* square - mobile */}
-      {trending&&music&&code?
+      {Technology&&Health&&Travel&&Food&&Lifestyle&&Spirituality&&Current_affairs?
       <>
       {/* style="max-width: 540px;" */}
       <h3 className=' top'>Top Article of the Day</h3>
@@ -192,145 +204,502 @@ function Home() {
   </div>
 </div>
 <div className=" cat d-flex justify-content-between align-content-center mt-5">
-<h3>Code </h3>
-<Link to='/cat/code' className='link'>View More --></Link>
+<h3>Technology </h3>
+<Link to='/cat/Technology' className='link'>View More --></Link>
 </div>
 <div className="trending row row-cols-1 row-cols-sm-2 g-4">
 <div class="col " id='p4'>
-{code[0]?
+{Technology[0]?
     <div class="card h-100" >
-    <img src={code[0].coverImg} class="card-img-top homeImage" alt="..."></img>
+    <img src={Technology[0].coverImg} class="card-img-top homeImage" alt="..."></img>
     <div class="card-body">
-      <h5 class="card-title">{code[0].title}</h5>
+      <h5 class="card-title">{Technology[0].title}</h5>
       <div className="authorInfo  d-flex">
-        <img className='auth_pic align-self-center' src={code[0].author.profile_pic}></img>
-        <h7 className='align-self-center'>{code[0].author.name}</h7>
+        <img className='auth_pic align-self-center' src={Technology[0].author.profile_pic}></img>
+        <h7 className='align-self-center'>{Technology[0].author.name}</h7>
       </div>
-      <p class="card-text">{code[0].desc}</p>
-<Link className='rl' to ={`/read/${code[0]._id}`} >Read More ..</Link>
+      <p class="card-text">{Technology[0].desc}</p>
+<Link className='rl' to ={`/read/${Technology[0]._id}`} >Read More ..</Link>
     </div>
   </div>
     :null}
   </div>
 <div class="col" id='p6' >
-{code[1]?
+{Technology[1]?
     <div class="card h-100" >
-    <img src={code[1].coverImg} class="card-img-top homeImage" alt="..."></img>
+    <img src={Technology[1].coverImg} class="card-img-top homeImage" alt="..."></img>
     <div class="card-body">
-      <h5 class="card-title">{code[1].title}</h5>
+      <h5 class="card-title">{Technology[1].title}</h5>
       <div className="authorInfo  d-flex">
-        <img className='auth_pic align-self-center' src={code[1].author.profile_pic}></img>
-        <h7 className='align-self-center'>{code[1].author.name}</h7>
+        <img className='auth_pic align-self-center' src={Technology[1].author.profile_pic}></img>
+        <h7 className='align-self-center'>{Technology[1].author.name}</h7>
       </div>
-      <p class="card-text">{code[1].desc}</p>
-<Link className='rl' to ={`/read/${code[1]._id}`} >Read More ..</Link>
+      <p class="card-text">{Technology[1].desc}</p>
+<Link className='rl' to ={`/read/${Technology[1]._id}`} >Read More ..</Link>
     </div>
   </div>
     :null}
   </div>
 <div class="col" id='p6e'>
-{code[2]?
+{Technology[2]?
     <div class="card h-100" >
-    <img src={code[2].coverImg} class="card-img-top homeImage" alt="..."></img>
+    <img src={Technology[2].coverImg} class="card-img-top homeImage" alt="..."></img>
     <div class="card-body">
-      <h5 class="card-title">{code[2].title}</h5>
+      <h5 class="card-title">{Technology[2].title}</h5>
       <div className="authorInfo  d-flex">
-        <img className='auth_pic align-self-center' src={code[2].author.profile_pic}></img>
-        <h7 className='align-self-center'>{code[2].author.name}</h7>
+        <img className='auth_pic align-self-center' src={Technology[2].author.profile_pic}></img>
+        <h7 className='align-self-center'>{Technology[2].author.name}</h7>
       </div>
-      <p class="card-text">{code[2].desc}</p>
-<Link className='rl' to ={`/read/${code[2]._id}`} >Read More ..</Link>
+      <p class="card-text">{Technology[2].desc}</p>
+<Link className='rl' to ={`/read/${Technology[2]._id}`} >Read More ..</Link>
     </div>
   </div>
     :null}
   </div>
 <div class="col" id='p4e'>
-{code[3]?
+{Technology[3]?
     <div class="card h-100" >
-    <img src={code[3].coverImg} class="card-img-top homeImage" alt="..."></img>
+    <img src={Technology[3].coverImg} class="card-img-top homeImage" alt="..."></img>
     <div class="card-body">
-      <h5 class="card-title">{code[3].title}</h5>
+      <h5 class="card-title">{Technology[3].title}</h5>
       <div className="authorInfo  d-flex">
-        <img className='auth_pic align-self-center' src={code[3].author.profile_pic}></img>
-        <h7 className='align-self-center'>{code[3].author.name}</h7>
+        <img className='auth_pic align-self-center' src={Technology[3].author.profile_pic}></img>
+        <h7 className='align-self-center'>{Technology[3].author.name}</h7>
       </div>
-      <p class="card-text">{code[3].desc}</p>
-<Link className='rl' to ={`/read/${code[3]._id}`} >Read More ..</Link>
+      <p class="card-text">{Technology[3].desc}</p>
+<Link className='rl' to ={`/read/${Technology[3]._id}`} >Read More ..</Link>
     </div>
   </div>
     :null}
   </div>
 </div>
 <div className=" cat d-flex justify-content-between align-content-center mt-5">
-<h3>Music </h3>
-<Link to='/cat/music' className='link'>View More --></Link>
+<h3>Travel </h3>
+<Link to='/cat/Travel' className='link'>View More --></Link>
 </div>
 <div className="trending row row-cols-1 row-cols-sm-2 g-4">
 <div class="col " id='p4'>
-{music[0]?
+{Travel[0]?
     <div class="card h-100" >
-    <img src={music[0].coverImg} class="card-img-top homeImage" alt="..."></img>
+    <img src={Travel[0].coverImg} class="card-img-top homeImage" alt="..."></img>
     <div class="card-body">
-      <h5 class="card-title">{music[0].title}</h5>
+      <h5 class="card-title">{Travel[0].title}</h5>
       <div className="authorInfo  d-flex">
-        <img className='auth_pic align-self-center' src={music[0].author.profile_pic}></img>
-        <h7 className='align-self-center'>{music[0].author.name}</h7>
+        <img className='auth_pic align-self-center' src={Travel[0].author.profile_pic}></img>
+        <h7 className='align-self-center'>{Travel[0].author.name}</h7>
       </div>
-      <p class="card-text">{music[0].desc}</p>
-<Link className='rl' to ={`/read/${music[0]._id}`} >Read More ..</Link>
+      <p class="card-text">{Travel[0].desc}</p>
+<Link className='rl' to ={`/read/${Travel[0]._id}`} >Read More ..</Link>
     </div>
   </div>
     :null}
   </div>
 <div class="col" id='p6'>
-{music[1]?
+{Travel[1]?
     <div class="card h-100" >
-    <img src={music[1].coverImg} class="card-img-top homeImage" alt="..."></img>
+    <img src={Travel[1].coverImg} class="card-img-top homeImage" alt="..."></img>
     <div class="card-body">
-      <h5 class="card-title">{music[1].title}</h5>
+      <h5 class="card-title">{Travel[1].title}</h5>
       <div className="authorInfo  d-flex">
-        <img className='auth_pic align-self-center' src={music[1].author.profile_pic}></img>
-        <h7 className='align-self-center'>{music[1].author.name}</h7>
+        <img className='auth_pic align-self-center' src={Travel[1].author.profile_pic}></img>
+        <h7 className='align-self-center'>{Travel[1].author.name}</h7>
       </div>
-      <p class="card-text">{music[1].desc}</p>
-<Link className='rl' to ={`/read/${music[1]._id}`} >Read More ..</Link>
+      <p class="card-text">{Travel[1].desc}</p>
+<Link className='rl' to ={`/read/${Travel[1]._id}`} >Read More ..</Link>
     </div>
   </div>
     :null}
   </div>
 <div class="col" id='p6e'>
-{music[2]?
+{Travel[2]?
     <div class="card h-100" >
-    <img src={music[2].coverImg} class="card-img-top homeImage" alt="..."></img>
+    <img src={Travel[2].coverImg} class="card-img-top homeImage" alt="..."></img>
     <div class="card-body">
-      <h5 class="card-title">{music[2].title}</h5>
+      <h5 class="card-title">{Travel[2].title}</h5>
       <div className="authorInfo  d-flex">
-        <img className='auth_pic align-self-center' src={music[2].author.profile_pic}></img>
-        <h7 className='align-self-center'>{music[2].author.name}</h7>
+        <img className='auth_pic align-self-center' src={Travel[2].author.profile_pic}></img>
+        <h7 className='align-self-center'>{Travel[2].author.name}</h7>
       </div>
-      <p class="card-text">{music[2].desc}</p>
-<Link className='rl' to ={`/read/${music[2]._id}`} >Read More ..</Link>
+      <p class="card-text">{Travel[2].desc}</p>
+<Link className='rl' to ={`/read/${Travel[2]._id}`} >Read More ..</Link>
     </div>
   </div>
     :null}
   </div>
 <div class="col" id='p4e'>
-{music[3]?
+{Travel[3]?
     <div class="card h-100" >
-    <img src={music[3].coverImg} class="card-img-top homeImage" alt="..."></img>
+    <img src={Travel[3].coverImg} class="card-img-top homeImage" alt="..."></img>
     <div class="card-body">
-      <h5 class="card-title">{music[3].title}</h5>
+      <h5 class="card-title">{Travel[3].title}</h5>
       <div className="authorInfo  d-flex">
-        <img className='auth_pic align-self-center' src={music[3].author.profile_pic}></img>
-        <h7 className='align-self-center'>{music[3].author.name}</h7>
+        <img className='auth_pic align-self-center' src={Travel[3].author.profile_pic}></img>
+        <h7 className='align-self-center'>{Travel[3].author.name}</h7>
       </div>
-      <p class="card-text">{music[3].desc}</p>
-<Link className='rl' to ={`/read/${music[3]._id}`} >Read More ..</Link>
+      <p class="card-text">{Travel[3].desc}</p>
+<Link className='rl' to ={`/read/${Travel[3]._id}`} >Read More ..</Link>
     </div>
   </div>
     :null}
   </div>
 </div>
+
+<div className=" cat d-flex justify-content-between align-content-center mt-5">
+<h3>Food </h3>
+<Link to='/cat/Food' className='link'>View More --></Link>
+</div>
+<div className="trending row row-cols-1 row-cols-sm-2 g-4">
+<div class="col " id='p4'>
+{Food[0]?
+    <div class="card h-100" >
+    <img src={Food[0].coverImg} class="card-img-top homeImage" alt="..."></img>
+    <div class="card-body">
+      <h5 class="card-title">{Food[0].title}</h5>
+      <div className="authorInfo  d-flex">
+        <img className='auth_pic align-self-center' src={Food[0].author.profile_pic}></img>
+        <h7 className='align-self-center'>{Food[0].author.name}</h7>
+      </div>
+      <p class="card-text">{Food[0].desc}</p>
+<Link className='rl' to ={`/read/${Food[0]._id}`} >Read More ..</Link>
+    </div>
+  </div>
+    :null}
+  </div>
+<div class="col" id='p6' >
+{Food[1]?
+    <div class="card h-100" >
+    <img src={Food[1].coverImg} class="card-img-top homeImage" alt="..."></img>
+    <div class="card-body">
+      <h5 class="card-title">{Food[1].title}</h5>
+      <div className="authorInfo  d-flex">
+        <img className='auth_pic align-self-center' src={Food[1].author.profile_pic}></img>
+        <h7 className='align-self-center'>{Food[1].author.name}</h7>
+      </div>
+      <p class="card-text">{Food[1].desc}</p>
+<Link className='rl' to ={`/read/${Food[1]._id}`} >Read More ..</Link>
+    </div>
+  </div>
+    :null}
+  </div>
+<div class="col" id='p6e'>
+{Food[2]?
+    <div class="card h-100" >
+    <img src={Food[2].coverImg} class="card-img-top homeImage" alt="..."></img>
+    <div class="card-body">
+      <h5 class="card-title">{Food[2].title}</h5>
+      <div className="authorInfo  d-flex">
+        <img className='auth_pic align-self-center' src={Food[2].author.profile_pic}></img>
+        <h7 className='align-self-center'>{Food[2].author.name}</h7>
+      </div>
+      <p class="card-text">{Food[2].desc}</p>
+<Link className='rl' to ={`/read/${Food[2]._id}`} >Read More ..</Link>
+    </div>
+  </div>
+    :null}
+  </div>
+<div class="col" id='p4e'>
+{Food[3]?
+    <div class="card h-100" >
+    <img src={Food[3].coverImg} class="card-img-top homeImage" alt="..."></img>
+    <div class="card-body">
+      <h5 class="card-title">{Food[3].title}</h5>
+      <div className="authorInfo  d-flex">
+        <img className='auth_pic align-self-center' src={Food[3].author.profile_pic}></img>
+        <h7 className='align-self-center'>{Food[3].author.name}</h7>
+      </div>
+      <p class="card-text">{Food[3].desc}</p>
+<Link className='rl' to ={`/read/${Food[3]._id}`} >Read More ..</Link>
+    </div>
+  </div>
+    :null}
+  </div>
+</div>
+
+<div className=" cat d-flex justify-content-between align-content-center mt-5">
+<h3>Health </h3>
+<Link to='/cat/Health' className='link'>View More --></Link>
+</div>
+<div className="trending row row-cols-1 row-cols-sm-2 g-4">
+<div class="col " id='p4'>
+{Health[0]?
+    <div class="card h-100" >
+    <img src={Health[0].coverImg} class="card-img-top homeImage" alt="..."></img>
+    <div class="card-body">
+      <h5 class="card-title">{Health[0].title}</h5>
+      <div className="authorInfo  d-flex">
+        <img className='auth_pic align-self-center' src={Health[0].author.profile_pic}></img>
+        <h7 className='align-self-center'>{Health[0].author.name}</h7>
+      </div>
+      <p class="card-text">{Health[0].desc}</p>
+<Link className='rl' to ={`/read/${Health[0]._id}`} >Read More ..</Link>
+    </div>
+  </div>
+    :null}
+  </div>
+<div class="col" id='p6' >
+{Health[1]?
+    <div class="card h-100" >
+    <img src={Health[1].coverImg} class="card-img-top homeImage" alt="..."></img>
+    <div class="card-body">
+      <h5 class="card-title">{Health[1].title}</h5>
+      <div className="authorInfo  d-flex">
+        <img className='auth_pic align-self-center' src={Health[1].author.profile_pic}></img>
+        <h7 className='align-self-center'>{Health[1].author.name}</h7>
+      </div>
+      <p class="card-text">{Health[1].desc}</p>
+<Link className='rl' to ={`/read/${Health[1]._id}`} >Read More ..</Link>
+    </div>
+  </div>
+    :null}
+  </div>
+<div class="col" id='p6e'>
+{Health[2]?
+    <div class="card h-100" >
+    <img src={Health[2].coverImg} class="card-img-top homeImage" alt="..."></img>
+    <div class="card-body">
+      <h5 class="card-title">{Health[2].title}</h5>
+      <div className="authorInfo  d-flex">
+        <img className='auth_pic align-self-center' src={Health[2].author.profile_pic}></img>
+        <h7 className='align-self-center'>{Health[2].author.name}</h7>
+      </div>
+      <p class="card-text">{Health[2].desc}</p>
+<Link className='rl' to ={`/read/${Health[2]._id}`} >Read More ..</Link>
+    </div>
+  </div>
+    :null}
+  </div>
+<div class="col" id='p4e'>
+{Health[3]?
+    <div class="card h-100" >
+    <img src={Health[3].coverImg} class="card-img-top homeImage" alt="..."></img>
+    <div class="card-body">
+      <h5 class="card-title">{Health[3].title}</h5>
+      <div className="authorInfo  d-flex">
+        <img className='auth_pic align-self-center' src={Health[3].author.profile_pic}></img>
+        <h7 className='align-self-center'>{Health[3].author.name}</h7>
+      </div>
+      <p class="card-text">{Health[3].desc}</p>
+<Link className='rl' to ={`/read/${Health[3]._id}`} >Read More ..</Link>
+    </div>
+  </div>
+    :null}
+  </div>
+</div>
+
+<div className=" cat d-flex justify-content-between align-content-center mt-5">
+<h3>Spirituality </h3>
+<Link to='/cat/Spirituality' className='link'>View More --></Link>
+</div>
+<div className="trending row row-cols-1 row-cols-sm-2 g-4">
+<div class="col " id='p4'>
+{Spirituality[0]?
+    <div class="card h-100" >
+    <img src={Spirituality[0].coverImg} class="card-img-top homeImage" alt="..."></img>
+    <div class="card-body">
+      <h5 class="card-title">{Spirituality[0].title}</h5>
+      <div className="authorInfo  d-flex">
+        <img className='auth_pic align-self-center' src={Spirituality[0].author.profile_pic}></img>
+        <h7 className='align-self-center'>{Spirituality[0].author.name}</h7>
+      </div>
+      <p class="card-text">{Spirituality[0].desc}</p>
+<Link className='rl' to ={`/read/${Spirituality[0]._id}`} >Read More ..</Link>
+    </div>
+  </div>
+    :null}
+  </div>
+<div class="col" id='p6' >
+{Spirituality[1]?
+    <div class="card h-100" >
+    <img src={Spirituality[1].coverImg} class="card-img-top homeImage" alt="..."></img>
+    <div class="card-body">
+      <h5 class="card-title">{Spirituality[1].title}</h5>
+      <div className="authorInfo  d-flex">
+        <img className='auth_pic align-self-center' src={Spirituality[1].author.profile_pic}></img>
+        <h7 className='align-self-center'>{Spirituality[1].author.name}</h7>
+      </div>
+      <p class="card-text">{Spirituality[1].desc}</p>
+<Link className='rl' to ={`/read/${Spirituality[1]._id}`} >Read More ..</Link>
+    </div>
+  </div>
+    :null}
+  </div>
+<div class="col" id='p6e'>
+{Spirituality[2]?
+    <div class="card h-100" >
+    <img src={Spirituality[2].coverImg} class="card-img-top homeImage" alt="..."></img>
+    <div class="card-body">
+      <h5 class="card-title">{Spirituality[2].title}</h5>
+      <div className="authorInfo  d-flex">
+        <img className='auth_pic align-self-center' src={Spirituality[2].author.profile_pic}></img>
+        <h7 className='align-self-center'>{Spirituality[2].author.name}</h7>
+      </div>
+      <p class="card-text">{Spirituality[2].desc}</p>
+<Link className='rl' to ={`/read/${Spirituality[2]._id}`} >Read More ..</Link>
+    </div>
+  </div>
+    :null}
+  </div>
+<div class="col" id='p4e'>
+{Spirituality[3]?
+    <div class="card h-100" >
+    <img src={Spirituality[3].coverImg} class="card-img-top homeImage" alt="..."></img>
+    <div class="card-body">
+      <h5 class="card-title">{Spirituality[3].title}</h5>
+      <div className="authorInfo  d-flex">
+        <img className='auth_pic align-self-center' src={Spirituality[3].author.profile_pic}></img>
+        <h7 className='align-self-center'>{Spirituality[3].author.name}</h7>
+      </div>
+      <p class="card-text">{Spirituality[3].desc}</p>
+<Link className='rl' to ={`/read/${Spirituality[3]._id}`} >Read More ..</Link>
+    </div>
+  </div>
+    :null}
+  </div>
+</div>
+
+<div className=" cat d-flex justify-content-between align-content-center mt-5">
+<h3>Lifestyle</h3>
+<Link to='/cat/Lifestyle' className='link'>View More --></Link>
+</div>
+<div className="trending row row-cols-1 row-cols-sm-2 g-4">
+<div class="col " id='p4'>
+{Lifestyle[0]?
+    <div class="card h-100" >
+    <img src={Lifestyle[0].coverImg} class="card-img-top homeImage" alt="..."></img>
+    <div class="card-body">
+      <h5 class="card-title">{Lifestyle[0].title}</h5>
+      <div className="authorInfo  d-flex">
+        <img className='auth_pic align-self-center' src={Lifestyle[0].author.profile_pic}></img>
+        <h7 className='align-self-center'>{Lifestyle[0].author.name}</h7>
+      </div>
+      <p class="card-text">{Lifestyle[0].desc}</p>
+<Link className='rl' to ={`/read/${Lifestyle[0]._id}`} >Read More ..</Link>
+    </div>
+  </div>
+    :null}
+  </div>
+<div class="col" id='p6' >
+{Lifestyle[1]?
+    <div class="card h-100" >
+    <img src={Lifestyle[1].coverImg} class="card-img-top homeImage" alt="..."></img>
+    <div class="card-body">
+      <h5 class="card-title">{Lifestyle[1].title}</h5>
+      <div className="authorInfo  d-flex">
+        <img className='auth_pic align-self-center' src={Lifestyle[1].author.profile_pic}></img>
+        <h7 className='align-self-center'>{Lifestyle[1].author.name}</h7>
+      </div>
+      <p class="card-text">{Lifestyle[1].desc}</p>
+<Link className='rl' to ={`/read/${Lifestyle[1]._id}`} >Read More ..</Link>
+    </div>
+  </div>
+    :null}
+  </div>
+<div class="col" id='p6e'>
+{Lifestyle[2]?
+    <div class="card h-100" >
+    <img src={Lifestyle[2].coverImg} class="card-img-top homeImage" alt="..."></img>
+    <div class="card-body">
+      <h5 class="card-title">{Lifestyle[2].title}</h5>
+      <div className="authorInfo  d-flex">
+        <img className='auth_pic align-self-center' src={Lifestyle[2].author.profile_pic}></img>
+        <h7 className='align-self-center'>{Lifestyle[2].author.name}</h7>
+      </div>
+      <p class="card-text">{Lifestyle[2].desc}</p>
+<Link className='rl' to ={`/read/${Lifestyle[2]._id}`} >Read More ..</Link>
+    </div>
+  </div>
+    :null}
+  </div>
+<div class="col" id='p4e'>
+{Lifestyle[3]?
+    <div class="card h-100" >
+    <img src={Lifestyle[3].coverImg} class="card-img-top homeImage" alt="..."></img>
+    <div class="card-body">
+      <h5 class="card-title">{Lifestyle[3].title}</h5>
+      <div className="authorInfo  d-flex">
+        <img className='auth_pic align-self-center' src={Lifestyle[3].author.profile_pic}></img>
+        <h7 className='align-self-center'>{Lifestyle[3].author.name}</h7>
+      </div>
+      <p class="card-text">{Lifestyle[3].desc}</p>
+<Link className='rl' to ={`/read/${Lifestyle[3]._id}`} >Read More ..</Link>
+    </div>
+  </div>
+    :null}
+  </div>
+</div>
+
+
+<div className=" cat d-flex justify-content-between align-content-center mt-5">
+<h3>Current Affairs </h3>
+<Link to='/cat/Current_affairs' className='link'>View More --></Link>
+</div>
+<div className="trending row row-cols-1 row-cols-sm-2 g-4">
+<div class="col " id='p4'>
+{Current_affairs[0]?
+    <div class="card h-100" >
+    <img src={Current_affairs[0].coverImg} class="card-img-top homeImage" alt="..."></img>
+    <div class="card-body">
+      <h5 class="card-title">{Current_affairs[0].title}</h5>
+      <div className="authorInfo  d-flex">
+        <img className='auth_pic align-self-center' src={Current_affairs[0].author.profile_pic}></img>
+        <h7 className='align-self-center'>{Current_affairs[0].author.name}</h7>
+      </div>
+      <p class="card-text">{Current_affairs[0].desc}</p>
+<Link className='rl' to ={`/read/${Current_affairs[0]._id}`} >Read More ..</Link>
+    </div>
+  </div>
+    :null}
+  </div>
+<div class="col" id='p6' >
+{Current_affairs[1]?
+    <div class="card h-100" >
+    <img src={Current_affairs[1].coverImg} class="card-img-top homeImage" alt="..."></img>
+    <div class="card-body">
+      <h5 class="card-title">{Current_affairs[1].title}</h5>
+      <div className="authorInfo  d-flex">
+        <img className='auth_pic align-self-center' src={Current_affairs[1].author.profile_pic}></img>
+        <h7 className='align-self-center'>{Current_affairs[1].author.name}</h7>
+      </div>
+      <p class="card-text">{Current_affairs[1].desc}</p>
+<Link className='rl' to ={`/read/${Current_affairs[1]._id}`} >Read More ..</Link>
+    </div>
+  </div>
+    :null}
+  </div>
+<div class="col" id='p6e'>
+{Current_affairs[2]?
+    <div class="card h-100" >
+    <img src={Current_affairs[2].coverImg} class="card-img-top homeImage" alt="..."></img>
+    <div class="card-body">
+      <h5 class="card-title">{Current_affairs[2].title}</h5>
+      <div className="authorInfo  d-flex">
+        <img className='auth_pic align-self-center' src={Current_affairs[2].author.profile_pic}></img>
+        <h7 className='align-self-center'>{Current_affairs[2].author.name}</h7>
+      </div>
+      <p class="card-text">{Current_affairs[2].desc}</p>
+<Link className='rl' to ={`/read/${Current_affairs[2]._id}`} >Read More ..</Link>
+    </div>
+  </div>
+    :null}
+  </div>
+<div class="col" id='p4e'>
+{Current_affairs[3]?
+    <div class="card h-100" >
+    <img src={Current_affairs[3].coverImg} class="card-img-top homeImage" alt="..."></img>
+    <div class="card-body">
+      <h5 class="card-title">{Current_affairs[3].title}</h5>
+      <div className="authorInfo  d-flex">
+        <img className='auth_pic align-self-center' src={Current_affairs[3].author.profile_pic}></img>
+        <h7 className='align-self-center'>{Current_affairs[3].author.name}</h7>
+      </div>
+      <p class="card-text">{Current_affairs[3].desc}</p>
+<Link className='rl' to ={`/read/${Current_affairs[3]._id}`} >Read More ..</Link>
+    </div>
+  </div>
+    :null}
+  </div>
+</div>
+
 <div className='hv'>
 
       <button className=' mt-3 btn btn-outline-dark'><Link to='/cat/all' className='link' href=''>Explore</Link></button>

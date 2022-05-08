@@ -77,7 +77,7 @@ function Header() {
     <header className=' '>
       
       <div className=' d-flex'>
-      <img className='logo' src='https://images.unsplash.com/photo-1532777946373-b6783242f211?ixlib=rb-0.3.5&amp;q=80&amp;fm=jpg&amp;crop=entropy&amp;cs=tinysrgb&amp;w=1080&amp;fit=max&amp;ixid=eyJhcHBfaWQiOjMyMDc0fQ&amp;s=8ac55cf3a68785643998730839663129'></img>
+      {/* <img className='logo' src='https://images.unsplash.com/photo-1532777946373-b6783242f211?ixlib=rb-0.3.5&amp;q=80&amp;fm=jpg&amp;crop=entropy&amp;cs=tinysrgb&amp;w=1080&amp;fit=max&amp;ixid=eyJhcHBfaWQiOjMyMDc0fQ&amp;s=8ac55cf3a68785643998730839663129'></img> */}
 
       {/* <p className='name'><strong>ReadBloc.in</strong></p> */}
       <div className='name'>ReadBlocs</div>
@@ -131,11 +131,14 @@ function Header() {
 
   <ul className='cat_ul' id={dropDown?'shift':'cat'} >
     <li id='n' className='text-muted fw-bold'>Categories</li>
-          <li className='d_l'><Link style={{textDecoration:'none',color:'#2E0300'}} to='/cat/:tag'>Technology</Link></li>
-          <li className='d_l'><Link style={{textDecoration:'none',color:'#2E0300'}} to='/cat/:tag'>Travel</Link></li>
-          <li className='d_l'><Link style={{textDecoration:'none',color:'#2E0300'}} to='/cat/:tag'></Link></li>
-          <li className='d_l'><Link style={{textDecoration:'none',color:'#2E0300'}} to='/cat/:tag'>cat 1</Link></li>
-          <li className='d_l'><Link style={{textDecoration:'none',color:'#2E0300'}} to='/cat/:tag'>cat 1</Link></li>
+          <li className='d_l'><Link style={{textDecoration:'none',color:'#2E0300'}} to='/cat/Technology'>Technology</Link></li>
+          <li className='d_l'><Link style={{textDecoration:'none',color:'#2E0300'}} to='/cat/Health'>Health</Link></li>
+          <li className='d_l'><Link style={{textDecoration:'none',color:'#2E0300'}} to='/cat/Food'>Food</Link></li>
+          <li className='d_l'><Link style={{textDecoration:'none',color:'#2E0300'}} to='/cat/Travel'>Travel</Link></li>
+          <li className='d_l'><Link style={{textDecoration:'none',color:'#2E0300'}} to='/cat/Lifestyle'>Lifestyle</Link></li>
+          <li className='d_l'><Link style={{textDecoration:'none',color:'#2E0300'}} to='/cat/Spirituality'>Spirituality</Link></li>
+          <li className='d_l'><Link style={{textDecoration:'none',color:'#2E0300'}} to='/cat/Currents_affairs'>Current affairs</Link></li>
+          {/* <li className='d_l'><Link style={{textDecoration:'none',color:'#2E0300'}} to='/cat/Career_guidance'>Career guidance </Link></li> */}
         </ul>
 :null}
 
