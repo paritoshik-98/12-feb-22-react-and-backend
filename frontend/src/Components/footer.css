@@ -24,6 +24,7 @@ footer{
 .brand{
     display: flex;
     margin-top: 5vh;
+    margin-bottom: 3vh;
 }
 
 .link{
