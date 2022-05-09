@@ -15,7 +15,7 @@ function ChangeP() {
 
     const emailSubmit = () => {
         setLoading(true)
-        axios.post('https://blog-test-1-april.herokuapp.com/api/user/send_reset_link',{email:email}).then(res=>{
+        axios.post('https://readblocs.herokuapp.com/api/user/send_reset_link',{email:email}).then(res=>{
             if(res.status===200){
                 setLoading(false)
                 setLink(true)

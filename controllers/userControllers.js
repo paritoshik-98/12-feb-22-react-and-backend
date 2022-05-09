@@ -230,7 +230,7 @@ try {
 
       const token  = jwt.sign({userid:u._id},process.env.JWT_SECRET,{expiresIn:'5m'})
 
-      const link = `https://blog-test-1-april.herokuapp.com/reset/${token}`
+      const link = `https://readblocs.herokuapp.com/reset/${token}`
       
       const data = `Click the link to reset password ${link} . This link is valid for 5 min`
 

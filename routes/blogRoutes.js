@@ -219,7 +219,7 @@ var upload = multer({ storage: storage });
 router.post('/image_upload',upload.single('upload'),(req,res)=>{
   console.log('inside image upload')
   try{
-    res.header('Access-Control-Allow-Origin', 'http://localhost:3000');
+    res.header('Access-Control-Allow-Origin', 'https://readblocs.herokuapp.com');
     console.log(req.file.path)
     res.json({url:req.file.path})
   }
