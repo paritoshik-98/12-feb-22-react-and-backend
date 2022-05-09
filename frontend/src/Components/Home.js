@@ -420,76 +420,7 @@ function Home() {
   </div>
 </div>
 
-<div className=" cat d-flex justify-content-between align-content-center mt-5">
-<h3>Books </h3>
-<Link to='/cat/Books' className='link'>View More --></Link>
-</div>
-<div className="trending row row-cols-1 row-cols-sm-2 g-4">
-<div class="col " id='p4'>
-{Books[0]?
-    <div class="card h-100" >
-    <img src={Books[0].coverImg} class="card-img-top homeImage" alt="..."></img>
-    <div class="card-body">
-      <h5 class="card-title">{Books[0].title}</h5>
-      <div className="authorInfo  d-flex">
-        <img className='auth_pic align-self-center' src={Books[0].author.profile_pic}></img>
-        <h7 className='align-self-center'>{Books[0].author.name}</h7>
-      </div>
-      <p class="card-text">{Books[0].desc}</p>
-<Link className='rl' to ={`/read/${Books[0]._id}`} >Read More ..</Link>
-    </div>
-  </div>
-    :null}
-  </div>
-<div class="col" id='p6' >
-{Books[1]?
-    <div class="card h-100" >
-    <img src={Books[1].coverImg} class="card-img-top homeImage" alt="..."></img>
-    <div class="card-body">
-      <h5 class="card-title">{Books[1].title}</h5>
-      <div className="authorInfo  d-flex">
-        <img className='auth_pic align-self-center' src={Books[1].author.profile_pic}></img>
-        <h7 className='align-self-center'>{Books[1].author.name}</h7>
-      </div>
-      <p class="card-text">{Books[1].desc}</p>
-<Link className='rl' to ={`/read/${Books[1]._id}`} >Read More ..</Link>
-    </div>
-  </div>
-    :null}
-  </div>
-<div class="col" id='p6e'>
-{Books[2]?
-    <div class="card h-100" >
-    <img src={Books[2].coverImg} class="card-img-top homeImage" alt="..."></img>
-    <div class="card-body">
-      <h5 class="card-title">{Books[2].title}</h5>
-      <div className="authorInfo  d-flex">
-        <img className='auth_pic align-self-center' src={Books[2].author.profile_pic}></img>
-        <h7 className='align-self-center'>{Books[2].author.name}</h7>
-      </div>
-      <p class="card-text">{Books[2].desc}</p>
-<Link className='rl' to ={`/read/${Books[2]._id}`} >Read More ..</Link>
-    </div>
-  </div>
-    :null}
-  </div>
-<div class="col" id='p4e'>
-{Books[3]?
-    <div class="card h-100" >
-    <img src={Books[3].coverImg} class="card-img-top homeImage" alt="..."></img>
-    <div class="card-body">
-      <h5 class="card-title">{Books[3].title}</h5>
-      <div className="authorInfo  d-flex">
-        <img className='auth_pic align-self-center' src={Books[3].author.profile_pic}></img>
-        <h7 className='align-self-center'>{Books[3].author.name}</h7>
-      </div>
-      <p class="card-text">{Books[3].desc}</p>
-<Link className='rl' to ={`/read/${Books[3]._id}`} >Read More ..</Link>
-    </div>
-  </div>
-    :null}
-  </div>
-</div>
+
 
 <div className=" cat d-flex justify-content-between align-content-center mt-5">
 <h3>Health </h3>
@@ -774,6 +705,78 @@ function Home() {
     :null}
   </div>
 </div>
+
+<div className=" cat d-flex justify-content-between align-content-center mt-5">
+<h3>Books </h3>
+<Link to='/cat/Books' className='link'>View More --></Link>
+</div>
+<div className="trending row row-cols-1 row-cols-sm-2 g-4">
+<div class="col " id='p4'>
+{Books[0]?
+    <div class="card h-100" >
+    <img src={Books[0].coverImg} class="card-img-top homeImage" alt="..."></img>
+    <div class="card-body">
+      <h5 class="card-title">{Books[0].title}</h5>
+      <div className="authorInfo  d-flex">
+        <img className='auth_pic align-self-center' src={Books[0].author.profile_pic}></img>
+        <h7 className='align-self-center'>{Books[0].author.name}</h7>
+      </div>
+      <p class="card-text">{Books[0].desc}</p>
+<Link className='rl' to ={`/read/${Books[0]._id}`} >Read More ..</Link>
+    </div>
+  </div>
+    :null}
+  </div>
+<div class="col" id='p6' >
+{Books[1]?
+    <div class="card h-100" >
+    <img src={Books[1].coverImg} class="card-img-top homeImage" alt="..."></img>
+    <div class="card-body">
+      <h5 class="card-title">{Books[1].title}</h5>
+      <div className="authorInfo  d-flex">
+        <img className='auth_pic align-self-center' src={Books[1].author.profile_pic}></img>
+        <h7 className='align-self-center'>{Books[1].author.name}</h7>
+      </div>
+      <p class="card-text">{Books[1].desc}</p>
+<Link className='rl' to ={`/read/${Books[1]._id}`} >Read More ..</Link>
+    </div>
+  </div>
+    :null}
+  </div>
+<div class="col" id='p6e'>
+{Books[2]?
+    <div class="card h-100" >
+    <img src={Books[2].coverImg} class="card-img-top homeImage" alt="..."></img>
+    <div class="card-body">
+      <h5 class="card-title">{Books[2].title}</h5>
+      <div className="authorInfo  d-flex">
+        <img className='auth_pic align-self-center' src={Books[2].author.profile_pic}></img>
+        <h7 className='align-self-center'>{Books[2].author.name}</h7>
+      </div>
+      <p class="card-text">{Books[2].desc}</p>
+<Link className='rl' to ={`/read/${Books[2]._id}`} >Read More ..</Link>
+    </div>
+  </div>
+    :null}
+  </div>
+<div class="col" id='p4e'>
+{Books[3]?
+    <div class="card h-100" >
+    <img src={Books[3].coverImg} class="card-img-top homeImage" alt="..."></img>
+    <div class="card-body">
+      <h5 class="card-title">{Books[3].title}</h5>
+      <div className="authorInfo  d-flex">
+        <img className='auth_pic align-self-center' src={Books[3].author.profile_pic}></img>
+        <h7 className='align-self-center'>{Books[3].author.name}</h7>
+      </div>
+      <p class="card-text">{Books[3].desc}</p>
+<Link className='rl' to ={`/read/${Books[3]._id}`} >Read More ..</Link>
+    </div>
+  </div>
+    :null}
+  </div>
+</div>
+
 
 <div className=" cat d-flex justify-content-between align-content-center mt-5">
 <h3>Finance</h3>
