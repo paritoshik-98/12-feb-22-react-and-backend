@@ -114,7 +114,7 @@ null
 :null}
 
 {!searchLoader?<>
-    {articles.length===0?<h1>You haven't marked any articles yet !</h1>:null}
+    {/* {articles.length===0?<h1>You haven't marked any articles yet !</h1>:null} */}
 {articles&&!sDisplay?<>{articles.map(a=>
     
     <div class="topCRD mb-3" id='Lcard' >
