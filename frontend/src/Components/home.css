@@ -107,7 +107,7 @@ a{
         margin-bottom: -1vh;
     }
     .home .col{
-        height: 65vh;
+        height: 68vh;
     }
   }
 
@@ -224,7 +224,7 @@ a{
 
 .homeImage{
     object-fit: cover;
-    max-height:40%;
+    max-height:45%;
 }
 
 .left{
