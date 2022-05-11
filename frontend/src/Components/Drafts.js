@@ -64,7 +64,7 @@ function Drafts() {
       <div className='marked'>
       {loader?<div class="loader"></div>:
     <>
-    {articles.length===0?<h1>You haven't marked any drafts !</h1>:null}
+    {/* {articles.length===0?<h1>You haven't marked any drafts !</h1>:null} */}
 
     <div className="search d-flex mb-5">
       <input type="text" value={searchQuery} onChange={(e)=>setQuery(e.target.value)} className='w-50 '/>
