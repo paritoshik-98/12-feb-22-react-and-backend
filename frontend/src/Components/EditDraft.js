@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { useNavigate, useParams } from 'react-router-dom'
 import { deleteBlogAction, fetchBlogAction, fetchDraftAction, updateBlogAction } from '../REDUX/Actions/blogActions'
 import { CKEditor } from '@ckeditor/ckeditor5-react'
-import ClassicEditor from 'pari_read_blocs_v2'
+import ClassicEditor from 'pari_read_blocs_v3'
 import UnsplashReact, { Base64Uploader, withDefaultProps, InsertIntoApplicationUploader} from "unsplash-react"
 import Header from './Header'
 import axios from 'axios'
