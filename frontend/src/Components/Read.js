@@ -224,7 +224,7 @@ else{
           <button className='r-mark'onClick={()=>alert('Login to continue')}>{<BsBookmarkPlus size={30}/>}</button>
         }
         {user?<>
-        {user.id==getblog.blog.author._id?<Link className='align-self-center edit' to={`/edit/${getblog.blog._id}`}><FaEdit size={30}/></Link>:null}
+        {user.id==getblog.blog.author._id?<Link className='align-self-center edit ' style={{textDecoration:'none',color:'#000000'}} to={`/edit/${getblog.blog._id}`}><FaEdit size={30}/></Link>:null}
         </>
         :null
 }
