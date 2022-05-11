@@ -923,7 +923,7 @@ function Home() {
 
 <div className='hv'>
 
-      <button className=' mt-3 btn btn-outline-dark'><Link to='/cat/all' className='link' href=''>Explore</Link></button>
+      {/* <button className=' mt-3 btn btn-outline-dark'><Link to='/cat/all' className='link' href=''>Explore</Link></button> */}
       </div>
       </>
       :<div class="loader"></div>}
