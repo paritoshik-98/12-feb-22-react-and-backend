@@ -113,7 +113,8 @@ console.log('text : ',text)
     ,content:body
     ,tagArr:JSON.stringify(array)
     ,id:id,
-    desc:text
+    desc:text,
+    draft:false,
   }
   const path = '/api/blog/'+id+'/edit'
         axios.put(path,data).then(res=>{
