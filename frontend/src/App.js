@@ -28,6 +28,16 @@ import ChangeP from './ChangeP';
 import Drafts from './Components/Drafts';
 import Register from './Components/Register';
 import EditDraft from './Components/EditDraft';
+import Books from './Components/Tags/Books';
+import CA from './Components/Tags/CA';
+import Travel from './Components/Tags/Travel';
+import Fi from './Components/Tags/Fi';
+import Food from './Components/Tags/Food';
+import Health from './Components/Tags/Health';
+import LS from './Components/Tags/LS';
+import Pol from './Components/Tags/Pol';
+import Sp from './Components/Tags/Sp';
+import Tech from './Components/Tags/Tech';
 
 function App() {
 
@@ -68,11 +78,21 @@ function App() {
 <Route exact path = '/edit/:id' element = {<EditBlog/>}></Route>
 {/* <Route exact path = '/recoverPassword' element = {<Recover/>}></Route> */}
 <Route exact path = '/reset/:jwt' element = {<Reset/>}></Route>
-<Route exact path = '/cat/:tag' element = {<Category/>}></Route>
+{/* <Route exact path = '/cat/:tag' element = {<Category/>}></Route> */}
 <Route exact path = '/myArticles' element = {<MyArticles/>}></Route>
 <Route exact path = '/Favourites' element = {<Marked/>}></Route>
 <Route exact path = '/ChangePassword' element = {<ChangeP/>}></Route>
 <Route exact path = '/Drafts' element = {<Drafts/>}></Route>
+<Route exact path = '/category/Books' element = {<Books/>}></Route>
+<Route exact path = '/category/Current_affairs' element = {<CA/>}></Route>
+<Route exact path = '/category/Travel' element = {<Travel/>}></Route>
+<Route exact path = '/category/Finance' element = {<Fi/>}></Route>
+<Route exact path = '/category/Food' element = {<Food/>}></Route>
+<Route exact path = '/category/Lifestyle' element = {<LS/>}></Route>
+<Route exact path = '/category/Politics' element = {<Pol/>}></Route>
+<Route exact path = '/category/Spirituality' element = {<Sp/>}></Route>
+<Route exact path = '/category/Health' element = {<Health/>}></Route>
+<Route exact path = '/category/Technology' element = {<Tech/>}></Route>
 </Routes>
   <Footer/>
 </div>

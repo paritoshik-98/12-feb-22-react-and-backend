@@ -30,6 +30,7 @@
     "redux-thunk": "^2.4.1",
     "unsplash-js": "^7.0.15",
     "unsplash-react": "^0.2.1",
+    "use-force-update": "^1.0.8",
     "web-vitals": "^2.1.4"
   },
   "scripts": {

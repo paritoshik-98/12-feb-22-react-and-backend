@@ -131,17 +131,17 @@ function Header() {
 
   <ul className='cat_ul' id={dropDown?'shift':'cat'} >
     <li id='n' className='text-muted fw-bold'>Categories</li>
-          <li className='d_l'><Link style={{textDecoration:'none',color:'#2E0300'}} to='/cat/Technology'>Technology</Link></li>
-          <li className='d_l'><Link style={{textDecoration:'none',color:'#2E0300'}} to='/cat/Health'>Health</Link></li>
-          <li className='d_l'><Link style={{textDecoration:'none',color:'#2E0300'}} to='/cat/Food'>Food</Link></li>
-          <li className='d_l'><Link style={{textDecoration:'none',color:'#2E0300'}} to='/cat/Travel'>Travel</Link></li>
-          <li className='d_l'><Link style={{textDecoration:'none',color:'#2E0300'}} to='/cat/Books'>Books</Link></li>
-          <li className='d_l'><Link style={{textDecoration:'none',color:'#2E0300'}} to='/cat/Lifestyle'>Lifestyle</Link></li>
-          <li className='d_l'><Link style={{textDecoration:'none',color:'#2E0300'}} to='/cat/Spirituality'>Spirituality</Link></li>
-          <li className='d_l'><Link style={{textDecoration:'none',color:'#2E0300'}} to='/cat/Currents_affairs'>Current affairs</Link></li>
-          <li className='d_l'><Link style={{textDecoration:'none',color:'#2E0300'}} to='/cat/Politics'>Politics</Link></li>
-          <li className='d_l'><Link style={{textDecoration:'none',color:'#2E0300'}} to='/cat/Finance'>Finance</Link></li>
-          {/* <li className='d_l'><Link style={{textDecoration:'none',color:'#2E0300'}} to='/cat/Career_guidance'>Career guidance </Link></li> */}
+          {/* <li className='d_l'><Link style={{textDecoration:'none',color:'#2E0300'}} to='' onClick={()=>navigate('/cat/Technology')}>Technology</Link></li> */}
+          <li className='d_l'><Link style={{textDecoration:'none',color:'#2E0300'}} to='/category/Technology'>Technology</Link></li>
+          <li className='d_l'><Link style={{textDecoration:'none',color:'#2E0300'}} to='/category/Health'>Health</Link></li>
+          <li className='d_l'><Link style={{textDecoration:'none',color:'#2E0300'}} to='/category/Food'>Food</Link></li>
+          <li className='d_l'><Link style={{textDecoration:'none',color:'#2E0300'}} to='/category/Travel'>Travel</Link></li>
+          <li className='d_l'><Link style={{textDecoration:'none',color:'#2E0300'}} to='/category/Books'>Books</Link></li>
+          <li className='d_l'><Link style={{textDecoration:'none',color:'#2E0300'}} to='/category/Lifestyle'>Lifestyle</Link></li>
+          <li className='d_l'><Link style={{textDecoration:'none',color:'#2E0300'}} to='/category/Spirituality'>Spirituality</Link></li>
+          <li className='d_l'><Link style={{textDecoration:'none',color:'#2E0300'}} to='/category/Current_affairs'>Current affairs</Link></li>
+          <li className='d_l'><Link style={{textDecoration:'none',color:'#2E0300'}} to='/category/Politics'>Politics</Link></li>
+          <li className='d_l'><Link style={{textDecoration:'none',color:'#2E0300'}} to='/category/Finance'>Finance</Link></li> 
         </ul>
 :null}
 

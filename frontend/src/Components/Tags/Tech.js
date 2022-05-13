@@ -1,12 +1,11 @@
 import axios from 'axios'
 import React, { useEffect, useReducer, useState } from 'react'
 import { Link, useParams } from 'react-router-dom'
-import './category.css'
-import '../Axios'
-import Header from './Header'
-import useForceUpdate from 'use-force-update';
+import Header from '../Header'
+import '../../Axios'
+import '../category.css'
 
-function Category() {
+function Tech() {
 
     const {tag} = useParams()
 
@@ -29,9 +28,7 @@ function Category() {
 // lazy loading function 
 const loadData = () =>
 {
-      
-  if(tag==='all'){
-    axios.get(`/api/blog/cat/all/${pageNumber}`).then(res=>res.data).then(data=>{
+    axios.get(`/api/blog/cat/Technology/${pageNumber}`).then(res=>res.data).then(data=>{
       // if(articles){
         setLoader(false)
       setArticles(prev=>[...prev,...data.posts])
@@ -43,19 +40,7 @@ const loadData = () =>
       
     })
   }
-  else{
-    axios.get(`/api/blog/cat/${tag}/${pageNumber}`).then(res=>res.data).then(data=>{
-      // if(articles){
-        setLoader(false)
-        setArticles(prev=>[...prev,...data.posts])
-        // }
-        // else{
-          // setArticles([...data.posts])
-        // }
-      setNumberOfPages(data.totalPages)
-  })
-}
-}
+
 
 
     useEffect(()=>loadData(),[pageNumber])
@@ -220,5 +205,5 @@ null
   )
 }
 
-export default Category
+export default Tech
 
