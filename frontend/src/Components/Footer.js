@@ -14,9 +14,9 @@ function Footer() {
           {/* <div className='main text-center w-100 w-sm-75 mx-3 mx-sm-0'><p  className='text-muted'><h5 style={{'margin-bottom':'3vh'}}>Made with &#10084; by Pari</h5></p></div> */}
           <div className='main text-center  w-75 w-sm-75 mx-3 mx-sm-0'><p  className='text-muted'><h5 style={{'margin-bottom':'3vh'}}> A social publishing platform that is open to all and home to a diverse array of stories, ideas, and perspectives.</h5></p></div>
           <div className='  mx-3 f-links d-flex  justify-content-around'>
-          <Link className='link'  style={{textDecoration:'underline',color:'#2E0300'}} to='/'>Home</Link>
-          <Link className='link' style={{textDecoration:'underline',color:'#2E0300'}} to='/add'>Write</Link>
-          <Link className='link' style={{textDecoration:'underline',color:'#2E0300'}} to='/add'>About</Link>
+          {/* <Link className='link'  style={{textDecoration:'underline',color:'#2E0300'}} to='/'>Home</Link> */}
+          {/* <Link className='link' style={{textDecoration:'underline',color:'#2E0300'}} to='/add'>Write</Link> */}
+          {/* <Link className='link' style={{textDecoration:'underline',color:'#2E0300'}} to='/add'>About</Link> */}
           {/* <Link className='link'  style={{textDecoration:'underline',color:'#2E0300'}} to='/contact'>Contact</Link> */}
              {/* <a className='link' href="">Privacy Policy</a> */}
              {/* <a className='link' style={{'textDecoration':'underline'}} href="">Terms & Conditions</a> */}
