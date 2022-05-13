@@ -15,7 +15,7 @@ function Footer() {
           <div className='  mx-3 f-links d-flex  justify-content-around'>
           <Link className='link'  style={{textDecoration:'underline',color:'#2E0300'}} to='/'>Home</Link>
           <Link className='link' style={{textDecoration:'underline',color:'#2E0300'}} to='/add'>Write</Link>
-          <Link className='link'  style={{textDecoration:'underline',color:'#2E0300'}} to='/contact'>Contact</Link>
+          {/* <Link className='link'  style={{textDecoration:'underline',color:'#2E0300'}} to='/contact'>Contact</Link> */}
              {/* <a className='link' href="">Privacy Policy</a> */}
              {/* <a className='link' style={{'textDecoration':'underline'}} href="">Terms & Conditions</a> */}
          </div>
