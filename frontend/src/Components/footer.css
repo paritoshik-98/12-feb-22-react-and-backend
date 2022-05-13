@@ -7,7 +7,7 @@ footer{
     border-top: 5px double #2E0300;
     display: flex;
     flex-direction: column;
-    height: 160px;
+    height: 180px;
     justify-content: space-around;
     align-items: center;
     background-color:#F8F8F8;
