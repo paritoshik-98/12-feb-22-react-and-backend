@@ -138,7 +138,7 @@ const redirect = useSelector(state=>state.redirect)
         </div>
         <div className="row justify-content-center mb-3 ">
           <div className=" col-8 col-sm-4 text-center">
-            <h1 className="">Login</h1>
+            <h1 className="" style={{color:'#2E0300'}}>Login</h1>
           </div>
         </div>
         <div className="row justify-content-center ">

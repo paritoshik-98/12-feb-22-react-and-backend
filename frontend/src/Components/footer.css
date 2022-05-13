@@ -7,7 +7,7 @@ footer{
     border-top: 5px double #2E0300;
     display: flex;
     flex-direction: column;
-    height: 250px;
+    height: 160px;
     justify-content: space-around;
     align-items: center;
     background-color:#F8F8F8;
@@ -42,6 +42,7 @@ p{
 
 .f-links{
     width: 75%;
+    margin-bottom: 3vh;
 }
 
 @media screen and (max-width:600px) {
@@ -50,8 +51,8 @@ p{
     }
 
     footer{
-        height: 250px;
-        justify-content: space-between;
+        height: 165px;
+        justify-content: space-around;
     }
     #l{
         height: 30px;
