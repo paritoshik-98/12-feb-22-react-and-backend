@@ -60,7 +60,7 @@ function App() {
     <Routes>
 <Route exact path = '/login' element = {<LandingPage/>}></Route>
 <Route exact path = '/register' element = {<Register/>}></Route>
-<Route exact path = '/about' element = {<About/>}></Route>
+<Route exact path = '/contact' element = {<About/>}></Route>
 <Route exact path = '/profile' element = {<Profile/>}></Route>
 <Route exact path = '/' element = {<Home/>}></Route>
 <Route exact path = '/editDraft/:id' element = {<EditDraft/>}></Route>

@@ -86,6 +86,7 @@ function Header() {
       <div className='mb-nav'>
 <div className='h_nav'>
   {/* <div className=' justify-content-around'> */}
+        
         <Link className='hl'  style={{textDecoration:'underline',color:'#2E0300'}} to='/'>Home</Link>
         <Link className='hl ab' style={{textDecoration:'underline',color:'#2E0300'}} to='/about'>About Us</Link>
         <a className='hl catmb' style={{textDecoration:'underline',color:'#2E0300'}} onClick={toggle_c}>Categories</a>

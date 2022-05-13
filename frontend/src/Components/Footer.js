@@ -1,5 +1,5 @@
 import React from 'react'
-
+import { Link } from 'react-router-dom'
 import './footer.css'
 
 function Footer() {
@@ -13,9 +13,11 @@ function Footer() {
           </div>
           <div className='main text-center w-100 w-sm-75 mx-3 mx-sm-0'><p  className='text-muted'><h5 style={{'margin-bottom':'3vh'}}>Made with &#10084; by Pari</h5></p></div>
           <div className='  mx-3 f-links d-flex  justify-content-around'>
-             <a className='link' style={{'textDecoration':'underline'}} href="">Privacy Policy</a>
+          <Link className='link'  style={{textDecoration:'underline',color:'#2E0300'}} to='/'>Home</Link>
+          <Link className='link' style={{textDecoration:'underline',color:'#2E0300'}} to='/add'>Write</Link>
+          <Link className='link'  style={{textDecoration:'underline',color:'#2E0300'}} to='/contact'>Contact</Link>
              {/* <a className='link' href="">Privacy Policy</a> */}
-             <a className='link' style={{'textDecoration':'underline'}} href="">Terms & Conditions</a>
+             {/* <a className='link' style={{'textDecoration':'underline'}} href="">Terms & Conditions</a> */}
          </div>
       </footer>
   )
