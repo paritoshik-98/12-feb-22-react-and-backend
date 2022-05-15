@@ -1,7 +1,9 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { Link, useNavigate } from 'react-router-dom'
 import './footer.css'
+import axios from 'axios'
+// import '../Axios'
 
 function Footer() {
 
@@ -17,6 +19,41 @@ function Footer() {
     dispatch({type:'LOGOUT'})
       navigate('/login')
   };
+
+useEffect(()=>{
+  const Script = document.createElement("script");
+  //id should be same as given to form element
+  const Form = document.getElementById('donate');
+  Script.setAttribute('src',"https://checkout.razorpay.com/v1/payment-button.js")
+  Script.setAttribute('data-payment_button_id','pl_JVR1PsfyXbNhcb')
+  Form.appendChild(Script);
+})
+
+  const paymentHandler = async (e) => {
+    const rs = 1
+    const API_URL = 'http://localhost:8080/api/payment/'
+    e.preventDefault();
+    const orderUrl = `${API_URL}order`;
+    const response = await axios.post(orderUrl,{amt:rs});
+    const { data } = response;
+    const options = {
+      key: 'rzp_test_woj80rKkwTndjo',
+      name: "ReadBlocs",
+      description: "Social publishing platform",
+      order_id: data.id,
+      handler: async (response) => {
+        try {
+         const paymentId = response.razorpay_payment_id;
+         const url = `${API_URL}capture/${paymentId}`;
+         const captureResponse = await axios.post(url, {amt:rs})
+         console.log(captureResponse.data);
+        } catch (err) {
+          console.log(err);
+        }
+      },  theme: {
+        color: "#686CFD",
+      },
+    };const rzp1 = new window.Razorpay(options);rzp1.open();};
 
   return (
       <footer className='footer text-center'>
@@ -34,11 +71,8 @@ function Footer() {
           :
           <Link className='link' style={{textDecoration:'underline',color:'#2E0300'}} to='/login'>Login</Link>
           }
-          {/* <Link className='link' style={{textDecoration:'underline',color:'#2E0300'}} to='/add'>About</Link> */}
-          {/* <Link className='link'  style={{textDecoration:'underline',color:'#2E0300'}} to='/contact'>Contact</Link> */}
-             {/* <a className='link' href="">Privacy Policy</a> */}
-             {/* <a className='link' style={{'textDecoration':'underline'}} href="">Terms & Conditions</a> */}
-         </div>
+    {/* <form id='donate' onSubmit={paymentHandler}></form> */}
+             </div>
       </footer>
   )
 }

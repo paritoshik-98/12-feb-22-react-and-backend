@@ -29,6 +29,8 @@ app.use('/api/user',userRoutes)
 const blogRoutes = require('./routes/blogRoutes')
 app.use('/api/blog',blogRoutes)
 
+const paymentRouter = require('./routes/payment')
+app.use('/api/payment',paymentRouter)
 //----------------------------------production build----------//
 if(process.env.NODE_ENV === "production"){
 app.use('/images',express.static(path.join(__dirname,'images')));
