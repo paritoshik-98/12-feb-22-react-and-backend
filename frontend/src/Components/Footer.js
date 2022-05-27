@@ -20,14 +20,14 @@ function Footer() {
       navigate('/login')
   };
 
-useEffect(()=>{
-  const Script = document.createElement("script");
-  //id should be same as given to form element
-  const Form = document.getElementById('donate');
-  Script.setAttribute('src',"https://checkout.razorpay.com/v1/payment-button.js")
-  Script.setAttribute('data-payment_button_id','pl_JVR1PsfyXbNhcb')
-  Form.appendChild(Script);
-})
+// useEffect(()=>{
+//   const Script = document.createElement("script");
+//   //id should be same as given to form element
+//   const Form = document.getElementById('donate');
+//   Script.setAttribute('src',"https://checkout.razorpay.com/v1/payment-button.js")
+//   Script.setAttribute('data-payment_button_id','pl_JVR1PsfyXbNhcb')
+//   Form.appendChild(Script);
+// })
 
   const paymentHandler = async (e) => {
     const rs = 1
